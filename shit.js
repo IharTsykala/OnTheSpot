@@ -275,7 +275,7 @@ document.addEventListener('click',(e)=>{
   console.log(e.target)
 })
 
-
+ 
 document.querySelector('[placeholder="Enter promo code or gift card"]').dispatchEvent(new Event('input', {bubbles: true}));
 document.querySelector('[placeholder="Enter promo code or gift card"]').dispatchEvent(new Event('blur'));
 document.querySelector('[placeholder="Enter promo code or gift card"]').dispatchEvent(new Event('focus'));
