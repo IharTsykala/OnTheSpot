@@ -40,3 +40,17 @@ console.log(`link on currentImage: ${currentImg}`)
 
 const arrImageSrc = Array.from(image).map((item) => item.src)
 console.log(`array link image:`, arrImageSrc)
+
+
+
+const allElements = document.querySelectorAll(".athenaProductVariations_box")
+const arrAllElements = Array.from(allElements).map((item) => item.innerHTML)
+console.log(arrAllElements)
+
+const currentElement = document.querySelector(
+  ".athenaProductVariations_box[data-selected]"
+).innerHTML
+console.log(currentElement)
+
+const issueArray = [currentElement, arrAllElements]
+console.log(issueArray)
