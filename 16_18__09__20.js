@@ -671,12 +671,17 @@ if (jQuery("#option-size").length > 0) {
 
   jQuery('.order-wizard-promocodeform-expander-head-toggle')[0].click()
 
-  if (jQuery('.product-image-thumbs img:first').length > 0) 
-    $img = jQuery('.product-image-thumbs img:first').attr('src')
-else
-    $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+//   if (jQuery('.product-image-thumbs img:first').length > 0) 
+//     $img = jQuery('.product-image-thumbs img:first').attr('src')
+// else
+//     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
-if ($img.indexOf("http") == -1)
-  'https:'+$img
-else
-  $img
+// if ($img.indexOf("http") == -1)
+//   'https:'+$img
+// else
+//   $img
+
+
+
+  jQuery('.payment-due__price').text().trim()
+  jQuery('.field__input-btn')
