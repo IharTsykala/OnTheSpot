@@ -136,18 +136,20 @@ else
   }  
 
   jQuery('.price-box .price:first').text().trim()
-  jQuery('.input-box .super-attribute-select option')
+  jQuery('#configurable_swatch_finish_filter li.option-choose-an-option')
+  jQuery('.input-box .jq-dropdown-trigger:first').text().trim()
+  jQuery('#configurable_swatch_finish_filter li.option-choose-an-option.active:first').slice(0, 3).text().trim()
 
-  if (jQuery("#option-size").length > 0) {
+  if (jQuery("#configurable_swatch_shade_filter li.option-choose-an-option").length > 0) {
     [
-      jQuery("#option-size option:selected").text() != ""
-        ? jQuery("#option-size option:selected")
+      jQuery("#configurable_swatch_shade_filter li.option-choose-an-option.active:last").text() != ""
+        ? jQuery(".input-box .jq-dropdown-trigger:last")
             .text()
             .trim()
             .replace(/\s\s+/g, "")
         : "Select Color",
       jQuery.makeArray(
-        jQuery("#option-size option").map(function (i, e) {
+        jQuery("#configurable_swatch_shade_filter li.option-choose-an-option").map(function (i, e) {
           if (jQuery(e).text() != "")
             return jQuery(e).text().trim().replace(/\s\s+/g, "");
         })
@@ -155,4 +157,139 @@ else
     ];
   } else {
     ["No Color", ["No Color"]];
+  }
+
+  if (
+    jQuery("#configurable_swatch_shade_filter li.option-choose-an-option").length > 0 &&
+    $sarg != "Select size" &&
+    $sarg != "No size"
+  ) {
+    jQuery("#configurable_swatch_shade_filter li.option-choose-an-option").each(function () {
+      if (jQuery(this).text().trim() == $sarg) jQuery(this).find('a')[0].click();
+    });
+  }
+
+  jQuery('.product-attribute-specs-table .data').text().trim()
+
+  if (
+    jQuery("#jq-ajax-product-grid li").length > 0 &&
+    jQuery(".image-main").length === 0
+  ) {
+    $arr = [];
+  
+    jQuery("#jq-ajax-product-grid li").each(function () {
+      $title = jQuery(this).find("a.jq-product-name-link").text().trim();
+  
+      $img = jQuery(this).find("img").attr("data-src");
+  
+      $link = jQuery(this).find("a.product-image").attr("href");
+  
+      $price = jQuery(this).find(".price-box").text().trim();
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price]);
+    });
+    $arr;
+  }
+
+  American Freight
+  www.americanfreight.com
+  com/([\w-]+)
+wait_for(function(){return jQuery && jQuery.fn.jquery ;})
+https://shoptimages.s3.amazonaws.com/americanfreight.png
+jQuery('h2.nwc--heading').text().trim() || jQuery('#pdp-product h1').text().trim()
+jQuery('#collection--options--wrapper div:last').text().trim() || jQuery('#overviewWrap div:first').text().trim()
+'https:' + jQuery('#zooming-image').attr('src')
+jQuery('#zooming-image').attr('src')
+jQuery('#pdp--imageWrap img.img-responsive:first')
+
+if (jQuery('img[itemprop="image"]').length > 0) 
+    $img = jQuery('img[itemprop="image"]').attr('src') 
+else
+    $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+  'https:'+$img
+else
+  $img
+
+
+  if (jQuery('.slider-list li').length > 0){
+    $arr = [];
+    jQuery(".slider-list li").each(function(index){
+    if (index < 4) $arr.push('https:'+jQuery(this).find('img').attr('src'))
+    })
+    $arr
+  }  
+
+  jQuery('span:contains(Your Price) strong').text().trim() || jQuery('#pricingWrap strong:first').text().trim()
+  jQuery('span:contains(Your Price) strong').text().trim() || jQuery('#pricingWrap del:first').text().trim()
+
+  jQuery('strong:contains(Item Price:)').parent().parent().text().trim()
+  jQuery('#plp--wrapper .plp-item--container')
+  const jQuery = $d
+
+  if (
+    jQuery("#plp--wrapper .plp-item--container").length > 0 &&
+    jQuery("#zooming-image").length === 0
+  ) {
+    $arr = [];
+  
+    jQuery("#plp--wrapper .plp-item--container").each(function () {
+      $title = jQuery(this).find(".plp--title").text().trim();
+  
+      $img = jQuery(this).find("img.img-responsive:first").attr("src");
+  
+      $link = 'https:' + jQuery(this).find("a:first").attr("href");
+  
+      $price = jQuery(this).find(".plp--price strong:contains($)").text().trim();
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price]);
+    });
+    $arr;
+  }
+
+  jQuery('h2.nwc--heading').text().trim()
+jQuery('#collection--options--wrapper div:last').text().trim()
+'https:' + jQuery('#zooming-image').attr('src')
+if (jQuery('#zooming-image').length > 0) 
+    $img = 'https:' + jQuery('#zooming-image').attr('src')
+else
+    $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+  'https:'+$img
+else
+  $img
+
+  jQuery('img[itemprop="image"]').length
+
+  if (jQuery('#collection--options--wrapper div:first div:contains(Size):first span span').length > 0) {
+    [
+      jQuery('#collection--options--wrapper div:first div:contains(Size):first span button.bg--primaryActive').text() != ""
+        ? jQuery("#collection--options--wrapper div:first div:contains(Size):first span button.bg--primaryActive")
+            .text()
+            .trim()
+            .replace(/\s\s+/g, "")
+        : "Select Color",
+      jQuery.makeArray(
+        jQuery("#collection--options--wrapper div:first div:contains(Size):first span span").map(function (i, e) {
+          if (jQuery(e).text() != "")
+            return jQuery(e).text().trim().replace(/\s\s+/g, "");
+        })
+      ),
+    ];
+  } else {
+    ["No Color", ["No Color"]];
+  }
+
+  jQuery('#collection--options--wrapper div:first div:contains(Size):first span span')
+
+  if (
+    jQuery("#collection--options--wrapper div:first div:contains(Size):first span span").length > 0 &&
+    $sarg != "Select size" &&
+    $sarg != "No size"
+  ) {
+    jQuery("#collection--options--wrapper div:first div:contains(Size):first span span").each(function () {
+      if (jQuery(this).text().trim() == $sarg) jQuery(this).find('button')[0].click();
+    });
   }
