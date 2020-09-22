@@ -685,3 +685,21 @@ if (jQuery("#option-size").length > 0) {
 
   jQuery('.payment-due__price').text().trim()
   jQuery('.field__input-btn')
+
+  $val = false;
+  if (
+    jQuery("#configurable_swatch_size li").length > 0 &&
+    $sarg != "No Color" &&
+    $sarg != "Select Color"
+  ) {
+    $val = true;
+    jQuery("#configurable_swatch_size li").each(function () {
+      if (
+        jQuery(this).text().trim() == $sarg &&
+        !jQuery(this).find('.swatch-label').hasClass(".option-out-of-stock")
+      ) {
+        $val = false;
+      }
+    });
+  }
+  return $val;

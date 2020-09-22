@@ -139,17 +139,18 @@ else
   jQuery('#configurable_swatch_finish_filter li.option-choose-an-option')
   jQuery('.input-box .jq-dropdown-trigger:first').text().trim()
   jQuery('#configurable_swatch_finish_filter li.option-choose-an-option.active:first').slice(0, 3).text().trim()
+  jQuery(".jq-dropdown-wrapper:contains(Shade) .jq-dropdown-list li")
 
-  if (jQuery("#configurable_swatch_shade_filter li.option-choose-an-option").length > 0) {
+  if (jQuery(".jq-dropdown-wrapper:contains(Finish) .jq-dropdown-list li").length > 0) {
     [
-      jQuery("#configurable_swatch_shade_filter li.option-choose-an-option.active:last").text() != ""
-        ? jQuery(".input-box .jq-dropdown-trigger:last")
+      jQuery(".jq-dropdown-wrapper:contains(Finish) .jq-dropdown-trigger:first").text() != ""
+        ? jQuery(".jq-dropdown-wrapper:contains(Finish) .jq-dropdown-trigger:first")
             .text()
             .trim()
             .replace(/\s\s+/g, "")
         : "Select Color",
       jQuery.makeArray(
-        jQuery("#configurable_swatch_shade_filter li.option-choose-an-option").map(function (i, e) {
+        jQuery(".jq-dropdown-wrapper:contains(Finish) .jq-dropdown-list li").map(function (i, e) {
           if (jQuery(e).text() != "")
             return jQuery(e).text().trim().replace(/\s\s+/g, "");
         })
@@ -160,11 +161,11 @@ else
   }
 
   if (
-    jQuery("#configurable_swatch_shade_filter li.option-choose-an-option").length > 0 &&
+    jQuery(".jq-dropdown-wrapper:contains(Finish) .jq-dropdown-list li").length > 0 &&
     $sarg != "Select size" &&
     $sarg != "No size"
   ) {
-    jQuery("#configurable_swatch_shade_filter li.option-choose-an-option").each(function () {
+    jQuery(".jq-dropdown-wrapper:contains(Finish) .jq-dropdown-list li").each(function () {
       if (jQuery(this).text().trim() == $sarg) jQuery(this).find('a')[0].click();
     });
   }
@@ -221,7 +222,9 @@ else
     $arr
   }  
 
-  jQuery('span:contains(Your Price) strong').text().trim() || jQuery('#pricingWrap strong:first').text().trim()
+  // jQuery('#pricingWrap strong:first').text().trim() ||
+
+  jQuery('span:contains(Your Price) strong').text().trim() || jQuery('#pricingWrap strong:contains($):first').text().trim()
   jQuery('span:contains(Your Price) strong').text().trim() || jQuery('#pricingWrap del:first').text().trim()
 
   jQuery('strong:contains(Item Price:)').parent().parent().text().trim()
@@ -293,3 +296,150 @@ else
       if (jQuery(this).text().trim() == $sarg) jQuery(this).find('button')[0].click();
     });
   }
+  const jQuery = $d
+
+  Appleseed's™
+  www.appleseeds.com
+  jQuery('h1.main-name').text().trim()
+  jQuery('div[data-testid="description"]').text().trim()
+  jQuery('.product-image-zoom img:first')
+  if (jQuery('.product-image-zoom img:first').length > 0) 
+    $img = jQuery('.product-image-zoom img:first').attr('src') 
+else
+    $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+  'https:'+$img
+else
+  $img
+
+  jQuery('.alice-carousel li')
+
+  if (jQuery('.alice-carousel li').length > 0){
+    $arr = [];
+    jQuery('.alice-carousel li').each(function(index){
+    if (index < 4) $arr.push(jQuery(this).find('img').attr('src'))
+    })
+    $arr
+  }  
+
+  jQuery('.price-display-highlight').text().trim()
+  jQuery('.price-display-highlight').text().trim().split(' ')[0]
+  jQuery('.price-display-highlight').text().trim().split(' ')[2]
+  jQuery('.price-display-markdown').text().trim().split(' ')[0] || jQuery('.price-display-highlight').text().trim().split(' ')[0]
+  jQuery('.price-display-linethrough').text().trim().split(' ')[0] || jQuery('.price-display-highlight').text().trim().split(' ')[0]
+
+  jQuery('legend:contains(Color)')
+
+
+  if (jQuery('legend:contains(Color)').parent().find('a').length > 0) {
+    [
+      jQuery('legend:contains(Color)').parent().find('a[aria-checked="true"] img').attr('alt')
+        ? jQuery('legend:contains(Color)').parent().find('a[aria-checked="true"] img').attr('alt')          
+            
+        : "Select Color",
+      jQuery.makeArray(
+        jQuery('legend:contains(Color)').parent().find('img').map(function (i, e) {
+          if (jQuery(e).attr('alt') != "")
+            return jQuery(e).attr('alt').replace(/\s\s+/g, "");
+        })
+      ),
+    ];
+  } else {
+    ["No Color", ["No Color"]];
+  }
+
+  jQuery('#collection--options--wrapper div:first div:contains(Color):first span span')
+
+  if (
+    jQuery('legend:contains(Color)').parent().find('img').length > 0 &&
+    $sarg != "Select color" &&
+    $sarg != "No color"
+  ) {
+    jQuery('legend:contains(Color)').parent().find('img').each(function () {
+      if (jQuery(this).attr('alt') == $sarg) jQuery(this)[0].click();
+    });
+  }
+
+  if (jQuery("#pr-review-display .pr-review").length > 0) {
+    $arr = [];
+    jQuery("#pr-review-display .pr-review").each(function (index) {
+      content = jQuery(this).find("p.pr-rd-description-text").text().trim();
+      author = jQuery(this).find(".pr-rd-author-nickname").text().trim();
+      rating = jQuery(this).find(".pr-snippet-rating-decimal:first").text().trim();
+      reviewed_at = jQuery(this).find(".pr-rd-inner-content-block span:last").text().trim();
+      $arr[index] = { content, author, rating, reviewed_at };
+    });
+    $arr;
+  }
+
+  if (
+    jQuery("#search-bod div[aria-label='Product']").length > 0 &&
+    jQuery(".product-image-zoom").length === 0
+  ) {
+    $arr = [];
+  
+    jQuery("#search-bod div[aria-label='Product']").each(function () {
+      $title = jQuery(this).find("h2.product-link").text().trim();
+  
+      $img = jQuery(this).find("img.main_product_image:first").attr("src");
+  
+      $link = "https://www.appleseeds.com" + jQuery(this).find(".see-all-link").attr("href");
+  
+      $price = jQuery(this).find(".price-display-linethrough:contains($)").text().trim().split(' ')[0] ||
+       jQuery(this).find(".price-display-markdown:contains($)").text().trim().split(' ')[0] || 
+       jQuery(this).find(".price-display-highlight:contains($)").text().trim().split(' ')[0];
+       if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price]);
+    });
+    $arr;
+  }
+
+  jQuery('.payment-due__price').text().trim()
+  jQuery('.field__input-btn')
+
+  $val = false;
+  if (
+    jQuery("#option-size option").length > 0 &&
+    $sarg != "No Color" &&
+    $sarg != "Select Color"
+  ) {
+    $val = true;
+    jQuery("#option-size option").each(function () {
+      if (
+        jQuery(this).text().trim() == $sarg &&
+        !jQuery('span:contains(Sold Out):first').text().trim()
+      ) {
+        $val = false;
+      }
+    });
+  }
+  return $val;
+
+  '$' + jQuery('h2.price-area span.current-price:first').text().trim().slice(2,7)
+    '$' + jQuery('h2.price-area')[0].innerText.split(' ')[1].slice(0, 5)
+    
+    if(jQuery('h2.price-area span.price:first').text().trim())
+    '$' + jQuery('h2.price-area span.price:first').text().trim().slice(2,7)
+   else if(jQuery('h2.price-area span.was-price:first').text().trim().length > 0)
+   '$' + jQuery('h2.price-area span.current-price:first').text().trim().slice(2,7)
+   else    
+   '$' + jQuery('h2.price-area')[0].innerText.split(' ')[1].slice(0, 5)
+
+   if(jQuery('.was-price')[0]) jQuery('.was-price')[0].innerText.split(' ').join('')
+else jQuery('.current-price')[0].innerText.split(' ').join('')
+
+if(jQuery('h2.price-area span.price:first').text().trim())
+    '$' + jQuery('h2.price-area span.price:first').text().trim().slice(2,7)
+   else if(jQuery('h2.price-area span.was-price:first').text().trim().length > 0)
+    jQuery('.was-price')[0].innerText.split(' ').join('')
+   else    
+   '$' + jQuery('h2.price-area span.current-price:first')[0].innerText.split(' ')[1].slice(0, 5)
+
+   wait_for(function(){return true;})
+
+   if (jQuery('h1.title').parent().find('span.soldout span:first').text().trim().toLowerCase() == 'sold out') {
+  $status = true
+} else {
+    $status = false;
+}
