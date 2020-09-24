@@ -1,0 +1,1 @@
+jQuery('meta[name="description"]').attr('content')

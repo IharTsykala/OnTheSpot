@@ -1,0 +1,1 @@
+jQuery(".promo a:first")[0].click()

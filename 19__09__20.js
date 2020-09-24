@@ -443,3 +443,6 @@ if(jQuery('h2.price-area span.price:first').text().trim())
 } else {
     $status = false;
 }
+
+
+
