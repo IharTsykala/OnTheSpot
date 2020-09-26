@@ -1,30 +1,34 @@
 list_view
 if (
-  jQuery(".ProductList .ProductItem").length > 0 &&
-  jQuery("img.Image--fadeIn:first").length === 0
+  jQuery(".grid--view-items .product-item").length > 0 &&
+  jQuery('ul#ProductThumbs').length === 0
 ) {
   $arr = []
 
-  jQuery(".ProductList .ProductItem").each(function () {
-    $title = jQuery(this).find("h2.list-view__title span:first").text().trim()
+  jQuery(".grid--view-items .product-item").each(function () {
+    $title = jQuery(this).find(".grid-product__meta h4").text().trim()
 
     $img =
-      "https://www.bogsfootwear.com//" +
-      jQuery(this).find("img.list-view__image:first").attr("src")
+    "https:" +
+      jQuery(this).find("img.product_img--first").attr("src")
 
     $link =
-      "https://www.bogsfootwear.com//" +
-      jQuery(this).find("a:first").attr("href")
+    'https://shrimps.com/' +
+      jQuery(this).find("a.grid-view-item__image-container").attr("href")
 
-    $price = jQuery(this).find(".list-view__price span").text().trim()
+    $price = jQuery(this).find(".product__price .money:first").text().trim()
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr
 }
+grid-view-item__link grid-view-item__image-container full-width-link
+product_img product_img--first
+grid__item grid__item--collection-template small--one-half medium-up--one-quarter pro_box product_box product-item
 
 ProductList
 ProductItem
+inner product-item  on-sale wow fadeIn
 
 if (
   jQuery(".ProductList .ProductItem").length > 0 &&

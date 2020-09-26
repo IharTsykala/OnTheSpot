@@ -142,10 +142,8 @@ if (jQuery('fieldset.single-option-radio').length > 0) {
 
   if (jQuery(".swatch:contains(Size)").length > 0) {
     [
-      jQuery(".swatch:contains(Size) input:checked").text() != ""
-        ? jQuery(".swatch:contains(Size) input:checked")
-            .text()
-            .trim()
+      jQuery(".swatch:contains(Size) input:checked").attr('value') != (undefined && '')
+        ? jQuery(".swatch:contains(Size) input:checked").attr('value')           
             .replace(/\s\s+/g, "")          
         : "Select item",
       jQuery.makeArray(
@@ -170,6 +168,45 @@ if (jQuery('fieldset.single-option-radio').length > 0) {
       if (jQuery(this).attr('value').replace(/\s\s+/g, "") == $sarg) {
         jQuery(this).next()[0].click();
       }
+    });
+  }
+  wait_for(function () {
+    return true;
+  });
+
+
+  // for li a
+
+  if (jQuery("ul.size li").length > 0) {
+    [
+      jQuery(
+        "ul.size li.swatch__item--selected a"
+      ).length > 0
+        ? JSON.parse(jQuery(
+            "ul.size li.swatch__item--selected a"
+          )
+          .attr('data-layer-click')).interaction.value
+        : "Select Color",
+      jQuery.makeArray(
+        jQuery("ul.size a").map(function (
+          i,
+          e
+        ) {
+          if (JSON.parse(jQuery(e).attr('data-layer-click')).interaction.value)
+           return JSON.parse(jQuery(e).attr('data-layer-click')).interaction.value;
+        })
+      ),
+    ];
+  } else ["No Color", ["No Color"]];
+
+
+  if (
+    jQuery("ul.size a").length > 0 &&
+    $sarg != "Select Color" &&
+    $sarg != "No Color"
+  ) {
+    jQuery("ul.size a").each(function () {
+      if (JSON.parse(jQuery(e).attr('data-layer-click')).interaction.value == $sarg) jQuery(this).click();
     });
   }
   wait_for(function () {

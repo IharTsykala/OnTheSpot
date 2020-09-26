@@ -1,1 +1,1 @@
-jQuery('meta[name="description"]').attr('content')
+jQuery('meta[name="description"]').attr('content').split('&amp;').join('')
