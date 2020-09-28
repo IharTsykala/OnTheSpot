@@ -1,5 +1,7 @@
 const jQuery = $d
 com/([\w-]+)
+\/([A-Za-z0-9-]+)
 wait_for(function(){return jQuery && jQuery.fn.jquery ;})
 
-jQuery('header.product-title').text().trim()
+// fix enter on space
+.replace(/\r|\n/g, ' ')

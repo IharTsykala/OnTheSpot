@@ -37,3 +37,24 @@ else
     })
    $arr
  }
+
+ if (jQuery("img[itemprop='image']:first").length > 0) 
+ $img = 'https://stormfashion.dk' + jQuery("img[itemprop='image']").attr('src')
+else
+ $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+
+if (jQuery('.slick-track img[itemprop="image"]').length > 0){
+ $arr = [];
+jQuery('.slick-track img[itemprop="image"]').each(function(index){
+     if (index < 4) 
+     $arr.push('https://stormfashion.dk' + jQuery(this).attr('src'))
+ })
+$arr
+}
+
+

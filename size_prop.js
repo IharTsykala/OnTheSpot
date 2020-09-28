@@ -212,3 +212,135 @@ if (jQuery('fieldset.single-option-radio').length > 0) {
   wait_for(function () {
     return true;
   });
+
+  
+
+  if (jQuery("ul.dropdown-menu li").length > 0) {
+    [
+      jQuery(
+        "button.dropdown-toggle"
+      ).length > 0
+        ? jQuery("button.dropdown-toggle")
+            .text()
+            .trim()
+            .replace(/\s\s+/g, "")          
+        : "Select Size",
+      jQuery.makeArray(
+        jQuery("ul.dropdown-menu a").map(function (
+          i,
+          e
+        ) {
+          if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+           return jQuery(e).text().trim().replace(/\s\s+/g, "");
+        })
+      ),
+    ];
+  } else ["No Size", ["No Size"]];
+
+
+  if (
+    jQuery("ul.dropdown-menu li").length > 0 &&
+    $sarg != "Select Size" &&
+    $sarg != "No Size"
+  ) {
+    jQuery("ul.dropdown-menu a").each(function () {
+      if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+    });
+  }
+  wait_for(function () {
+    return true;
+  });
+
+
+  $text = false;
+if (
+  jQuery("ul.dropdown-menu li").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {  
+  $text = true;
+  jQuery("ul.dropdown-menu li").each(function (index) {  
+    // console.log(jQuery(this),!jQuery(this).attr('class').indexOf("disabled") >= 0)
+    if (
+      jQuery(this).find('a').text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('class').indexOf("disabled") >= 0
+    ) {
+      $text = false;            
+    }
+  });
+}
+return $text;
+
+$val = false;
+  if (
+    jQuery(".swatch:contains(Size)").length > 0 &&
+    $sarg != "No size" &&
+    $sarg != "Select size"
+  ) {
+    $val = true;
+    jQuery(".swatch:contains(Size) input").each(function () {
+      if (
+        jQuery(this).attr("value").trim() == $sarg &&
+        !jQuery(this).hasClass("unavailable").length > 0
+      ) {
+        $val = false;
+      }
+    });
+  }
+  return $val;
+
+  // Select
+  if (jQuery("select[id='main:lstSkuSize']").length > 0) {
+    [
+      jQuery("select[id='main:lstSkuSize'] option:selected").text() != ""
+        ? jQuery("select[id='main:lstSkuSize'] option:selected")
+            .text()
+            .trim()
+            .replace(/\s\s+/g, "")
+        : "Select Size",
+      jQuery.makeArray(
+        jQuery("select[id='main:lstSkuSize'] option").map(function (i, e) {
+          if (jQuery(e).text() != "")
+            return jQuery(e).text().trim().replace(/\s\s+/g, "");
+        })
+      ),
+    ];
+  } else {
+    ["No Size", ["No Size"]];
+  }
+
+  //pa_sizes clicker
+if (
+  jQuery("select[id='main:lstSkuSize']").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery("select[id='main:lstSkuSize'] option").each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery("select[id='main:lstSkuSize']")
+        .text(jQuery(this).text())
+        .trigger("change");
+    }
+  });
+}
+wait_for(function () {
+  return true;
+});
+//pa_sizes stock status
+$text = false;
+if (
+  jQuery("select[id='main:lstSkuSize']").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("select[id='main:lstSkuSize'] option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).parent().prev().text().trim().replace(/\s\s+/g, "").toLowerCase().indexOf("not available") >= 0
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
