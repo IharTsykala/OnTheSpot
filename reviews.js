@@ -112,16 +112,19 @@ if (jQuery(".stamped-reviews .stamped-review").length > 0) {
   $arr;
 }
 
-if ($(".yotpo-reviews:eq(0) .yotpo-review:not(.yotpo-hidden)").length > 0) {
+if (jQuery(".spr-reviews .spr-review").length > 0) {
   $arr = [];
-  $(".yotpo-reviews:eq(0) .yotpo-review:not(.yotpo-hidden)").each(function (
+  jQuery(".spr-reviews .spr-review").each(function (
     index
   ) {
-    content = $(this).find(".content-review").text().trim();
-    author = $(this).find(".yotpo-user-name").text().trim();
-    rating = $(this).find(".yotpo-icon-star").length + "";
-    reviewed_at = $(this).find(".yotpo-review-date:eq(0)").text().trim();
+    content = jQuery(this).find("p.spr-review-content-body").text().trim();
+    author = jQuery(this).find(".spr-review-header-byline strong:first").text().trim();
+    rating = jQuery(this).find(".spr-starratings i").length;
+    reviewed_at = jQuery(this).find("h3.spr-review-header-title").text().trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;
 }
+bv-content-list bv-content-list-reviews
+bv-content-item bv-content-top-review bv-content-review bv-content-loaded
+spr-review-header-byline

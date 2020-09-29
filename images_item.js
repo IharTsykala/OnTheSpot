@@ -57,4 +57,22 @@ jQuery('.slick-track img[itemprop="image"]').each(function(index){
 $arr
 }
 
+if (jQuery(".bigimage img").length > 0) 
+$img = jQuery(".bigimage img").attr('src')
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+
+if (jQuery('.primary-images .swiper-wrapper .swiper-slide img').length > 0){
+$arr = [];
+jQuery('.primary-images .swiper-wrapper .swiper-slide img').each(function(index){
+    if (index < 4) 
+    $arr.push(jQuery(this).attr("src"))
+})
+$arr
+}
+pdp-main-img primary-images col-12

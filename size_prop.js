@@ -140,14 +140,14 @@ if (jQuery('fieldset.single-option-radio').length > 0) {
   ["No item", ["No item"]];      }
 
 
-  if (jQuery(".swatch:contains(Size)").length > 0) {
+  if (jQuery(".product-single__swatches:contains(Size)").length > 0) {
     [
-      jQuery(".swatch:contains(Size) input:checked").attr('value') != (undefined && '')
-        ? jQuery(".swatch:contains(Size) input:checked").attr('value')           
+      jQuery(".product-single__swatches:contains(Size) input:checked").attr('value') != (undefined && '')
+        ? jQuery(".product-single__swatches:contains(Size) input:checked").attr('value')           
             .replace(/\s\s+/g, "")          
         : "Select item",
       jQuery.makeArray(
-        jQuery(".swatch:contains(Size) input").map(function (i, e) {
+        jQuery(".product-single__swatches:contains(Size) input").map(function (i, e) {
           if (jQuery(e).attr('value') != "")
             return jQuery(e)
             .attr('value')
@@ -161,10 +161,10 @@ if (jQuery('fieldset.single-option-radio').length > 0) {
 
 
   if (
-    jQuery(".swatch:contains(Size) input").length > 0 &&    
+    jQuery(".product-single__swatches:contains(Size) input").length > 0 &&    
     $sarg != "No Size"
   ) {
-    jQuery(".swatch:contains(Size) input").each(function () {
+    jQuery(".product-single__swatches:contains(Size) input").each(function () {
       if (jQuery(this).attr('value').replace(/\s\s+/g, "") == $sarg) {
         jQuery(this).next()[0].click();
       }
@@ -344,3 +344,40 @@ if (
   });
 }
 return $text;
+
+
+
+if (jQuery("div.size-selector-container a[data-talos='buttonSize']").length > 0) {
+  [
+    jQuery(
+      "div.size-selector-container a[data-talos='buttonSize'].selected"
+    ).length > 0
+      ? jQuery(
+        "div.size-selector-container a[data-talos='buttonSize'].selected"
+        ).text().trim().replace(/\s\s+/g, "")       
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery("div.size-selector-container a[data-talos='buttonSize']").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text() != '')
+         return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ];
+} else ["No Size", ["No Size"]];
+
+
+if (
+  jQuery("div.size-selector-container a[data-talos='buttonSize']").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery("div.size-selector-container a[data-talos='buttonSize']").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});

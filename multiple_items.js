@@ -61,22 +61,22 @@ if (
 
 
 if (
-  jQuery("#CollectionSection .grid-uniform .grid-product__wrapper").length > 0 &&
-  jQuery('.product-single__photo').length === 0
+  jQuery("#product-loop .product-index").length > 0 &&
+  jQuery('.bigimage img').length === 0
 ) {
   $arr = []
 
-  jQuery("#CollectionSection .grid-uniform .grid-product__wrapper").each(function () {
-    $title = jQuery(this).find(".grid-product__title").text().trim()
+  jQuery("#product-loop .product-index").each(function () {
+    $title = jQuery(this).find(".title-block h3").text().trim()
 
     $img =
-    "https:" + jQuery(this).find('img').attr('srcset').split(' ')[0]      
+    "https:" + jQuery(this).find('.product-images img').attr('src')      
 
     $link =
-    'https://www.dauphinette.com' +
-      jQuery(this).find("a.grid-product__image-link").attr("href")
+    'https://www.radioshack.com' +
+      jQuery(this).find(".product-images a").attr("href")
 
-    $price = '$' + jQuery(this).find(".grid-product__price").text().trim().split('$')[1]
+    $price = jQuery(this).find("#price .product-price:first").text().trim()
     if ($title && $img && $link && $price)    
       $arr.push([$title, $img, $link, $price])
   })
@@ -112,23 +112,76 @@ if (
 }
 
 if (
-  jQuery("#plp--wrapper .plp-item--container").length > 0 &&
-  jQuery("#zooming-image").length === 0
+  jQuery(".product-grid-container .product-card").length > 0 &&
+  jQuery(".image-container img:first").length === 0
 ) {
   $arr = [];
 
-  jQuery("#plp--wrapper .plp-item--container").each(function () {
-    $title = jQuery(this).find(".plp--title").text().trim();
+  jQuery(".product-grid-container .product-card").each(function () {
+    $title = jQuery(this).find(".product-card-title a:first").attr('title').text().trim();
 
-    $img = jQuery(this).find("img.img-responsive:first").attr("src");
+    $img = jQuery(this).find(".product-image-container img.product-image").attr("src");
 
-    $link = 'https:' + jQuery(this).find("a:first").attr("href");
+    $link = 'https://www.nbastore.eu/' + jQuery(this).find(".product-image-container a:first").attr("href");
 
-    $price = jQuery(this).find(".plp--price strong:contains($)").text().trim();
-    if ($title && $img && $link && $price)
-      $arr.push([$title, $img, $link, $price]);
+    $price = jQuery(this).find(".price-card .lowest:first").text().trim();
+    
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
   });
   $arr;
 }
 
-plp__products__item__image js-product-tile-link
+if (
+  jQuery(".product-grid-container .product-card").length > 0 &&
+  jQuery(".image-container img:first").length === 0
+) {
+  $arr = [];
+
+  jQuery(".product-grid-container .product-card").each(function () {
+    $title = jQuery(this).find(".product-card-title a:first").attr('title');
+
+    $img = jQuery(this).find(".product-image-container img.product-image").attr("src");
+
+    $link = 'https://www.nbastore.eu/' + jQuery(this).find(".product-image-container a:first").attr("href");
+
+    $price = jQuery(this).find(".price-card .lowest:first").text().trim();
+    
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+row product-grid
+
+if (
+  jQuery("#collection-main .product").length > 0 &&
+  jQuery("img.product-single__photo__img").length === 0
+) {
+  $arr = [];
+
+  jQuery("#collection-main .product").each(function () {
+    $title = jQuery(this).find("h3.product__title").text().trim();
+
+    $img = 
+    'https:' + 
+    (jQuery(this).find("source").attr('srcset')
+    || jQuery(this).find("div.img-lazyload").attr('data-bgset')
+     || jQuery(this).find("img.img-lazyload").attr('srcset')
+     ||jQuery(this).find(".product__img").next().text().trim().split('src="')[1]).split(' ')[0].slice(0, -1) 
+     
+
+    $link = 'https://www.shopbeergear.com' + jQuery(this).find("a.product-link").attr("href");
+
+    $price = jQuery(this).find(".product__price-price .money:first").text().trim() || jQuery(this).find(".product__price-price").text().trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+    
+  $arr;
+}
+product__img img-lazyload js lazyautosizes lazyloaded
+product__price-price product__price-price--sale
+product__img-hover img-lazyload js lazyloaded

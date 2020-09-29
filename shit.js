@@ -262,7 +262,7 @@ if ((jQuery('.product-form__option label:contains(Style)').length > 0) && ($sarg
 
 
 //get cuopon fiecd
-jQuery('.coupon-form .button').click();
+jQuery('button#taxDrop').click();
 //btn click coupon
 document.querySelector('.field__input-btn-wrapper').querySelector('.field__input-btn').removeAttribute('disabled');
 document.querySelector('.field__input-btn-wrapper').querySelector('.field__input-btn').click();
