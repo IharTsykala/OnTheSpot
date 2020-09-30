@@ -12,4 +12,4 @@ jQuery('h1[data-talos="labelPdpProductTitle"]').text().trim()
 
 jQuery('h1.section__title-text').text().trim()
 
-jQuery('h1.product-title').text().trim()
+jQuery('h1.h2').text().trim()

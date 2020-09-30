@@ -57,8 +57,8 @@ jQuery('.slick-track img[itemprop="image"]').each(function(index){
 $arr
 }
 
-if (jQuery(".bigimage img").length > 0) 
-$img = jQuery(".bigimage img").attr('src')
+if (jQuery(".product-image img").length > 0) 
+$img = jQuery(".product-image img").attr('src')
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -67,12 +67,33 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery('.primary-images .swiper-wrapper .swiper-slide img').length > 0){
+if (jQuery('.thumbnails a').length > 0){
 $arr = [];
-jQuery('.primary-images .swiper-wrapper .swiper-slide img').each(function(index){
+jQuery('.thumbnails a').each(function(index){
+    if (index < 4) 
+    $arr.push('https:'+jQuery(this).attr("href"))
+})
+$arr
+}
+pdp-main-img primary-images col-12
+
+if (jQuery(".product-view a.MagicZoom").length > 0) 
+$img = jQuery(".product-view a.MagicZoom").attr("href")
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+
+if (jQuery('.MagicToolboxSelectorsContainer a[data-magic-slide-id="zoom"] img').length > 0){
+$arr = [];
+jQuery('.MagicToolboxSelectorsContainer a[data-magic-slide-id="zoom"] img').each(function(index){
     if (index < 4) 
     $arr.push(jQuery(this).attr("src"))
 })
 $arr
 }
-pdp-main-img primary-images col-12
+
+product__thumbs product__thumbs--below product__thumbs-placement--left small--hide aos-init slick-initialized slick-slider aos-animate

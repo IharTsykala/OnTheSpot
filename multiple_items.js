@@ -61,29 +61,33 @@ if (
 
 
 if (
-  jQuery("#product-loop .product-index").length > 0 &&
-  jQuery('.bigimage img').length === 0
+  jQuery("#gf-products .grid-product").length > 0 &&
+  jQuery('img#mainimage:first').length === 0
 ) {
   $arr = []
 
-  jQuery("#product-loop .product-index").each(function () {
-    $title = jQuery(this).find(".title-block h3").text().trim()
+  jQuery("#gf-products .grid-product").each(function () {
+    $title = jQuery(this).find(".grid-product__title").text().trim()
 
     $img =
-    "https:" + jQuery(this).find('.product-images img').attr('src')      
+    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
+    // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+    ('https:' + 
+      ((jQuery(this).find(".grid__image-ratio:first").attr('data-bgset') ||
+        jQuery(this).find(".grid__image-ratio:first").next().attr('data-bgset'))).trim().split(' ')[0].slice(0, -1))
 
     $link =
-    'https://www.radioshack.com' +
-      jQuery(this).find(".product-images a").attr("href")
+    'https://minimale-animale.com/' +
+      jQuery(this).find(".grid-product__content a:first").attr("href")
 
-    $price = jQuery(this).find("#price .product-price:first").text().trim()
-    if ($title && $img && $link && $price)    
+    $price = jQuery(this).find(".grid-product__price .money:first").text().trim()
+    // if ($title && $img && $link && $price)    
       $arr.push([$title, $img, $link, $price])
   })
   $arr
 }
 
-
+grid__image-ratio grid__image-ratio--portrait lazyloaded
 {/* <img class="grid-product__image" src="//cdn.shopify.com/s/files/1/2941/5212/products/SicilianCosmo_1024x.png?v=1590089983" alt="Sicilian Cosmo Flower"> */}
           
 
@@ -133,42 +137,42 @@ if (
 }
 
 if (
-  jQuery(".product-grid-container .product-card").length > 0 &&
-  jQuery(".image-container img:first").length === 0
+  jQuery(".grid-tile-container .product-tile").length > 0 &&
+  jQuery(".zoomContainer .zoomWindow:first").length === 0
 ) {
   $arr = [];
 
-  jQuery(".product-grid-container .product-card").each(function () {
-    $title = jQuery(this).find(".product-card-title a:first").attr('title');
+  jQuery(".grid-tile-container .product-tile").each(function () {
+    $title = jQuery(this).find(".tile-body a.link:first").text().trim();
 
-    $img = jQuery(this).find(".product-image-container img.product-image").attr("src");
+    $img = jQuery(this).find(".image-container img.tile-image").attr("src") ||jQuery(this).find(".image-container img.tile-image").attr("data-src");
 
-    $link = 'https://www.nbastore.eu/' + jQuery(this).find(".product-image-container a:first").attr("href");
+    $link = 'https://www.shoeshowmega.com' + jQuery(this).find(".image-container a:first").attr("href");
 
-    $price = jQuery(this).find(".price-card .lowest:first").text().trim();
+    $price = jQuery(this).find(".price span[itemprop='price']:first").text().trim();
     
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });
   $arr;
 }
 
-row product-grid
+row product-grid grid-tile-container gtm-container gtm-container-initialized
 
 if (
-  jQuery("#collection-main .product").length > 0 &&
-  jQuery("img.product-single__photo__img").length === 0
+  jQuery(".CollectionMain .ProductList .ProductItem").length > 0 &&
+  jQuery(".Product__Slideshow .Product__SlideItem:first img:first").length === 0
 ) {
   $arr = [];
 
-  jQuery("#collection-main .product").each(function () {
-    $title = jQuery(this).find("h3.product__title").text().trim();
+  jQuery(".CollectionMain .ProductList .ProductItem").each(function () {
+    $title = jQuery(this).find("ProductItem__Title a").text().trim();
 
     $img = 
     'https:' + 
     (jQuery(this).find("source").attr('srcset')
-    || jQuery(this).find("div.img-lazyload").attr('data-bgset')
-     || jQuery(this).find("img.img-lazyload").attr('srcset')
+    || jQuery(this).find("img.ProductItem__Image:first").attr('srcset')
+     || jQuery(this).find("img.ProductItem__Image:last").attr('srcset')
      ||jQuery(this).find(".product__img").next().text().trim().split('src="')[1]).split(' ')[0].slice(0, -1) 
      
 
@@ -182,6 +186,58 @@ if (
     
   $arr;
 }
-product__img img-lazyload js lazyautosizes lazyloaded
-product__price-price product__price-price--sale
-product__img-hover img-lazyload js lazyloaded
+
+
+if (
+  jQuery(".CollectionMain .ProductList .ProductItem__Wrapper").length > 0 
+  &&
+  jQuery(".Product__Slideshow .Product__SlideItem:first img:first").length === 0
+) {
+  $arr = [];
+
+  jQuery(".CollectionMain .ProductList .ProductItem__Wrapper").each(function () {
+    $title = jQuery(this).find(".ProductItem__Title a").text().trim();
+
+    $img = 
+    'https:' + 
+    (jQuery(this).find("img.ProductItem__Image:first").attr('srcset') ||
+      jQuery(this).find("img.ProductItem__Image:first").attr('data-srcset') ||
+        jQuery(this).find("img.ProductItem__Image:last").attr('srcset') ||
+          jQuery(this).find("img.ProductItem__Image:last").attr('srcset') ||
+            jQuery(this).find("img.ProductItem__Image:last").next().next().text().trim().split('src="')[1]).split(' ')[0].slice(0, -1) 
+     
+
+    $link = 'https://summituk.co.uk' + jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find(".ProductItem__Price .money:first").text().trim().split(' ')[0]
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+    
+  $arr;
+}
+ProductList ProductList--grid ProductList--removeMargin Grid
+
+if (
+  jQuery("ul.products-grid li").length > 0 &&
+  jQuery(".product-view a.MagicZoom img:first").length === 0
+) {
+  $arr = [];
+
+  jQuery("ul.products-grid li").each(function () {
+    $title = jQuery(this).find(".details-inner a:first").text().trim();
+
+    $img =    
+    jQuery(this).find(".product-image img:first").attr('src')      
+
+    $link = jQuery(this).find(".details-inner a:first").attr("href");
+
+    $price = jQuery(this).find(".price-box .price:last").text().trim().split(' ')[0]
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+    
+  $arr;
+}

@@ -112,15 +112,15 @@ if (jQuery(".stamped-reviews .stamped-review").length > 0) {
   $arr;
 }
 
-if (jQuery(".spr-reviews .spr-review").length > 0) {
+if (jQuery("#customer-reviews .review-item").length > 0) {
   $arr = [];
-  jQuery(".spr-reviews .spr-review").each(function (
+  jQuery("#customer-reviews .review-item").each(function (
     index
   ) {
-    content = jQuery(this).find("p.spr-review-content-body").text().trim();
-    author = jQuery(this).find(".spr-review-header-byline strong:first").text().trim();
-    rating = jQuery(this).find(".spr-starratings i").length;
-    reviewed_at = jQuery(this).find("h3.spr-review-header-title").text().trim();
+    content = jQuery(this).text().split('Value')[1].split('Review')[0].trim();
+    author = jQuery(this).find(".review-author-container span:first").text().trim();
+    rating = '';
+    reviewed_at = jQuery(this).find("strong").text().trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;

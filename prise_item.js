@@ -2,8 +2,8 @@ ProductMeta__PriceList
 '€' + jQuery('.prices span:last').text().trim().split(' ')[0].slice(1)
 '€' + jQuery('.ProductMeta__PriceList span.money:last').text().trim().split(' ')[0].slice(1)
 
-jQuery('.prices .money:last').text().trim()
-jQuery('.prices .money:first').text().trim()
+jQuery('#product_addtocart_form .price-box .price:last').text().trim().split(' ')[0]
+jQuery('#product_addtocart_form .price-box .price:first').text().trim().split(' ')[0]
 
 jQuery('.nonsticky-price__container--visible em.value__price--discounted ').text().trim() || jQuery('.nonsticky-price__container--visible em.value__price ').text().trim()
 jQuery('.nonsticky-price__container--visible del.value__price--discount').text().trim()
@@ -22,3 +22,5 @@ jQuery('.pdp-style-overwrapper .price-card .strike-through:first').text().trim()
 
 jQuery('#price .product-price:first').text().trim()
 jQuery('#price .on-sale .was').text().trim()
+
+jQuery('div[itemprop="offers"] span[itemprop="price"]').text().trim()

@@ -381,3 +381,176 @@ if (
 wait_for(function () {
   return true;
 });
+
+// Select
+if (jQuery("select[id='select-width']").length > 0) {
+  [
+    jQuery("select[id='select-width'] option:selected").text() != ""
+      ? jQuery("select[id='select-width'] option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select width",
+    jQuery.makeArray(
+      jQuery("select[id='select-width'] option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No width", ["No width"]];
+}
+
+//pa_sizes clicker
+if (
+jQuery("select[id='select-width']").length > 0 &&
+$sarg != "Select width" &&
+$sarg != "No width"
+) {
+jQuery("select[id='select-width'] option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery("select[id='select-width']")
+      .text(jQuery(this).text())
+      .trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+
+// button button
+if (jQuery(".ProductForm__Variants .ProductForm__Option:contains(Size: )").length > 0) {
+  [
+    jQuery(
+      ".ProductForm__Variants .ProductForm__Option:contains(Size: ) .ProductForm__SelectedValue"
+    ).length > 0
+      ? jQuery(".ProductForm__Variants .ProductForm__Option:contains(Size: ) .ProductForm__SelectedValue")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".OptionSelector:contains(Size) .Popover__ValueList button").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Size", ["No Size"]];
+
+
+if (
+  jQuery(".OptionSelector:contains(Size) .Popover__ValueList button").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery(".OptionSelector:contains(Size) .Popover__ValueList button").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+// ul li
+
+if (jQuery("ul.swatch-view-button li").length > 0) {
+  [
+    jQuery(
+      "ul.swatch-view-button li .swatch-selected"
+    ).length > 0
+      ?jQuery(
+          "ul.swatch-view-button li .swatch-selected"
+        )
+        .attr('orig-value')
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery("ul.swatch-view-button li").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).attr('orig-value'))
+         return jQuery(e).attr('orig-value');
+      })
+    ),
+  ];
+} else ["No Size", ["No Size"]];
+
+
+if (
+  jQuery("ul.swatch-view-buttone li").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery("ul.swatch-view-button li").each(function () {
+    if (jQuery(e).attr('orig-value')) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+//pa_sizes stock status
+$text = false;
+if (
+  jQuery("ul.swatch-view-buttone li").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("ul.swatch-view-buttone li").each(function (index) {
+    if (
+      jQuery(this).attr('orig-value') == $sarg &&
+      !jQuery(this).find('.swatch-unavailable')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+swatch-button swatch-selector star-set-btn star-btn-size-md star-btn-border-1 star-set-btn-rad-0 star-btn-text-upper swatch-selected swatch-allow-animation
+
+
+// Select
+if (jQuery(".guide-variants:contains(Size) select").length > 0) {
+  [
+    jQuery(".guide-variants:contains(Size) select option:selected").text() != ""
+      ? jQuery(".guide-variants:contains(Size) select option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".guide-variants:contains(Size) select option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Size", ["No Size"]];
+}
+
+//pa_sizes clicker
+if (
+jQuery(".guide-variants:contains(Size) select option").length > 0 &&
+$sarg != "Select Size" &&
+$sarg != "No Size"
+) {
+jQuery(".guide-variants:contains(Size) select option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this)
+      .text(jQuery(this).text())
+      .trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
