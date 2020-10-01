@@ -71,3 +71,15 @@ if (jQuery('.stock-status:contains(Sold Out)').length) {
 } else {
   $status = false;
 }
+
+if (jQuery('#product-title-actions a').text().trim().toLowerCase() == 'sold out' || jQuery('#product-title-actions a').text().trim().toLowerCase() == 'out of stock') {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('.add-to-cart.btn:first').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

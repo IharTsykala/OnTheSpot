@@ -220,20 +220,20 @@ if (
 ProductList ProductList--grid ProductList--removeMargin Grid
 
 if (
-  jQuery("ul.products-grid li").length > 0 &&
-  jQuery(".product-view a.MagicZoom img:first").length === 0
+  jQuery("ul.grid_mode li").length > 0 &&
+  jQuery("#widget_product_image_viewer img:first").length === 0
 ) {
   $arr = [];
 
-  jQuery("ul.products-grid li").each(function () {
-    $title = jQuery(this).find(".details-inner a:first").text().trim();
+  jQuery("ul.grid_mode li").each(function () {
+    $title = jQuery(this).find(".product_name p:first").text().trim();
 
     $img =    
-    jQuery(this).find(".product-image img:first").attr('src')      
+    jQuery(this).find(".image img:first").attr('src')      
 
-    $link = jQuery(this).find(".details-inner a:first").attr("href");
+    $link = jQuery(this).find('.image a:first').attr("href");
 
-    $price = jQuery(this).find(".price-box .price:last").text().trim().split(' ')[0]
+    $price = jQuery(this).find(".pcontado input").attr("value")
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
@@ -241,3 +241,4 @@ if (
     
   $arr;
 }
+// $price = ('€' + jQuery(this).find(".price-new").attr('data-csscontent')).split(' ')[0]

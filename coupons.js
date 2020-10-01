@@ -16,17 +16,21 @@ jQuery('input[name="coupon_code"]')
 jQuery('button[title="Apply Coupon"]')
 jQuery('#shopping-cart-totals-table .price:first')
 
-jQuery('button#taxDrop').click()
-jQuery('#GuestLocatorZipCode')
-jQuery('#taxInputButton')
-jQuery('#os--estimatedTotal strong:first')
+jQuery('#reduction button:first').click()
+jQuery('.order-summary-container .shipping-val')
+jQuery('form.accordion-panel button:first')
+jQuery('.shoppingbag-overview .shoppingbag-totals .price:last')
 
 jQuery('a.accordion-toggle').click()
-jQuery('#couponCode')
-jQuery('button.promo-code-btn')
-jQuery('p.grand-total')
+jQuery('input[id="CouponCode"]')
+jQuery('.wrapper-coupon-code button:first')
+jQuery('p[data-ui-name="cart.ecm.totalPrice.p"]')
 
 name="coupon-code-medium"
 
 field__input-btn btn btn--disabled
+
+document.querySelector('input[name="CouponCode"]')
+document.querySelector('.wrapper-coupon-code button:first')
+document.querySelector('p[data-ui-name="cart.ecm.totalPrice.p"]')
 

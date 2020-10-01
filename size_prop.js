@@ -123,14 +123,14 @@ wait_for(function(){return true;})
 
 // for input
 
-if (jQuery('fieldset.single-option-radio').length > 0) {
+if (jQuery('ul#sizes li').length > 0) {
   [
-    jQuery('fieldset.single-option-radio label').length > 0
-      ? jQuery('fieldset.single-option-radio input:checked').next().text().trim()         
+    jQuery('ul#sizes li input:checked').length > 0
+      ? jQuery('ul#sizes li input:checked').next().text().trim()         
           
       : "Select item",
     jQuery.makeArray(
-      jQuery('fieldset.single-option-radio label').map(function (i, e) {
+      jQuery('ul#sizes li label').map(function (i, e) {
         if (jQuery(e).text().trim() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -553,4 +553,40 @@ jQuery(".guide-variants:contains(Size) select option").each(function () {
 }
 wait_for(function () {
 return true;
+});
+
+if (jQuery("tbody.dijitReset:contains(talla) td[data-dojo-attach-point='containerNode']").length > 0) {
+  [
+    jQuery(".definingAttributes:contains(Talla) span[role='option']")
+    .text()
+    .trim()
+    .replace(/\s\s+/g, "") != (undefined && '')
+      ? jQuery(".definingAttributes:contains(Talla) span[role='option']")
+      .text().trim().replace(/\s\s+/g, "")          
+      : "Select item",
+    jQuery.makeArray(
+      jQuery("tbody.dijitReset:contains(talla) td[data-dojo-attach-point='containerNode']").map(function (i, e) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, "") != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")          
+      })
+    ),
+  ];
+} else {
+  ["No Size", ["No Size"]];
+}
+
+
+if (
+  jQuery("tbody.dijitReset:contains(talla) td[data-dojo-attach-point='containerNode']").length > 0 &&      
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery("tbody.dijitReset:contains(talla) td[data-dojo-attach-point='containerNode']").each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).click();
+    }
+  });
+}
+wait_for(function () {
+  return true;
 });

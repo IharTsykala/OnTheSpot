@@ -20,7 +20,16 @@ jQuery('.product-price__sale-label .money').text().trim()
 jQuery('.pdp-style-overwrapper .price-card .lowest:first').text().trim().split(' ')[jQuery('.pdp-style-overwrapper .price-card .lowest:first').text().trim().split(' ').length -1]
 jQuery('.pdp-style-overwrapper .price-card .strike-through:first').text().trim().split(' ')[jQuery('.pdp-style-overwrapper .price-card .strike-through:first').text().trim().split(' ').length -1]
 
-jQuery('#price .product-price:first').text().trim()
-jQuery('#price .on-sale .was').text().trim()
+jQuery('#price-container ins').text().trim()
+jQuery('#price-container del').text().trim()
 
 jQuery('div[itemprop="offers"] span[itemprop="price"]').text().trim()
+
+jQuery('#product-title-actions span:first').text().trim()
+product-title
+
+jQuery('form.order-details strong[data-ui-name="ads.price.strong"]').text().trim()
+jQuery('form.order-details del:first').text().trim() || jQuery('form.order-details strong[data-ui-name="ads.price.strong"]').text().trim()
+
+jQuery('.priceTable span[itemprop="price"]').text().trim().replace(/\r|\n/g, ' ').split(' ')[0]
+jQuery('.priceTable span:first').next().text().trim() || jQuery('.priceTable span[itemprop="price"]').text().trim().replace(/\r|\n/g, ' ').split(' ')[0]

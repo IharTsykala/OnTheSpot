@@ -77,8 +77,8 @@ $arr
 }
 pdp-main-img primary-images col-12
 
-if (jQuery(".product-view a.MagicZoom").length > 0) 
-$img = jQuery(".product-view a.MagicZoom").attr("href")
+if (jQuery("#widget_product_image_viewer img:first").length > 0) 
+$img = jQuery("#widget_product_image_viewer img:first").attr("src")
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -87,9 +87,9 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery('.MagicToolboxSelectorsContainer a[data-magic-slide-id="zoom"] img').length > 0){
+if (jQuery('ul#ProductAngleImagesAreaList li').length > 0){
 $arr = [];
-jQuery('.MagicToolboxSelectorsContainer a[data-magic-slide-id="zoom"] img').each(function(index){
+jQuery('ul#ProductAngleImagesAreaList li img').each(function(index){
     if (index < 4) 
     $arr.push(jQuery(this).attr("src"))
 })

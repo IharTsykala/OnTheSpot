@@ -112,15 +112,15 @@ if (jQuery(".stamped-reviews .stamped-review").length > 0) {
   $arr;
 }
 
-if (jQuery("#customer-reviews .review-item").length > 0) {
+if (jQuery("ol.bv-content-list-reviews li.bv-content-item").length > 0) {
   $arr = [];
-  jQuery("#customer-reviews .review-item").each(function (
+  jQuery("ol.bv-content-list-reviews li.bv-content-item").each(function (
     index
   ) {
-    content = jQuery(this).text().split('Value')[1].split('Review')[0].trim();
-    author = jQuery(this).find(".review-author-container span:first").text().trim();
-    rating = '';
-    reviewed_at = jQuery(this).find("strong").text().trim();
+    content = jQuery(this).find('.bv-content-summary-body-text p').text().trim();
+    author = jQuery(this).find(".bv-author-avatar-nickname span.bv-author").text().trim();
+    rating = jQuery(this).find("meta[itemprop='ratingValue']").attr('content');
+    reviewed_at = jQuery(this).find("h3.bv-content-title").text().trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;
@@ -128,3 +128,4 @@ if (jQuery("#customer-reviews .review-item").length > 0) {
 bv-content-list bv-content-list-reviews
 bv-content-item bv-content-top-review bv-content-review bv-content-loaded
 spr-review-header-byline
+bv-content-item bv-content-top-review bv-content-review
