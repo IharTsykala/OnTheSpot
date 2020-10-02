@@ -16,3 +16,5 @@ jQuery('h1').text().trim()
 
 jQuery('h1.title-xl span').text().trim()
 jQuery('h1.title-xl').text().trim().replace(/\r|\n/g, ' ').split(' ').slice(0,2).join(' ')
+
+document.querySelector('h1').innerText.trim()

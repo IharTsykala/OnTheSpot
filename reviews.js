@@ -100,13 +100,13 @@ if (jQuery("#BVRRDisplayContentID").length > 0) {
   $arr;
 }
 
-if (jQuery(".stamped-reviews .stamped-review").length > 0) {
+if (jQuery(".okeReviews-reviews-main article").length > 0) {
   $arr = [];
-  jQuery(".stamped-reviews .stamped-review").each(function (index) {
-    content = jQuery(this).find(".stamped-review-content-body").text().trim();
-    author = jQuery(this).find(".author").text().trim();
-    rating = jQuery(this).find(".stamped-fa-star ").length;
-    reviewed_at = jQuery(this).find(".created").text().trim();
+  jQuery(".okeReviews-reviews-main article").each(function (index) {
+    content = jQuery(this).find(".okeReviews-review-main-content-body p").text().trim();
+    author = jQuery(this).find(".okeReviews-review-reviewer-profile-name").text().trim();
+    rating = jQuery(this).find(".okeReviews-starRating span:first").text().trim().split(' ')[1];
+    reviewed_at = jQuery(this).find("h2.okeReviews-review-main-heading").text().trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;
@@ -129,3 +129,49 @@ bv-content-list bv-content-list-reviews
 bv-content-item bv-content-top-review bv-content-review bv-content-loaded
 spr-review-header-byline
 bv-content-item bv-content-top-review bv-content-review
+
+if (jQuery("._3cycCZ .QPvkn6").length > 0) {
+  $arr = [];
+  jQuery("._3cycCZ .QPvkn6").each(function (
+    index
+  ) {
+    content = jQuery(this).find('._2t8wE0').text().trim();
+    author = jQuery(this).find("._3mmiIt p._2675cp").text().trim();
+    rating = jQuery(this).find("span._1EWQTj").text().trim()[0];
+    reviewed_at = '';
+    $arr[index] = { content, author, rating, reviewed_at };
+  });
+  $arr;
+}
+_3LYOAd _3sxSiS _2675cp
+
+
+let arrayReviews = Array.from(Array.from(
+  document.querySelectorAll("div")
+).filter(
+  e => e.textContent.includes("Ratings and Reviews")
+)[11].parentNode.nextSibling.nextSibling.nextSibling.childNodes);
+
+let arrayReviews = Array.from(Array.from(
+  document.querySelectorAll("div")
+).filter(  
+  e => e.textContent.includes("Ratings and Reviews") 
+).filter(item=> item.outerText === 'Ratings and Reviews')[0].parentNode)
+
+arrayReviews.map(review => {
+let issue = []
+let content = review.querySelectorAll('div div div div div')[7].innerText
+// .innerText.trim();
+let author
+if(review.querySelectorAll('div div div div div')[9].querySelector('p'))
+author = review.querySelectorAll('div div div div div')[9].querySelector('p').innerText.trim()
+else author = review.querySelectorAll('div div div div div')[11].querySelector('p').innerText.trim()
+// .nextSibling.querySelector('p').innerText.trim()
+// .nextSibling.querySelector('p')
+// .innerText.trim()
+let rating = review.querySelectorAll('div div div div div div div')[6].nextSibling.innerText[0];
+let reviewed_at = review.querySelectorAll('div div div div div')[7].innerText
+// .innerText.trim();
+issue = [content, author, rating, reviewed_at]
+return issue
+})

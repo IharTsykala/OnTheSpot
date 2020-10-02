@@ -28,9 +28,12 @@ jQuery('p[data-ui-name="cart.ecm.totalPrice.p"]')
 
 name="coupon-code-medium"
 
+
 field__input-btn btn btn--disabled
 
-document.querySelector('input[name="CouponCode"]')
-document.querySelector('.wrapper-coupon-code button:first')
-document.querySelector('p[data-ui-name="cart.ecm.totalPrice.p"]')
+document.querySelector('input[id="checkout_reduction_code"]')
+document.querySelector('button.field__input-btn')
+document.querySelector('.total-line-table .payment-due__price')
 
+
+slick-active

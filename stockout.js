@@ -83,3 +83,35 @@ if (jQuery('.add-to-cart.btn:first').text().trim().toLowerCase().indexOf('out') 
 } else {
   $status = false;
 }
+
+if (jQuery('.add-to-cart.btn:first').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('ul li button._2MWPVK').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+document.querySelectorAll("ul li button")
+
+Array.from(
+  document.querySelectorAll("div div div div")
+).filter(
+  e => e.textContent.includes("₹")
+)[16].innerText;
+
+if (jQuery('.data-add-to-cart-text').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('input#AddToCart').attr('value').toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

@@ -358,3 +358,41 @@ if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
 wait_for(function () {
 return true
 })
+
+// Select
+if (jQuery(".selector-wrapper:contains(Color) select").length > 0) {
+  [
+    jQuery(".selector-wrapper:contains(Color) select option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Color) select option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".selector-wrapper:contains(Color) select option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Color", ["No Color"]];
+}
+
+//pa_Colors clicker
+if (
+jQuery(".selector-wrapper:contains(Color) select option").length > 0 &&
+$sarg != "Select Color" &&
+$sarg != "No Color"
+) {
+jQuery(".selector-wrapper:contains(Color) select option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this)
+      .text(jQuery(this).text())
+      .trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});

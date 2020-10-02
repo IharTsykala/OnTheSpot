@@ -518,16 +518,16 @@ swatch-button swatch-selector star-set-btn star-btn-size-md star-btn-border-1 st
 
 
 // Select
-if (jQuery(".guide-variants:contains(Size) select").length > 0) {
+if (jQuery(".selector-wrapper:contains(Size) select").length > 0) {
   [
-    jQuery(".guide-variants:contains(Size) select option:selected").text() != ""
-      ? jQuery(".guide-variants:contains(Size) select option:selected")
+    jQuery(".selector-wrapper:contains(Size) select option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Size) select option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery(".guide-variants:contains(Size) select option").map(function (i, e) {
+      jQuery(".selector-wrapper:contains(Size) select option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -539,11 +539,11 @@ if (jQuery(".guide-variants:contains(Size) select").length > 0) {
 
 //pa_sizes clicker
 if (
-jQuery(".guide-variants:contains(Size) select option").length > 0 &&
+jQuery(".selector-wrapper:contains(Size) select option").length > 0 &&
 $sarg != "Select Size" &&
 $sarg != "No Size"
 ) {
-jQuery(".guide-variants:contains(Size) select option").each(function () {
+jQuery(".selector-wrapper:contains(Size) select option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
     jQuery(this)
       .text(jQuery(this).text())

@@ -220,20 +220,20 @@ if (
 ProductList ProductList--grid ProductList--removeMargin Grid
 
 if (
-  jQuery("ul.grid_mode li").length > 0 &&
-  jQuery("#widget_product_image_viewer img:first").length === 0
+  jQuery("._35HD7C ._1R0K0g").length > 0 &&
+  jQuery("._3KsTU0 img._30XEf0").length === 0
 ) {
   $arr = [];
 
-  jQuery("ul.grid_mode li").each(function () {
-    $title = jQuery(this).find(".product_name p:first").text().trim();
+  jQuery("._35HD7C ._1R0K0g").each(function () {
+    $title = jQuery(this).find("a._2cLu-l").text().trim();
 
     $img =    
-    jQuery(this).find(".image img:first").attr('src')      
+    jQuery(this).find("img._30XEf0").attr('src')      
 
-    $link = jQuery(this).find('.image a:first').attr("href");
+    $link = 'https://www.2gud.com/' + jQuery(this).find('a.Zhf2z-').attr("href");
 
-    $price = jQuery(this).find(".pcontado input").attr("value")
+    $price = jQuery(this).find("a._1Vfi6u ._1vC4OE").text().trim()
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
@@ -241,4 +241,33 @@ if (
     
   $arr;
 }
+
+document.querySelectorAll('._35HD7C ._1R0K0g')
+document.querySelectorAll('._3KsTU0 img._30XEf0')
 // $price = ('€' + jQuery(this).find(".price-new").attr('data-csscontent')).split(' ')[0]
+
+
+if (
+  jQuery("#product-loop .product-index").length > 0 &&
+  jQuery(".thumbnails img").length === 0
+) {
+  $arr = [];
+
+  jQuery("#product-loop .product-index").each(function () {
+    $title = jQuery(this).find("h3").text().trim();
+
+    $img = 'https:' +   
+    jQuery(this).find("img:first").attr('src')      
+
+    $link = 'https://www.modishshe.com' + jQuery(this).find('a:first').attr("href");
+
+    $price = jQuery(this).find(".price div:first").text().trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+    
+  $arr;
+}
+
+section--collection

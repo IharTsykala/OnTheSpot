@@ -77,8 +77,8 @@ $arr
 }
 pdp-main-img primary-images col-12
 
-if (jQuery("#widget_product_image_viewer img:first").length > 0) 
-$img = jQuery("#widget_product_image_viewer img:first").attr("src")
+if (jQuery("._3KsTU0 img._30XEf0").length > 0) 
+$img = jQuery("._3KsTU0 img._30XEf0").attr("src")
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -87,13 +87,62 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery('ul#ProductAngleImagesAreaList li').length > 0){
+document.querySelector('._3KsTU0 img._30XEf0').src
+
+if (jQuery('ul.LzhdeS li').length > 0){
 $arr = [];
-jQuery('ul#ProductAngleImagesAreaList li img').each(function(index){
+jQuery('ul.LzhdeS li').each(function(index){
     if (index < 4) 
-    $arr.push(jQuery(this).attr("src"))
+    $arr.push(jQuery(this).find('._2_AcLJ').css('background-image'))
+    // .split('"')[1])
+}
+$arr
+})
+
+document.querySelectorAll('ul.LzhdeS li')
+
+// product__thumbs product__thumbs--below product__thumbs-placement--left small--hide aos-init slick-initialized slick-slider aos-animate
+
+// native
+// 
+let containerUl = Array.from(document.querySelectorAll('ul.LzhdeS li ._2_AcLJ'))
+
+containerUl.length = 4
+containerUl.map(item=>item.getAttribute('style', "background-image").slice(21, -1))
+
+// .filter(item=>item.hasAttribute('style', "background-image"))
+// background-image:url(https://rukminim1.flixcart.com/image/128/128/k3xcdjk0pkrrdj/sari/y/5/f/free-black-vjs1299-1-v-j-fashion-vjs1299-1-original-imafjfbhjr7hmmtz.jpeg?q=70)
+
+if (jQuery(".primary-image-carousel-container .slick-active img:first").length > 0) 
+$img =  jQuery(".primary-image-carousel-container .slick-active img:first").attr("src")
+// jQuery(".zoomContainer .zoomWindow:first").css('background-image').split('"')[1] 
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+
+
+if (jQuery("#prod-photo img:first").length > 0) 
+$img = 'https://houseofbeauty.co.uk/' + jQuery("#prod-photo img:first").attr("src")
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+
+
+if (jQuery('.thumbnails img').length > 0){
+$arr = [];
+jQuery('.thumbnails img').each(function(index){
+    if (index < 4) 
+    $arr.push('https:'+jQuery(this).attr("src"))    
 })
 $arr
 }
 
-product__thumbs product__thumbs--below product__thumbs-placement--left small--hide aos-init slick-initialized slick-slider aos-animate
+product__thumbnail slick-slide slick-current slick-active
