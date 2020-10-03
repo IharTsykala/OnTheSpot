@@ -100,13 +100,13 @@ if (jQuery("#BVRRDisplayContentID").length > 0) {
   $arr;
 }
 
-if (jQuery(".okeReviews-reviews-main article").length > 0) {
+if (jQuery(".stamped-reviews .stamped-review").length > 0) {
   $arr = [];
-  jQuery(".okeReviews-reviews-main article").each(function (index) {
-    content = jQuery(this).find(".okeReviews-review-main-content-body p").text().trim();
-    author = jQuery(this).find(".okeReviews-review-reviewer-profile-name").text().trim();
-    rating = jQuery(this).find(".okeReviews-starRating span:first").text().trim().split(' ')[1];
-    reviewed_at = jQuery(this).find("h2.okeReviews-review-main-heading").text().trim();
+  jQuery(".stamped-reviews .stamped-review").each(function (index) {
+    content = jQuery(this).find("p.stamped-review-content-body").text().trim();
+    author = jQuery(this).find(".author").text().trim();
+    rating = jQuery(this).find(".stamped-starratings i").length;
+    reviewed_at = jQuery(this).find(".stamped-review-header-title").text().trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;

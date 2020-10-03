@@ -8,6 +8,10 @@ jQuery('.field input[id="checkout_reduction_code"]')
 jQuery('.field button.field__input-btn')
 jQuery('.total-line-table .payment-due__price')
 
+jQuery('input[id="discount_code"]')
+jQuery('button.cart-add-discount')
+jQuery('.total-cost span:first')
+
 .field input[id="checkout_reduction_code"]
 .field button.field__input-btn
 .total-line-table .payment-due__price

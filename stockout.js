@@ -66,7 +66,7 @@ if (jQuery('.sold-out-message').css('display') !== 'none') {
 }
 sold-out-message
 
-if (jQuery('.stock-status:contains(Sold Out)').length) {
+if (jQuery('button.btn-cart-add:contains(Sold Out)').length) {
   $status = true
 } else {
   $status = false;
@@ -104,13 +104,21 @@ Array.from(
   e => e.textContent.includes("₹")
 )[16].innerText;
 
-if (jQuery('.data-add-to-cart-text').text().trim().toLowerCase().indexOf('out') >= 0) {
+if (jQuery('.add_to_cart:first').text().trim().toLowerCase().indexOf('out') >= 0 || jQuery('.sold_out').text().trim() !== '') 
+{
+  $status = true
+} else {
+  $status = false;
+}
+sold_out
+
+if (jQuery('input#AddToCart').attr('value').toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {
   $status = false;
 }
 
-if (jQuery('input#AddToCart').attr('value').toLowerCase().indexOf('out') >= 0) {
+if (jQuery('button.btn-cart-add').length === 0 && jQuery('.product-notifier').text().trim().toLowerCase() === 'notify me when this product is available') {
   $status = true
 } else {
   $status = false;

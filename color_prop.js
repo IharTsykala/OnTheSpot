@@ -328,15 +328,15 @@ wait_for(function () {
 
 // for label input
 
-if (jQuery(".variant-wrapper--button:contains(Color) input").length > 0) {
+if (jQuery(".swatch_options .swatch:contains(Color) input").length > 0) {
   ;[
-    jQuery(".variant-wrapper--button:contains(Color) input:checked").length > 0
-      ? jQuery(".variant-wrapper--button:contains(Color) input:checked")
+    jQuery(".swatch_options .swatch:contains(Color) input:checked").length > 0
+      ? jQuery(".swatch_options .swatch:contains(Color) input:checked")
       .attr("value")
       .replace(/\s\s+/g, "")
   : "Select item",
 jQuery.makeArray(
-  jQuery(".variant-wrapper--button:contains(Color) input").map(function (i, e) {
+  jQuery(".swatch_options .swatch:contains(Color) input").map(function (i, e) {
     if (jQuery(e).attr("value") != "")
       return jQuery(e).attr("value").replace(/\s\s+/g, "")
   })
@@ -346,10 +346,10 @@ jQuery.makeArray(
 ;["No Color", ["No Color"]]
 }
 
-if (jQuery(".variant-wrapper--button:contains(Color) input").length > 0  &&
+if (jQuery(".swatch_options .swatch:contains(Color) input").length > 0  &&
 $sarg != "Select Color" &&
 $sarg != "No Color") {
-jQuery(".variant-wrapper--button:contains(Color) input").each(function () {
+jQuery(".swatch_options .swatch:contains(Color) input").each(function () {
 if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
   jQuery(this).next()[0].click()
 }
@@ -360,16 +360,16 @@ return true
 })
 
 // Select
-if (jQuery(".selector-wrapper:contains(Color) select").length > 0) {
+if (jQuery("select.form-control:contains(Colour)").length > 0) {
   [
-    jQuery(".selector-wrapper:contains(Color) select option:selected").text() != ""
-      ? jQuery(".selector-wrapper:contains(Color) select option:selected")
+    jQuery("select.form-control:contains(Colour) option:selected").text() != ""
+      ? jQuery("select.form-control:contains(Colour) option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Color",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(Color) select option").map(function (i, e) {
+      jQuery("select.form-control:contains(Colour) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -381,11 +381,11 @@ if (jQuery(".selector-wrapper:contains(Color) select").length > 0) {
 
 //pa_Colors clicker
 if (
-jQuery(".selector-wrapper:contains(Color) select option").length > 0 &&
+jQuery("select.form-control:contains(Colour) option").length > 0 &&
 $sarg != "Select Color" &&
 $sarg != "No Color"
 ) {
-jQuery(".selector-wrapper:contains(Color) select option").each(function () {
+jQuery("select.form-control:contains(Colour) option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
     jQuery(this)
       .text(jQuery(this).text())

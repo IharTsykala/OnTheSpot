@@ -518,16 +518,16 @@ swatch-button swatch-selector star-set-btn star-btn-size-md star-btn-border-1 st
 
 
 // Select
-if (jQuery(".selector-wrapper:contains(Size) select").length > 0) {
+if (jQuery("select.form-control:contains(Capacity)").length > 0) {
   [
-    jQuery(".selector-wrapper:contains(Size) select option:selected").text() != ""
-      ? jQuery(".selector-wrapper:contains(Size) select option:selected")
+    jQuery("select.form-control:contains(Capacity) option:selected").text() != ""
+      ? jQuery("select.form-control:contains(Capacity) option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(Size) select option").map(function (i, e) {
+      jQuery("select.form-control:contains(Capacity) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -539,11 +539,11 @@ if (jQuery(".selector-wrapper:contains(Size) select").length > 0) {
 
 //pa_sizes clicker
 if (
-jQuery(".selector-wrapper:contains(Size) select option").length > 0 &&
+jQuery("select.form-control:contains(Capacity) option").length > 0 &&
 $sarg != "Select Size" &&
 $sarg != "No Size"
 ) {
-jQuery(".selector-wrapper:contains(Size) select option").each(function () {
+jQuery("select.form-control:contains(Capacity) option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
     jQuery(this)
       .text(jQuery(this).text())
@@ -554,6 +554,27 @@ jQuery(".selector-wrapper:contains(Size) select option").each(function () {
 wait_for(function () {
 return true;
 });
+
+$text = false;
+if (
+  jQuery(".feature-icons a").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery(".feature-icons a").each(function (index) {
+    if (
+      jQuery(this).attr('title').split(' ')[0] == $sarg &&
+      !jQuery(this).attr('title').split(' ')[2]
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+
 
 if (jQuery("tbody.dijitReset:contains(talla) td[data-dojo-attach-point='containerNode']").length > 0) {
   [
@@ -590,3 +611,36 @@ if (
 wait_for(function () {
   return true;
 });
+
+// for label input
+
+if (jQuery(".swatch_options .swatch:contains(Size) input").length > 0) {
+  ;[
+    jQuery(".swatch_options .swatch:contains(Size) input:checked").length > 0
+      ? jQuery(".swatch_options .swatch:contains(Size) input:checked")
+      .attr("value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery(".swatch_options .swatch:contains(Size) input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Size", ["No Size"]]
+}
+
+if (jQuery(".swatch_options .swatch:contains(Size) input").length > 0  &&
+$sarg != "Select Size" &&
+$sarg != "No Size") {
+jQuery(".swatch_options .swatch:contains(Size) input").each(function () {
+if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+  jQuery(this).next()[0].click()
+}
+})
+}
+wait_for(function () {
+return true
+})

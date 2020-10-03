@@ -125,8 +125,8 @@ else
 $img
 
 
-if (jQuery("#prod-photo img:first").length > 0) 
-$img = 'https://houseofbeauty.co.uk/' + jQuery("#prod-photo img:first").attr("src")
+if (jQuery("img.zoomImg:first").length > 0) 
+$img = 'https:' + jQuery("img.zoomImg:first").attr("src")
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -136,9 +136,9 @@ else
 $img
 
 
-if (jQuery('.thumbnails img').length > 0){
+if (jQuery('.product_gallery_nav  .gallery-cell img').length > 0){
 $arr = [];
-jQuery('.thumbnails img').each(function(index){
+jQuery('.product_gallery_nav  .gallery-cell img').each(function(index){
     if (index < 4) 
     $arr.push('https:'+jQuery(this).attr("src"))    
 })
@@ -146,3 +146,4 @@ $arr
 }
 
 product__thumbnail slick-slide slick-current slick-active
+product_gallery_nav 

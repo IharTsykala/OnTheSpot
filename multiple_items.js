@@ -248,20 +248,20 @@ document.querySelectorAll('._3KsTU0 img._30XEf0')
 
 
 if (
-  jQuery("#product-loop .product-index").length > 0 &&
-  jQuery(".thumbnails img").length === 0
+  jQuery(".collection__container .product-wrap").length > 0 &&
+  jQuery("img.zoomImg:first").length === 0
 ) {
   $arr = [];
 
-  jQuery("#product-loop .product-index").each(function () {
-    $title = jQuery(this).find("h3").text().trim();
+  jQuery(".collection__container .product-wrap").each(function () {
+    $title = jQuery(this).find(".title").text().trim();
 
     $img = 'https:' +   
     jQuery(this).find("img:first").attr('src')      
 
-    $link = 'https://www.modishshe.com' + jQuery(this).find('a:first').attr("href");
+    $link = 'https://houseofbeauty.co.uk/' + jQuery(this).find('a:first').attr("href");
 
-    $price = jQuery(this).find(".price div:first").text().trim()
+    $price = jQuery(this).find(".price .money:first").text().trim()
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
