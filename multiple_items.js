@@ -247,21 +247,20 @@ document.querySelectorAll('._3KsTU0 img._30XEf0')
 // $price = ('€' + jQuery(this).find(".price-new").attr('data-csscontent')).split(' ')[0]
 
 
-if (
-  jQuery(".collection__container .product-wrap").length > 0 &&
-  jQuery("img.zoomImg:first").length === 0
+if (jQuery(".product-list .product-list-item").length > 0  &&
+  jQuery("img[class='  lazyload ']").length === 0
 ) {
   $arr = [];
 
-  jQuery(".collection__container .product-wrap").each(function () {
-    $title = jQuery(this).find(".title").text().trim();
+  jQuery(".product-list .product-list-item").each(function () {
+    $title = jQuery(this).find(".product-title span").text().trim();
 
-    $img = 'https:' +   
-    jQuery(this).find("img:first").attr('src')      
+    $img =   
+    jQuery(this).find(".product-image-container img:last").attr('src')      
 
-    $link = 'https://houseofbeauty.co.uk/' + jQuery(this).find('a:first').attr("href");
+    $link = jQuery(this).find('a:first').attr("href");
 
-    $price = jQuery(this).find(".price .money:first").text().trim()
+    $price = jQuery(this).find(".current-price").text().trim()
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
@@ -271,3 +270,6 @@ if (
 }
 
 section--collection
+findify-widget--grid__column findify-widget--grid__column-2
+findify-lists--products-list
+findify-widget--product__price cgFaj _19m_S

@@ -1,6 +1,6 @@
 // remove
 jQuery(".promo a:first")[0].click()
-jQuery("form[id='checkout_reduction_code'] span:first")[0].click()
+jQuery(".promotion-input a.h2")[0].click()
 
 const jQuery = $d
 
@@ -41,3 +41,10 @@ document.querySelector('.total-line-table .payment-due__price')
 
 
 slick-active
+
+
+jQuery(".promotion-input a.h2")[0].click()
+document.querySelector('input[id="promotionCode"]')
+document.querySelector('button[id="applyPromotion"]')
+document.querySelector('.total-wrapper dd')
+promotionCode

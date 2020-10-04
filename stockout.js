@@ -45,7 +45,7 @@ if (jQuery('#collection--options--wrapper .alert-danger').text().trim().toLowerC
     $status = false;
 }
 
-if (jQuery('button.add-to-cart').text().trim().toLowerCase() == 'sold out' || jQuery('button.add-to-cart').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('button.addProduct').text().trim().toLowerCase() == 'sold out' || jQuery('button.addProduct').text().trim().toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;
@@ -119,6 +119,12 @@ if (jQuery('input#AddToCart').attr('value').toLowerCase().indexOf('out') >= 0) {
 }
 
 if (jQuery('button.btn-cart-add').length === 0 && jQuery('.product-notifier').text().trim().toLowerCase() === 'notify me when this product is available') {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('#product-price').text().trim().toLowerCase()  === 'sold out') {
   $status = true
 } else {
   $status = false;

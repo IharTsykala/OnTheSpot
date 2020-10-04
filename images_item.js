@@ -125,8 +125,18 @@ else
 $img
 
 
-if (jQuery("img.zoomImg:first").length > 0) 
-$img = 'https:' + jQuery("img.zoomImg:first").attr("src")
+if (jQuery(".zoomContainer .zoomWindow").length > 0) 
+$img = jQuery(".zoomContainer .zoomWindow").css('background-image').slice(5, -2)
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+
+if (jQuery("img[class='  lazyload ']").length > 0) 
+$img = jQuery("img[class='  lazyload ']").attr('src')
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -136,14 +146,17 @@ else
 $img
 
 
-if (jQuery('.product_gallery_nav  .gallery-cell img').length > 0){
+if (jQuery('.product-img-thumbs .product-thumb-set img').length > 0){
 $arr = [];
-jQuery('.product_gallery_nav  .gallery-cell img').each(function(index){
+jQuery('.product-img-thumbs .product-thumb-set img').each(function(index){
     if (index < 4) 
-    $arr.push('https:'+jQuery(this).attr("src"))    
+    $arr.push(jQuery(this).attr("src"))    
 })
 $arr
 }
 
 product__thumbnail slick-slide slick-current slick-active
 product_gallery_nav 
+
+
+class="  lazyload "

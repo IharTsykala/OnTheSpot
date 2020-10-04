@@ -9,8 +9,8 @@ jQuery('.nonsticky-price__container--visible em.value__price--discounted ').text
 jQuery('.nonsticky-price__container--visible del.value__price--discount').text().trim()
 
 
-jQuery('.current_price .money:first').text().trim()
-jQuery('.was_price .money:first').text().trim() || jQuery('.current_price .money:first').text().trim()
+jQuery('#product-price span:first').text().trim()
+jQuery('#product-price span:last').text().trim() || jQuery('.current_price .money:first').text().trim()
 
 '€' + (jQuery('.discount-row:contains(~EUR) span[itemprop="priceSpecification"]:last').text().trim() || 
   jQuery('.price-span:contains(~EUR) span[itemprop="price"]:last').text().trim())
@@ -25,7 +25,7 @@ jQuery('.product-prices span.was').text().trim() || jQuery('.product-prices span
 
 jQuery('div[itemprop="offers"] span[itemprop="price"]').text().trim()
 
-jQuery('#product-title-actions span:first').text().trim()
+'€' + jQuery('.current-price').text().trim().split(' ')[0]
 product-title
 
 jQuery('form.order-details strong[data-ui-name="ads.price.strong"]').text().trim()

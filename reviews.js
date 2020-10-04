@@ -100,13 +100,13 @@ if (jQuery("#BVRRDisplayContentID").length > 0) {
   $arr;
 }
 
-if (jQuery(".stamped-reviews .stamped-review").length > 0) {
+if (jQuery(".carousel-inner .review-item-box").length > 0) {
   $arr = [];
-  jQuery(".stamped-reviews .stamped-review").each(function (index) {
-    content = jQuery(this).find("p.stamped-review-content-body").text().trim();
-    author = jQuery(this).find(".author").text().trim();
-    rating = jQuery(this).find(".stamped-starratings i").length;
-    reviewed_at = jQuery(this).find(".stamped-review-header-title").text().trim();
+  jQuery(".carousel-inner .review-item-box").each(function (index) {
+    content = jQuery(this).find(".review-item-text").text().trim();
+    author = jQuery(this).find("span[itemprop='author']").text().trim();
+    rating = jQuery(this).find(".rating-display li span").length;
+    reviewed_at = jQuery(this).find(".review-item-header-title").text().trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;
