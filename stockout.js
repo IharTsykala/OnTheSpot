@@ -90,13 +90,13 @@ if (jQuery('.add-to-cart.btn:first').text().trim().toLowerCase().indexOf('out') 
   $status = false;
 }
 
-if (jQuery('ul li button._2MWPVK').text().trim().toLowerCase().indexOf('out') >= 0) {
+if (jQuery('ul li button._2MWPVK').text().trim().toLowerCase().indexOf('out') >= 0 || jQuery('.mBwvBe').text().trim().toLowerCase() == 'sold out') {
   $status = true
 } else {
   $status = false;
 }
 
-document.querySelectorAll("ul li button")
+document.querySelectorAll(".mBwvBe")
 
 Array.from(
   document.querySelectorAll("div div div div")
@@ -125,6 +125,12 @@ if (jQuery('button.btn-cart-add').length === 0 && jQuery('.product-notifier').te
 }
 
 if (jQuery('#product-price').text().trim().toLowerCase()  === 'sold out') {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('.add_to_cart:first').text().trim().toLowerCase().indexOf('out') >= 0 || jQuery('.product__price span.sold_out').text().trim().toLowerCase() === 'sold out') {
   $status = true
 } else {
   $status = false;

@@ -77,10 +77,25 @@ $arr
 }
 pdp-main-img primary-images col-12
 
-if (jQuery("._3KsTU0 img._30XEf0").length > 0) 
-$img = jQuery("._3KsTU0 img._30XEf0").attr("src")
+let img
+if (document.querySelectorAll("._3KsTU0 img._30XEf0").length > 0) 
+img = document.querySelector("._3KsTU0 img._30XEf0").src
+else if(document.querySelectorAll(".bJCmFu img.cydMly").length > 0)
+img =document.querySelector(".bJCmFu img.cydMly").src
 else
-$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+img = document.querySelector('meta[property="og:image"]:eq(0)').getAttribute('content')
+
+if (img.indexOf("http") == -1)
+'https:'+img
+else
+img
+
+if (jQuery("._3KsTU0 img._30XEf0").length > 0) 
+img = jQuery("._3KsTU0 img._30XEf0").attr('src')
+else if(jQuery(".bJCmFu img.cydMly").length > 0)
+img =jQuery(".bJCmFu img.cydMly").attr('src')git
+else
+img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
 if ($img.indexOf("http") == -1)
 'https:'+$img
@@ -99,7 +114,7 @@ jQuery('ul.LzhdeS li').each(function(index){
 $arr
 })
 
-document.querySelectorAll('ul.LzhdeS li')
+document.querySelectorAll('._3KsTU0 img._30XEf0')
 
 // product__thumbs product__thumbs--below product__thumbs-placement--left small--hide aos-init slick-initialized slick-slider aos-animate
 
