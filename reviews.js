@@ -100,13 +100,13 @@ if (jQuery("#BVRRDisplayContentID").length > 0) {
   $arr;
 }
 
-if (jQuery(".carousel-inner .review-item-box").length > 0) {
+if (jQuery(".comment-list-cnt article").length > 0) {
   $arr = [];
-  jQuery(".carousel-inner .review-item-box").each(function (index) {
-    content = jQuery(this).find(".review-item-text").text().trim();
-    author = jQuery(this).find("span[itemprop='author']").text().trim();
-    rating = jQuery(this).find(".rating-display li span").length;
-    reviewed_at = jQuery(this).find(".review-item-header-title").text().trim();
+  jQuery(".comment-list-cnt article").each(function (index) {
+    content = jQuery(this).find(".comment-message").text().trim();
+    author = jQuery(this).find(".comment-username").text().trim();
+    rating = jQuery(this).find("span.icon-star").length
+    reviewed_at = jQuery(this).find(".comment-message").text().trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;

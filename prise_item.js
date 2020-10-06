@@ -9,8 +9,8 @@ jQuery('.nonsticky-price__container--visible em.value__price--discounted ').text
 jQuery('.nonsticky-price__container--visible del.value__price--discount').text().trim()
 
 
-jQuery('#product-price span:first').text().trim()
-jQuery('#product-price span:last').text().trim() || jQuery('.current_price .money:first').text().trim()
+'€' + jQuery('.cd-current-price:first').text().trim().split(' ')[0]
+'€' + (jQuery('.cd-old-price').text().trim().split(' ')[0] ||  jQuery('.cd-current-price:first').text().trim().split(' ')[0])
 
 '€' + (jQuery('.discount-row:contains(~EUR) span[itemprop="priceSpecification"]:last').text().trim() || 
   jQuery('.price-span:contains(~EUR) span[itemprop="price"]:last').text().trim())
@@ -34,7 +34,10 @@ jQuery('form.order-details del:first').text().trim() || jQuery('form.order-detai
 jQuery('.priceTable span[itemprop="price"]').text().trim().replace(/\r|\n/g, ' ').split(' ')[0]
 jQuery('.priceTable span:first').next().text().trim() || jQuery('.priceTable span[itemprop="price"]').text().trim().replace(/\r|\n/g, ' ').split(' ')[0]
 
-jQuery('div div div:contains(₹):first').text()
+
+jQuery('.product-info-price .price-wrapper:first').attr('data-price-amount')
+jQuery('.product-info-price .price-wrapper:last').attr('data-price-amount')|| jQuery('.product-info-price .price-wrapper:first').attr('data-price-amount')
+.split(' ')[0]
 
 Array.from(
   document.querySelectorAll("div div div div")
@@ -48,8 +51,9 @@ Array.from(
   e => e.textContent.includes("₹")
 )[16].innerText;
 
-jQuery('._3iZgFn ._3qQ9m1').text().trim()
+jQuery('._3iZgFn ._3qQ9m1').text().trim() || jQuery('._36DZFj ._14X7rf').text().trim()
 jQuery('._3iZgFn ._1POkHg').text().trim() || jQuery('._3iZgFn ._3qQ9m1').text().trim()
+ || jQuery('._36DZFj .mrug3u').text().trim() || jQuery('._36DZFj ._14X7rf').text().trim()
 
 _1vC4OE _3qQ9m1
 _3auQ3N _1POkHg
@@ -57,4 +61,4 @@ _3iZgFn
 _1vC4OE _3qQ9m1
 _3iZgFn
 
-document.querySelectorAll("._3iZgFn ._3qQ9m1")
+document.querySelectorAll("._36DZFj .mrug3u")

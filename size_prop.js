@@ -290,16 +290,16 @@ $val = false;
   return $val;
 
   // Select
-  if (jQuery("select[id='main:lstSkuSize']").length > 0) {
+  if (jQuery(".page-content--product:first .product-single__meta select option").length > 0) {
     [
-      jQuery("select[id='main:lstSkuSize'] option:selected").text() != ""
-        ? jQuery("select[id='main:lstSkuSize'] option:selected")
+      jQuery(".page-content--product:first .product-single__meta select option:selected").text() != ""
+        ? jQuery(".page-content--product:first .product-single__meta select option:selected")
             .text()
             .trim()
             .replace(/\s\s+/g, "")
         : "Select Size",
       jQuery.makeArray(
-        jQuery("select[id='main:lstSkuSize'] option").map(function (i, e) {
+        jQuery(".page-content--product:first .product-single__meta select option").map(function (i, e) {
           if (jQuery(e).text() != "")
             return jQuery(e).text().trim().replace(/\s\s+/g, "");
         })
@@ -311,11 +311,11 @@ $val = false;
 
   //pa_sizes clicker
 if (
-  jQuery("select[id='main:lstSkuSize']").length > 0 &&
+  jQuery(".page-content--product:first .product-single__meta select option").length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery("select[id='main:lstSkuSize'] option").each(function () {
+  jQuery(".page-content--product:first .product-single__meta select option").each(function () {
     if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
       jQuery("select[id='main:lstSkuSize']")
         .text(jQuery(this).text())
@@ -329,15 +329,15 @@ wait_for(function () {
 //pa_sizes stock status
 $text = false;
 if (
-  jQuery("select[id='main:lstSkuSize']").length > 0 &&
+  jQuery(".page-content--product:first .product-single__meta select option").length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true;
-  jQuery("select[id='main:lstSkuSize'] option").each(function (index) {
+  jQuery(".page-content--product:first .product-single__meta select option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
-      !jQuery(this).parent().prev().text().trim().replace(/\s\s+/g, "").toLowerCase().indexOf("not available") >= 0
+      !jQuery(this).attr('disabled')
     ) {
       $text = false;
     }
@@ -518,16 +518,16 @@ swatch-button swatch-selector star-set-btn star-btn-size-md star-btn-border-1 st
 
 
 // Select
-if (jQuery("select.form-control:contains(Capacity)").length > 0) {
+if (jQuery("div.select:contains(Size) .single-option-selector").length > 0) {
   [
-    jQuery("select.form-control:contains(Capacity) option:selected").text() != ""
-      ? jQuery("select.form-control:contains(Capacity) option:selected")
+    jQuery("div.select:contains(Size) .single-option-selector option:selected").text() != ""
+      ? jQuery("div.select:contains(Size) .single-option-selector option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery("select.form-control:contains(Capacity) option").map(function (i, e) {
+      jQuery("div.select:contains(Size) .single-option-selector option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -539,12 +539,12 @@ if (jQuery("select.form-control:contains(Capacity)").length > 0) {
 
 //pa_sizes clicker
 if (
-jQuery("select.form-control:contains(Capacity) option").length > 0 &&
+jQuery("div.select:contains(Size) .single-option-selector option").length > 0 &&
 $sarg != "Select Size" &&
 $sarg != "No Size"
 ) {
-jQuery("select.form-control:contains(Capacity) option").each(function () {
-  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+jQuery("div.select:contains(Size) .single-option-selector option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "").split(' ')[0] == $sarg) {
     jQuery(this)
       .text(jQuery(this).text())
       .trigger("change");
@@ -557,15 +557,15 @@ return true;
 
 $text = false;
 if (
-  jQuery(".feature-icons a").length > 0 &&
+  jQuery("div.select:contains(Size) .single-option-selector option").length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true;
-  jQuery(".feature-icons a").each(function (index) {
+  jQuery("div.select:contains(Size) .single-option-selector option").each(function (index) {
     if (
-      jQuery(this).attr('title').split(' ')[0] == $sarg &&
-      !jQuery(this).attr('title').split(' ')[2]
+      jQuery(this).text().trim().replace(/\s\s+/g, "").split(' ')[0] == $sarg &&
+      !jQuery(this).attr('disabled')
     ) {
       $text = false;
     }
@@ -614,7 +614,7 @@ wait_for(function () {
 
 // for label input
 
-if (jQuery(".swatch_options .swatch:contains(Size) input").length > 0) {
+if (jQuery("div.select:contains(Size) input").length > 0) {
   ;[
     jQuery(".swatch_options .swatch:contains(Size) input:checked").length > 0
       ? jQuery(".swatch_options .swatch:contains(Size) input:checked")

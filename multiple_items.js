@@ -116,25 +116,28 @@ if (
 }
 
 if (
-  jQuery(".product-grid-container .product-card").length > 0 &&
-  jQuery(".image-container img:first").length === 0
+  jQuery("#items_catalog article").length > 0 &&
+  jQuery(".cd-hero-image img:first").length === 0
 ) {
   $arr = [];
 
-  jQuery(".product-grid-container .product-card").each(function () {
-    $title = jQuery(this).find(".product-card-title a:first").attr('title').text().trim();
+  jQuery("#items_catalog article").each(function () {
+    $title = jQuery(this).find("h2.cp-title").text().trim();
 
-    $img = jQuery(this).find(".product-image-container img.product-image").attr("src");
+    $img = jQuery(this).find("figure.cp-image img:first").attr("src") ||
+      jQuery(this).find("figure.cp-image img:first").attr("data-lazy") 
 
-    $link = 'https://www.nbastore.eu/' + jQuery(this).find(".product-image-container a:first").attr("href");
+    $link = jQuery(this).find("figure.cp-image a:first").attr("href");
 
-    $price = jQuery(this).find(".price-card .lowest:first").text().trim();
+    $price = jQuery(this).find(".cp-current-price ").text().trim();
     
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });
   $arr;
 }
+
+product-index desktop-4 first tablet-half mobile-half
 
 if (
   jQuery(".grid-tile-container .product-tile").length > 0 &&
@@ -237,30 +240,52 @@ if (
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
-  });
+  });  
     
   $arr;
 }
+
+if(jQuery("._1fhgRH ._37lU4r").length > 0 &&
+   jQuery(".bJCmFu img.cydMly").length === 0) {
+    $arr = [];
+
+    jQuery("._35HD7C ._1R0K0g").each(function () {
+      $title = ''
+  
+      $img =    
+      jQuery(this).find("img._3a3qyb").attr('src')      
+  
+      $link = '';
+  
+      $price = ''
+      
+      if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price]);
+    });  
+      
+    $arr;
+   }
 
 document.querySelectorAll('._35HD7C ._1R0K0g')
 document.querySelectorAll('._3KsTU0 img._30XEf0')
 // $price = ('€' + jQuery(this).find(".price-new").attr('data-csscontent')).split(' ')[0]
 
 
-if (jQuery(".product-list .product-list-item").length > 0  &&
-  jQuery("img[class='  lazyload ']").length === 0
+if (jQuery("#bc-sf-filter-products .grid-product__content").length > 0  &&
+  jQuery(".product-image-main img").length === 0
 ) {
   $arr = [];
 
-  jQuery(".product-list .product-list-item").each(function () {
-    $title = jQuery(this).find(".product-title span").text().trim();
+  jQuery("#bc-sf-filter-products .grid-product__content").each(function () {
+    $title = jQuery(this).find(".grid-product__title").text().trim();
 
     $img =   
-    jQuery(this).find(".product-image-container img:last").attr('src')      
+    jQuery(this).find("div.grid-product__secondary-image").attr('data-bgset').split(' ')[0]
 
-    $link = jQuery(this).find('a:first').attr("href");
+    $link = 'https://www.farah.co.uk/' + jQuery(this).find('a:first').attr("href");
 
-    $price = jQuery(this).find(".current-price").text().trim()
+    $price = jQuery(this).find(".grid-product__price span:last").text().trim() || 
+    jQuery(this).find(".grid-product__price").text().trim()
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
@@ -269,6 +294,7 @@ if (jQuery(".product-list .product-list-item").length > 0  &&
   $arr;
 }
 
+grid-product__secondary-image small--hide lazyloaded
 section--collection
 findify-widget--grid__column findify-widget--grid__column-2
 findify-lists--products-list

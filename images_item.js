@@ -1,5 +1,5 @@
-if (jQuery(".product-zoom-section img").length > 0) 
-    $img = jQuery(".product-zoom-section img").attr('src')
+if (jQuery(".fotorama__img").length > 0) 
+    $img = jQuery(".fotorama__img").attr('src')
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -8,19 +8,19 @@ if ($img.indexOf("http") == -1)
 else
   $img
 
-  if (jQuery('ul#ProductThumbs li').length > 0){
+  if (jQuery('#product-photos a').length > 0){
     $arr = [];
-   jQuery("ul#ProductThumbs li").each(function(index){
+   jQuery("#product-photos a").each(function(index){
         if (index < 4) 
-        $arr.push('https:'+jQuery(this).find('img').attr('src'))
+        $arr.push('https:'+jQuery(this).find('img:first').attr('src'))
     })
    $arr
  }
 
 
 
- if (jQuery("li.product-images__main__image:first img").length > 0) 
-    $img = jQuery("li.product-images__main__image:first img").attr('src')
+ if (jQuery(".cd-hero-image img:first").length > 0) 
+    $img = jQuery(".cd-hero-image img:first").attr('src')
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -29,9 +29,9 @@ if ($img.indexOf("http") == -1)
 else
   $img
 
-  if (jQuery('ul.product-images__thumbnails__container li').length > 0){
+  if (jQuery('#product_images a').length > 0){
     $arr = [];
-   jQuery("ul.product-images__thumbnails__container li").each(function(index){
+   jQuery("#product_images a").each(function(index){
         if (index < 4) 
         $arr.push(jQuery(this).find('img').attr('src'))
     })
@@ -57,8 +57,8 @@ jQuery('.slick-track img[itemprop="image"]').each(function(index){
 $arr
 }
 
-if (jQuery(".product-image img").length > 0) 
-$img = jQuery(".product-image img").attr('src')
+if (jQuery(".product-image-main img").length > 0) 
+$img = jQuery(".product-image-main img").attr('srcset').split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -67,11 +67,11 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery('.thumbnails a').length > 0){
+if (jQuery('.slick-track img').length > 0){
 $arr = [];
-jQuery('.thumbnails a').each(function(index){
+jQuery('.slick-track img').each(function(index){
     if (index < 4) 
-    $arr.push('https:'+jQuery(this).attr("href"))
+    $arr.push('https:'+jQuery(this).attr("srcset").split(' ')[0])
 })
 $arr
 }
@@ -93,8 +93,7 @@ img
 if (jQuery("._3KsTU0 img._30XEf0").length > 0) 
 img = jQuery("._3KsTU0 img._30XEf0").attr('src')
 else if(jQuery(".bJCmFu img.cydMly").length > 0)
-img =jQuery(".bJCmFu img.cydMly").attr('src')git
-else
+img =jQuery(".bJCmFu img.cydMly").attr('src')
 img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
 if ($img.indexOf("http") == -1)
@@ -122,7 +121,7 @@ document.querySelectorAll('._3KsTU0 img._30XEf0')
 // 
 let containerUl = Array.from(document.querySelectorAll('ul.LzhdeS li ._2_AcLJ'))
 
-containerUl.length = 4
+if(containerUl.length > 4) containerUl.length = 4
 containerUl.map(item=>item.getAttribute('style', "background-image").slice(21, -1))
 
 // .filter(item=>item.hasAttribute('style', "background-image"))
@@ -140,8 +139,8 @@ else
 $img
 
 
-if (jQuery(".zoomContainer .zoomWindow").length > 0) 
-$img = jQuery(".zoomContainer .zoomWindow").css('background-image').slice(5, -2)
+if (jQuery(".fotorama__img").length > 0) 
+$img = jQuery(".fotorama__img").css('background-image').slice(5, -2)
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 

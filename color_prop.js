@@ -57,50 +57,6 @@ wait_for(function () {
   return true
 })
 
-jQuery("#shopping-cart input:first")
-input[(id = "checkout:btnUpdate")]
-
-if (jQuery("fieldset.single-option-radio").length > 0) {
-  if (jQuery("fieldset.single-option-radio label").length > 0) {
-    ;[
-      jQuery('fieldset.single-option-radio input[checked="checked"]')
-        .next()
-        .text()
-        .trim(),
-      jQuery.makeArray(
-        jQuery("fieldset.single-option-radio label").map(function (i, e) {
-          return jQuery(e).text().trim()
-        })
-      ),
-    ]
-  } else {
-    ;[
-      "Select item",
-      jQuery.makeArray(
-        jQuery("fieldset.single-option-radio label").map(function (i, e) {
-          return jQuery(e).text().trim()
-        })
-      ),
-    ]
-  }
-} else {
-  ;["No item", ["No item"]]
-}
-
-if (
-  jQuery("fieldset.single-option-radio label").length > 0 &&
-  $sarg != "Select item" &&
-  $sarg != "No item"
-) {
-  jQuery("fieldset.single-option-radio label").each(function () {
-    if (jQuery(this).text().trim() == $sarg) {
-      jQuery(this).click()
-    }
-  })
-}
-wait_for(function () {
-  return true
-})
 
 if (jQuery(".ProductForm__Option--labelled:contains(Width)").length > 0) {
   ;[
@@ -289,23 +245,26 @@ wait_for(function () {
 
 // for li a
 
-if (jQuery("ul.swatch-view-image li").length > 0) {
+if (jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li").length > 0) {
   [
     jQuery(
-      "ul.swatch-view-image li .swatch-selected"
+      "._2a2WU_:contains(Color) ul.fUBI-_ li a._3c2Xi9"
     ).length > 0
       ?jQuery(
-          "ul.swatch-view-image li .swatch-selected"
+          "._2a2WU_:contains(Color) ul.fUBI-_ li a._3c2Xi9"
         )
-        .attr('orig-value')
+        .parent()
+        .find('div:last')
+        .text()
+        .trim()
       : "Select Color",
     jQuery.makeArray(
-      jQuery("ul.swatch-view-image li").map(function (
+      jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li ._3xOS0O").map(function (
         i,
         e
       ) {
-        if (jQuery(e).attr('orig-value'))
-         return jQuery(e).attr('orig-value');
+        if (jQuery(e).text().trim() != "")
+         return jQuery(e).text().trim();
       })
     ),
   ];
@@ -313,17 +272,35 @@ if (jQuery("ul.swatch-view-image li").length > 0) {
 
 
 if (
-  jQuery("ul.swatch-view-image li").length > 0 &&
+  jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li ._3xOS0O").length > 0 &&
   $sarg != "Select Color" &&
   $sarg != "No Color"
 ) {
-  jQuery("ul.swatch-view-image li").each(function () {
-    if (jQuery(e).attr('orig-value')) jQuery(this).click();
+  jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li ._3xOS0O").each(function () {
+    if (jQuery(e).text().trim() == $sarg) jQuery(this).click();
   });
 }
 wait_for(function () {
   return true;
 });
+
+$text = false;
+if (
+  jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li ._3xOS0O").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li ._3xOS0O").each(function (index) {
+    if (
+      jQuery(this).text().trim() == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
 
 
 // for label input
@@ -396,3 +373,60 @@ jQuery("select.form-control:contains(Colour) option").each(function () {
 wait_for(function () {
 return true;
 });
+
+
+// for li a
+
+if (jQuery(".page-content--product:first .product-single__meta div.master-swatch").length > 0) {
+  [
+    jQuery(
+      ".page-content--product:first .product-single__meta div.master-swatch.active"
+    ).length > 0
+      ? jQuery(
+          ".page-content--product:first .product-single__meta div.master-swatch.active img"
+        )
+        .attr('data-id').split('-')[5] + ' ' +
+        jQuery(
+          ".page-content--product:first .product-single__meta div.master-swatch.active img"
+        )
+        .attr('data-id').split('-')[7]
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".page-content--product:first .product-single__meta div.master-swatch img").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).attr('data-id').split('-')[5])
+         return jQuery(e).attr('data-id').split('-')[5] + ' ' + jQuery(e).attr('data-id').split('-')[7];
+      })
+    ),
+  ];
+} else ["No Color", ["No Color"]];
+
+
+if (
+  jQuery(".page-content--product:first .product-single__meta div.master-swatch").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery(".page-content--product:first .product-single__meta div.master-swatch").each(function () {
+    if ((JSON.parse(jQuery(e).attr('data-id')).split('-')[5] + ' ' + jQuery(e).attr('data-id').split('-')[7]) == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+$val = false;
+if ((jQuery('.page-content--product:first .product-single__meta div.master-swatch').length > 0) && ($sarg != "No Color") && ($sarg != "Select Color")){
+ $val = true;
+  jQuery('.page-content--product:first .product-single__meta div.master-swatch').each(function(index){
+     if ((jQuery(this).attr('data-id').split('-')[5] + ' ' + jQuery(e).attr('data-id').split('-')[7]) == $sarg && !jQuery(this).attr('disabled')){
+       $val = false;
+     }
+  });
+} return $val
+
+product-single__meta
+.product-single__meta .master-swatch
+
