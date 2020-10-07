@@ -100,27 +100,27 @@ if (jQuery("#BVRRDisplayContentID").length > 0) {
   $arr;
 }
 
-if (jQuery(".comment-list-cnt article").length > 0) {
+if (jQuery(".g-tp-row[data-rating-ratings-parent] .m-tp-base ").length > 0) {
   $arr = [];
-  jQuery(".comment-list-cnt article").each(function (index) {
-    content = jQuery(this).find(".comment-message").text().trim();
-    author = jQuery(this).find(".comment-username").text().trim();
-    rating = jQuery(this).find("span.icon-star").length
-    reviewed_at = jQuery(this).find(".comment-message").text().trim();
+  jQuery(".g-tp-row[data-rating-ratings-parent] .m-tp-base").each(function (index) {
+    content = jQuery(this).find(".m-tp-base-row:first .c-tp-copytext:last").text().trim();
+    author = ''
+    rating = ''
+    reviewed_at = jQuery(this).find(".m-tp-base-row:first .c-tp-copytext:first strong").text().trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;
 }
 
-if (jQuery("ol.bv-content-list-reviews li.bv-content-item").length > 0) {
+if (jQuery("#komentarji_izdelka .komentar_izdelka").length > 0) {
   $arr = [];
-  jQuery("ol.bv-content-list-reviews li.bv-content-item").each(function (
+  jQuery("#komentarji_izdelka .komentar_izdelka").each(function (
     index
   ) {
-    content = jQuery(this).find('.bv-content-summary-body-text p').text().trim();
-    author = jQuery(this).find(".bv-author-avatar-nickname span.bv-author").text().trim();
-    rating = jQuery(this).find("meta[itemprop='ratingValue']").attr('content');
-    reviewed_at = jQuery(this).find("h3.bv-content-title").text().trim();
+    content =  (jQuery(this).find('b:contains(Komentar:)').parent().text().replace(/\r|\n/g, '').split('Komentar:')[1] || '').trim();    
+    author = jQuery(this).find("span:first").text().trim();
+    rating = jQuery(this).find("select").attr('data-current-rating');
+    reviewed_at = (jQuery(this).find('b:contains(Komentar:)').parent().text().replace(/\r|\n/g, '').split('Komentar:')[1] || '').trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;

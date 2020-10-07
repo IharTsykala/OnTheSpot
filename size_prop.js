@@ -459,36 +459,38 @@ wait_for(function () {
 
 // ul li
 
-if (jQuery("ul.swatch-view-button li").length > 0) {
+if (jQuery("[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimensions li").length > 0) {
   [
     jQuery(
-      "ul.swatch-view-button li .swatch-selected"
+      "[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimensions li.c-tp-productdimensions-item--selected"
     ).length > 0
       ?jQuery(
-          "ul.swatch-view-button li .swatch-selected"
+          "[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimensions li.c-tp-productdimensions-item--selected"
         )
-        .attr('orig-value')
+        .attr('data-product-switch-dim-2')
       : "Select Size",
     jQuery.makeArray(
-      jQuery("ul.swatch-view-button li").map(function (
+      jQuery("[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimensions li").map(function (
         i,
         e
       ) {
-        if (jQuery(e).attr('orig-value'))
-         return jQuery(e).attr('orig-value');
+        if (jQuery(e).attr('data-product-switch-dim-2'))
+         return jQuery(e).attr('data-product-switch-dim-2');
       })
     ),
   ];
 } else ["No Size", ["No Size"]];
 
+jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimensions')
+
 
 if (
-  jQuery("ul.swatch-view-buttone li").length > 0 &&
+  jQuery("[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) li").length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery("ul.swatch-view-button li").each(function () {
-    if (jQuery(e).attr('orig-value')) jQuery(this).click();
+  jQuery("[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) li").each(function () {
+    if (jQuery(e).attr('data-product-switch-dim-2')) jQuery(this).click();
   });
 }
 wait_for(function () {
@@ -498,15 +500,15 @@ wait_for(function () {
 //pa_sizes stock status
 $text = false;
 if (
-  jQuery("ul.swatch-view-buttone li").length > 0 &&
+  jQuery("[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) li").length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true;
-  jQuery("ul.swatch-view-buttone li").each(function (index) {
+  jQuery("[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) li").each(function (index) {
     if (
-      jQuery(this).attr('orig-value') == $sarg &&
-      !jQuery(this).find('.swatch-unavailable')
+      jQuery(this).attr('data-product-switch-dim-2') == $sarg &&
+      !jQuery(this).attr('.data-availability') === 'soldout'
     ) {
       $text = false;
     }

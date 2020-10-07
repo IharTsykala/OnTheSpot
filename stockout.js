@@ -1,8 +1,16 @@
-if (jQuery('a.cd-btn-add').text().trim().toLowerCase() == 'sold out' || jQuery('a.cd-btn-add').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimensions li.c-tp-productdimensions-item--selected')
+    .attr('data-availability').toLowerCase() == 'soldout') {
   $status = true
 } else {
   $status = false;
 }
+
+if (jQuery('a#gumb_v_kosarico').text().trim().toLowerCase() == 'sold out' || jQuery('a#gumb_v_kosarico').text().trim().toLowerCase() == 'out of stock') {
+  $status = true
+} else {
+  $status = false;
+}
+gumb_v_kosarico
 
 if (jQuery('button.ProductForm__AddToCart ').text().trim().toLowerCase().indexOf('sold out')>=0 
   || jQuery('button.ProductForm__AddToCart ').text().trim().toLowerCase().indexOf('sold out')>=0) {

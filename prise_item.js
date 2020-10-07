@@ -9,7 +9,19 @@ jQuery('.nonsticky-price__container--visible em.value__price--discounted ').text
 jQuery('.nonsticky-price__container--visible del.value__price--discount').text().trim()
 
 
-'€' + jQuery('.cd-current-price:first').text().trim().split(' ')[0]
+'€' + (jQuery('.m-tp-base:first .c-tp-price-currentprice ').text().trim().slice(0, -2) + '.' + (
+ jQuery('.m-tp-base:first .c-tp-price-currentprice sup').text().trim() || '00'))
+
+ if(jQuery('.m-tp-base:first .c-tp-price-output ').text()) {
+  '€' + (jQuery('.m-tp-base:first .c-tp-price-output ').text().trim().slice(0, -2) + '.' + (
+    jQuery('.m-tp-base:first .c-tp-price-output sup').text().trim() || '00'))
+ }
+ else {
+  '€' + (jQuery('.m-tp-base:first .c-tp-price-currentprice ').text().trim().slice(0, -2) + '.' + (
+    jQuery('.m-tp-base:first .c-tp-price-currentprice sup').text().trim() || '00'))
+ }
+ 
+
 '€' + (jQuery('.cd-old-price').text().trim().split(' ')[0] ||  jQuery('.cd-current-price:first').text().trim().split(' ')[0])
 
 '€' + (jQuery('.discount-row:contains(~EUR) span[itemprop="priceSpecification"]:last').text().trim() || 
@@ -62,3 +74,6 @@ _1vC4OE _3qQ9m1
 _3iZgFn
 
 document.querySelectorAll("._36DZFj .mrug3u")
+
+'€' +jQuery('#artikel-cena').text().trim().split(' ')[0]
+'€' + (jQuery('#artikel-redna-cena span:last').text().trim().split(' ')[0] || jQuery('#artikel-cena').text().trim().split(' ')[0])

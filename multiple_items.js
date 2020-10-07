@@ -115,21 +115,47 @@ if (
   $arr
 }
 
+
 if (
-  jQuery("#items_catalog article").length > 0 &&
-  jQuery(".cd-hero-image img:first").length === 0
+  jQuery(".searchResultContent .result").length > 0 &&
+  jQuery(".m-tp-productimagegallery-thumbnails-wrapper img").length === 0
 ) {
   $arr = [];
 
-  jQuery("#items_catalog article").each(function () {
-    $title = jQuery(this).find("h2.cp-title").text().trim();
+  jQuery(".searchResultContent .result").each(function () {
+    $title = jQuery(this).find(".m-tp-productbox002-title-text").text().trim();
 
-    $img = jQuery(this).find("figure.cp-image img:first").attr("src") ||
-      jQuery(this).find("figure.cp-image img:first").attr("data-lazy") 
+    $img = 'https://www.tchibo.de' + jQuery(this).find("img:first").attr("src") ||
+    'https://www.tchibo.de' + jQuery(this).find("figure.cp-image img:first").attr("data-src") 
 
-    $link = jQuery(this).find("figure.cp-image a:first").attr("href");
+    $link = 'https://www.tchibo.de' + jQuery(this).find("a:first").attr("href").slice(1);
 
-    $price = jQuery(this).find(".cp-current-price ").text().trim();
+    $price = '€' + (jQuery(this).find('.c-tp-price-currentprice:first').text().trim().slice(0, -2) + '.' + (
+      jQuery(this).find('.c-tp-price-currentprice:first sup').text().trim() || '00'))
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+
+
+if (
+  jQuery(".kategorija-izdelki .izdelek_osnutek").length > 0 &&
+  jQuery(".img#slika_izdelka").length === 0
+) {
+  $arr = [];
+
+  jQuery(".kategorija-izdelki .izdelek_osnutek").each(function () {
+    $title = jQuery(this).find(".naslov a:first").text().trim();
+
+    $img = 'https://www.ideo.si' + jQuery(this).find("img:first").attr("src") ||
+    'https://www.ideo.si' + jQuery(this).find("img:first").attr("data-original") 
+
+    $link = 'https://www.ideo.si' + jQuery(this).find(".naslov a:first").attr("href");
+
+    $price = '€' + (jQuery(this).find('.cena').text().trim().split(' ')[0])
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);

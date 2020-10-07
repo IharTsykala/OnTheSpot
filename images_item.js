@@ -17,10 +17,10 @@ else
    $arr
  }
 
+ m-tp-productimagegallery-preview-wrapper
 
-
- if (jQuery(".cd-hero-image img:first").length > 0) 
-    $img = jQuery(".cd-hero-image img:first").attr('src')
+ if (jQuery("img#slika_izdelka").length > 0) 
+    $img = 'https://www.ideo.si' + jQuery("img#slika_izdelka").attr('src')
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -29,11 +29,11 @@ if ($img.indexOf("http") == -1)
 else
   $img
 
-  if (jQuery('#product_images a').length > 0){
+  if (jQuery('#priponke_slike .priponke-slika img').length > 0){
     $arr = [];
-   jQuery("#product_images a").each(function(index){
+   jQuery("#priponke_slike .priponke-slika img").each(function(index){
         if (index < 4) 
-        $arr.push(jQuery(this).find('img').attr('src'))
+        $arr.push('https://www.ideo.si' +jQuery(this).attr('src'))
     })
    $arr
  }

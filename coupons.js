@@ -50,7 +50,7 @@ document.querySelector('.total-wrapper dd')
 promotionCode
 
 
-jQuery("#block-discount strong#block-discount-heading")[0].click()
-jQuery('input[id="coupon_code"]')
-jQuery('.coupon button.apply')
-jQuery('#cart-totals tr:contains(Loppusumma) .price')
+jQuery("div[data-matrixpinnedcolumnwidth] a[data-tp-switch-group='wsacAndGiftCardInput']")[0].click()
+jQuery('div[data-matrixpinnedcolumnwidth] input[data-wsac-input-field]')
+jQuery('div[data-matrixpinnedcolumnwidth] button[value="Einlösen"]:first')
+jQuery('.c-tp-descriptionlist .c-tp-descriptionlist-definition:contains(€):last strong')
