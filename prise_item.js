@@ -2,12 +2,11 @@ ProductMeta__PriceList
 '€' + jQuery('.prices span:last').text().trim().split(' ')[0].slice(1)
 '€' + jQuery('.ProductMeta__PriceList span.money:last').text().trim().split(' ')[0].slice(1)
 
-jQuery('#product_addtocart_form .price-box .price:last').text().trim().split(' ')[0]
-jQuery('#product_addtocart_form .price-box .price:first').text().trim().split(' ')[0]
+jQuery(".price__regular span:first").text().trim().split(' ')[0]
+jQuery("p[class='mt-8 text-center cols:text-left'] span:last").text().trim().split(' ')[0]
 
-jQuery('.nonsticky-price__container--visible em.value__price--discounted ').text().trim() || jQuery('.nonsticky-price__container--visible em.value__price ').text().trim()
-jQuery('.nonsticky-price__container--visible del.value__price--discount').text().trim()
-
+'$' + jQuery('.product-price .money:first').text().trim().split(' ')[1]
+'$' + jQuery('.product-price .money:last').text().trim().split(' ')[1]|| jQuery('.product-price .sqs-money-native ').text().trim()
 
 '€' + (jQuery('.m-tp-base:first .c-tp-price-currentprice ').text().trim().slice(0, -2) + '.' + (
  jQuery('.m-tp-base:first .c-tp-price-currentprice sup').text().trim() || '00'))
@@ -40,8 +39,9 @@ jQuery('div[itemprop="offers"] span[itemprop="price"]').text().trim()
 '€' + jQuery('.current-price').text().trim().split(' ')[0]
 product-title
 
-jQuery('form.order-details strong[data-ui-name="ads.price.strong"]').text().trim()
-jQuery('form.order-details del:first').text().trim() || jQuery('form.order-details strong[data-ui-name="ads.price.strong"]').text().trim()
+'€' + jQuery('span.product-price:contains(€):first').text().trim().split(' ')[0]
+'€' + (jQuery('ul.product-prices:contains(€):first li:first span:first').text().trim().split(' ')[0] ||
+jQuery('span.product-price:contains(€):first').text().trim().split(' ')[0])
 
 jQuery('.priceTable span[itemprop="price"]').text().trim().replace(/\r|\n/g, ' ').split(' ')[0]
 jQuery('.priceTable span:first').next().text().trim() || jQuery('.priceTable span[itemprop="price"]').text().trim().replace(/\r|\n/g, ' ').split(' ')[0]
@@ -75,5 +75,22 @@ _3iZgFn
 
 document.querySelectorAll("._36DZFj .mrug3u")
 
-'€' +jQuery('#artikel-cena').text().trim().split(' ')[0]
+'€' + ' ' + jQuery('.product-details__price span.price__value:first').text().trim().slice(0, -3).trim()
+'SEK' + ' ' + jQuery('.price-big').text().trim().slice(0, -2)
+.split(' ')[1]
+.slice(0, -2)
 '€' + (jQuery('#artikel-redna-cena span:last').text().trim().split(' ')[0] || jQuery('#artikel-cena').text().trim().split(' ')[0])
+
+
+'ريال' + (jQuery('.product-info-price .price:first').text().trim())
+'ريال' + (jQuery('.product-info-price .price:last').text().trim()||
+ jQuery('.product-info-price .price:first').text().trim())
+
+ 'TL' + ' ' + jQuery('.product-list__price:first').text().trim().slice(0, -3)
+ 'SAR' + ' ' + (jQuery('.productinfo__price--sub del').text().trim().slice(0, -3) || jQuery('.productinfo__price').text().trim().slice(0, -3))
+ productinfo__price
+
+ document.querySelectorAll("p[class='mt-8 text-center cols:text-left'] span")[0]
+
+ jQuery("#ProductPrice-product-template").text().trim()
+jQuery("#ComparePrice-product-template").text().trim() || jQuery("#ProductPrice-product-template").text().trim()

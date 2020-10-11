@@ -175,3 +175,15 @@ let reviewed_at = review.querySelectorAll('div div div div div')[7].innerText
 issue = [content, author, rating, reviewed_at]
 return issue
 })
+
+if (jQuery("#grid .grid-item-wrap").length > 0) {
+  $arr = [];
+  jQuery("#grid .grid-item-wrap").each(function (index) {
+    content = jQuery(this).find(".main-text").text().trim();
+    author = jQuery(this).find(".title").text().trim();
+    rating = jQuery(this).find(".stars .fa-star").length;
+    reviewed_at = '';
+    $arr[index] = { content, author, rating, reviewed_at };
+  });
+  $arr;
+}

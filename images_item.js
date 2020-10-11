@@ -1,5 +1,5 @@
-if (jQuery(".fotorama__img").length > 0) 
-    $img = jQuery(".fotorama__img").attr('src')
+if (jQuery('.Carousel__Cell.is-selected img:first').length > 0) 
+    $img = jQuery('.Carousel__Cell.is-selected img:first').attr('src')
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -8,9 +8,11 @@ if ($img.indexOf("http") == -1)
 else
   $img
 
-  if (jQuery('#product-photos a').length > 0){
+  document.querySelector('.gallery-thumbs a').src
+
+  if (jQuery(".Product__SlideshowNavScroller a").length > 0){
     $arr = [];
-   jQuery("#product-photos a").each(function(index){
+   jQuery(".Product__SlideshowNavScroller a").each(function(index){
         if (index < 4) 
         $arr.push('https:'+jQuery(this).find('img:first').attr('src'))
     })
@@ -19,8 +21,8 @@ else
 
  m-tp-productimagegallery-preview-wrapper
 
- if (jQuery("img#slika_izdelka").length > 0) 
-    $img = 'https://www.ideo.si' + jQuery("img#slika_izdelka").attr('src')
+ if (jQuery("img.zoomImg:first").length > 0) 
+    $img = jQuery("img.zoomImg:first").attr('src')
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -29,14 +31,16 @@ if ($img.indexOf("http") == -1)
 else
   $img
 
-  if (jQuery('#priponke_slike .priponke-slika img').length > 0){
+  if (jQuery('.product-single__thumbnails-product-template img').length > 0){
     $arr = [];
-   jQuery("#priponke_slike .priponke-slika img").each(function(index){
+   jQuery(".product-single__thumbnails-product-template img").each(function(index){
         if (index < 4) 
-        $arr.push('https://www.ideo.si' +jQuery(this).attr('src'))
+        $arr.push('https:'+jQuery(this).attr('src'))
     })
    $arr
  }
+
+ owl-lazy img-responsive wrapper-main-slider__image lazy-init
 
  if (jQuery("img[itemprop='image']:first").length > 0) 
  $img = 'https://stormfashion.dk' + jQuery("img[itemprop='image']").attr('src')

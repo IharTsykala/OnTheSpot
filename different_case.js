@@ -7,6 +7,7 @@ wait_for(function(){return jQuery && jQuery.fn.jquery ;})
 .replace(/\r|\n/g, ' ')
 
 jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimensions')
+jQuery('#selected-or-first-available-variant .form__selections').text()
 
 if ($price.indexOf(“AUD”) > -1)
   $price = “AUD” + $price.replace(“AUD”, “”).replace(“\u0024”, “”).trim();

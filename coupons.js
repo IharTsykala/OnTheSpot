@@ -16,9 +16,9 @@ jQuery('.total-cost span:first')
 .field button.field__input-btn
 .total-line-table .payment-due__price
 
-jQuery('input[name="coupon_code"]')
-jQuery('.ww-coupons-add a:contains(Dodaj)')
-jQuery('.cart-total-box .cart_info_total_items_total')
+jQuery('input[data-test="gift-and-promo-code-input:last"]')
+jQuery('button[data-test="apply-gift-or-promo-code-button"]:last')
+jQuery('.CheckoutTotal-amount-Lh4k5 span:last')
 
 jQuery('#reduction button:first').click()
 jQuery('.order-summary-container .shipping-val')
@@ -54,3 +54,19 @@ jQuery("div[data-matrixpinnedcolumnwidth] a[data-tp-switch-group='wsacAndGiftCar
 jQuery('div[data-matrixpinnedcolumnwidth] input[data-wsac-input-field]')
 jQuery('div[data-matrixpinnedcolumnwidth] button[value="Einlösen"]:first')
 jQuery('.c-tp-descriptionlist .c-tp-descriptionlist-definition:contains(€):last strong')
+
+jQuery(".promotion-input a.h2")[0].click()
+document.querySelector('input#checkout-promo-code')
+document.querySelector('button.submit')
+document.querySelectorAll('li[class="flex justify-between mt-4 cols:mt-8 pt-4 cols:pt-8 border-t font-bold"] span:last')[1]
+
+
+jQuery("span:contains(Apply Discount Code):last").click()
+jQuery('input#discount-code')
+jQuery('button.action-apply')
+jQuery('.grand:first .price')
+
+jQuery("#voucher_switch_button").click()
+jQuery('input#checkout-promo-code')
+jQuery('.c-Voucher__inputWrapper button.c-Button__big')
+jQuery('.c-SummaryRow__total .c-SummaryRow__value')

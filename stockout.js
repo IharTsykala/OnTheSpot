@@ -5,12 +5,27 @@ if (jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimen
   $status = false;
 }
 
-if (jQuery('a#gumb_v_kosarico').text().trim().toLowerCase() == 'sold out' || jQuery('a#gumb_v_kosarico').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('.add-to-cart input').text().trim().toLowerCase() == 'sold out' || 
+jQuery('button[data-action="add-to-cart"]').text().trim().toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;
 }
 gumb_v_kosarico
+
+if (jQuery('a[id="BIS_trigger"]:not(.h-tp-hidden)').text().trim() == 'Notify me when available' ) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('#AddToCart-product-template').text().trim() == 'Sold out' ) {
+  $status = true
+} else {
+  $status = false;
+}
+
+:not(.h-tp-hidden)
 
 if (jQuery('button.ProductForm__AddToCart ').text().trim().toLowerCase().indexOf('sold out')>=0 
   || jQuery('button.ProductForm__AddToCart ').text().trim().toLowerCase().indexOf('sold out')>=0) {
@@ -32,7 +47,7 @@ if (jQuery('a#add-to-cart').text().trim().toLowerCase() == 'sold out' || jQuery(
   $status = false;
 }
 
-if (jQuery('button.add_to_cart:last').attr('data-label').toLowerCase() == 'sold out' || jQuery('button.add_to_cart:last').attr('data-label').toLowerCase() == 'out of stock') {
+if (jQuery('.add-to-cart input').attr('value').toLowerCase() == 'sold out' || jQuery('.add-to-cart input').attr('value').toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;
@@ -139,6 +154,13 @@ if (jQuery('#product-price').text().trim().toLowerCase()  === 'sold out') {
 }
 
 if (jQuery('.add_to_cart:first').text().trim().toLowerCase().indexOf('out') >= 0 || jQuery('.product__price span.sold_out').text().trim().toLowerCase() === 'sold out') {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('#submitButtonBasket').text().trim().toLowerCase() == 'sold out' || jQuery('#submitButtonBasket').text().trim().toLowerCase() == 'out of stock' ||
+jQuery('.product-rbox h2').text().trim() == 'Izdelka trenutno ni v ponudbi') {
   $status = true
 } else {
   $status = false;

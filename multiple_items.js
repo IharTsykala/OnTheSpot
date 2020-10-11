@@ -166,26 +166,27 @@ if (
 product-index desktop-4 first tablet-half mobile-half
 
 if (
-  jQuery(".grid-tile-container .product-tile").length > 0 &&
-  jQuery(".zoomContainer .zoomWindow:first").length === 0
+  jQuery("[class='  main-ccon'] .main-productlistbox").length > 0 &&
+  jQuery("img.zoomImg").length === 0
 ) {
   $arr = [];
 
-  jQuery(".grid-tile-container .product-tile").each(function () {
-    $title = jQuery(this).find(".tile-body a.link:first").text().trim();
+  jQuery("[class='  main-ccon'] .main-productlistbox").each(function () {
+    $title = jQuery(this).find(".caption-name").text().trim();
 
-    $img = jQuery(this).find(".image-container img.tile-image").attr("src") ||jQuery(this).find(".image-container img.tile-image").attr("data-src");
+    $img = jQuery(this).find("img:first").attr("src")
 
-    $link = 'https://www.shoeshowmega.com' + jQuery(this).find(".image-container a:first").attr("href");
+    $link = 'https://www.enaa.com' + jQuery(this).find("a:first").attr("href");
 
-    $price = jQuery(this).find(".price span[itemprop='price']:first").text().trim();
+    $price = '€' + jQuery(this).find('.enaa-cena').text().replace(/\r|\n/g, '').trim().split(' ')[0]
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });
   $arr;
 }
-
+"https://www.netonnet.se/GetFile/ProductImagePrimary/dator-surfplatta/laptop/asus-vivobook-14-k413fa-ek695t(1013292)_394546_1_Normal_Large.webp"
+"https://www.netonnet.se/GetFile/ProductImagePrimary/dator-surfplatta/laptop/lenovo-ip-3-15ada05-81w100ecmx(1013302)_390326_10_Normal_Large.webp"
 row product-grid grid-tile-container gtm-container gtm-container-initialized
 
 if (
@@ -325,3 +326,115 @@ section--collection
 findify-widget--grid__column findify-widget--grid__column-2
 findify-lists--products-list
 findify-widget--product__price cgFaj _19m_S
+
+if (
+  jQuery(".product-grid__items-list .product-item").length > 0 &&
+  jQuery(".img.product-images__image:first").length === 0
+) {
+  $arr = [];
+
+  jQuery(".product-grid__items-list .product-item").each(function () {
+    $title = jQuery(this).find(".product-item__name:first").text().trim();
+
+    $img = jQuery(this).find("a.product-item__link img:first").attr("src")      
+
+    $link = 'https://www.nittygrittystore.com/' + jQuery(this).find("a.product-item__link").attr("href");
+
+    $price = '€' + ' ' +  jQuery(this).find('.price .price__value:first').text().trim().slice(0, -3).trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+jQuery(". li.product-item").length > 0 &&
+
+
+if (
+  jQuery(".grid--view-items .grid__item").length > 0 &&
+  jQuery("img.zoomImg:first").length === 0
+) {
+  $arr = [];
+
+  jQuery(".grid--view-items .grid__item").each(function () {
+    $title = jQuery(this).find(".grid-view-item__title").text().trim();
+
+    $img = 'https:' + jQuery(this).find("img:first").attr("src")      
+
+    $link = 'https://alwaysagainusa.com' + jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find('.product-price__price:last').text().trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+if (
+  jQuery(".opportunity-content .product-list").length > 0 &&
+  jQuery(".container-fluid img.wrapper-main-slider__image.lazy-init").length === 0
+) {
+  $arr = [];
+
+  jQuery(".opportunity-content .product-list").each(function () {
+    $title = jQuery(this).find(".product-list__product-name").text().trim();
+
+    $img =  
+    (jQuery(this).find("img.ProductItem__Image:first").attr('srcset') ||
+      jQuery(this).find("img.ProductItem__Image:first").attr('data-srcset') ||
+        jQuery(this).find("img.ProductItem__Image:last").attr('srcset') ||
+          jQuery(this).find("img.ProductItem__Image:last").attr('data-srcset') ||
+            jQuery(this).find("img.ProductItem__Image:last").next().next().text().trim().split('src="')[1]).split(' ')[0].slice(0, -1) 
+
+    $link = 'https://www.vatanbilgisayar.com/' + jQuery(this).find(".product-list__image-safe a:first").attr("href");
+
+    $price = jQuery(this).find('.product-list__cost .product-list__price:first').text().trim().split(' ')[0]
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+if (
+  jQuery(".collection-wo-filters .m-b").length > 0 &&
+  jQuery('.carousel-inner .active img:first').length === 0
+) {
+  $arr = [];
+
+  jQuery(".collection-wo-filters .m-b").each(function () {
+    $title = jQuery(this).find(".m-y a:first").text().trim();
+
+    $img = 'https:' + jQuery(this).find("img:first").attr("src")    
+
+    $link = 'https://montiel.com/' + jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find('p.m-y').text().replace(/\r|\n/g, '').split('—')[1].trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+"Frankie Tee                         in White — $46"
+document.querySelectorAll('.flex-wrap li.product')
+
+$text = false;
+if (
+  jQuery("fieldset:contains(Size) label").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("fieldset:contains(Size) label").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "")=== $sarg &&
+      !jQuery(this).parent().find('input').attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
