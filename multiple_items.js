@@ -438,3 +438,25 @@ if (
   });
 }
 return $text;
+
+
+if (
+  jQuery(".ProductList-grid .ProductList-item").length > 0 &&
+  jQuery('[class="ProductItem-gallery-slides-item-image loaded"]').length === 0
+) {
+  $arr = [];
+
+  jQuery(".ProductList-grid .ProductList-item").each(function () {
+    $title = jQuery(this).find(".ProductList-title").text().trim();
+
+    $img = jQuery(this).find(".ProductList-innerImageWrapper img:first").attr("src")
+
+    $link = 'https://shopthebreak.com' + jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find('.ProductList-overlay .product-price .sqs-money-native:first').text().replace(/\r|\n/g, '').trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
