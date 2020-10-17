@@ -1,8 +1,8 @@
 jQuery('p.product-details__brand').text().trim()
 
-jQuery('h1.ProductItem-details-title').text().trim()
+jQuery('h1.titlu_produs').text().trim()
 
-jQuery('h1.product-title').text().trim().split(' In ')[0]
+jQuery('h1#title').text().trim().split(' In ')[0]
 
 jQuery('h1[itemprop="name"]').text().trim().replace(/\r|\n/g, 'slash').split('slash')[0]
 jQuery('h1[itemprop="name"]').text().trim().replace(/\r|\n/g, 'slash').split('slash')[1]
@@ -10,7 +10,8 @@ jQuery('h1[itemprop="name"]').text().trim().replace(/\r|\n/g, 'slash').split('sl
 
 jQuery('h1[data-talos="labelPdpProductTitle"]').text().trim()
 
-jQuery('h1.ProductMeta__Title').text().trim()
+jQuery('h1').text().trim()
+jQuery('h2.product-brand').text().trim()
 
 jQuery('h1:first').text().trim()
 
@@ -24,4 +25,4 @@ document.querySelector('h1').innerText.trim() || document.querySelector('div[cla
 document.querySelectorAll("._1fhgRH ._37lU4r").innerText.trim() 
 "._1fhgRH ._37lU4r"
 
-document.querySelector("h1.product-single__title").innerText.trim() 
+document.querySelector("h1.product__title").innerText.trim() 

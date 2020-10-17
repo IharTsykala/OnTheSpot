@@ -6,7 +6,7 @@ const jQuery = $d
 
 jQuery('.field input[id="checkout_reduction_code"]')
 jQuery('.field button.field__input-btn')
-jQuery('.total-line-table .payment-due__price')
+jQuery('.total-line .payment-due__price')
 
 jQuery('input[id="discount_code"]')
 jQuery('button.cart-add-discount')
@@ -26,9 +26,9 @@ jQuery('form.accordion-panel button:first')
 jQuery('.shoppingbag-overview .shoppingbag-totals .price:last')
 
 jQuery('a.accordion-toggle').click()
-jQuery('input[id="CouponCode"]')
-jQuery('.wrapper-coupon-code button:first')
-jQuery('p[data-ui-name="cart.ecm.totalPrice.p"]')
+jQuery('input[id="coupon_code"]')
+jQuery('.discount-form button:first')
+jQuery('#shopping-cart-totals-table .price')
 
 name="coupon-code-medium"
 
@@ -37,7 +37,7 @@ field__input-btn btn btn--disabled
 
 document.querySelector('input[id="checkout_reduction_code"]')
 document.querySelector('button.field__input-btn')
-document.querySelector('.cart-total-box .payment-due__price')
+document.querySelector('.total-line-table__footer  .payment-due__price')
 
 
 slick-active
@@ -61,12 +61,17 @@ document.querySelector('button.submit')
 document.querySelectorAll('li[class="flex justify-between mt-4 cols:mt-8 pt-4 cols:pt-8 border-t font-bold"] span:last')[1]
 
 
-jQuery("span:contains(Apply Discount Code):last").click()
-jQuery('input#discount-code')
-jQuery('button.action-apply')
-jQuery('.grand:first .price')
+jQuery("button[data-zta='enterCouponBtn']").click()
+jQuery('input[id="checkout_reduction_code"]')
+jQuery('button.field__input-btn')
+jQuery('[data-zta="total__price__value"]')
 
-jQuery("#voucher_switch_button").click()
-jQuery('input.u-field-input:last')
-jQuery('button[data-test="apply-gift-or-promo-code-button"]:last')
-jQuery('.CheckoutTotal-amount-Lh4k5 span:last')
+jQuery("#cadeaubonText")[0].click()
+jQuery('input[name="coupons[]"]')
+jQuery('button[name="submit_voucher"]')
+jQuery('.total-price span:last')
+
+jQuery(".showcoupon")[0].click()
+jQuery('input[name="coupon_code"]')
+jQuery('button[name="apply_coupon"]')
+jQuery('.order-total bdi')

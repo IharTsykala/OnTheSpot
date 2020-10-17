@@ -2,11 +2,12 @@ ProductMeta__PriceList
 '€' + jQuery('.prices span:last').text().trim().split(' ')[0].slice(1)
 '€' + jQuery('.ProductMeta__PriceList span.money:last').text().trim().split(' ')[0].slice(1)
 
-jQuery(".price__regular span:first").text().trim().split(' ')[0]
-jQuery("p[class='mt-8 text-center cols:text-left'] span:last").text().trim().split(' ')[0]
+jQuery(".price:first bdi:last").text().trim().split(' ')[0]
+jQuery(".price:first del").text().trim() || jQuery(".price:first bdi:last").text().trim()
 
-'$' + jQuery('.product-price .money:first').text().trim().split(' ')[1]
-'$' + jQuery('.product-price .money:last').text().trim().split(' ')[1]|| jQuery('.product-price .sqs-money-native ').text().trim()
+'£' +  jQuery('.product-shop .price:last').text().trim().split('£')[1].split(' ')[0].trim()
+'£' + jQuery('.product-shop .price:first').text().trim().replace(/\r|\n/g, ' ').split('£')[1].trim()||
+jQuery('.product-shop .price:last').text().trim().split('£')[1].split(' ')[0].trim()
 
 '€' + (jQuery('.m-tp-base:first .c-tp-price-currentprice ').text().trim().slice(0, -2) + '.' + (
  jQuery('.m-tp-base:first .c-tp-price-currentprice sup').text().trim() || '00'))
@@ -31,8 +32,8 @@ jQuery("p[class='mt-8 text-center cols:text-left'] span:last").text().trim().spl
 jQuery('.pdp-style-overwrapper .price-card .lowest:first').text().trim().split(' ')[jQuery('.pdp-style-overwrapper .price-card .lowest:first').text().trim().split(' ').length -1]
 jQuery('.pdp-style-overwrapper .price-card .strike-through:first').text().trim().split(' ')[jQuery('.pdp-style-overwrapper .price-card .strike-through:first').text().trim().split(' ').length -1]
 
-jQuery('.product-prices span:first').text().split('-')[0].trim()
-jQuery('.product-prices span.was').text().trim() || jQuery('.product-prices span:first').text().trim()
+jQuery('.mb-2 .data-price__wrapper .money:last').text().trim()
+jQuery('.mb-2 .data-price__wrapper .money:first').text().trim() || jQuery('.product-prices span:first').text().trim()
 
 jQuery('div[itemprop="offers"] span[itemprop="price"]').text().trim()
 
@@ -90,7 +91,17 @@ document.querySelectorAll("._36DZFj .mrug3u")
  'SAR' + ' ' + (jQuery('.productinfo__price--sub del').text().trim().slice(0, -3) || jQuery('.productinfo__price').text().trim().slice(0, -3))
  productinfo__price
 
- document.querySelectorAll("p[class='mt-8 text-center cols:text-left'] span")[0]
+ document.querySelector(".pricing__current_code").innerText.trim() + ' ' + document.querySelector(".pricing__current_price").innerText.trim()
 
- jQuery("#ProductPrice-product-template").text().trim()
-jQuery("#ComparePrice-product-template").text().trim() || jQuery("#ProductPrice-product-template").text().trim()
+ jQuery("#priceCopy").text().trim()
+jQuery("[data-bind='text: wasprice']").text().trim().split(' ')[1] || jQuery("#priceCopy").text().trim()
+
+'CZK' + jQuery(".ProductMeta__PriceList .ProductMeta__Price:first").text().trim().split('Kč')[0].trim()
+'CZK' + (jQuery(".ProductMeta__PriceList .ProductMeta__Price:last").text().trim() ||
+jQuery(".product__price .product__current-price").text().trim())
+
+'RON' + jQuery("#our_price_display").text().trim().split('RON')[0].trim().split(' ').join('')
+'RON' + (jQuery("#our_price_display").text().trim().split('RON')[0].trim() ||
+jQuery(".product__price .product__current-price").text().trim())
+
+our_price_display

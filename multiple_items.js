@@ -441,19 +441,83 @@ return $text;
 
 
 if (
-  jQuery(".ProductList-grid .ProductList-item").length > 0 &&
-  jQuery('[class="ProductItem-gallery-slides-item-image loaded"]').length === 0
+  jQuery("ul.products li").length > 0 &&
+  jQuery(".woocommerce-product-gallery__image img").length === 0
 ) {
   $arr = [];
 
-  jQuery(".ProductList-grid .ProductList-item").each(function () {
-    $title = jQuery(this).find(".ProductList-title").text().trim();
+  jQuery("ul.products li").each(function () {
+    $title = jQuery(this).find("h3.product-name").text().trim().replace(/\s\s+/g, "");
 
-    $img = jQuery(this).find(".ProductList-innerImageWrapper img:first").attr("src")
+    $img =
+    // 'https:' +
+     jQuery(this).find(".image-block img:first").attr("src") 
+    
 
-    $link = 'https://shopthebreak.com' + jQuery(this).find("a:first").attr("href");
+    $link =
+    //  'https://selenestone.com/' + 
+    jQuery(this).find(".image-block a:first").attr("href");
 
-    $price = jQuery(this).find('.ProductList-overlay .product-price .sqs-money-native:first').text().replace(/\r|\n/g, '').trim()
+    $price = jQuery(this).find(".price .woocommerce-Price-amount:last").text().trim().split('RON')[0].trim().split(' ').join('')
+    //  || jQuery(this).find(".card__price").text().trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+
+// ('https:' +
+//      ((jQuery(this).find(".ProductItem__ImageWrapper img:first").attr("srcset") ||
+//      jQuery(this).find(".ProductItem__ImageWrapper img:first").attr("data-srcset") ||
+//      jQuery(this).find(".ProductItem__ImageWrapper img:last").attr("srcset") ||
+//      jQuery(this).find(".ProductItem__ImageWrapper img:last").attr("data-srcset"))))
+//      .split(' ')[0]
+
+if (
+  jQuery("section.list__page .product__list__min-info").length > 0 &&
+  jQuery(".lslide.active img[data-zta='productPicture']").length === 0
+) {
+  $arr = [];
+
+  jQuery("section.list__page .product__list__min-info").each(function () {
+    $title = jQuery(this).find("h3.producttitle").text().trim().replace(/\s\s+/g, "");
+
+    $img =
+     'https:' +
+     (jQuery(this).find("img:first").next().text().trim().split('src="')[1].split(' alt')[0].slice(0, -1) ||
+       jQuery(this).find(".product__list__image img:first").attr("src"))
+    //     || 
+    //  jQuery(this).find("img:first").next().text().trim().split('src="')[1].split(' alt')[0].slice(0, -1))
+
+    $link = 'https://www.bitiba.co.uk' + jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find(".price__amount:first").text().trim().split(',')[0]
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+
+
+
+if (
+  jQuery("#search-result-items li").length > 0 &&
+  jQuery(".product-image.swiper-slide-active img").length === 0
+) {
+  $arr = [];
+
+  jQuery("#search-result-items li").each(function () {
+    $title = jQuery(this).find(".product-name").text().trim();
+
+    $img = jQuery(this).find("img:first").attr("src")
+
+    $link = jQuery(this).find("a:first").attr("href");
+
+    $price = '€' +  (jQuery(this).find('.product-standard-price ').text().trim().split(' ')[0])
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);

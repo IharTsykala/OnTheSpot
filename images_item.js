@@ -21,8 +21,8 @@ else
 
  m-tp-productimagegallery-preview-wrapper
 
- if (jQuery("img.zoomImg:first").length > 0) 
-    $img = jQuery("img.zoomImg:first").attr('src')
+ if (jQuery("img.product_image_gallery__item_image:first").length > 0) 
+    $img = jQuery("img.product_image_gallery__item_image:first").attr('src')
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -30,12 +30,14 @@ if ($img.indexOf("http") == -1)
   'https:'+$img
 else
   $img
+  
+  // .css('background-image').split('url("')[1].slice(0, -2)
 
-  if (jQuery('.product-single__thumbnails-product-template img').length > 0){
+  if (jQuery('img.product_image_gallery__item_image').length > 0){
     $arr = [];
-   jQuery(".product-single__thumbnails-product-template img").each(function(index){
+   jQuery("img.product_image_gallery__item_image").each(function(index){
         if (index < 4) 
-        $arr.push('https:'+jQuery(this).attr('src'))
+        $arr.push(jQuery(this).attr('src'))
     })
    $arr
  }
@@ -143,8 +145,8 @@ else
 $img
 
 
-if (jQuery(".fotorama__img").length > 0) 
-$img = jQuery(".fotorama__img").css('background-image').slice(5, -2)
+if (jQuery(".product__media-preview-image").length > 0) 
+$img = jQuery(".product__media-preview-image").css('background-image').slice(5, -2)
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -153,8 +155,8 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery("img[class='  lazyload ']").length > 0) 
-$img = jQuery("img[class='  lazyload ']").attr('src')
+if (jQuery("[class='woocommerce-product-gallery__image flex-active-slide'] img").length > 0) 
+$img = jQuery("[class='woocommerce-product-gallery__image flex-active-slide'] img").attr('src')
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -164,11 +166,11 @@ else
 $img
 
 
-if (jQuery('.product-img-thumbs .product-thumb-set img').length > 0){
+if (jQuery('.owl-wrapper-outer .owl-item li img').length > 0){
 $arr = [];
-jQuery('.product-img-thumbs .product-thumb-set img').each(function(index){
+jQuery('.owl-wrapper-outer .owl-item li img').each(function(index){
     if (index < 4) 
-    $arr.push(jQuery(this).attr("src"))    
+    $arr.push('https://www.homeandsouldubai.com/' + jQuery(this).attr("src"))    
 })
 $arr
 }

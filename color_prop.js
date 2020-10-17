@@ -247,32 +247,29 @@ wait_for(function () {
 
 // for li a
 
-if (jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li").length > 0) {
+if (jQuery("#configurable_swatch_color li").length > 0) {
   ;[
-    jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li a._3c2Xi9").length > 0
-      ? jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li a._3c2Xi9")
-          .parent()
-          .find("div:last")
-          .text()
-          .trim()
+    jQuery("#configurable_swatch_color li.selected").length > 0
+      ? jQuery("#configurable_swatch_color li.selected a").
+          attr('title')
       : "Select Color",
     jQuery.makeArray(
-      jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li ._3xOS0O").map(function (
+      jQuery("#configurable_swatch_color li a").map(function (
         i,
         e
       ) {
-        if (jQuery(e).text().trim() != "") return jQuery(e).text().trim()
+        if (jQuery(e).attr('title') != "") return jQuery(e).attr('title')
       })
     ),
   ]
 } else ["No Color", ["No Color"]]
 
 if (
-  jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li ._3xOS0O").length > 0 &&
+  jQuery("#configurable_swatch_color li a").length > 0 &&
   $sarg != "Select Color" &&
   $sarg != "No Color"
 ) {
-  jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li ._3xOS0O").each(function () {
+  jQuery("#configurable_swatch_color li a").each(function () {
     if (jQuery(e).text().trim() == $sarg) jQuery(this).click()
   })
 }
@@ -282,12 +279,12 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li ._3xOS0O").length > 0 &&
+  jQuery("#configurable_swatch_color li a").length > 0 &&
   $sarg != "No Color" &&
   $sarg != "Select Color"
 ) {
   $text = true
-  jQuery("._2a2WU_:contains(Color) ul.fUBI-_ li ._3xOS0O").each(function (
+  jQuery("#configurable_swatch_color li a").each(function (
     index
   ) {
     if (jQuery(this).text().trim() == $sarg && !jQuery(this).attr("disabled")) {
@@ -333,16 +330,16 @@ wait_for(function () {
 })
 
 // Select
-if (jQuery("select.form-control:contains(Colour)").length > 0) {
+if (jQuery("select[data-beaver-id='selectCouleur'] option").length > 0) {
   ;[
-    jQuery("select.form-control:contains(Colour) option:selected").text() != ""
-      ? jQuery("select.form-control:contains(Colour) option:selected")
+    jQuery("select[data-beaver-id='selectCouleur'] option:selected").text() != ""
+      ? jQuery("select[data-beaver-id='selectCouleur'] option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Color",
     jQuery.makeArray(
-      jQuery("select.form-control:contains(Colour) option").map(function (
+      jQuery("select[data-beaver-id='selectCouleur'] option").map(function (
         i,
         e
       ) {
@@ -357,11 +354,11 @@ if (jQuery("select.form-control:contains(Colour)").length > 0) {
 
 //pa_Colors clicker
 if (
-  jQuery("select.form-control:contains(Colour) option").length > 0 &&
+  jQuery("select[data-beaver-id='selectCouleur'] option").length > 0 &&
   $sarg != "Select Color" &&
   $sarg != "No Color"
 ) {
-  jQuery("select.form-control:contains(Colour) option").each(function () {
+  jQuery("select[data-beaver-id='selectCouleur'] option").each(function () {
     if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
       jQuery(this).text(jQuery(this).text()).trigger("change")
     }
@@ -370,6 +367,31 @@ if (
 wait_for(function () {
   return true
 })
+
+
+$val = false
+if (
+  jQuery("select[data-beaver-id='selectCouleur'] option")
+    .length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $val = true
+  jQuery(
+    "select[data-beaver-id='selectCouleur'] option"
+  ).each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") ==  $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $val = false
+    }
+  })
+}
+return $val
+
+
+
 
 // for li a
 
@@ -537,3 +559,121 @@ if (
   });
 }
 return $text;
+
+
+
+// div divi
+
+if (jQuery("form.variant:target .form__selections .form__options--color a").length > 0) {
+  [
+    jQuery(
+      "form.variant:target .form__selections .form__options--color a.active"
+    ).length > 0
+      ?jQuery(
+        "form.variant:target .form__selections .form__options--color a.active"
+        ).css('background-color')
+        // .text().trim().replace(/\s\s+/g, "")
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery("form.variant:target .form__selections .form__options--color a").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text() !== '')
+         return jQuery(e).css('background-color')
+        //  .text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ];
+} else ["No Color", ["No Color"]];
+
+jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimensions')
+
+
+if (
+  jQuery("form.variant:target .form__selections .form__options--color a").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery("form.variant:target .form__selections .form__options--color a").each(function () {
+    if (jQuery(this).css('background-color') == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+//pa_Colors stock status
+$text = false;
+if (
+  jQuery("form.variant:target .form__selections .form__options--color a").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery("form.variant:target .form__selections .form__options--color a").each(function (index) {
+    if (
+      jQuery(this).css('background-color') == $sarg &&
+      !jQuery(this).attr('.unavailable')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+
+// for ul li span
+
+if (jQuery("ul#select2-wn2o-results li").length > 0) {
+  ;[
+    jQuery("ul#select2-wn2o-results li.select2-results__option--highlighted").length > 0
+      ? jQuery("ul#select2-wn2o-results li.select2-results__option--highlighted")      
+          .find('span.text-color')
+          .text().trim().replace(/\s\s+/g, "")
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery("ul#select2-wn2o-results li").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).find('span.text-color')
+        .text().trim().replace(/\s\s+/g, "") != "") return jQuery(e).find('span.text-color')
+        .text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else ["No Color", ["No Color"]]
+
+if (
+  jQuery("ul#select2-wn2o-results li").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery("ul#select2-wn2o-results li").each(function () {
+    if (jQuery(e).find('span.text-color')
+    .text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery("#configurable_swatch_color li a").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true
+  jQuery("#configurable_swatch_color li a").each(function (
+    index
+  ) {
+    if (jQuery(this).find('span.text-color')
+    .text().trim().replace(/\s\s+/g, "") == $sarg && !jQuery(this).attr("aria-disabled")) {
+      $text = false
+    }
+  })
+}
+return $text

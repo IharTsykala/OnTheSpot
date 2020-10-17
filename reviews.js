@@ -176,13 +176,16 @@ issue = [content, author, rating, reviewed_at]
 return issue
 })
 
-if (jQuery("#grid .grid-item-wrap").length > 0) {
+if (jQuery(".listing-products .item").length > 0) {
   $arr = [];
-  jQuery("#grid .grid-item-wrap").each(function (index) {
-    content = jQuery(this).find(".main-text").text().trim();
-    author = jQuery(this).find(".title").text().trim();
-    rating = jQuery(this).find(".stars .fa-star").length;
-    reviewed_at = '';
+  jQuery(".swiper-wrapper .product-references__reference").each(function (index) {
+    content = jQuery(this).find(".product-reference__content").text().trim();
+    author = ''
+    // jQuery(this).find(".feedback__username").text().trim().split(' ').slice(-2).join(' ');
+    rating =  ''
+    // jQuery(this).find('.icon-star').attr('alt');
+    reviewed_at = ''
+    // jQuery(this).find(".feedback__header").text().trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;
