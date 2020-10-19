@@ -524,3 +524,66 @@ if (
   });
   $arr;
 }
+
+
+
+if (
+  jQuery("#bc-sf-filter-products .product-listing").length > 0 &&
+  jQuery(".Product__SlideItem--image.is-selected img").length === 0
+) {
+  $arr = [];
+
+  jQuery("#bc-sf-filter-products .product-listing").each(function () {
+    $title = jQuery(this).find("h3.product-title").text().trim().replace(/\s\s+/g, "");
+
+    $img =
+    // 'https:' +
+     jQuery(this).find("img:first").attr("src") ||
+     jQuery(this).find("img:first").attr("data-src") ||
+     jQuery(this).find("img:first").attr("data-second-image") ||
+     jQuery(this).find("img:first").attr("data-srcset") ||
+     jQuery(this).find("img:first").attr("srcset") 
+
+    $link =
+     'https://rebelliousfashion.com/' + 
+    jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find(".product-price .money:last").text().trim().split('RON')[0].trim().split(' ').join('')
+    //  || jQuery(this).find(".card__price").text().trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+
+if (
+  jQuery("#s_product .ProductItem").length > 0 &&
+  jQuery(".Product__SlideItem--image.is-selected img").length === 0
+) {
+  $arr = [];
+
+  jQuery("#s_product .ProductItem").each(function () {
+    $title = jQuery(this).find("h2.ProductItem__Title").text().trim().replace(/\s\s+/g, "");
+
+    $img =
+     ('https:' +
+    //  (jQuery(this).find(".ProductItem__ImageWrapper img:first").attr("srcset") ||
+    //  jQuery(this).find(".ProductItem__ImageWrapper img:first").attr("data-srcset") ||
+    //  jQuery(this).find(".ProductItem__ImageWrapper img:last").attr("srcset") ||
+    //  jQuery(this).find(".ProductItem__ImageWrapper img:last").attr("data-srcset")) ||
+     jQuery(this).find(".ProductItem__ImageWrapper img:last").next().next().text().trim().split('src="')[1])
+     .split(' ')[0].slice(0, -1)
+    
+
+    $link = 'https://saintluca.com' + jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find("span.ProductItem__Price:first").text().trim()
+    //  || jQuery(this).find(".card__price").text().trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}

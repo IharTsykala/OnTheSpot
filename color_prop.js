@@ -247,29 +247,29 @@ wait_for(function () {
 
 // for li a
 
-if (jQuery("#configurable_swatch_color li").length > 0) {
+if (jQuery(".product-swatch:contains(Colour:) li").length > 0) {
   ;[
-    jQuery("#configurable_swatch_color li.selected").length > 0
-      ? jQuery("#configurable_swatch_color li.selected a").
-          attr('title')
+    jQuery(".product-swatch:contains(Colour:) li.current").length > 0
+      ? jQuery(".product-swatch:contains(Colour:) li.current")
+      .text().trim()
       : "Select Color",
     jQuery.makeArray(
-      jQuery("#configurable_swatch_color li a").map(function (
+      jQuery(".product-swatch:contains(Colour:) li").map(function (
         i,
         e
       ) {
-        if (jQuery(e).attr('title') != "") return jQuery(e).attr('title')
+        if (jQuery(e).text().trim() != "") return jQuery(e).text().trim()
       })
     ),
   ]
 } else ["No Color", ["No Color"]]
 
 if (
-  jQuery("#configurable_swatch_color li a").length > 0 &&
+  jQuery(".product-swatch:contains(Colour:) li").length > 0 &&
   $sarg != "Select Color" &&
   $sarg != "No Color"
 ) {
-  jQuery("#configurable_swatch_color li a").each(function () {
+  jQuery(".product-swatch:contains(Colour:) li").each(function () {
     if (jQuery(e).text().trim() == $sarg) jQuery(this).click()
   })
 }
@@ -279,15 +279,15 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery("#configurable_swatch_color li a").length > 0 &&
+  jQuery(".product-swatch:contains(Colour:) li").length > 0 &&
   $sarg != "No Color" &&
   $sarg != "Select Color"
 ) {
   $text = true
-  jQuery("#configurable_swatch_color li a").each(function (
+  jQuery(".product-swatch:contains(Colour:) li").each(function (
     index
   ) {
-    if (jQuery(this).text().trim() == $sarg && !jQuery(this).attr("disabled")) {
+    if (jQuery(this).text().trim() == $sarg && !jQuery(this).attr("class") === 'product-not-available') {
       $text = false
     }
   })

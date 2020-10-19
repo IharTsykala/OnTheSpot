@@ -2,8 +2,8 @@ ProductMeta__PriceList
 '€' + jQuery('.prices span:last').text().trim().split(' ')[0].slice(1)
 '€' + jQuery('.ProductMeta__PriceList span.money:last').text().trim().split(' ')[0].slice(1)
 
-jQuery(".price:first bdi:last").text().trim().split(' ')[0]
-jQuery(".price:first del").text().trim() || jQuery(".price:first bdi:last").text().trim()
+jQuery(".product-price-container .money:last").text().trim().split(' ')[0]
+jQuery(".product-price-container .money:first").text().trim() || jQuery(".price:first bdi:last").text().trim()
 
 '£' +  jQuery('.product-shop .price:last').text().trim().split('£')[1].split(' ')[0].trim()
 '£' + jQuery('.product-shop .price:first').text().trim().replace(/\r|\n/g, ' ').split('£')[1].trim()||

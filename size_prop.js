@@ -459,18 +459,18 @@ wait_for(function () {
 
 // ul li
 
-if (jQuery("ul .justify-content-start li label").length > 0) {
+if (jQuery("ul.product-swatch-list li").length > 0) {
   [
     jQuery(
-      "ul .justify-content-start li input:checked"
+      "ul.product-swatch-list li.active"
     ).length > 0
       ?jQuery(
-          "ul .justify-content-start li input:checked"
-        ) .parent()       
+          "ul.product-swatch-list li.active"
+        )       
           .text().trim().replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery("ul .justify-content-start li label").map(function (
+      jQuery("ul.product-swatch-list li").map(function (
         i,
         e
       ) {
@@ -487,11 +487,11 @@ jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimension
 
 
 if (
-  jQuery("ul .justify-content-start li label").length > 0 &&
+  jQuery("ul.product-swatch-list li").length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery("ul .justify-content-start li label").each(function () {
+  jQuery("ul.product-swatch-list li").each(function () {
     if (jQuery(e).text().trim().replace(/\s\s+/g, "")) jQuery(this).click();
   });
 }
@@ -502,15 +502,15 @@ wait_for(function () {
 //pa_sizes stock status
 $text = false;
 if (
-  jQuery("ul .justify-content-start li label").length > 0 &&
+  jQuery("ul.product-swatch-list li").length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true;
-  jQuery("ul .justify-content-start li label").each(function (index) {
+  jQuery("ul.product-swatch-list li").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
-      !jQuery(this).attr("disabled")
+      !jQuery(this).attr("data-available")
     ) {
       $text = false;
     }

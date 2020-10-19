@@ -155,8 +155,8 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery("[class='woocommerce-product-gallery__image flex-active-slide'] img").length > 0) 
-$img = jQuery("[class='woocommerce-product-gallery__image flex-active-slide'] img").attr('src')
+if (jQuery(".large-image.slick-active img:first").length > 0) 
+$img = jQuery(".large-image.slick-active img:first").attr('src')
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -166,11 +166,11 @@ else
 $img
 
 
-if (jQuery('.owl-wrapper-outer .owl-item li img').length > 0){
+if (jQuery('.thumbnail-image.slick-active').length > 0){
 $arr = [];
-jQuery('.owl-wrapper-outer .owl-item li img').each(function(index){
+jQuery('.thumbnail-image.slick-active').each(function(index){
     if (index < 4) 
-    $arr.push('https://www.homeandsouldubai.com/' + jQuery(this).attr("src"))    
+    $arr.push('https:' + jQuery(this).find('img:first').attr("src"))    
 })
 $arr
 }
