@@ -2,8 +2,8 @@ ProductMeta__PriceList
 '€' + jQuery('.prices span:last').text().trim().split(' ')[0].slice(1)
 '€' + jQuery('.ProductMeta__PriceList span.money:last').text().trim().split(' ')[0].slice(1)
 
-jQuery(".product-price-container .money:last").text().trim().split(' ')[0]
-jQuery(".product-price-container .money:first").text().trim() || jQuery(".price:first bdi:last").text().trim()
+jQuery(".product-info-price .price:first").text().trim().split(' ')[0]
+jQuery(".product-info-price .price:last").text().trim() || jQuery(".price:first bdi:last").text().trim()
 
 '£' +  jQuery('.product-shop .price:last').text().trim().split('£')[1].split(' ')[0].trim()
 '£' + jQuery('.product-shop .price:first').text().trim().replace(/\r|\n/g, ' ').split('£')[1].trim()||
@@ -22,7 +22,7 @@ jQuery('.product-shop .price:last').text().trim().split('£')[1].split(' ')[0].t
  }
  
 
-'€' + (jQuery('.cd-old-price').text().trim().split(' ')[0] ||  jQuery('.cd-current-price:first').text().trim().split(' ')[0])
+'€' + (jQuery('.bfx-price').text().trim().split(' ')[0] ||  jQuery('.cd-current-price:first').text().trim().split(' ')[0])
 
 '€' + (jQuery('.discount-row:contains(~EUR) span[itemprop="priceSpecification"]:last').text().trim() || 
   jQuery('.price-span:contains(~EUR) span[itemprop="price"]:last').text().trim())

@@ -441,24 +441,25 @@ return $text;
 
 
 if (
-  jQuery("ul.products li").length > 0 &&
-  jQuery(".woocommerce-product-gallery__image img").length === 0
+  jQuery(".ProductBrowser__ProductsContainer-sc-1k6djnz-5 article").length > 0 &&
+  jQuery(".slick-slide.slick-active.slick-current img:first").length === 0
 ) {
   $arr = [];
 
-  jQuery("ul.products li").each(function () {
-    $title = jQuery(this).find("h3.product-name").text().trim().replace(/\s\s+/g, "");
+  jQuery(".ProductBrowser__ProductsContainer-sc-1k6djnz-5 article ").each(function () {
+    $title = jQuery(this).find(".ProductCell__ProductName-w2jl0d-10").text().trim().replace(/\s\s+/g, "");
 
     $img =
     // 'https:' +
-     jQuery(this).find(".image-block img:first").attr("src") 
+     jQuery(this).find("img:first").attr("src") 
     
 
     $link =
     //  'https://selenestone.com/' + 
-    jQuery(this).find(".image-block a:first").attr("href");
+    jQuery(this).find(" a:first").attr("href");
 
-    $price = jQuery(this).find(".price .woocommerce-Price-amount:last").text().trim().split('RON')[0].trim().split(' ').join('')
+    $price = jQuery(this).find(".bfx-price").text().trim()
+    // .split('RON')[0].trim().split(' ').join('')
     //  || jQuery(this).find(".card__price").text().trim()
     
     if ($title && $img && $link && $price)

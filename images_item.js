@@ -155,8 +155,8 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery(".large-image.slick-active img:first").length > 0) 
-$img = jQuery(".large-image.slick-active img:first").attr('src')
+if (jQuery(".slick-slide.slick-active.slick-current img:first").length > 0) 
+$img = jQuery(".slick-slide.slick-active.slick-current img:first").attr('src')
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -166,11 +166,13 @@ else
 $img
 
 
-if (jQuery('.thumbnail-image.slick-active').length > 0){
+if (jQuery('.slick-slide.slick-active.slick-current img').length > 0){
 $arr = [];
-jQuery('.thumbnail-image.slick-active').each(function(index){
+jQuery('.slick-slide.slick-active.slick-current img').each(function(index){
     if (index < 4) 
-    $arr.push('https:' + jQuery(this).find('img:first').attr("src"))    
+    $arr.push(jQuery(this)
+    // .find('img:first')
+    .attr("src"))    
 })
 $arr
 }

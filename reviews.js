@@ -176,16 +176,16 @@ issue = [content, author, rating, reviewed_at]
 return issue
 })
 
-if (jQuery(".listing-products .item").length > 0) {
+if (jQuery("#reviews article").length > 0) {
   $arr = [];
-  jQuery(".swiper-wrapper .product-references__reference").each(function (index) {
-    content = jQuery(this).find(".product-reference__content").text().trim();
-    author = ''
-    // jQuery(this).find(".feedback__username").text().trim().split(' ').slice(-2).join(' ');
+  jQuery("#reviews article").each(function (index) {
+    content = jQuery(this).find("[data-autotag='review-content']").text().trim();
+    author =
+    jQuery(this).find("[data-autotag='user-name']").text().trim();
     rating =  ''
     // jQuery(this).find('.icon-star').attr('alt');
     reviewed_at = ''
-    // jQuery(this).find(".feedback__header").text().trim();
+    jQuery(this).find("[data-autotag='review-title']").text().trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;
