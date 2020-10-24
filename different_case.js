@@ -4,7 +4,7 @@ com/([\w-]+)
 wait_for(function(){return jQuery && jQuery.fn.jquery ;})
 
 // fix enter on space
-.replace(/\r|\n/g, ' ')
+.replace(/\r|\n/g, ' ')  .replace(/\s/g,'%20')
 
 jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimensions')
 jQuery('#selected-or-first-available-variant .form__selections').text()

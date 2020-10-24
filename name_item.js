@@ -13,7 +13,7 @@ jQuery('h1[data-talos="labelPdpProductTitle"]').text().trim()
 jQuery('h1').text().trim()
 jQuery('h2.product-brand').text().trim()
 
-jQuery('h1:first').text().trim()
+jQuery('h1:last').text().trim()
 
 jQuery('h1.title-xl span').text().trim()
 jQuery('h1.title-xl').text().trim().replace(/\r|\n/g, ' ').split(' ').slice(0,2).join(' ')

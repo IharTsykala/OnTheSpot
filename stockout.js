@@ -5,8 +5,8 @@ if (jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimen
   $status = false;
 }
 
-if (jQuery('button[id="product-addtocart-button"]').text().trim().toLowerCase() == 'sold out' || 
-jQuery('button[id="product-addtocart-button"]').text().trim().toLowerCase() == 'out of stock' )
+if (jQuery('[data-add-to-cart]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[data-add-to-cart]').text().trim().toLowerCase() == 'out of stock' )
 // ||
 // jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
  {
@@ -15,8 +15,8 @@ jQuery('button[id="product-addtocart-button"]').text().trim().toLowerCase() == '
   $status = false;
 }
 
-if (jQuery('button.product__add-to-cart-button span:first').text().trim().toLowerCase() == 'sold out' || 
-jQuery('button.product__add-to-cart-button span:first').text().trim().toLowerCase() == 'out of stock'
+if (jQuery('button.single_add_to_cart_button:first').text().trim().toLowerCase() == 'sold out' || 
+jQuery('button.single_add_to_cart_button:first').text().trim().toLowerCase() == 'out of stock'
 ) {
   $status = true
 } else {
@@ -30,7 +30,7 @@ if (jQuery('a[id="BIS_trigger"]:not(.h-tp-hidden)').text().trim() == 'Notify me 
   $status = false;
 }
 
-if (jQuery('#product-price .product-price').text().trim() == 'Sold Out' ) {
+if (jQuery('product-mark.sold-out').text().trim().toLowerCase() == 'sold out' ) {
   $status = true
 } else {
   $status = false;
@@ -178,14 +178,14 @@ jQuery('.product-rbox h2').text().trim() == 'Izdelka trenutno ni v ponudbi') {
   $status = false;
 }
 
-if (jQuery('.product__submit__add').text().trim().toLowerCase().indexOf('notify') >= 0) {
+if (jQuery('input[id="back-in-stock-subscribe-27906"]').attr('value').toLowerCase().indexOf('pranešti') >= 0) {
   $status = true
 } else {
   $status = false;
 }
 product__submit__add
 
-if (jQuery('button[id="btn-basket"]').attr('disabled')) {
+if (jQuery('input[id="back-in-stock-subscribe-27906"]').attr('disabled')) {
   $status = true
 } else {
   $status = false;

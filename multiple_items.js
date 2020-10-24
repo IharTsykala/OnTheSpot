@@ -250,20 +250,20 @@ if (
 ProductList ProductList--grid ProductList--removeMargin Grid
 
 if (
-  jQuery("._35HD7C ._1R0K0g").length > 0 &&
-  jQuery("._3KsTU0 img._30XEf0").length === 0
+  jQuery(".products-flex-container .grid-item").length > 0 &&
+  [].length === 0
 ) {
   $arr = [];
 
-  jQuery("._35HD7C ._1R0K0g").each(function () {
-    $title = jQuery(this).find("a._2cLu-l").text().trim();
+  jQuery(".products-flex-container .grid-item").each(function () {
+    $title = jQuery(this).find(".grid-title").text().trim();
 
     $img =    
-    jQuery(this).find("img._30XEf0").attr('src')      
+    jQuery(this).find("img:first").attr('src')      
 
-    $link = 'https://www.2gud.com/' + jQuery(this).find('a.Zhf2z-').attr("href");
+    $link = 'https://www.thestudiomm.com' + jQuery(this).find('a:first').attr("href");
 
-    $price = jQuery(this).find("a._1Vfi6u ._1vC4OE").text().trim()
+    $price = jQuery(this).find(".grid-prices").text().trim()
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
@@ -560,30 +560,118 @@ if (
 
 
 if (
-  jQuery("#s_product .ProductItem").length > 0 &&
-  jQuery(".Product__SlideItem--image.is-selected img").length === 0
+  jQuery("#bc-sf-filter-products .grid__item").length > 0 &&
+  jQuery(".presentation").length === 0
 ) {
   $arr = [];
 
-  jQuery("#s_product .ProductItem").each(function () {
-    $title = jQuery(this).find("h2.ProductItem__Title").text().trim().replace(/\s\s+/g, "");
+  jQuery("#bc-sf-filter-products .grid__item").each(function () {
+    $title = jQuery(this).find(".indiv-product-title-text").text().trim().replace(/\s\s+/g, "");
 
     $img =
-     ('https:' +
-    //  (jQuery(this).find(".ProductItem__ImageWrapper img:first").attr("srcset") ||
-    //  jQuery(this).find(".ProductItem__ImageWrapper img:first").attr("data-srcset") ||
-    //  jQuery(this).find(".ProductItem__ImageWrapper img:last").attr("srcset") ||
-    //  jQuery(this).find(".ProductItem__ImageWrapper img:last").attr("data-srcset")) ||
-     jQuery(this).find(".ProductItem__ImageWrapper img:last").next().next().text().trim().split('src="')[1])
-     .split(' ')[0].slice(0, -1)
+    //  'https:' +
+      jQuery(this).find("img:first").attr("src")
+    //  (jQuery(this).find("img:first").attr("srcset") ||
+    //  jQuery(this).find("img:first").attr("data-srcset") ||
+    //  jQuery(this).find("img:first").attr("src"))   
+    //  jQuery(this).find(".ProductItem__ImageWrapper img:last").next().next().text().trim().split('src="')[1])
+    //  .split(' ')[0]
     
 
-    $link = 'https://saintluca.com' + jQuery(this).find("a:first").attr("href");
+    $link = 
+    'https://www.myweddingfavors.com' +
+     jQuery(this).find("a:first").attr("href");
 
-    $price = jQuery(this).find("span.ProductItem__Price:first").text().trim()
+    $price = jQuery(this).find(".money-styling .money").text().trim()
     //  || jQuery(this).find(".card__price").text().trim()
     
     if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+if (
+  jQuery(".products [class='product-small box ']").length > 0 &&
+  jQuery(".woocommerce-product-gallery__image.slide.first.is-selected img:first").length === 0
+) {
+  $arr = [];
+
+  jQuery(".products [class='product-small box ']").each(function () {
+    $title = jQuery(this).find(".product-title").text().trim().replace(/\s\s+/g, "");
+
+    $img =
+    //  'https:' +
+
+    //  (jQuery(this).find("img:first").next().text().trim().split('src="')[1].split(' alt')[0].slice(0, -1) ||
+    //    jQuery(this).find(".product__list__image img:first").attr("src"))
+    //     || 
+     jQuery(this).find("img:first").attr("src")
+
+    $link = 
+    // 'https://www.bitiba.co.uk'  + 
+    jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find(".price-wrapper .woocommerce-Price-amount.amount:first").text().trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+if (
+  jQuery(".products [class='product-small box ']").length > 0 &&
+  jQuery(".woocommerce-product-gallery__image.is-selected img:first").length === 0
+) {
+  $arr = [];
+
+  jQuery(".products [class='product-small box ']").each(function () {
+    $title = jQuery(this).find(".woocommerce-loop-product__title").text().trim().replace(/\s\s+/g, "");
+
+    $img =
+    //  'https:' +
+
+    //  (jQuery(this).find("img:first").next().text().trim().split('src="')[1].split(' alt')[0].slice(0, -1) ||
+    //    jQuery(this).find(".product__list__image img:first").attr("src"))
+    //     ||
+     jQuery(this).find("img:first").next().text().trim().split('src="')[1].split(' class')[0].slice(0, -1).replace(/\s/g,'%20')
+
+    $link = jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find("[class='woocommerce-Price-amount amount']:last").text().trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+
+if (
+  jQuery("ul.products-grid li").length > 0 &&
+  [].length === 0
+) {
+  $arr = [];
+
+  jQuery("ul.products-grid li").each(function () {
+    $title = jQuery(this).find(".product-name").text().trim();
+
+    $img = 
+    // 'https://www.lampegiganten.dk' +
+    //  (jQuery(this).find(".panel-body a:first img").attr("data-src") ||
+       jQuery(this).find("a:first img:first").attr("src") ||
+       jQuery(this).find("a:first img:first").attr("data-src") ||
+       jQuery(this).find("a:first source:first").attr("data-srcset") ||
+       jQuery(this).find("a:first source:first").attr("srcset")
+
+    $link =
+    //  'https://www.lampegiganten.dk' +
+      jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find(".price-box .price:last").text().trim()
+    
+    // if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });
   $arr;

@@ -62,16 +62,18 @@ document.querySelectorAll('li[class="flex justify-between mt-4 cols:mt-8 pt-4 co
 
 
 jQuery("button[data-zta='enterCouponBtn']").click()
-jQuery('input[id="checkout_reduction_code"]')
-jQuery('button.field__input-btn')
-jQuery('[data-zta="total__price__value"]')
+jQuery('input[name="coupon_code"]:first')
+jQuery('button.coupon__apply-btn:first')
+jQuery('.checkout__prices-table-value.checkout__prices-table-currency)
 
+// 
 jQuery("#cadeaubonText")[0].click()
-jQuery('input[name="coupons[]"]')
-jQuery('button[name="submit_voucher"]')
-jQuery('.total-price span:last')
+jQuery('input[name="coupon_code"]')
+jQuery('input[name="apply_coupon"]')
+jQuery('.order-total bdi')
+// 
 
 jQuery(".showcoupon")[0].click()
 jQuery('input[name="coupon_code"]')
-jQuery('button[name="apply_coupon"]')
-jQuery('.order-total bdi')
+jQuery('button.coupon-form__btn--apply')
+jQuery('.total-grand_total .price')
