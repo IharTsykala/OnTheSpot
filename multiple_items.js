@@ -250,20 +250,20 @@ if (
 ProductList ProductList--grid ProductList--removeMargin Grid
 
 if (
-  jQuery(".products-flex-container .grid-item").length > 0 &&
+  jQuery(".product-grid  li").length > 0 &&
   [].length === 0
 ) {
   $arr = [];
 
-  jQuery(".products-flex-container .grid-item").each(function () {
-    $title = jQuery(this).find(".grid-title").text().trim();
+  jQuery(".product-grid  li").each(function () {
+    $title = jQuery(this).find(".product-summary__name").text().trim();
 
     $img =    
     jQuery(this).find("img:first").attr('src')      
 
-    $link = 'https://www.thestudiomm.com' + jQuery(this).find('a:first').attr("href");
+    $link = 'https://www.buycostumes.com/' + jQuery(this).find('a:first').attr("href");
 
-    $price = jQuery(this).find(".grid-prices").text().trim()
+    $price = jQuery(this).find("strong[itemprop='price']").text().trim()
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);

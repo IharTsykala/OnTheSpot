@@ -74,6 +74,10 @@ jQuery('.order-total bdi')
 // 
 
 jQuery(".showcoupon")[0].click()
-jQuery('input[name="coupon_code"]')
-jQuery('button.coupon-form__btn--apply')
-jQuery('.total-grand_total .price')
+jQuery('input[id="promo_code"]')
+jQuery('button[value="add_promo_code"]')
+jQuery('.table__total td')
+
+jQuery('#voucherAndCouponsCoantainer input[id="voucherInput"]')
+jQuery('#voucherAndCouponsCoantainer button[id="applyVoucherBtn"]')
+jQuery('.totals-row-summary .totals-col-price:last')

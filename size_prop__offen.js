@@ -160,6 +160,120 @@ if (
   return $text;
 
 
+  //
+
+
+  if (jQuery("div.product__variants:contains(Size) .swatch-size input").length > 0) {
+    ;[
+      jQuery("div.product__variants:contains(Size) .swatch-size input:checked").length > 0
+        ? jQuery("div.product__variants:contains(Size) .swatch-size input:checked")
+        .next()
+        .text().trim()
+        .replace(/\s\s+/g, "")
+    : "Select item",
+  jQuery.makeArray(
+    jQuery("div.product__variants:contains(Size) .swatch-size input").map(function (i, e) {
+      if (jQuery(e).next().text().trim() != "")
+        return jQuery(e).next().text().trim()
+    })
+  ),
+  ]
+  } else {
+  ;["No Size", ["No Size"]]
+  }
+  
+  if (jQuery("div.product__variants:contains(Size) .swatch-size input").length > 0  &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size") {
+  jQuery("div.product__variants:contains(Size) .swatch-size input").each(function () {
+  if (jQuery(this).next().text().trim() == $sarg) {
+    jQuery(this).next().text().trim()[0].click()
+  }
+  })
+  }
+  wait_for(function () {
+  return true
+  })
+  
+  $text = false;
+  if (
+    jQuery("div.product__variants:contains(Size) .swatch-size input").length > 0 &&
+    $sarg != "No Size" &&
+    $sarg != "Select Size"
+  ) {
+    $text = true;
+    jQuery("div.product__variants:contains(Size) .swatch-size input").each(function (index) {
+      if (
+        jQuery(this).next().text().trim() == $sarg &&
+        !jQuery(this).attr('.data-availability') === 'soldout'
+      ) {
+        $text = false;
+      }
+    });
+  }
+  return $text;
+
+
+  //
+
+
+
+  if (jQuery(".product-details__section:contains(Size) .product-details__option input").length > 0) {
+    ;[
+      jQuery(".product-details__section:contains(Size) .product-details__option input:checked").length > 0
+        ? jQuery(".product-details__section:contains(Size) .product-details__option input:checked")
+        .next()
+        .text().trim()
+        .replace(/\s\s+/g, "")
+    : "Select item",
+  jQuery.makeArray(
+    jQuery(".product-details__section:contains(Size) .product-details__option input").map(function (i, e) {
+      if (jQuery(e).next().text().trim() != "")
+        return jQuery(e).next().text().trim()
+    })
+  ),
+  ]
+  } else {
+  ;["No Size", ["No Size"]]
+  }
+  
+  if (jQuery(".product-details__section:contains(Size) .product-details__option input").length > 0  &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size") {
+  jQuery(".product-details__section:contains(Size) .product-details__option input").each(function () {
+  if (jQuery(this).next().text().trim() == $sarg) {
+    jQuery(this).next().text().trim()[0].click()
+  }
+  })
+  }
+  wait_for(function () {
+  return true
+  })
+  
+  $text = false;
+  if (
+    jQuery(".product-details__section:contains(Size) .product-details__option input").length > 0 &&
+    $sarg != "No Size" &&
+    $sarg != "Select Size"
+  ) {
+    $text = true;
+    jQuery(".product-details__section:contains(Size) .product-details__option input").each(function (index) {
+      if (
+        jQuery(this).next().text().trim() == $sarg &&
+        !jQuery(this).attr('.data-availability') === 'soldout'
+      ) {
+        $text = false;
+      }
+    });
+  }
+  return $text;
+
+
+
+
+  // 
+
+
 
   // Select
   if (jQuery("table.variations:contains(sizes) option").length > 0) {
@@ -214,3 +328,5 @@ if (
   });
 }
 return $text;
+
+

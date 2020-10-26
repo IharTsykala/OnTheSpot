@@ -1,6 +1,6 @@
 jQuery('p.product-details__brand').text().trim()
 
-jQuery('h1.titlu_produs').text().trim()
+jQuery('h1.product__title').text().trim()
 
 jQuery('h1#title').text().trim().split(' In ')[0]
 
@@ -11,7 +11,7 @@ jQuery('h1[itemprop="name"]').text().trim().replace(/\r|\n/g, 'slash').split('sl
 jQuery('h1[data-talos="labelPdpProductTitle"]').text().trim()
 
 jQuery('h1').text().trim()
-jQuery('h2.product-brand').text().trim()
+jQuery('.site-name img:first').attr('alt')
 
 jQuery('h1:last').text().trim()
 

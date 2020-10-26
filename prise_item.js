@@ -2,10 +2,11 @@ ProductMeta__PriceList
 'USD' + ' ' + jQuery('.product-info__header_price.dj_skin_product_detail_price.money').text().trim().split('p.')[1]
 '€' + jQuery('.ProductMeta__PriceList span.money:last').text().trim().split(' ')[0].slice(1)
 
-jQuery(".price-item--regular").text().trim().split(' ')[0]
-jQuery(".price-box .price:first").text().trim() || jQuery(".h2.product-single__price #productPrice").text().trim()
+jQuery(".product-prices__price--current-price:first").text().trim().split(' ')[0]
+jQuery(".product-prices__price--original-price:first").text().trim().split('Reg.')[1] || jQuery(".h2.product-single__price #productPrice").text().trim()
 
-'£' +  jQuery('.product-shop .price:last').text().trim().split('£')[1].split(' ')[0].trim()
+'$' +  jQuery('.product__pricing .product__price').attr('ge-data-converted-price')
+.split('£')[1].split(' ')[0].trim()
 '£' + jQuery('.product-shop .price:first').text().trim().replace(/\r|\n/g, ' ').split('£')[1].trim()||
 jQuery('.product-shop .price:last').text().trim().split('£')[1].split(' ')[0].trim()
 

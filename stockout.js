@@ -5,8 +5,8 @@ if (jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimen
   $status = false;
 }
 
-if (jQuery('[data-add-to-cart]').text().trim().toLowerCase() == 'sold out' || 
-jQuery('[data-add-to-cart]').text().trim().toLowerCase() == 'out of stock' )
+if (jQuery('[value="add_to_cart"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[value="add_to_cart"]').text().trim().toLowerCase() == 'out of stock' )
 // ||
 // jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
  {
@@ -147,7 +147,13 @@ if (jQuery('.add_to_cart:first').text().trim().toLowerCase().indexOf('out') >= 0
 }
 sold_out
 
-if (jQuery('form.variant:target .form__selections a.btn:first').text().trim().toLowerCase().indexOf('notify') >= 0) {
+if (jQuery('input[id="notify"]').attr('value').toLowerCase().indexOf('notify') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('.notify').css('display') === 'block') {
   $status = true
 } else {
   $status = false;

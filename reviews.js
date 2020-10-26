@@ -176,16 +176,16 @@ issue = [content, author, rating, reviewed_at]
 return issue
 })
 
-if (jQuery(".bv-list .bv-review").length > 0) {
+if (jQuery("ol.reviews__review-group li").length > 0) {
   $arr = [];
-  jQuery(".bv-list .bv-review").each(function (index) {
-    content = jQuery(this).find(".bv-review-text").text().trim();
+  jQuery("ol.reviews__review-group li").each(function (index) {
+    content = jQuery(this).find(".reviews__review-body").text().trim();
     author =    
-    jQuery(this).find(".bv-user").text().trim();
+    jQuery(this).find("[itemprop='name']").text().trim();
     rating =  ''
-    // jQuery(this).find('.pr-snippet-rating-decimal').text().trim();
+    // jQuery(this).find('[itemprop="reviewRating"]').attr('title').split['.'];
     reviewed_at = 
-    jQuery(this).find("h4").text().trim();
+    jQuery(this).find("h3.reviews__review-title").text().trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;

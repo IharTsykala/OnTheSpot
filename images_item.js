@@ -63,8 +63,8 @@ jQuery('.slick-track img[itemprop="image"]').each(function(index){
 $arr
 }
 
-if (jQuery(".product-image-main img").length > 0) 
-$img = jQuery(".product-image-main img").attr('srcset').split(' ')[0]
+if (jQuery('.product-details__primary-image-button img[itemprop="image"]').length > 0) 
+$img = jQuery('.product-details__primary-image-button img[itemprop="image"]').attr('srcset').split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -145,7 +145,7 @@ else
 $img
 
 
-if (jQuery(".product__media-preview-image").length > 0) 
+if (jQuery('img[itemprop="image"]').length > 0) 
 $img = jQuery(".product__media-preview-image").css('background-image').slice(5, -2)
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -155,8 +155,8 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery(".presentation").length > 0) 
-$img = jQuery(".presentation").attr('src')
+if (jQuery(".product__image-item .product-image img:first").length > 0) 
+$img = jQuery(".product__image-item .product-image img:first").attr('src')
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -166,9 +166,9 @@ else
 $img
 
 
-if (jQuery('.product-single__thumbnail-image').length > 0){
+if (jQuery('.product__image-item .product-image img').length > 0){
 $arr = [];
-jQuery('.product-single__thumbnail-image').each(function(index){
+jQuery('.product__image-item .product-image img').each(function(index){
     if (index < 4) 
     $arr.push('https:'+jQuery(this)
     // .find('img:first')
