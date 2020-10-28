@@ -58,6 +58,34 @@ if (jQuery("#Collection .grid__item").length > 0 && [].length === 0) {
   $arr
 }
 
+
+if (
+  jQuery(".searchspring-results .grid-item").length > 0 &&
+  jQuery("#product-featured-image").length === 0
+) {
+  $arr = []
+
+  jQuery(".searchspring-results .grid-item").each(function () {
+    $title = jQuery(this).find(".product-title").text().trim()
+
+    $img =
+      "https:" +
+      jQuery(this)
+        .find("img:first")
+        .attr("src")
+
+    $link = "https:" + jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this).find(".money:last").text().trim()
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+
+
 if (jQuery(".products-collection a").length > 0 && [].length === 0) {
   $arr = []
 
@@ -79,15 +107,16 @@ if (jQuery(".products-collection a").length > 0 && [].length === 0) {
   $arr
 }
 
-if (jQuery(".products .product").length > 0 && [].length === 0) {
+if (jQuery('.products [itemprop="itemListElement"]').length > 0 &&
+ jQuery(".product_section .image__container img").length === 0) {
   $arr = []
 
-  jQuery(".products .product").each(function () {
-    $title = jQuery(this).find("a.shop_product_title").text().trim()
+  jQuery('.products [itemprop="itemListElement"]').each(function () {
+    $title = jQuery(this).find(".title").text().trim()
 
-    $img = "https:" + jQuery(this).find(".aspect-product__images img:first").attr("src")
+    $img = "https:" + jQuery(this).find("img:first").attr("src")
 
-    $link = "https://www.justhype.co.uk/" + jQuery(this).find('a.aspect-product__wrapper').attr("href")
+    $link = "https://www.daziusa.com/" + jQuery(this).find('a:first').attr("href")
 
     $price =
       // "€" +
@@ -99,3 +128,33 @@ if (jQuery(".products .product").length > 0 && [].length === 0) {
 
   $arr
 }
+
+
+//////////////////
+
+if (
+  jQuery(".CollectionMain .ProductList .ProductItem").length > 0 &&
+  [].length === 0
+) {
+  $arr = [];
+
+  jQuery(".CollectionMain .ProductList .ProductItem").each(function () {
+    $title = jQuery(this).find(".ProductItem__Title a").text().trim();
+
+    $img = 
+    'https:' +     
+     jQuery(this).find(".ProductItem__Image").next().next().text().trim()
+     .split('src="')[2].split(' ')[0].slice(0, -1) 
+     
+
+    $link = 'https://www.hairburst.com' + jQuery(this).find("a.ProductItem__ImageWrapper").attr("href");
+
+    $price = jQuery(this).find(".ProductItem__PriceList .money:first").text().trim()
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+
+  $arr
+}
+
+//////////////////////

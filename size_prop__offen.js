@@ -159,6 +159,118 @@ if (
   }
   return $text;
 
+  // /////////////////////
+
+  /////////////////////////////////////
+
+
+  if (jQuery(".asc-product-size-container:contains(Size) input").length > 0) {
+    ;[
+      jQuery(".asc-product-size-container:contains(Size) input:checked").length > 0
+        ? jQuery(".asc-product-size-container:contains(Size) input:checked")
+        .attr("data-size-value")
+        .replace(/\s\s+/g, "")
+    : "Select item",
+  jQuery.makeArray(
+    jQuery(".asc-product-size-container:contains(Size) input").map(function (i, e) {
+      if (jQuery(e).attr("data-size-value") != "")
+        return jQuery(e).attr("data-size-value").replace(/\s\s+/g, "")
+    })
+  ),
+  ]
+  } else {
+  ;["No Size", ["No Size"]]
+  }
+  
+  if (jQuery(".asc-product-size-container:contains(Size) input").length > 0  &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size") {
+  jQuery(".asc-product-size-container:contains(Size) input").each(function () {
+  if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).next()[0].click()
+  }
+  })
+  }
+  wait_for(function () {
+  return true
+  })
+  
+  $text = false;
+  if (
+    jQuery(".asc-product-size-container:contains(Size) input").length > 0 &&
+    $sarg != "No Size" &&
+    $sarg != "Select Size"
+  ) {
+    $text = true;
+    jQuery(".asc-product-size-container:contains(Size) input").each(function (index) {
+      if (
+        jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+        !jQuery(this).attr('.data-availability') === 'soldout'
+      ) {
+        $text = false;
+      }
+    });
+  }
+  return $text;
+
+
+
+  ////////////////////////////////////////////
+
+
+  if (jQuery("div.swatch:contains(Size) input").length > 0) {
+    ;[
+      jQuery("div.swatch:contains(Size) input:checked").length > 0
+        ? jQuery("div.swatch:contains(Size) input:checked")
+        .attr("value")
+        .replace(/\s\s+/g, "")
+    : "Select item",
+  jQuery.makeArray(
+    jQuery("div.swatch:contains(Size) input").map(function (i, e) {
+      if (jQuery(e).attr("value") != "")
+        return jQuery(e).attr("value").replace(/\s\s+/g, "")
+    })
+  ),
+  ]
+  } else {
+  ;["No Size", ["No Size"]]
+  }
+  
+  if (jQuery("div.swatch:contains(Size) input").length > 0  &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size") {
+  jQuery("div.swatch:contains(Size) input").each(function () {
+  if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).next()[0].click()
+  }
+  })
+  }
+  wait_for(function () {
+  return true
+  })
+  
+  $text = false;
+  if (
+    jQuery("div.swatch:contains(Size) input").length > 0 &&
+    $sarg != "No Size" &&
+    $sarg != "Select Size"
+  ) {
+    $text = true;
+    jQuery("div.swatch:contains(Size) input").each(function (index) {
+      if (
+        jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+        !jQuery(this).attr('.data-availability') === 'soldout'
+      ) {
+        $text = false;
+      }
+    });
+  }
+  return $text;
+
+
+
+  // ////////////////////////
+
 
   //
 
@@ -330,3 +442,58 @@ if (
 return $text;
 
 
+if (jQuery("fieldset:contains(SIZE:) input").length > 0) {
+  ;[
+    jQuery("fieldset:contains(SIZE:) input.ml-product-optionSelected").attr(
+      "alt"
+    ) != (undefined && "")
+      ? jQuery("fieldset:contains(SIZE:) input.ml-product-optionSelected")
+          .attr("alt")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery("fieldset:contains(SIZE:) input").map(function (i, e) {
+        if (jQuery(e).attr("alt") != "")
+          return jQuery(e).attr("alt").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Color", ["No Color"]]
+}
+
+if (
+  jQuery("fieldset:contains(SIZE:) input").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery("fieldset:contains(SIZE:) input").each(function () {
+    if (
+      jQuery(this).attr("alt").replace(/\s\s+/g, "") ==
+      $sarg
+    ) {
+      jQuery(this).click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+
+$text = false
+if (
+  jQuery("fieldset:contains(SIZE:) input").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true
+  jQuery("fieldset:contains(SIZE:) input").each(function (
+    index
+  ) {
+    if (jQuery(this).attr('alt') == $sarg && !jQuery(this).attr("alt") === 'disabled') {
+      $text = false
+    }
+  })
+}
+return $text

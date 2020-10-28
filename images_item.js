@@ -21,8 +21,8 @@ else
 
  m-tp-productimagegallery-preview-wrapper
 
- if (jQuery("img.product_image_gallery__item_image:first").length > 0) 
-    $img = jQuery("img.product_image_gallery__item_image:first").attr('src')
+ if (jQuery('img[itemprop="image"]').length > 0) 
+    $img = jQuery('img[itemprop="image"]').attr('src')
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -33,9 +33,9 @@ else
   
   // .css('background-image').split('url("')[1].slice(0, -2)
 
-  if (jQuery('img.product_image_gallery__item_image').length > 0){
+  if (jQuery('img[itemprop="image"]').length > 0){
     $arr = [];
-   jQuery("img.product_image_gallery__item_image").each(function(index){
+   jQuery('img[itemprop="image"]').each(function(index){
         if (index < 4) 
         $arr.push(jQuery(this).attr('src'))
     })
@@ -44,8 +44,10 @@ else
 
  owl-lazy img-responsive wrapper-main-slider__image lazy-init
 
- if (jQuery("img[itemprop='image']:first").length > 0) 
- $img = 'https://stormfashion.dk' + jQuery("img[itemprop='image']").attr('src')
+ if (jQuery("#largeImage").length > 0) 
+ $img =
+  // 'https://www.perfectlens.ca' +
+   jQuery("#largeImage").attr('src')
 else
  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -54,11 +56,11 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery('.slick-track img[itemprop="image"]').length > 0){
+if (jQuery('.iso-carousel-inside img').length > 0){
  $arr = [];
-jQuery('.slick-track img[itemprop="image"]').each(function(index){
+jQuery('.iso-carousel-inside img').each(function(index){
      if (index < 4) 
-     $arr.push('https://stormfashion.dk' + jQuery(this).attr('src'))
+     $arr.push('https:'+jQuery(this).attr('src'))
  })
 $arr
 }

@@ -163,13 +163,13 @@ wait_for(function () {
 
 // for label a
 
-if (jQuery(".swatch_box:contains(Colour)").length > 0) {
+if (jQuery(".fieldset:contains(Colour)").length > 0) {
   ;[
-    jQuery(".swatch_box:contains(Colour) a.is-active").length > 0
-      ? jQuery(".swatch_box:contains(Colour) a.is-active")
+    jQuery(".fieldset:contains(Colour) button").length > 0
+      ? jQuery(".fieldset:contains(Colour) button.ml-product-optionSelected")
           .attr("href")
           .split("-")[
-          jQuery(".swatch_box:contains(Colour) a.is-active")
+          jQuery(".fieldset:contains(Colour) button.ml-product-optionSelected")
             .attr("href")
             .split("-").length - 1
         ]
@@ -207,19 +207,19 @@ wait_for(function () {
   return true
 })
 
-if (jQuery(".swatchable-attribute:contains(Color)").length > 0) {
+if (jQuery("fieldset:contains(COLOUR) button").length > 0) {
   ;[
-    jQuery(".swatchable-attribute:contains(Color) img.selected").attr(
-      "data-attr-display-value"
+    jQuery("fieldset:contains(COLOUR) button.ml-product-optionSelected").attr(
+      "alt"
     ) != (undefined && "")
-      ? jQuery(".swatchable-attribute:contains(Color) img.selected")
-          .attr("data-attr-display-value")
+      ? jQuery("fieldset:contains(COLOUR) button.ml-product-optionSelected")
+          .attr("alt")
           .replace(/\s\s+/g, "")
       : "Select item",
     jQuery.makeArray(
-      jQuery(".swatchable-attribute:contains(Color) img").map(function (i, e) {
-        if (jQuery(e).attr("data-attr-display-value") != "")
-          return jQuery(e).attr("data-attr-display-value").replace(/\s\s+/g, "")
+      jQuery("fieldset:contains(COLOUR) button").map(function (i, e) {
+        if (jQuery(e).attr("alt") != "")
+          return jQuery(e).attr("alt").replace(/\s\s+/g, "")
       })
     ),
   ]
@@ -228,13 +228,13 @@ if (jQuery(".swatchable-attribute:contains(Color)").length > 0) {
 }
 
 if (
-  jQuery(".swatchable-attribute:contains(Color) img").length > 0 &&
+  jQuery("fieldset:contains(COLOUR) button").length > 0 &&
   $sarg != "Select Color" &&
   $sarg != "No Color"
 ) {
-  jQuery(".swatchable-attribute:contains(Color) img").each(function () {
+  jQuery("fieldset:contains(COLOUR) button").each(function () {
     if (
-      jQuery(this).attr("data-attr-display-value").replace(/\s\s+/g, "") ==
+      jQuery(this).attr("alt").replace(/\s\s+/g, "") ==
       $sarg
     ) {
       jQuery(this).click()
@@ -244,6 +244,26 @@ if (
 wait_for(function () {
   return true
 })
+
+
+$text = false
+if (
+  jQuery("fieldset:contains(COLOUR) button").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true
+  jQuery("fieldset:contains(COLOUR) button").each(function (
+    index
+  ) {
+    if (jQuery(this).attr('alt') == $sarg && !jQuery(this).attr("alt") === 'disabled') {
+      $text = false
+    }
+  })
+}
+return $text
+
+
 
 // for li a
 
@@ -589,24 +609,26 @@ return $text;
 
 // div divi
 
-if (jQuery("form.variant:target .form__selections .form__options--color a").length > 0) {
+if (jQuery("#pdVariantsSelectbox a").length > 0) {
   [
     jQuery(
-      "form.variant:target .form__selections .form__options--color a.active"
+      "#pdVariantsSelectbox .styled__SelectedVariantName-sc-8ca8nt-3"
     ).length > 0
       ?jQuery(
-        "form.variant:target .form__selections .form__options--color a.active"
-        ).css('background-color')
-        // .text().trim().replace(/\s\s+/g, "")
+        "#pdVariantsSelectbox .styled__SelectedVariantName-sc-8ca8nt-3"
+        )
+        // .css('background-color')
+        .text().trim().replace(/\s\s+/g, "")
       : "Select Color",
     jQuery.makeArray(
-      jQuery("form.variant:target .form__selections .form__options--color a").map(function (
+      jQuery("#pdVariantsSelectbox a").map(function (
         i,
         e
       ) {
         if (jQuery(e).text() !== '')
-         return jQuery(e).css('background-color')
-        //  .text().trim().replace(/\s\s+/g, "")
+         return jQuery(e)
+        //  .css('background-color')
+         .text().trim().replace(/\s\s+/g, "")
       })
     ),
   ];
@@ -616,12 +638,12 @@ jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimension
 
 
 if (
-  jQuery("form.variant:target .form__selections .form__options--color a").length > 0 &&
+  jQuery("#pdVariantsSelectbox a").length > 0 &&
   $sarg != "Select Color" &&
   $sarg != "No Color"
 ) {
-  jQuery("form.variant:target .form__selections .form__options--color a").each(function () {
-    if (jQuery(this).css('background-color') == $sarg) jQuery(this).click();
+  jQuery("#pdVariantsSelectbox a").each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
   });
 }
 wait_for(function () {
@@ -638,7 +660,7 @@ if (
   $text = true;
   jQuery("form.variant:target .form__selections .form__options--color a").each(function (index) {
     if (
-      jQuery(this).css('background-color') == $sarg &&
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('.unavailable')
     ) {
       $text = false;

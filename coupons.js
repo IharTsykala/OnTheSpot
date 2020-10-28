@@ -16,9 +16,9 @@ jQuery('.total-cost span:first')
 .field button.field__input-btn
 .total-line-table .payment-due__price
 
-jQuery('input[data-test="gift-and-promo-code-input:last"]')
-jQuery('button[data-test="apply-gift-or-promo-code-button"]:last')
-jQuery('.CheckoutTotal-amount-Lh4k5 span:last')
+jQuery('#voucherAndCouponsCoantainer input[id="voucherInput"]')
+jQuery('.sourceCodeApplyBtn')
+jQuery('.ml-basket-total-value')
 
 jQuery('#reduction button:first').click()
 jQuery('.order-summary-container .shipping-val')
@@ -74,9 +74,9 @@ jQuery('.order-total bdi')
 // 
 
 jQuery(".showcoupon")[0].click()
-jQuery('input[id="promo_code"]')
-jQuery('button[value="add_promo_code"]')
-jQuery('.table__total td')
+jQuery('input[name="voucher_code"]')
+jQuery('button[id="discount_submit"]')
+jQuery('.price-total .price')
 
 jQuery('#voucherAndCouponsCoantainer input[id="voucherInput"]')
 jQuery('#voucherAndCouponsCoantainer button[id="applyVoucherBtn"]')

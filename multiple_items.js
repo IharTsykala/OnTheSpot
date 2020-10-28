@@ -199,11 +199,8 @@ if (
     $title = jQuery(this).find("ProductItem__Title a").text().trim();
 
     $img = 
-    'https:' + 
-    (jQuery(this).find("source").attr('srcset')
-    || jQuery(this).find("img.ProductItem__Image:first").attr('srcset')
-     || jQuery(this).find("img.ProductItem__Image:last").attr('srcset')
-     ||jQuery(this).find(".product__img").next().text().trim().split('src="')[1]).split(' ')[0].slice(0, -1) 
+    'https:' +     
+     jQuery(this).find(".product__img").next().text().trim().split('src="')[1].split(' ')[0].slice(0, -1) 
      
 
     $link = 'https://www.shopbeergear.com' + jQuery(this).find("a.product-link").attr("href");
@@ -674,5 +671,31 @@ if (
     // if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });
+  $arr;
+}
+
+if (
+  jQuery("#ml-grid-view-items .ml-grid-view-item").length > 0 &&
+  jQuery(".presentation").length === 0
+) {
+  $arr = [];
+
+  jQuery("#ml-grid-view-items .ml-grid-view-item").each(function () {
+    $title = jQuery(this).find('.ml-thumb-name').text().trim();
+
+    $img =  
+    // 'https:'+  
+    jQuery(this).find("img:first").attr('src')
+    // .next().text().trim().split('src="')[1].split(' alt')[0].slice(0, -1)     
+
+    $link = 'https://www.peruvianconnection.co.uk' + jQuery(this).find('a:first').attr("href");
+
+    $price = jQuery(this).find(".ml-item-price-now:last").text().trim().split('-')[0]
+    
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });  
+    
   $arr;
 }

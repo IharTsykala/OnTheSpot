@@ -5,8 +5,8 @@ if (jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimen
   $status = false;
 }
 
-if (jQuery('[value="add_to_cart"]').text().trim().toLowerCase() == 'sold out' || 
-jQuery('[value="add_to_cart"]').text().trim().toLowerCase() == 'out of stock' )
+if (jQuery('[data-label="Add to Cart"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[data-label="Add to Cart"]').text().trim().toLowerCase() == 'out of stock' )
 // ||
 // jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
  {
@@ -30,7 +30,7 @@ if (jQuery('a[id="BIS_trigger"]:not(.h-tp-hidden)').text().trim() == 'Notify me 
   $status = false;
 }
 
-if (jQuery('product-mark.sold-out').text().trim().toLowerCase() == 'sold out' ) {
+if (jQuery('.sold_out').text().trim().toLowerCase() == 'sold out' ) {
   $status = true
 } else {
   $status = false;
@@ -38,8 +38,8 @@ if (jQuery('product-mark.sold-out').text().trim().toLowerCase() == 'sold out' ) 
 
 :not(.h-tp-hidden)
 
-if (jQuery('#add-to-cart button:first').text().trim().toLowerCase().indexOf('sold out')>=0 
-  || jQuery('#add-to-cart button:first').text().trim().toLowerCase().indexOf('out of stock')>=0) {
+if (jQuery('input.mar-add-to-bag').attr('value').toLowerCase().indexOf('sold out')>=0 
+  || jQuery('input.mar-add-to-bag').attr('value').toLowerCase().indexOf('out of stock')>=0) {
   $status = true
 } else {
   $status = false;
@@ -171,7 +171,8 @@ if (jQuery('.sold-out-big').text().trim().toLowerCase()  === 'sold out!') {
   $status = false;
 }
 
-if (jQuery('.add_to_cart:first').text().trim().toLowerCase().indexOf('out') >= 0 || jQuery('.product__price span.sold_out').text().trim().toLowerCase() === 'sold out') {
+if (jQuery('.styled__Availability-mu8uqe-4').text().trim().toLowerCase().indexOf('indisponibil') >= 0)
+  {
   $status = true
 } else {
   $status = false;
@@ -184,7 +185,7 @@ jQuery('.product-rbox h2').text().trim() == 'Izdelka trenutno ni v ponudbi') {
   $status = false;
 }
 
-if (jQuery('input[id="back-in-stock-subscribe-27906"]').attr('value').toLowerCase().indexOf('pranešti') >= 0) {
+if (jQuery('input[id="product-add-to-cart"]').attr('value').toLowerCase().indexOf('pranešti') >= 0) {
   $status = true
 } else {
   $status = false;
