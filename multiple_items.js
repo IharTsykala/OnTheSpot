@@ -61,7 +61,7 @@ if (
 
 
 if (
-  jQuery("#gf-products .grid-product").length > 0 &&
+  jQuery(".zoomWindowContainer .grid-product").length > 0 &&
   jQuery('img#mainimage:first').length === 0
 ) {
   $arr = []
@@ -675,22 +675,104 @@ if (
 }
 
 if (
-  jQuery("#ml-grid-view-items .ml-grid-view-item").length > 0 &&
+  jQuery(".results-container .cell").length > 0 &&
   jQuery(".presentation").length === 0
 ) {
   $arr = [];
 
-  jQuery("#ml-grid-view-items .ml-grid-view-item").each(function () {
-    $title = jQuery(this).find('.ml-thumb-name').text().trim();
+  jQuery(".results-container .cell").each(function () {
+    $title = jQuery(this).find('h2.product-name').text().trim();
 
     $img =  
-    // 'https:'+  
+    'https:'+  
     jQuery(this).find("img:first").attr('src')
     // .next().text().trim().split('src="')[1].split(' alt')[0].slice(0, -1)     
 
-    $link = 'https://www.peruvianconnection.co.uk' + jQuery(this).find('a:first').attr("href");
+    $link = 'https://www.jpcycles.com' + jQuery(this).find('a:first').attr("href");
 
-    $price = jQuery(this).find(".ml-item-price-now:last").text().trim().split('-')[0]
+    $price = jQuery(this).find("#pricing-display").text().trim().split(' to ')[0].trim()
+    
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });  
+    
+  $arr;
+}
+
+
+
+
+if (
+  jQuery(".columns .product-wrap").length > 0 &&
+  jQuery("#product-featured-image").length === 0
+) {
+  $arr = []
+
+  jQuery(".columns .product-wrap").each(function () {
+    $title = jQuery(this).find(".hidden-product-link").text().trim()
+
+    $img =
+      "https:" +
+      jQuery(this)
+        .find("img:first")
+        .attr("src")
+
+    $link = "https://americfashion.com" + jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this).find(".money:first").text().trim()
+    // .split('Br')[1].split(' ')[0]
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+if (jQuery(".grid-products a").length > 0 && [].length === 0) {
+  $arr = []
+
+  jQuery(".grid-products a").each(function () {
+    $title = jQuery(this).find("h3.plp-product__title").text().trim()
+
+    $img = "https:" + jQuery(this).find("img:first").attr("src")
+
+    $link = "https://eu.aimeleondore.com" + jQuery(this).attr("href")
+
+    $price =
+      "€" +
+      (jQuery(this).find(".plp-product__price .money").attr("ge-data-converted-price") ||
+      jQuery(this).find(".plp-product__price ").attr("ge-data-converted-price"))
+
+    if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+
+  $arr
+}
+
+
+
+if (
+  jQuery(".product-list .product-wrap").length > 0 &&
+  jQuery('[class="gallery-cell is-selected"] img').length === 0
+) {
+  $arr = [];
+
+  jQuery(".product-list .product-wrap").each(function () {
+    $title = jQuery(this).find('.title').text().trim();
+
+    $img =  
+    'https:'+  
+    jQuery(this).find("img:first").attr('src')
+    // (jQuery(this).find("img:first").attr('srcset') ||
+    // jQuery(this).find("img:first").attr('data-srcset') ||
+    // 'https:'+  jQuery(this).find("img:first").attr('src')).split(' ')[0]
+    // .next().text().trim().split('src="')[1].split(' alt')[0].slice(0, -1)     
+
+    $link = 'https://www.jpcycles.com' + jQuery(this).find('a:first').attr("href");
+
+    $price = jQuery(this).find(".price .money:first").text().trim().split(' to ')[0].trim()
     
     
     if ($title && $img && $link && $price)

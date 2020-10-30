@@ -673,34 +673,31 @@ return $text;
 
 // for ul li span
 
-if (jQuery("ul#select2-wn2o-results li").length > 0) {
+if (jQuery("ul.option-selection li").length > 0) {
   ;[
-    jQuery("ul#select2-wn2o-results li.select2-results__option--highlighted").length > 0
-      ? jQuery("ul#select2-wn2o-results li.select2-results__option--highlighted")      
-          .find('span.text-color')
+    jQuery("ul.option-selection li.selected").length > 0
+      ? jQuery("ul.option-selection li.selected")          
           .text().trim().replace(/\s\s+/g, "")
       : "Select Color",
     jQuery.makeArray(
-      jQuery("ul#select2-wn2o-results li").map(function (
+      jQuery("ul.option-selection li").map(function (
         i,
         e
       ) {
-        if (jQuery(e).find('span.text-color')
-        .text().trim().replace(/\s\s+/g, "") != "") return jQuery(e).find('span.text-color')
-        .text().trim().replace(/\s\s+/g, "")
+        if (jQuery(e).text().trim().replace(/\s\s+/g, "") != "")
+         return jQuery(e).text().trim().replace(/\s\s+/g, "")
       })
     ),
   ]
 } else ["No Color", ["No Color"]]
 
 if (
-  jQuery("ul#select2-wn2o-results li").length > 0 &&
+  jQuery("ul.option-selection li").length > 0 &&
   $sarg != "Select Color" &&
   $sarg != "No Color"
 ) {
-  jQuery("ul#select2-wn2o-results li").each(function () {
-    if (jQuery(e).find('span.text-color')
-    .text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click()
+  jQuery("ul.option-selection li").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click()
   })
 }
 wait_for(function () {
@@ -709,16 +706,16 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery("#configurable_swatch_color li a").length > 0 &&
+  jQuery("ul.option-selection li").length > 0 &&
   $sarg != "No Color" &&
   $sarg != "Select Color"
 ) {
   $text = true
-  jQuery("#configurable_swatch_color li a").each(function (
+  jQuery("ul.option-selection li").each(function (
     index
   ) {
-    if (jQuery(this).find('span.text-color')
-    .text().trim().replace(/\s\s+/g, "") == $sarg && !jQuery(this).attr("aria-disabled")) {
+    if  (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+     !jQuery(this).attr("aria-disabled")) {
       $text = false
     }
   })

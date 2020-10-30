@@ -21,14 +21,14 @@ jQuery('.sourceCodeApplyBtn')
 jQuery('.ml-basket-total-value')
 
 jQuery('#reduction button:first').click()
-jQuery('.order-summary-container .shipping-val')
-jQuery('form.accordion-panel button:first')
-jQuery('.shoppingbag-overview .shoppingbag-totals .price:last')
+jQuery('#coupon_code')
+jQuery('button[value="Apply Voucher"]')
+jQuery('.grand_total .price:last')
 
 jQuery('a.accordion-toggle').click()
-jQuery('input[id="coupon_code"]')
-jQuery('.discount-form button:first')
-jQuery('#shopping-cart-totals-table .price')
+jQuery('input[id="id_couponcode"]')
+jQuery('button[id="onestepcheckout-coupon-add"]')
+jQuery('.onestepcheckout-totals .price:last')
 
 name="coupon-code-medium"
 
@@ -43,11 +43,19 @@ document.querySelector('.total-line-table__footer  .payment-due__price')
 slick-active
 
 
-jQuery(".promotion-input a.h2")[0].click()
-document.querySelector('input[id="promotionCode"]')
-document.querySelector('button[id="applyPromotion"]')
-document.querySelector('.total-wrapper dd')
+jQuery("div.text-left-mobile p.clickable")[0].click()
+jQuery('input[id="couponcode"]')
+jQuery('form[method="post"]').click()
+jQuery('.price-box li:last')
 promotionCode
+
+jQuery("div.text-left-mobile p.clickable")[0].click()
+jQuery('input[id="sourceCode"]')
+jQuery('.ml-payment-source-code-apply button.ml-secondary-button-understated')
+jQuery('.ml-accordion-summary-item-value:last')
+jQuery('form input[value="Remove"]:last')[0].click()
+
+document.querySelector('#RedirectController + [value="Remove"]').click();
 
 
 jQuery("div[data-matrixpinnedcolumnwidth] a[data-tp-switch-group='wsacAndGiftCardInput']")[0].click()

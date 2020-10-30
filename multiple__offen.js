@@ -60,13 +60,13 @@ if (jQuery("#Collection .grid__item").length > 0 && [].length === 0) {
 
 
 if (
-  jQuery(".searchspring-results .grid-item").length > 0 &&
+  jQuery(".productList .grid__item").length > 0 &&
   jQuery("#product-featured-image").length === 0
 ) {
   $arr = []
 
-  jQuery(".searchspring-results .grid-item").each(function () {
-    $title = jQuery(this).find(".product-title").text().trim()
+  jQuery(".productList .grid__item").each(function () {
+    $title = jQuery(this).find(".grid-view-item__title").text().trim()
 
     $img =
       "https:" +
@@ -76,7 +76,7 @@ if (
 
     $link = "https:" + jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".money:last").text().trim()
+    $price = jQuery(this).find(".grid-view-item__meta .money:last").text().trim()
 
     // if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])
@@ -158,3 +158,59 @@ if (
 }
 
 //////////////////////
+
+
+if (
+  jQuery("ol.product-items li").length > 0 &&
+  [].length === 0
+) {
+  $arr = [];
+
+  jQuery("ol.product-items li").each(function () {
+    $title = jQuery(this).find(".product-item-link").text().trim();
+
+    $img = 
+    // 'https:' +     
+     jQuery(this).find(" img:first").attr('src')
+    //  .split('src="')[2].split(' ')[0].slice(0, -1) 
+     
+
+    $link =
+    //  'https://www.hairburst.com' + 
+     jQuery(this).find(" a:first").attr("href");
+
+    $price = jQuery(this).find(".price:first").text().trim()
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+
+  $arr
+}
+
+
+if (
+  jQuery("ul.products-grid li").length > 0 &&
+  [].length === 0
+) {
+  $arr = [];
+
+  jQuery("ul.products-grid li").each(function () {
+    $title = jQuery(this).find(".product-name").text().trim();
+
+    $img = 
+    // 'https:' +     
+     jQuery(this).find("img[class=' lazyloaded']:first").attr('src')
+    //  .split('src="')[2].split(' ')[0].slice(0, -1) 
+     
+
+    $link =
+    //  'https://www.hairburst.com' +
+       jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find(".price-box .price:last").text().trim()
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+
+  $arr
+}

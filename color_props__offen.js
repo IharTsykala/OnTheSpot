@@ -53,6 +53,63 @@ if (
 return $text;
 
 
+
+// Select
+if (jQuery("#product-options-wrapper option").length > 0) {
+  [
+    jQuery("#product-options-wrapper option:selected").text() != ""
+      ? jQuery("#product-options-wrapper option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery("#product-options-wrapper option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Color", ["No Color"]];
+}
+
+//pa_Colors clicker
+if (
+jQuery("#product-options-wrapper option").length > 0 &&
+$sarg != "Select Color" &&
+$sarg != "No Color"
+) {
+jQuery("#product-options-wrapper option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+
+$text = false;
+if (
+  jQuery("#product-options-wrapper option").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery("#product-options-wrapper option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+
 if (jQuery("mar-pdp-color-container:contains( Colors ) input").length > 0) {
   ;[
     jQuery("div.product-info__variants_items:contains(Color) input:checked").length > 0
@@ -106,17 +163,17 @@ return $text;
 
 ///////////////////////
 
-if (jQuery(".mar-pdp-color-container:contains( Colors ) input").length > 0) {
+if (jQuery(".swatch:contains(Color) input").length > 0) {
   ;[
-    jQuery(".mar-pdp-color-container:contains( Colors ) input:checked").length > 0
-      ? jQuery(".mar-pdp-color-container:contains( Colors ) input:checked")
-      .attr("data-option-value")
+    jQuery(".swatch:contains(Color) input:checked").length > 0
+      ? jQuery(".swatch:contains(Color) input:checked")
+      .attr("value")
       .replace(/\s\s+/g, "")
   : "Select item",
 jQuery.makeArray(
-  jQuery(".mar-pdp-color-container:contains( Colors ) input").map(function (i, e) {
-    if (jQuery(e).attr("data-option-value") != "")
-      return jQuery(e).attr("data-option-value").replace(/\s\s+/g, "")
+  jQuery(".swatch:contains(Color) input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
   })
 ),
 ]
@@ -124,10 +181,10 @@ jQuery.makeArray(
 ;["No Color", ["No Color"]]
 }
 
-if (jQuery(".mar-pdp-color-container:contains( Colors ) input").length > 0  &&
+if (jQuery(".swatch:contains(Color) input").length > 0  &&
 $sarg != "Select Color" &&
 $sarg != "No Color") {
-jQuery(".mar-pdp-color-container:contains( Colors ) input").each(function () {
+jQuery(".swatch:contains(Color) input").each(function () {
 if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
   jQuery(this).next()[0].click()
 }
@@ -139,12 +196,12 @@ return true
 
 $text = false;
 if (
-  jQuery(".mar-pdp-color-container:contains( Colors ) inputt").length > 0 &&
+  jQuery(".swatch:contains(Color) input").length > 0 &&
   $sarg != "No Color" &&
   $sarg != "Select Color"
 ) {
   $text = true;
-  jQuery(".mar-pdp-color-container:contains( Colors ) input").each(function (index) {
+  jQuery(".swatch:contains(Color) input").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('.data-availability') === 'soldout'

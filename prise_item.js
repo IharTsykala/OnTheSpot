@@ -113,3 +113,15 @@ our_price_display
 
 
 'USD' + ' ' + jQuery('.product-info__header_price.dj_skin_product_detail_price.money').text().trim().split('p.')[1]
+
+
+jQuery('.price-area .discount_price').text().trim() ||
+ jQuery('.detail_price span:first').text().trim().split(' ')[0].trim()
+
+jQuery('.price-area .base_price').text().trim() ||
+ jQuery('.price-area .discount_price').text().trim() ||
+  'CAD' + jQuery('.detail_price span:first').text().trim().split('CAD')[2].trim()
+
+
+  jQuery(".product .prices .money:last").text().trim()
+  jQuery(".product .prices .money:first").text().trim()

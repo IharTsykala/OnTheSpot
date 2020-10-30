@@ -208,16 +208,16 @@ if (jQuery(".tp-widget-reviews .tp-widget-review").length > 0) {
 
 
 
-if (jQuery(".bv-content-list-reviews li").length > 0) {
+if (jQuery(".opw-reviews-container .review-card-container").length > 0) {
   $arr = [];
-  jQuery(".bv-content-list-reviews li").each(function (index) {
-    content = jQuery(this).find('.bv-content-title').text().trim();
+  jQuery(".opw-reviews-container .review-card-container").each(function (index) {
+    content = jQuery(this).find('.opw-leading-normal').text().trim();
     author =    
-    jQuery(this).find(".bv-author").text().trim();
-    rating =  ''
-    // jQuery(this).find('.sr-only').text().trim().split['.'];
-    reviewed_at = 
-    jQuery(this).find(".bv-content-title").text().trim();
+    jQuery(this).find(".opw-align-top").text().trim();
+    rating = ''
+    // jQuery(this).find('.productReviews_topReviewsRatingStarsContainer').attr('aria-label').split(' ')[0];
+    reviewed_at = ''
+    // jQuery(this).find(".productReviews_topReviewTitle").text().trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;

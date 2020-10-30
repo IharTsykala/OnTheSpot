@@ -5,8 +5,8 @@ if (jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimen
   $status = false;
 }
 
-if (jQuery('[data-label="Add to Cart"]').text().trim().toLowerCase() == 'sold out' || 
-jQuery('[data-label="Add to Cart"]').text().trim().toLowerCase() == 'out of stock' )
+if (jQuery('[class=" ajax-submit action_button add_to_cart  "]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[class=" ajax-submit action_button add_to_cart  "]').text().trim().toLowerCase() == 'out of stock' )
 // ||
 // jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
  {
@@ -15,8 +15,8 @@ jQuery('[data-label="Add to Cart"]').text().trim().toLowerCase() == 'out of stoc
   $status = false;
 }
 
-if (jQuery('button.single_add_to_cart_button:first').text().trim().toLowerCase() == 'sold out' || 
-jQuery('button.single_add_to_cart_button:first').text().trim().toLowerCase() == 'out of stock'
+if (jQuery('button#product-addtocart-button').text().trim().toLowerCase() == 'sold out' || 
+jQuery('button#product-addtocart-button').text().trim().toLowerCase() == 'out of stock'
 ) {
   $status = true
 } else {
@@ -30,7 +30,7 @@ if (jQuery('a[id="BIS_trigger"]:not(.h-tp-hidden)').text().trim() == 'Notify me 
   $status = false;
 }
 
-if (jQuery('.sold_out').text().trim().toLowerCase() == 'sold out' ) {
+if (jQuery('.columns').text().trim().toLowerCase() == 'sold out' ) {
   $status = true
 } else {
   $status = false;
@@ -79,7 +79,7 @@ if (jQuery('#collection--options--wrapper .alert-danger').text().trim().toLowerC
     $status = false;
 }
 
-if (jQuery('button.addProduct').text().trim().toLowerCase() == 'sold out' || jQuery('button.addProduct').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('button.btn-cart').text().trim().toLowerCase() == 'sold out' || jQuery('button.btn-cart').text().trim().toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;
@@ -119,7 +119,7 @@ jQuery('[data-autotag="pdp-select-size-error"]').text().trim().toLowerCase().ind
   $status = false;
 }
 
-if (jQuery('.button[id="btn-basket"]').text().trim().toLowerCase().indexOf('back in stock') >= 0) {
+if (jQuery('button[name="add"]').text().trim().toLowerCase().indexOf('stoc epuizat') >= 0) {
   $status = true
 } else {
   $status = false;

@@ -21,8 +21,9 @@ else
 
  m-tp-productimagegallery-preview-wrapper
 
- if (jQuery('img[itemprop="image"]').length > 0) 
-    $img = jQuery('img[itemprop="image"]').attr('src')
+ if (jQuery('.fotorama__active img').length > 0) 
+    $img = jQuery('.fotorama__active img').attr('src')
+    // .css('background-image').split('url("')[1].slice(0, -2)
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -33,9 +34,9 @@ else
   
   // .css('background-image').split('url("')[1].slice(0, -2)
 
-  if (jQuery('img[itemprop="image"]').length > 0){
+  if (jQuery('.fotorama__nav-wraps img').length > 0){
     $arr = [];
-   jQuery('img[itemprop="image"]').each(function(index){
+   jQuery('.fotorama__nav-wraps img').each(function(index){
         if (index < 4) 
         $arr.push(jQuery(this).attr('src'))
     })
@@ -44,10 +45,12 @@ else
 
  owl-lazy img-responsive wrapper-main-slider__image lazy-init
 
- if (jQuery("#largeImage").length > 0) 
+ //////////////////////
+
+ if (jQuery('[class="zoomImg"]').length > 0) 
  $img =
   // 'https://www.perfectlens.ca' +
-   jQuery("#largeImage").attr('src')
+   jQuery('[class="zoomImg"]').attr('src')
 else
  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -55,10 +58,11 @@ if ($img.indexOf("http") == -1)
 'https:'+$img
 else
 $img
+///////////////////////////////////////////
 
-if (jQuery('.iso-carousel-inside img').length > 0){
+if (jQuery('.productImageCarousel_thumbnailContainer img').length > 0){
  $arr = [];
-jQuery('.iso-carousel-inside img').each(function(index){
+jQuery('.productImageCarousel_thumbnailContainer img').each(function(index){
      if (index < 4) 
      $arr.push('https:'+jQuery(this).attr('src'))
  })
@@ -157,8 +161,8 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery(".product__image-item .product-image img:first").length > 0) 
-$img = jQuery(".product__image-item .product-image img:first").attr('src')
+if (jQuery('[class="gallery-cell is-selected"] img').length > 0) 
+$img = jQuery('[class="gallery-cell is-selected"] img').attr('src')
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -168,11 +172,11 @@ else
 $img
 
 
-if (jQuery('.product__image-item .product-image img').length > 0){
+if (jQuery('[class="gallery-cell is-selected"] img').length > 0){
 $arr = [];
-jQuery('.product__image-item .product-image img').each(function(index){
+jQuery('[class="gallery-cell is-selected"] img').each(function(index){
     if (index < 4) 
-    $arr.push('https:'+jQuery(this)
+    $arr.push(jQuery(this)
     // .find('img:first')
     .attr("src"))    
 })
@@ -184,3 +188,28 @@ product_gallery_nav
 
 
 class="  lazyload "
+
+if (jQuery('.product-image-zoom img:first').length > 0) 
+$img = 
+// 'https://www.deluxdeco.co.uk/' + 
+jQuery('.product-image-zoom img:first').attr('src')
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+
+
+if (jQuery('.product-single__photo.slick-active img').length > 0) 
+ $img =
+  // 'https://www.perfectlens.ca' +
+   jQuery('.product-single__photo.slick-active img').attr('src')
+else
+ $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
