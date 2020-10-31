@@ -79,7 +79,7 @@ if (jQuery('#collection--options--wrapper .alert-danger').text().trim().toLowerC
     $status = false;
 }
 
-if (jQuery('button.btn-cart').text().trim().toLowerCase() == 'sold out' || jQuery('button.btn-cart').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('button.AddtoCart').text().trim().toLowerCase() == 'sold out' || jQuery('button.AddtoCart').text().trim().toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;

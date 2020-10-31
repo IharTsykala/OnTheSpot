@@ -1172,16 +1172,16 @@ if (
 
 
 
-  if (jQuery("select#productSkuSelector option").length > 0) {
+  if (jQuery("select.super-attribute-select option").length > 0) {
     [
-      jQuery("select#productSkuSelector option:selected").text() != ""
-        ? jQuery("select#productSkuSelector option:selected")
+      jQuery("select.super-attribute-select option:selected").text() != ""
+        ? jQuery("select.super-attribute-select option:selected")
             .text()
             .trim()
             // .replace(/\s\s+/g, "")
         : "Select Size",
       jQuery.makeArray(
-        jQuery("select#productSkuSelector option").map(function (i, e) {
+        jQuery("select.super-attribute-select option").map(function (i, e) {
           if (jQuery(e).text() != "")
             return jQuery(e).text().trim().replace(/\s\s+/g, "");
         })
@@ -1192,11 +1192,11 @@ if (
   }
   
   if (
-    jQuery("select#productSkuSelector option").length > 0 &&
+    jQuery("select.super-attribute-select option").length > 0 &&
     $sarg != "Select Size" &&
     $sarg != "No Size"
     ) {
-    jQuery("select#productSkuSelector option").each(function () {
+    jQuery("select.super-attribute-select option").each(function () {
       if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
         jQuery(this).trigger("change");
       }
@@ -1208,12 +1208,12 @@ if (
     
     $text = false;
     if (
-      jQuery("select#productSkuSelector option").length > 0 &&
+      jQuery("select.super-attribute-select option").length > 0 &&
       $sarg != "No Size" &&
       $sarg != "Select Size"
     ) {
       $text = true;
-      jQuery("select#productSkuSelector option").each(function (index) {
+      jQuery("select.super-attribute-select option").each(function (index) {
         if (
           jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
           !jQuery(this).attr('disabled')

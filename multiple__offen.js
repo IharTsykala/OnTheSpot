@@ -161,8 +161,8 @@ if (
 
 
 if (
-  jQuery("ol.product-items li").length > 0 &&
-  [].length === 0
+  jQuery('ol[class="products list items product-items"] li').length > 0 &&
+  jQuery('[class="product media"] .fotorama__active img').length === 0
 ) {
   $arr = [];
 
@@ -180,7 +180,7 @@ if (
      jQuery(this).find(" a:first").attr("href");
 
     $price = jQuery(this).find(".price:first").text().trim()
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });
 

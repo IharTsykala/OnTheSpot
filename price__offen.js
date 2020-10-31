@@ -26,5 +26,5 @@ jQuery('.modal_price .current_price').text().trim()
 jQuery('.modal_price .was_price').text().trim() || 
 jQuery('.modal_price .current_price').text().trim()
 
-jQuery('.price-box:first .price:last').text().trim()
-jQuery('.price-box:first .price:first').text().trim()
+jQuery('.product-info-main .price-box:first .price:last').text().trim()
+jQuery('.product-info-main .price-box:first .price:first').text().trim()

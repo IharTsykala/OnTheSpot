@@ -86,6 +86,11 @@ jQuery('input[name="voucher_code"]')
 jQuery('button[id="discount_submit"]')
 jQuery('.price-total .price')
 
+jQuery("#block-discount-heading")[0].click()
+jQuery('input[id="discount-code"]')
+jQuery('button.action-apply')
+jQuery('[class="grand totals"] .price:last')
+
 jQuery('#voucherAndCouponsCoantainer input[id="voucherInput"]')
 jQuery('#voucherAndCouponsCoantainer button[id="applyVoucherBtn"]')
 jQuery('.totals-row-summary .totals-col-price:last')

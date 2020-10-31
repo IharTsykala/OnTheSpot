@@ -21,9 +21,10 @@ else
 
  m-tp-productimagegallery-preview-wrapper
 
- if (jQuery('.fotorama__active img').length > 0) 
-    $img = jQuery('.fotorama__active img').attr('src')
-    // .css('background-image').split('url("')[1].slice(0, -2)
+ if (jQuery('.zoomWindow').length > 0) 
+    $img = jQuery('.zoomWindow')
+    // .attr('src')
+    .css('background-image').split('url("')[1].slice(0, -2)
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -34,9 +35,9 @@ else
   
   // .css('background-image').split('url("')[1].slice(0, -2)
 
-  if (jQuery('.fotorama__nav-wraps img').length > 0){
+  if (jQuery('.fotorama__nav__shaft img').length > 0){
     $arr = [];
-   jQuery('.fotorama__nav-wraps img').each(function(index){
+   jQuery('.fotorama__nav__shaft img').each(function(index){
         if (index < 4) 
         $arr.push(jQuery(this).attr('src'))
     })

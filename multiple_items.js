@@ -557,29 +557,31 @@ if (
 
 
 if (
-  jQuery("#bc-sf-filter-products .grid__item").length > 0 &&
+  jQuery("#product-loop .product-index").length > 0 &&
   jQuery(".presentation").length === 0
 ) {
   $arr = [];
 
-  jQuery("#bc-sf-filter-products .grid__item").each(function () {
-    $title = jQuery(this).find(".indiv-product-title-text").text().trim().replace(/\s\s+/g, "");
+  jQuery("#product-loop .product-index").each(function () {
+    $title = jQuery(this).find(".prod-title").text().trim().replace(/\s\s+/g, "");
 
     $img =
-    //  'https:' +
-      jQuery(this).find("img:first").attr("src")
+     'https:' +
+      // jQuery(this).find("a:first .box-ratio").attr("src")
     //  (jQuery(this).find("img:first").attr("srcset") ||
     //  jQuery(this).find("img:first").attr("data-srcset") ||
     //  jQuery(this).find("img:first").attr("src"))   
-    //  jQuery(this).find(".ProductItem__ImageWrapper img:last").next().next().text().trim().split('src="')[1])
-    //  .split(' ')[0]
+     jQuery(this).find("a:first .box-ratio").next().text().trim().split('src="')[1]
+     .split(' ')[0].slice(0,-1)
     
 
     $link = 
-    'https://www.myweddingfavors.com' +
+    'https://courtsgeneralstore.com' +
      jQuery(this).find("a:first").attr("href");
 
-    $price = jQuery(this).find(".money-styling .money").text().trim()
+    if(jQuery(this).find(".prod-price").text().trim().split('-')[0].split('From ')[1])
+    $price = jQuery(this).find(".prod-price").text().trim().split('-')[0].split('From ')[1]
+    else $price = jQuery(this).find(".prod-price").text().trim()
     //  || jQuery(this).find(".card__price").text().trim()
     
     if ($title && $img && $link && $price)
