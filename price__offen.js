@@ -17,9 +17,9 @@ else {
   jQuery(".ml-product-detail .productPricing:last").text().trim()
 }
 
-jQuery('#pricing-display .total-price').text().trim()
-jQuery('#pricing-display .old-price').text().trim() ||
-jQuery('#pricing-display .total-price').text().trim()
+jQuery('#ProductPrice').text().trim()
+jQuery('#ComparePrice').text().trim() ||
+jQuery('#ProductPrice').text().trim()
 
 
 jQuery('.modal_price .current_price').text().trim()

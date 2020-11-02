@@ -214,3 +214,45 @@ if (
 
   $arr
 }
+
+
+if (
+  jQuery(".product-grid .grid-item").length > 0 &&
+  jQuery('img.product-single__image').length === 0  
+) {
+  $arr = []
+
+  jQuery(".product-grid .grid-item").each(function () {
+    $title = jQuery(this).find(".product__title:first").text().trim()
+
+    if(jQuery(this).find(".product__img-wrapper").next().text().trim())
+    $img =
+    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
+    // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+    'https:' + 
+    jQuery(this).find(".product__img-wrapper").next().text().trim()
+    .split('src="')[1]
+    .split(' alt')[0].trim()
+    .slice(0, -1)
+    else $img = ''
+
+    // $img = 
+    //   // 'https:' +
+    //      ((jQuery(this).find("img.product-image-photo:first").attr("srcset") ||
+    //      jQuery(this).find("img.product-image-photo:first").attr("data-default-img") ||
+    //      jQuery(this).find("img.product-image-photo:first").attr("data-src") ||
+    //      jQuery(this).find("img.product-image-photo:first").attr("src")))
+    //      .split(' ')[0]
+
+    $link =
+    'https://fayfashion.shop' +
+      jQuery(this).find("a:first").attr("href")
+
+    $price = '€'+jQuery(this).find(".product__price:first").text().trim()
+    .split('€')[1]
+
+    if ($title && $img && $link && $price)    
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}

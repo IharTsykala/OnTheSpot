@@ -498,3 +498,60 @@ if (
 }
 return $text
 
+
+////////////////////////////////
+
+
+if (jQuery("div.product-form__option:contains(Size) input").length > 0) {
+  ;[
+    jQuery("div.product-form__option:contains(Size) input:checked").length > 0
+      ? jQuery("div.product-form__option:contains(Size) input:checked")
+      // .next()
+      // .text().trim()
+      .attr('value')
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery("div.product-form__option:contains(Size) input").map(function (i, e) {
+    if (jQuery(e).attr('value') != "")
+      return jQuery(e).next().text().trim()
+  })
+),
+]
+} else {
+;["No Size", ["No Size"]]
+}
+
+if (jQuery("div.product-form__option:contains(Size) input").length > 0  &&
+$sarg != "Select Size" &&
+$sarg != "No Size") {
+jQuery("div.product-form__option:contains(Size) input").each(function () {
+if (jQuery(this).attr('value') == $sarg) {
+  jQuery(this)[0].click()
+}
+})
+}
+wait_for(function () {
+return true
+})
+
+$text = false;
+if (
+  jQuery("div.product-form__option:contains(Size) input").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("div.product-form__option:contains(Size) input").each(function (index) {
+    if (
+      jQuery(this).attr('value') == $sarg &&
+      !jQuery(this).attr('.data-availability') === 'soldout'
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+/////////////////////////////////////

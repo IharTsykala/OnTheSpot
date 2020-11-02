@@ -124,4 +124,4 @@ jQuery('.price-area .base_price').text().trim() ||
 
 
   jQuery(".product .prices .money:last").text().trim()
-  jQuery(".money:first").text().trim()
+  jQuery(".product-single__price .product-price:first").text().trim()

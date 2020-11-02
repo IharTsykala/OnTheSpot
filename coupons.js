@@ -8,9 +8,9 @@ jQuery('.field input[id="checkout_reduction_code"]')
 jQuery('.field button.field__input-btn')
 jQuery('.total-line .payment-due__price')
 
-jQuery('input[id="discount_code"]')
-jQuery('button.cart-add-discount')
-jQuery('.total-cost span:first')
+jQuery('body.no-promo input[id="discount-code"]')
+jQuery('button.action-apply')
+jQuery('[class="grand totals"] .price:first')
 
 .field input[id="checkout_reduction_code"]
 .field button.field__input-btn
@@ -87,7 +87,7 @@ jQuery('button[id="discount_submit"]')
 jQuery('.price-total .price')
 
 jQuery("#block-discount-heading")[0].click()
-jQuery('input[id="discount-code"]')
+jQuery('[id="payment"][style="display: list-item;"] input[id="discount-code"]')
 jQuery('button.action-apply')
 jQuery('[class="grand totals"] .price:last')
 
