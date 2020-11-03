@@ -2,14 +2,14 @@
 jQuery(".promo a:first")[0].click()
 jQuery("#block-discount strong#block-discount-heading")[0].click()
 
-const jQuery = $d
+.field input[id="checkout_reduction_code"]
 
 jQuery('.field input[id="checkout_reduction_code"]')
 jQuery('.field button.field__input-btn')
 jQuery('.total-line .payment-due__price')
 
 jQuery('body.no-promo input[id="discount-code"]')
-jQuery('button.action-apply')
+
 jQuery('[class="grand totals"] .price:first')
 
 .field input[id="checkout_reduction_code"]
@@ -26,9 +26,9 @@ jQuery('button[value="Apply Voucher"]')
 jQuery('.grand_total .price:last')
 
 jQuery('a.accordion-toggle').click()
-jQuery('input[id="id_couponcode"]')
-jQuery('button[id="onestepcheckout-coupon-add"]')
-jQuery('.onestepcheckout-totals .price:last')
+jQuery('input[id="coupon_code"]')
+jQuery('button[value="Primeni"]')
+jQuery('#shopping-cart-totals-table .price:last')
 
 name="coupon-code-medium"
 
@@ -49,10 +49,10 @@ jQuery('form[method="post"]').click()
 jQuery('.price-box li:last')
 promotionCode
 
-jQuery("div.text-left-mobile p.clickable")[0].click()
-jQuery('input[id="sourceCode"]')
-jQuery('.ml-payment-source-code-apply button.ml-secondary-button-understated')
-jQuery('.ml-accordion-summary-item-value:last')
+jQuery("a.promo-code-button")[0].click()
+jQuery('input[name="discount_name"]')
+jQuery('button[class="btn btn-primary"]')
+jQuery('[class="cart-summary-line cart-total col-auto"] .value')
 jQuery('form input[value="Remove"]:last')[0].click()
 
 document.querySelector('#RedirectController + [value="Remove"]').click();
@@ -70,9 +70,9 @@ document.querySelectorAll('li[class="flex justify-between mt-4 cols:mt-8 pt-4 co
 
 
 jQuery("button[data-zta='enterCouponBtn']").click()
-jQuery('input[name="coupon_code"]:first')
-jQuery('button.coupon__apply-btn:first')
-jQuery('.checkout__prices-table-value.checkout__prices-table-currency)
+jQuery('input[name="coupon"]:first')
+jQuery('input[value="Apply Coupon"]')
+jQuery('#price-now .ib:last')
 
 // 
 jQuery("#cadeaubonText")[0].click()

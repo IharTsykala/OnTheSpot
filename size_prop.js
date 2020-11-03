@@ -1223,3 +1223,59 @@ if (
       });
     }
     return $text;
+
+    ////////////////////////////////////////////////
+
+
+    if (jQuery(".selHolder:first option").length > 0) {
+      [
+        jQuery(".selHolder:first option:selected").text() != ""
+          ? jQuery(".selHolder:first option:selected")
+              .text()
+              .trim()
+              .replace(/\s\s+/g, "")
+          : "Select Color",
+        jQuery.makeArray(
+          jQuery(".selHolder:first option").map(function (i, e) {
+            if (jQuery(e).text() != "")
+              return jQuery(e).text().trim().replace(/\s\s+/g, "");
+          })
+        ),
+      ];
+    } else {
+      ["No Size", ["No Size"]];
+    }
+    
+    //pa_Sizes clicker
+    if (
+    jQuery(".selHolder:first option").length > 0 &&
+    $sarg != "Select Size" &&
+    $sarg != "No Size"
+    ) {
+    jQuery(".selHolder:first option").each(function () {
+      if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+        jQuery(this).trigger("change");
+      }
+    });
+    }
+    wait_for(function () {
+    return true;
+    });
+    
+    $text = false;
+    if (
+      jQuery(".selHolder:first option").length > 0 &&
+      $sarg != "No Size" &&
+      $sarg != "Select Size"
+    ) {
+      $text = true;
+      jQuery(".selHolder:first option").each(function (index) {
+        if (
+          jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+          !jQuery(this).attr('disabled')
+        ) {
+          $text = false;
+        }
+      });
+    }
+    return $text;

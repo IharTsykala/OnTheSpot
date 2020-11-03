@@ -189,17 +189,17 @@ if (
 
 
 if (
-  jQuery("ul.products-grid li").length > 0 &&
+  jQuery('ul.products-grid li').length > 0 &&
   [].length === 0
 ) {
   $arr = [];
 
-  jQuery("ul.products-grid li").each(function () {
-    $title = jQuery(this).find(".product-name").text().trim();
+  jQuery('ul.products-grid li').each(function () {
+    $title = jQuery(this).find(".product_name").text().trim();
 
     $img = 
     // 'https:' +     
-     jQuery(this).find("img[class=' lazyloaded']:first").attr('src')
+     jQuery(this).find(".product_image img:last").attr('src')
     //  .split('src="')[2].split(' ')[0].slice(0, -1) 
      
 
@@ -207,8 +207,8 @@ if (
     //  'https://www.hairburst.com' +
        jQuery(this).find("a:first").attr("href");
 
-    $price = jQuery(this).find(".price-box .price:last").text().trim()
-    // if ($title && $img && $link && $price)
+    $price = 'RSD' + jQuery(this).find(".price-box .price:last").text().trim()
+    if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });
 
@@ -217,39 +217,40 @@ if (
 
 
 if (
-  jQuery(".product-grid .grid-item").length > 0 &&
-  jQuery('img.product-single__image').length === 0  
+  jQuery(".productList .prodHolder").length > 0 &&
+  jQuery('img.galleryItem:first').length === 0  
 ) {
   $arr = []
 
-  jQuery(".product-grid .grid-item").each(function () {
-    $title = jQuery(this).find(".product__title:first").text().trim()
+  jQuery(".productList .prodHolder").each(function () {
+    $title = jQuery(this).find(".prodTitle").text().trim()
 
-    if(jQuery(this).find(".product__img-wrapper").next().text().trim())
-    $img =
+    // if(jQuery(this).find(".product__img-wrapper").next().text().trim())
+    // $img =
     // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
     // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
-    'https:' + 
-    jQuery(this).find(".product__img-wrapper").next().text().trim()
-    .split('src="')[1]
-    .split(' alt')[0].trim()
-    .slice(0, -1)
-    else $img = ''
+    // 'https:' + 
+    // jQuery(this).find(".product__img-wrapper").next().text().trim()
+    // .split('src="')[1]
+    // .split(' alt')[0].trim()
+    // .slice(0, -1)
+    // else $img = ''
 
-    // $img = 
-    //   // 'https:' +
-    //      ((jQuery(this).find("img.product-image-photo:first").attr("srcset") ||
-    //      jQuery(this).find("img.product-image-photo:first").attr("data-default-img") ||
-    //      jQuery(this).find("img.product-image-photo:first").attr("data-src") ||
-    //      jQuery(this).find("img.product-image-photo:first").attr("src")))
-    //      .split(' ')[0]
+    $img = 
+      'https://moves.dk' +
+         ((jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find("img.img-fluid:first").attr("data-default-img") ||
+        //  jQuery(this).find("img.img-fluid:last").attr("data-src") ||
+         jQuery(this).find("img:last").attr("src")))
+         .split(' ')[0]
 
     $link =
-    'https://fayfashion.shop' +
+    'https:' +
       jQuery(this).find("a:first").attr("href")
 
-    $price = '€'+jQuery(this).find(".product__price:first").text().trim()
-    .split('€')[1]
+    $price = (jQuery(this).find(".price span:last").text().trim() ||
+    jQuery(this).find(".price").text().trim())
+    // .split('€')[1]
 
     if ($title && $img && $link && $price)    
       $arr.push([$title, $img, $link, $price])

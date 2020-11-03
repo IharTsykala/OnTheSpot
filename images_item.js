@@ -21,10 +21,12 @@ else
 
  m-tp-productimagegallery-preview-wrapper
 
- if (jQuery('img.product-single__image').length > 0) 
-    $img = jQuery('img.product-single__image')
-    .attr('srcset')
-    .split(' ')[0]
+ if (jQuery('img.galleryItem:first').length > 0) 
+    $img = 
+    'https://moves.dk/' +
+     jQuery('img.galleryItem:first')
+    .attr('src')
+    // .split(' ')[0]
     // .css('background-image').split('url("')[1].slice(0, -2)
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -36,11 +38,11 @@ else
   
   // .css('background-image').split('url("')[1].slice(0, -2)
 
-  if (jQuery('img.product-single__image').length > 0){
+  if (jQuery('img.galleryItem').length > 0){
     $arr = [];
-   jQuery('img.product-single__image').each(function(index){
+   jQuery('img.galleryItem').each(function(index){
         if (index < 4) 
-        $arr.push('https:'+jQuery(this).attr('srcset').split(' ')[0])
+        $arr.push('https:'+jQuery(this).attr('src'))
     })
    $arr
  }

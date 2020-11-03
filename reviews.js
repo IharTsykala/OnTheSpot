@@ -208,18 +208,18 @@ if (jQuery(".tp-widget-reviews .tp-widget-review").length > 0) {
 
 
 
-if (jQuery("#judgeme_product_reviews .jdgm-rev").length > 0) {
+if (jQuery("#sa_review_section .product_review").length > 0) {
   $arr = [];
-  jQuery("#judgeme_product_reviews .jdgm-rev").each(function (index) {
-    content = jQuery(this).find('.jdgm-rev__body').text().trim();
+  jQuery("#sa_review_section .product_review").each(function (index) {
+    content = jQuery(this).find('.comments').text().trim();
     author =    
-    jQuery(this).find(".jdgm-rev__author").text().trim()
-    .split(' ')[0];
+    jQuery(this).find(".name").text().trim()
+    // .split(' ')[0];
     rating =  ''
     // jQuery(this).find('.netreviews_reviews_rate').text().trim()
     // .split('/')[0];
     reviewed_at = 
-    jQuery(this).find(".jdgm-rev__title").text().trim();
+    jQuery(this).find(".rheading").text().trim();
     $arr[index] = { content, author, rating, reviewed_at };
   });
   $arr;

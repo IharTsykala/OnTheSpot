@@ -64,8 +64,9 @@ if (jQuery('.add-to-cart input').attr('value').toLowerCase() == 'sold out' || jQ
   $status = false;
 }
 
-if (jQuery('#productAdd a:first').text().trim().toLowerCase() == 'sold out' || jQuery('#productAdd a:first').text().trim().toLowerCase() == 'out of stock' 
-  || jQuery('span[id="main:lblNotAvailable"]').text().trim().toLowerCase().indexOf("not available") >= 0)
+if (jQuery('#AddToCart-product-template').text().trim().toLowerCase() == 'sold out' ||
+ jQuery('#AddToCart-product-template').text().trim().toLowerCase() == 'out of stock' ||
+  jQuery('#AddToCart-product-template').text().trim().indexOf("Na zalogi ni dovolj izdelkov") >= 0)
    {
   $status = true
 } else {
@@ -79,7 +80,7 @@ if (jQuery('#collection--options--wrapper .alert-danger').text().trim().toLowerC
     $status = false;
 }
 
-if (jQuery('button.AddtoCart').text().trim().toLowerCase() == 'sold out' || jQuery('button.AddtoCart').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('button.btn-cart').text().trim().toLowerCase() == 'sold out' || jQuery('button.btn-cart').text().trim().toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;

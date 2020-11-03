@@ -721,3 +721,60 @@ if (
   })
 }
 return $text
+
+
+
+
+
+if (jQuery(".selHolder:last option").length > 0) {
+  [
+    jQuery(".selHolder:last option:selected").text() != ""
+      ? jQuery(".selHolder:last option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".selHolder:last option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Color", ["No Color"]];
+}
+
+//pa_Colors clicker
+if (
+jQuery(".selHolder:last option").length > 0 &&
+$sarg != "Select Color" &&
+$sarg != "No Color"
+) {
+jQuery(".selHolder:last option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+
+$text = false;
+if (
+  jQuery(".selHolder:last option").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery(".selHolder:last option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
