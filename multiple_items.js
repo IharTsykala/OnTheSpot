@@ -474,31 +474,32 @@ if (
 //      .split(' ')[0]
 
 if (
-  jQuery(".collection-products .product-collection").length > 0 &&
-  jQuery(".zoomWindow").length === 0
+  jQuery('ul[data-hook="product-list-wrapper"] li').length > 0 &&
+  // jQuery(".img.product-gallery__image:first").length === 0
+  [].length === 0
 ) {
   $arr = [];
 
-  jQuery(".collection-products .product-collection").each(function () {
-    $title = jQuery(this).find(".product-collection__title").text().trim().replace(/\s\s+/g, "");
+  jQuery('ul[data-hook="product-list-wrapper"] li').each(function () {
+    $title = jQuery(this).find('h3[data-hook="product-item-name"]').text().trim().replace(/\s\s+/g, "");
 
     $img =
-     'https:' +
+    //  'https:' +
     //  (jQuery(this).find("img:first").next().text().trim().split('src="')[1].split(' alt')[0].slice(0, -1) ||
     //    jQuery(this).find(".product__list__image img:first").attr("src"))
     // //     || 
     //  jQuery(this).find("img:first").next().text().trim().split('src="')[1].split(' alt')[0].slice(0, -1))
 
-            ((jQuery(this).find("img.rimage__img--contain:first").attr("srcset") ||
+            ((jQuery(this).find("img:first").attr("src") ||
         //  jQuery(this).find("img.product-image-photo:first").attr("data-default-img") ||
         //  jQuery(this).find("img.product-image-photo:first").attr("data-src") ||
-         jQuery(this).find("img.rimage__img--contain:first").attr("data-srcset")) ||
+         jQuery(this).find("img:last").attr("src")) ||
          '')
-         .split(' ')[0]
+         .split(', ')[0]
 
-    $link = 'https://www.elchim.eu' + jQuery(this).find("a:first").attr("href");
+    $link = jQuery(this).find("a:first").attr("href");
 
-    $price = jQuery(this).find(".product-collection__price .money:last").text().trim().split(',')[0]
+    $price = jQuery(this).find('[data-hook="product-item-price-to-pay"]').text().trim().split(',')[0]
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);

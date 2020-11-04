@@ -63,10 +63,11 @@ jQuery('div[data-matrixpinnedcolumnwidth] input[data-wsac-input-field]')
 jQuery('div[data-matrixpinnedcolumnwidth] button[value="Einlösen"]:first')
 jQuery('.c-tp-descriptionlist .c-tp-descriptionlist-definition:contains(€):last strong')
 
-jQuery(".promotion-input a.h2")[0].click()
-document.querySelector('input#checkout-promo-code')
-document.querySelector('button.submit')
-document.querySelectorAll('li[class="flex justify-between mt-4 cols:mt-8 pt-4 cols:pt-8 border-t font-bold"] span:last')[1]
+jQuery('span[data-hook="add-coupon-title-text"]"]')[0].click()
+document.querySelectorAll('span[data-hook="add-coupon-title-text"]')[0].click()
+document.querySelector('input[data-hook="coupon-input"]')
+document.querySelector('button[data-hook="coupon-button"]')
+document.querySelectorAll('[data-hook="total-value"]')[0]
 
 
 jQuery("button[data-zta='enterCouponBtn']").click()
@@ -82,9 +83,9 @@ jQuery('.order-total bdi')
 // 
 
 jQuery(".showcoupon")[0].click()
-jQuery('input[name="voucher_code"]')
-jQuery('button[id="discount_submit"]')
-jQuery('.price-total .price')
+jQuery('input[id="coupon_code"]')
+jQuery('button[name="apply_coupon"]')
+jQuery('[data-title="Total"] bdi:last')
 
 jQuery("#block-discount-heading")[0].click()
 jQuery('[id="payment"][style="display: list-item;"] input[id="discount-code"]')

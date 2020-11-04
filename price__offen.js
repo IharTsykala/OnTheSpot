@@ -33,5 +33,5 @@ jQuery('.modal_price .current_price').text().trim()
 jQuery('.product-info-main .price-box:first .price:last').text().trim()
 jQuery('.product-info-main .price-box:first .price:first').text().trim()
 
-jQuery('.ProdInfo .price:last').text().trim()
-jQuery('.ProdInfo .price:first').text().trim() || jQuery('.ProdInfo .price:last').text().trim()
+jQuery('.price .woocommerce-Price-amount:last').text().trim()
+jQuery('.price .woocommerce-Price-amount:first').text().trim() || jQuery('.price.woocommerce-Price-currencySymbol').text().trim()

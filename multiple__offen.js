@@ -217,39 +217,40 @@ if (
 
 
 if (
-  jQuery(".productList .prodHolder").length > 0 &&
-  jQuery('img.galleryItem:first').length === 0  
+  jQuery("ul.products li").length > 0 &&
+  jQuery('img.product-gallery__image').length === 0  
 ) {
   $arr = []
 
-  jQuery(".productList .prodHolder").each(function () {
-    $title = jQuery(this).find(".prodTitle").text().trim()
+  jQuery("ul.products li").each(function () {
+    $title = jQuery(this).find(".woocommerce-loop-product__title").text().trim()
 
-    // if(jQuery(this).find(".product__img-wrapper").next().text().trim())
-    // $img =
+    if(jQuery(this).find("img.attachment-woocommerce_thumbnail:last").next().text().trim())
+    $img =
     // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
     // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
     // 'https:' + 
-    // jQuery(this).find(".product__img-wrapper").next().text().trim()
-    // .split('src="')[1]
-    // .split(' alt')[0].trim()
-    // .slice(0, -1)
-    // else $img = ''
+    jQuery(this).find("img.attachment-woocommerce_thumbnail:last").next().text().trim()
+    .split('src="')[1]
+    .split(' class')[0].trim()
+    .slice(0, -1)
+    else $img = ''
 
-    $img = 
-      'https://moves.dk' +
-         ((jQuery(this).find("img:first").attr("src") ||
-        //  jQuery(this).find("img.img-fluid:first").attr("data-default-img") ||
-        //  jQuery(this).find("img.img-fluid:last").attr("data-src") ||
-         jQuery(this).find("img:last").attr("src")))
-         .split(' ')[0]
+    // $img = 
+    //   // 'https:' +
+    //      (((jQuery(this).find(".attachment-woocommerce_thumbnail img:first").attr("src") ||
+    //     //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+    //     //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+    //      jQuery(this).find(".attachment-woocommerce_thumbnail:last").attr("src")|| '')))
+    //      .split(', ')[0];
 
     $link =
-    'https:' +
+    // 'https://egyptianlinens.com' +
       jQuery(this).find("a:first").attr("href")
 
-    $price = (jQuery(this).find(".price span:last").text().trim() ||
-    jQuery(this).find(".price").text().trim())
+    $price = jQuery(this).find(".woocommerce-Price-amount:first").text().trim()
+    // ||
+    // jQuery(this).find(".price").text().trim())
     // .split('€')[1]
 
     if ($title && $img && $link && $price)    
@@ -257,3 +258,6 @@ if (
   })
   $arr
 }
+
+
+document.querySelectorAll('.product-list--collection .product-item')

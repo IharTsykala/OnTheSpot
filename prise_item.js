@@ -115,13 +115,19 @@ our_price_display
 'USD' + ' ' + jQuery('.product-info__header_price.dj_skin_product_detail_price.money').text().trim().split('p.')[1]
 
 
-jQuery('.price-area .discount_price').text().trim() ||
- jQuery('.detail_price span:first').text().trim().split(' ')[0].trim()
+jQuery('.product--price .content--default').text().trim()
+// .split(' ')[0].trim()
+jQuery('.content--discount .price--line-through').text().trim() ||
+ jQuery('.product--price .content--default').text().trim()
+//  .split(' ')[0].trim()
 
 jQuery('.price-area .base_price').text().trim() ||
  jQuery('.price-area .discount_price').text().trim() ||
   'CAD' + jQuery('.detail_price span:first').text().trim().split('CAD')[2].trim()
 
 
-  jQuery(".product .prices .money:last").text().trim()
+  jQuery(".price-list .price:first").text().trim()
+  jQuery(".price-list .price:last").text().trim()
   jQuery(".product-single__price .product-price:first").text().trim()
+
+  document.querySelectorAll('[data-hook="sr-formatted-secondary-price"]')

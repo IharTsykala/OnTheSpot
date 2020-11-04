@@ -80,7 +80,8 @@ if (jQuery('#collection--options--wrapper .alert-danger').text().trim().toLowerC
     $status = false;
 }
 
-if (jQuery('button.btn-cart').text().trim().toLowerCase() == 'sold out' || jQuery('button.btn-cart').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('button.single_add_to_cart_button').text().trim().toLowerCase() == 'sold out' ||
+ jQuery('button.single_add_to_cart_button').text().trim().toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;
@@ -88,7 +89,8 @@ if (jQuery('button.btn-cart').text().trim().toLowerCase() == 'sold out' || jQuer
 
 // span[id="main:lblNotAvailable"]
 
-if (jQuery('button[data-talos="buttonAddToCart"]').text().trim().toLowerCase() == 'sold out' || jQuery('button[data-talos="buttonAddToCart"]').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('button[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'sold out' ||
+ jQuery('button[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;

@@ -311,7 +311,7 @@ $val = false;
   return $val;
 
   // Select
-  if (jQuery("table.variations:contains(Size) option").length > 0) {
+  if (jQuery(".select__wrapper:contains(Size) option").length > 0) {
     [
       jQuery(".select__wrapper:contains(Size) .select__wrapper.field.selected").text() != ""
         ? jQuery("select__wrapper:contains(Size) .select__wrapper.field.selected")
@@ -361,6 +361,61 @@ if (
       $text = false;
     }
   });
+}
+return $text;
+
+
+// Select
+if (jQuery(".product-form__option:contains(Size) option").length > 0) {
+  [
+    jQuery(".product-form__option:contains(Size)  option:selected").text() != ""
+      ? jQuery(".product-form__option:contains(Size)  option:selected")
+          .text()
+          .trim()
+          // .replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".product-form__option:contains(Size) option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Size", ["No Size"]];
+}
+
+//pa_sizes clicker
+if (
+jQuery(".product-form__option:contains(Size) option").length > 0 &&
+$sarg != "Select Size" &&
+$sarg != "No Size"
+) {
+jQuery(".product-form__option:contains(Size) option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {     
+      jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+//pa_sizes stock status
+$text = false;
+if (
+jQuery(".product-form__option:contains(Size) option").length > 0 &&
+$sarg != "No Size" &&
+$sarg != "Select Size"
+) {
+$text = true;
+jQuery(".product-form__option:contains(Size) option").each(function (index) {
+  if (
+    jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+    !jQuery(this).attr('disabled')
+  ) {
+    $text = false;
+  }
+});
 }
 return $text;
 
@@ -1279,3 +1334,65 @@ if (
       });
     }
     return $text;
+
+
+
+
+
+    //////////////////////////////////////
+
+
+
+    if (jQuery("div.variant--group:contains(Grösse) input").length > 0) {
+      ;[
+        jQuery("div.variant--group:contains(Grösse) input:checked").length > 0
+          ? jQuery("div.variant--group:contains(Grösse) input:checked")
+          .attr("title")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery("div.variant--group:contains(Grösse) input").map(function (i, e) {
+        if (jQuery(e).attr("title") != "")
+          return jQuery(e).attr("title").replace(/\s\s+/g, "")
+      })
+    ),
+    ]
+    } else {
+    ;["No Grösse", ["No Grösse"]]
+    }
+    
+    if (jQuery("div.variant--group:contains(Grösse) input").length > 0  &&
+    $sarg != "Select Grösse" &&
+    $sarg != "No Grösse") {
+    jQuery("div.variant--group:contains(Grösse) input").each(function () {
+    if (jQuery(this).attr("title").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+    })
+    }
+    wait_for(function () {
+    return true
+    })
+    
+    $text = false;
+    if (
+      jQuery("div.variant--group:contains(Grösse) input").length > 0 &&
+      $sarg != "No Grösse" &&
+      $sarg != "Select Grösse"
+    ) {
+      $text = true;
+      jQuery("div.variant--group:contains(Grösse) input").each(function (index) {
+        if (
+          jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+          !jQuery(this).attr('.data-availability') === 'soldout'
+        ) {
+          $text = false;
+        }
+      });
+    }
+    return $text;
+  
+
+
+
+    ////////////////////////////////////////////
