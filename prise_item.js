@@ -115,10 +115,10 @@ our_price_display
 'USD' + ' ' + jQuery('.product-info__header_price.dj_skin_product_detail_price.money').text().trim().split('p.')[1]
 
 
-jQuery('.product--price .content--default').text().trim()
+jQuery('#define-profile .price').text().trim()
 // .split(' ')[0].trim()
-jQuery('.content--discount .price--line-through').text().trim() ||
- jQuery('.product--price .content--default').text().trim()
+jQuery('#define-profile .old-price').text().trim() ||
+ jQuery('#define-profile .price').text().trim()
 //  .split(' ')[0].trim()
 
 jQuery('.price-area .base_price').text().trim() ||
@@ -126,8 +126,11 @@ jQuery('.price-area .base_price').text().trim() ||
   'CAD' + jQuery('.detail_price span:first').text().trim().split('CAD')[2].trim()
 
 
-  jQuery(".price-list .price:first").text().trim()
+  jQuery(".summary-inner .woocommerce-Price-amount bdi:first").text().trim()
   jQuery(".price-list .price:last").text().trim()
   jQuery(".product-single__price .product-price:first").text().trim()
+
+  jQuery('h1:first').text().trim().split(' / ')[0]
+  jQuery('h1:first').text().trim().split(' / ')[1]
 
   document.querySelectorAll('[data-hook="sr-formatted-secondary-price"]')

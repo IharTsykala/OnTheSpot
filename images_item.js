@@ -21,10 +21,10 @@ else
 
  m-tp-productimagegallery-preview-wrapper
 
- if (jQuery('.zoomImg').length > 0) 
+ if (jQuery('.woocommerce-product-gallery__image img').length > 0) 
     $img = 
     // 'https:' +
-     jQuery('.zoomImg')
+     jQuery('.woocommerce-product-gallery__image img')
     .attr('src')
     // .split(', ')[0]
     // .css('background-image').split('url("')[1].slice(0, -2)
@@ -38,11 +38,11 @@ else
   
   // .css('background-image').split('url("')[1].slice(0, -2)
 
-  if (jQuery('.variant--group img').length > 0){
+  if (jQuery('.owl-item img').length > 0){
     $arr = [];
-   jQuery('.variant--group img').each(function(index){
+   jQuery('.owl-item img').each(function(index){
         if (index < 4) 
-        $arr.push(jQuery(this).attr('srcset'))
+        $arr.push(jQuery(this).attr('src'))
     })
    $arr
  }
@@ -217,3 +217,19 @@ if ($img.indexOf("http") == -1)
 'https:'+$img
 else
 $img
+
+
+if (jQuery('#get-image-item-id img').length > 0) 
+    $img = 
+    // 'https:' +
+     jQuery('#get-image-item-id img')
+    .attr('src')
+    // .split(' ')[0]
+    // .css('background-image').split('url("')[1].slice(0, -2)
+else
+    $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+  'https:'+$img
+else
+  $img

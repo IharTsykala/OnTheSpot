@@ -64,7 +64,7 @@ jQuery('div[data-matrixpinnedcolumnwidth] button[value="Einlösen"]:first')
 jQuery('.c-tp-descriptionlist .c-tp-descriptionlist-definition:contains(€):last strong')
 
 jQuery('span[data-hook="add-coupon-title-text"]"]')[0].click()
-document.querySelectorAll('span[data-hook="add-coupon-title-text"]')[0].click()
+document.querySelectorAll('span.wdWUI')[0].click()
 document.querySelector('input[data-hook="coupon-input"]')
 document.querySelector('button[data-hook="coupon-button"]')
 document.querySelectorAll('[data-hook="total-value"]')[0]
@@ -77,17 +77,20 @@ jQuery('#price-now .ib:last')
 
 // 
 jQuery("#cadeaubonText")[0].click()
-jQuery('input[name="coupon_code"]')
-jQuery('input[name="apply_coupon"]')
-jQuery('.order-total bdi')
+jQuery('input[id="couponcode"]')
+jQuery('input[value="Apply"]')
+jQuery('.cart-total .cart-total-value:last')
 // 
 
-jQuery(".showcoupon")[0].click()
-jQuery('input[id="coupon_code"]')
-jQuery('button[name="apply_coupon"]')
-jQuery('[data-title="Total"] bdi:last')
+jQuery(".coupon-code-add")[0].click()
+jQuery('input[id="couponcode"]')
+jQuery('input[value="Apply"]:last')
+jQuery('.cart-total .cart-total-grandTotal')
+jQuery('input[name="redeemableCode"]')
+jQuery('button[id="applyRedeemableButton"]:last')
+jQuery('[data-test="cart-price-value"]:last')
 
-jQuery("#block-discount-heading")[0].click()
+jQuery(".coupon-code-add")[0].click()
 jQuery('[id="payment"][style="display: list-item;"] input[id="discount-code"]')
 jQuery('button.action-apply')
 jQuery('[class="grand totals"] .price:last')

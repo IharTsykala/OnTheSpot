@@ -474,14 +474,14 @@ if (
 //      .split(' ')[0]
 
 if (
-  jQuery('ul[data-hook="product-list-wrapper"] li').length > 0 &&
+  jQuery('ul.productGrid li').length > 0 &&
   // jQuery(".img.product-gallery__image:first").length === 0
   [].length === 0
 ) {
   $arr = [];
 
-  jQuery('ul[data-hook="product-list-wrapper"] li').each(function () {
-    $title = jQuery(this).find('h3[data-hook="product-item-name"]').text().trim().replace(/\s\s+/g, "");
+  jQuery('ul.productGrid li').each(function () {
+    $title = jQuery(this).find('.card-title').text().trim().replace(/\s\s+/g, "");
 
     $img =
     //  'https:' +
@@ -495,11 +495,12 @@ if (
         //  jQuery(this).find("img.product-image-photo:first").attr("data-src") ||
          jQuery(this).find("img:last").attr("src")) ||
          '')
-         .split(', ')[0]
+         .split(' ')[0]
 
     $link = jQuery(this).find("a:first").attr("href");
 
-    $price = jQuery(this).find('[data-hook="product-item-price-to-pay"]').text().trim().split(',')[0]
+    $price = jQuery(this).find('.price-section .price--withoutTax').text().trim()
+    // .split(',')[0]
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
@@ -511,19 +512,20 @@ if (
 
 
 if (
-  jQuery("#search-result-items li").length > 0 &&
+  jQuery("#gf-products .grid-view-item").length > 0 &&
   jQuery(".product-image.swiper-slide-active img").length === 0
 ) {
   $arr = [];
 
-  jQuery("#search-result-items li").each(function () {
-    $title = jQuery(this).find(".product-name").text().trim();
+  jQuery("#gf-products .grid-view-item").each(function () {
+    $title = jQuery(this).find(".product-item-title-h5").text().trim().split(' / ')[0];
 
-    $img = jQuery(this).find("img:first").attr("src")
+    $img = jQuery(this).find("img.img-responsive:first").attr("src")
 
-    $link = jQuery(this).find("a:first").attr("href");
+    $link = 'https://dossier.co' + jQuery(this).find("a:first").attr("href");
 
-    $price = '€' +  (jQuery(this).find('.product-standard-price ').text().trim().split(' ')[0])
+    $price = jQuery(this).find(".product-item-title-h5").text().trim()
+    .split(' / ')[1]
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
@@ -788,5 +790,42 @@ if (
     $arr.push([$title, $img, $link, $price]);
   });  
     
+  $arr;
+}
+
+
+
+if (
+  jQuery('ul.search-result-items li').length > 0 &&
+  // jQuery(".img.product-gallery__image:first").length === 0
+  [].length === 0
+) {
+  $arr = [];
+
+  jQuery('ul.search-result-items li').each(function () {
+    $title = jQuery(this).find('.name-link').text().trim().replace(/\s\s+/g, "");
+
+    $img =
+    //  'https:' +
+    //  (jQuery(this).find("img:first").next().text().trim().split('src="')[1].split(' alt')[0].slice(0, -1) ||
+    //    jQuery(this).find(".product__list__image img:first").attr("src"))
+    // //     || 
+    //  jQuery(this).find("img:first").next().text().trim().split('src="')[1].split(' alt')[0].slice(0, -1))
+
+            ((jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find("img.product-image-photo:first").attr("data-default-img") ||
+        //  jQuery(this).find("img.product-image-photo:first").attr("data-src") ||
+         jQuery(this).find("img:last").attr("src")) ||
+         '')
+         .split(', ')[0]
+
+    $link = jQuery(this).find("a.thumb-link:first").attr("href");
+
+    $price = jQuery(this).find('.product-price span:first').text().trim()
+    // .split(',')[0]
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
   $arr;
 }

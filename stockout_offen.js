@@ -14,16 +14,23 @@ jQuery('button.js-product-button-add-to-cart:first').text().trim().toLowerCase()
   $status = false;
 }
 
-if (jQuery('button.js-product-button-add-to-cart:first').attr('data-button-status') == 'sold-out' || 
-jQuery('button.js-product-button-add-to-cart:first').attr('data-button-status') == 'out of stock'
+if (jQuery('button.single_add_to_cart_button').attr('data-button-status') == 'sold-out' || 
+jQuery('button.single_add_to_cart_button').attr('data-button-status') == 'out of stock'
 ) {
   $status = true
 } else {
   $status = false;
 }
 
-if (jQuery('button#AddToCart').text().trim().toLowerCase() == 'sold out' || 
-jQuery('button#AddToCart').text().trim().toLowerCase() == 'out of stock'
+if (jQuery('button#add-to-cart').text().trim().toLowerCase() == 'sold out' || 
+jQuery('button#add-to-cart').text().trim().toLowerCase() == 'out of stock'
+) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('button#add-to-cart').text().trim().toLowerCase().indexOf('out')  >= 0
 ) {
   $status = true
 } else {

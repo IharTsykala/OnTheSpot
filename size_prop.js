@@ -1396,3 +1396,66 @@ if (
 
 
     ////////////////////////////////////////////
+
+
+
+
+    /////////////////////////////////////////////////
+
+
+    if (jQuery("select#pa_volume option").length > 0) {
+      [
+        jQuery("select#pa_volume option:selected").text() != ""
+          ? jQuery("select#pa_volume option:selected")
+              .text()
+              .trim()
+              // .replace(/\s\s+/g, "")
+          : "Select Size",
+        jQuery.makeArray(
+          jQuery("select#pa_volume option").map(function (i, e) {
+            if (jQuery(e).text() != "")
+              return jQuery(e).text().trim().replace(/\s\s+/g, "");
+          })
+        ),
+      ];
+    } else {
+      ["No Size", ["No Size"]];
+    }
+    
+    if (
+      jQuery("select#pa_volume option").length > 0 &&
+      $sarg != "Select Size" &&
+      $sarg != "No Size"
+      ) {
+      jQuery("select#pa_volume option").each(function () {
+        if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+          jQuery(this).trigger("change");
+        }
+      });
+      }
+      wait_for(function () {
+      return true;
+      });
+
+      //////////////////////////
+      
+      $text = false;
+      if (
+        jQuery("select#pa_volume option").length > 0 &&
+        $sarg != "No Size" &&
+        $sarg != "Select Size"
+      ) {
+        $text = true;
+        jQuery("select#pa_volume option").each(function (index) {
+          if (
+            jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+            !jQuery(this).attr('disabled')
+          ) {
+            $text = false;
+          }
+        });
+      }
+      return $text;
+
+
+    //////////////////////////////////////////////////////

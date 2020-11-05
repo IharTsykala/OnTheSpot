@@ -555,3 +555,23 @@ return $text;
 
 
 /////////////////////////////////////
+
+
+
+$text = false;
+if (
+  jQuery("select#pa_volume option").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("select#pa_volume option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;

@@ -5,8 +5,8 @@ if (jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimen
   $status = false;
 }
 
-if (jQuery('[class=" ajax-submit action_button add_to_cart  "]').text().trim().toLowerCase() == 'sold out' || 
-jQuery('[class=" ajax-submit action_button add_to_cart  "]').text().trim().toLowerCase() == 'out of stock' )
+if (jQuery('[id="form-action-addToCart"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[id="form-action-addToCart"]').text().trim().toLowerCase() == 'out of stock' )
 // ||
 // jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
  {
@@ -89,8 +89,8 @@ if (jQuery('button.single_add_to_cart_button').text().trim().toLowerCase() == 's
 
 // span[id="main:lblNotAvailable"]
 
-if (jQuery('button[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'sold out' ||
- jQuery('button[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('button[name="buynow"]').text().trim().toLowerCase() == 'sold out' ||
+ jQuery('button[name="buynow"]').text().trim().toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;
