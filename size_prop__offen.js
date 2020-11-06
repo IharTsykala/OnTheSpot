@@ -52,6 +52,67 @@ if (
 }
 return $text;
 
+/////////////////////////////////////
+
+
+// Select
+if (jQuery(".radio-wrapper:contains(Size) option").length > 0) {
+  [
+    jQuery(".radio-wrapper:contains(Size) option:selected").text() != ""
+      ? jQuery(".radio-wrapper:contains(Size) option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".radio-wrapper:contains(Size) option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Size", ["No Size"]];
+}
+
+//pa_Sizes clicker
+if (
+jQuery(".radio-wrapper:contains(Size) option").length > 0 &&
+$sarg != "Select Size" &&
+$sarg != "No Size"
+) {
+jQuery(".radio-wrapper:contains(Size) option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+
+$text = false;
+if (
+  jQuery(".radio-wrapper:contains(Size) option").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery(".radio-wrapper:contains(Size) option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+
+//////////////////////////////////////////////
+
 
 //
 
@@ -110,15 +171,15 @@ if (
 
 
 
-  if (jQuery("div.product-info__variants_items:contains(Size) input").length > 0) {
+  if (jQuery("div.radio-wrapper:contains(Size) input").length > 0) {
     ;[
-      jQuery("div.product-info__variants_items:contains(Size) input:checked").length > 0
-        ? jQuery("div.product-info__variants_items:contains(Size) input:checked")
+      jQuery("div.radio-wrapper:contains(Size) input:checked").length > 0
+        ? jQuery("div.radio-wrapper:contains(Size) input:checked")
         .attr("value")
         .replace(/\s\s+/g, "")
     : "Select item",
   jQuery.makeArray(
-    jQuery("div.product-info__variants_items:contains(Size) input").map(function (i, e) {
+    jQuery("div.radio-wrapper:contains(Size) input").map(function (i, e) {
       if (jQuery(e).attr("value") != "")
         return jQuery(e).attr("value").replace(/\s\s+/g, "")
     })
@@ -127,11 +188,34 @@ if (
   } else {
   ;["No Size", ["No Size"]]
   }
+
+  ////////////
   
-  if (jQuery("div.product-info__variants_items:contains(Size) input").length > 0  &&
+  if (jQuery("div.radio-wrapper:contains(Size) input").length > 0) {
+    ;[
+      jQuery("div.radio-wrapper:contains(Size) input:checked").length > 0
+        ? jQuery("div.radio-wrapper:contains(Size) input:checked")
+        .attr("value")
+        .replace(/\s\s+/g, "")
+    : "Select item",
+  jQuery.makeArray(
+    jQuery("div.radio-wrapper:contains(Size) input").map(function (i, e) {
+      if (jQuery(e).attr("value") != "")
+        return jQuery(e).attr("value").replace(/\s\s+/g, "")
+    })
+  ),
+  ]
+  } else {
+  ;["No Size", ["No Size"]]
+  }
+
+
+  ////
+  
+  if (jQuery("div.radio-wrapper:contains(Size) input").length > 0  &&
   $sarg != "Select Size" &&
   $sarg != "No Size") {
-  jQuery("div.product-info__variants_items:contains(Size) input").each(function () {
+  jQuery("div.radio-wrapper:contains(Size) input").each(function () {
   if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
     jQuery(this).next()[0].click()
   }
@@ -143,12 +227,12 @@ if (
   
   $text = false;
   if (
-    jQuery("div.product-info__variants_items:contains(Size) input").length > 0 &&
+    jQuery("div.radio-wrapper:contains(Size) input").length > 0 &&
     $sarg != "No Size" &&
     $sarg != "Select Size"
   ) {
     $text = true;
-    jQuery("div.product-info__variants_items:contains(Size) input").each(function (index) {
+    jQuery("div.radio-wrapper:contains(Size) input").each(function (index) {
       if (
         jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
         !jQuery(this).attr('.data-availability') === 'soldout'
@@ -160,6 +244,25 @@ if (
   return $text;
 
   // /////////////////////
+
+  $text = false;
+  if (
+    jQuery("div.radio-wrapper:contains(Size) input").length > 0 &&
+    $sarg != "No Size" &&
+    $sarg != "Select Size"
+  ) {
+    $text = true;
+    jQuery("div.radio-wrapper:contains(Size) input").each(function (index) {
+      if (
+        jQuery(this).val().trim().replace(/\s\s+/g, "") == $sarg &&
+        !jQuery(this).parent().hasClass('soldout')
+      ) {
+        $text = false;
+      }
+    });
+  }
+return $text
+  
 
   /////////////////////////////////////
 

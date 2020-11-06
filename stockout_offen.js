@@ -55,3 +55,14 @@ if (jQuery('[id="button-cart"]').text().trim().toLowerCase().indexOf('out') >= 0
 } else {
   $status = false;
 }
+
+
+if (jQuery('[name="add"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[name="add"]').text().trim().toLowerCase() == 'out of stock' )
+// ||
+// jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
+ {
+  $status = true
+} else {
+  $status = false;
+}

@@ -5,8 +5,8 @@ if (jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimen
   $status = false;
 }
 
-if (jQuery('[id="form-action-addToCart"]').text().trim().toLowerCase() == 'sold out' || 
-jQuery('[id="form-action-addToCart"]').text().trim().toLowerCase() == 'out of stock' )
+if (jQuery('[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'out of stock' )
 // ||
 // jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
  {
@@ -142,7 +142,7 @@ Array.from(
   e => e.textContent.includes("₹")
 )[16].innerText;
 
-if (jQuery('.add_to_cart:first').text().trim().toLowerCase().indexOf('out') >= 0 || jQuery('.sold_out').text().trim() !== '') 
+if (jQuery('.single-product [name="add"]').text().trim().toLowerCase().indexOf('out') >= 0) 
 {
   $status = true
 } else {

@@ -765,25 +765,41 @@ if (jQuery(".grid-products a").length > 0 && [].length === 0) {
 
 
 if (
-  jQuery(".product-list .product-wrap").length > 0 &&
-  jQuery('[class="gallery-cell is-selected"] img').length === 0
+  jQuery(".product-grid .product-wrapper").length > 0 &&
+  jQuery('.product-single__image').length === 0
 ) {
   $arr = [];
 
-  jQuery(".product-list .product-wrap").each(function () {
-    $title = jQuery(this).find('.title').text().trim();
+  jQuery(".product-grid .product-wrapper").each(function () {
+    $title = jQuery(this).find('.product__title').text().trim();
 
-    $img =  
-    'https:'+  
-    jQuery(this).find("img:first").attr('src')
-    // (jQuery(this).find("img:first").attr('srcset') ||
-    // jQuery(this).find("img:first").attr('data-srcset') ||
-    // 'https:'+  jQuery(this).find("img:first").attr('src')).split(' ')[0]
-    // .next().text().trim().split('src="')[1].split(' alt')[0].slice(0, -1)     
+    if(jQuery(this).find(".product__img-wrapper").next().text().trim())
+    $img =
+    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
+    // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+    'https:' + 
+    jQuery(this).find(".product__img-wrapper")
+    .next()
+    .text().trim()
+    .split('src="')[1]
+    .split(' alt')[0].trim()
+    .slice(0, -1)
+    else $img = '' 
+    
+    //  $img = 
+    //   // 'https:' +
+    //      (((jQuery(this).find("img:first").attr("src") ||
+    //     //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+    //     //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+    //      jQuery(this).find("img:first").attr("data-src")|| '')))
+    //      .split(' ')[0];
 
-    $link = 'https://www.jpcycles.com' + jQuery(this).find('a:first').attr("href");
+    $link = 
+    'https://toasterkiwi.shop' + 
+    jQuery(this).find('a:first').attr("href");
 
-    $price = jQuery(this).find(".price .money:first").text().trim().split(' to ')[0].trim()
+    $price = jQuery(this).find(".product__price").text().trim()
+    .split('Regular price')[1].trim()
     
     
     if ($title && $img && $link && $price)
@@ -827,5 +843,53 @@ if (
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });
+  $arr;
+}
+
+///////////////////////////////////////////////////////////////
+
+if (
+  jQuery('[data-hook="product-list-wrapper"] li').length > 0 &&
+  jQuery('[data-hook="product-gallery-composite"] [data-hook="product-image"] img').length === 0
+) {
+  $arr = [];
+
+  jQuery('[data-hook="product-list-wrapper"] li').each(function () {
+    $title = jQuery(this).find('[data-hook="product-item-product-details"] h3').text().trim();
+
+    // if(jQuery(this).find("img:first").next().text().trim())
+    // $img =
+    // // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
+    // // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+    // 'https:' + 
+    // jQuery(this).find(".product__img-wrapper")
+    // .next()
+    // .text().trim()
+    // .split('src="')[1]
+    // .split(' alt')[0].trim()
+    // .slice(0, -1)
+    // else $img = '' 
+    
+     $img = 
+      // 'https:' +
+         (((jQuery(this).find('[data-hook="wix-media-image"]').attr("src").replace(/\s/g,'%20') ||
+        //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+         jQuery(this).find('[data-hook="wix-media-image"]').attr("src").replace(/\s/g,'%20')|| '')))
+         .split(' ')[0];
+
+    $link = 
+    // 'https://toasterkiwi.shop' + 
+    jQuery(this).find('a:first').attr("href");
+
+    $price = jQuery(this).find('[data-hook="product-item-product-details"] [data-hook="product-item-price-to-pay"]').text().trim()
+    .split('£')[1]
+    // .trim()
+    
+    
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });  
+    
   $arr;
 }

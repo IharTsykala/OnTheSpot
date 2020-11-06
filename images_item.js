@@ -21,12 +21,12 @@ else
 
  m-tp-productimagegallery-preview-wrapper
 
- if (jQuery('.woocommerce-product-gallery__image img').length > 0) 
+ if (jQuery('.product-single__image').length > 0) 
     $img = 
-    // 'https:' +
-     jQuery('.woocommerce-product-gallery__image img')
-    .attr('src')
-    // .split(', ')[0]
+    'https:' +
+     jQuery('.product-single__image')
+    .attr('data-srcset')
+    .split(' ')[0]
     // .css('background-image').split('url("')[1].slice(0, -2)
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -38,11 +38,11 @@ else
   
   // .css('background-image').split('url("')[1].slice(0, -2)
 
-  if (jQuery('.owl-item img').length > 0){
+  if (jQuery('.product-single__thumbnail-image').length > 0){
     $arr = [];
-   jQuery('.owl-item img').each(function(index){
+   jQuery('.product-single__thumbnail-image').each(function(index){
         if (index < 4) 
-        $arr.push(jQuery(this).attr('src'))
+        $arr.push(('https:' + jQuery(this).attr('src')).split(' ')[0])
     })
    $arr
  }
@@ -165,8 +165,8 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery('[class="gallery-cell is-selected"] img').length > 0) 
-$img = jQuery('[class="gallery-cell is-selected"] img').attr('src')
+if (jQuery('[data-hook="product-gallery-composite"]  [data-hook="product-image"]:first').length > 0) 
+$img = jQuery('[data-hook="product-gallery-composite"]  [data-hook="product-image"]first').attr('src').replace(/\s/g,'%20')    
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -176,13 +176,14 @@ else
 $img
 
 
-if (jQuery('[class="gallery-cell is-selected"] img').length > 0){
+if (jQuery('[data-hook="product-image"]:first').length > 0){
 $arr = [];
-jQuery('[class="gallery-cell is-selected"] img').each(function(index){
+jQuery('data-hook="product-image"] img').each(function(index){
     if (index < 4) 
     $arr.push(jQuery(this)
     // .find('img:first')
-    .attr("src"))    
+    .attr("src"))
+    .replace(/\s/g,'%20')    
 })
 $arr
 }
@@ -225,6 +226,23 @@ if (jQuery('#get-image-item-id img').length > 0)
      jQuery('#get-image-item-id img')
     .attr('src')
     // .split(' ')[0]
+    // .css('background-image').split('url("')[1].slice(0, -2)
+else
+    $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+  'https:'+$img
+else
+  $img
+
+
+  if (jQuery('.card__image-container img').length > 0) 
+    $img = 
+    'https:' +
+     jQuery('.card__image-container img')
+    .attr('data-srcset')
+    .split(' ')[0]
+    .replace('_85x', '_1000x')
     // .css('background-image').split('url("')[1].slice(0, -2)
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')

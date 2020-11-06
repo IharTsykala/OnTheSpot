@@ -25,10 +25,10 @@ jQuery('#coupon_code')
 jQuery('button[value="Apply Voucher"]')
 jQuery('.grand_total .price:last')
 
-jQuery('a.accordion-toggle').click()
+jQuery('a.showcoupon')[0].click()
 jQuery('input[id="coupon_code"]')
 jQuery('button[value="Primeni"]')
-jQuery('#shopping-cart-totals-table .price:last')
+jQuery('.order-total bdi')
 
 name="coupon-code-medium"
 

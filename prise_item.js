@@ -126,7 +126,7 @@ jQuery('.price-area .base_price').text().trim() ||
   'CAD' + jQuery('.detail_price span:first').text().trim().split('CAD')[2].trim()
 
 
-  jQuery(".summary-inner .woocommerce-Price-amount bdi:first").text().trim()
+  jQuery(".woocommerce-variation-price .woocommerce-Price-amount bdi:first").text().trim()
   jQuery(".price-list .price:last").text().trim()
   jQuery(".product-single__price .product-price:first").text().trim()
 
@@ -134,3 +134,34 @@ jQuery('.price-area .base_price').text().trim() ||
   jQuery('h1:first').text().trim().split(' / ')[1]
 
   document.querySelectorAll('[data-hook="sr-formatted-secondary-price"]')
+
+
+ 
+jQuery('.price-box .special-price .price').text().trim().split(',00')[0] + ' ' +
+jQuery('.price-box .special-price .price').text().trim().split(',00')[1]
+||
+jQuery('.price-box .regular-price .price').text().trim().split(',00')[0] + ' ' +
+jQuery('.price-box .regular-price .price').text().trim().split(',00 ')[1]
+
+jQuery('.price-box .fancy-old-price .price').text().trim().split(',00')[0] + ' ' +
+jQuery('.price-box .fancy-old-price .price').text().trim().split(',00')[1]
+||
+jQuery('.price-box .special-price .price').text().trim().split(',00')[0] + ' ' +
+jQuery('.price-box .special-price .price').text().trim().split(',00')[1]
+|| 
+jQuery('.price-box .regular-price .price').text().trim().split(',00')[0] + ' ' +
+jQuery('.price-box .special-price .price').text().trim().split(',00')[1]
+
+
+'RSD' +
+(jQuery('.price-box .special-price .price').text().trim().split(',')[0] ||
+jQuery('.price-box .regular-price .price').text().trim().split(',')[0])
+
+'RSD' +
+(jQuery('.price-box .fancy-old-price .price').text().trim().split(',')[0] ||
+jQuery('.price-box .special-price .price').text().trim().split(',')[0] || 
+jQuery('.price-box .regular-price .price').text().trim().split(',')[0])
+
+
+jQuery('.product-single__price .product-price').text().trim()
+jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price"]').text().trim().split('£')[1]

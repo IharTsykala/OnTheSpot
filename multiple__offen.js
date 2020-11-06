@@ -216,23 +216,29 @@ if (
 }
 
 
+jQuery('.product-single__image').length
+
+
+
 if (
-  jQuery("ul.products li").length > 0 &&
+  jQuery("ul.grid--view-items li").length > 0 &&
   jQuery('img.product-gallery__image').length === 0  
 ) {
   $arr = []
 
-  jQuery("ul.products li").each(function () {
-    $title = jQuery(this).find(".woocommerce-loop-product__title").text().trim()
+  jQuery("ul.grid--view-items li").each(function () {
+    $title = jQuery(this).find(".product-card__title").text().trim()
 
-    if(jQuery(this).find("img.attachment-woocommerce_thumbnail:last").next().text().trim())
+    if(jQuery(this).find("a:first").next().next().next().text().trim())
     $img =
     // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
     // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
-    // 'https:' + 
-    jQuery(this).find("img.attachment-woocommerce_thumbnail:last").next().text().trim()
+    'https:' + 
+    jQuery(this).find("a:first")
+    .next().next().next()
+    .text().trim()
     .split('src="')[1]
-    .split(' class')[0].trim()
+    .split(' alt')[0].trim()
     .slice(0, -1)
     else $img = ''
 
@@ -245,15 +251,15 @@ if (
     //      .split(', ')[0];
 
     $link =
-    // 'https://egyptianlinens.com' +
+    'https://sunrise-gym.com' +
       jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".woocommerce-Price-amount:first").text().trim()
+    $price = jQuery(this).find(".price .price__regular dd").text().trim()
     // ||
     // jQuery(this).find(".price").text().trim())
     // .split('€')[1]
 
-    if ($title && $img && $link && $price)    
+    // if ($title && $img && $link && $price)    
       $arr.push([$title, $img, $link, $price])
   })
   $arr
