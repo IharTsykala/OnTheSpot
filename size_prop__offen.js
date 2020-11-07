@@ -678,3 +678,58 @@ if (
   });
 }
 return $text;
+
+
+ // Select
+ if (jQuery(".variant-option:contains(Size) option").length > 0) {
+  [
+    jQuery(".variant-option:contains(Size) option:selected").text() != ""
+      ? jQuery(".variant-option:contains(Size) option:selected")
+          .text()
+          .trim()
+          // .replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".variant-option:contains(Size) option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Size", ["No Size"]];
+}
+
+//pa_Sizes clicker
+if (
+jQuery(".variant-option:contains(Size) option").length > 0 &&
+$sarg != "Select Size" &&
+$sarg != "No Size"
+) {
+jQuery(".variant-option:contains(Size) option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {     
+      jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+//pa_Sizes stock status
+$text = false;
+if (
+jQuery(".variant-option:contains(Size) option").length > 0 &&
+$sarg != "No Size" &&
+$sarg != "Select Size"
+) {
+$text = true;
+jQuery(".variant-option:contains(Size) option").each(function (index) {
+  if (
+    jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+    !jQuery(this).attr('disabled')
+  ) {
+    $text = false;
+  }
+});
+}
+return $text;

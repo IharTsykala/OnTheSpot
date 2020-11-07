@@ -64,17 +64,18 @@ else
 $img
 ///////////////////////////////////////////
 
-if (jQuery('.productImageCarousel_thumbnailContainer img').length > 0){
+if (jQuery('.ProductItem-gallery-slides .ProductItem-gallery-slides-item img:first').length > 0){
  $arr = [];
-jQuery('.productImageCarousel_thumbnailContainer img').each(function(index){
+jQuery('.ProductItem-gallery-slides .ProductItem-gallery-slides-item img:first').each(function(index){
      if (index < 4) 
-     $arr.push('https:'+jQuery(this).attr('src'))
+     $arr.push(jQuery(this).attr('src'))
  })
 $arr
 }
 
-if (jQuery('.product-details__primary-image-button img[itemprop="image"]').length > 0) 
-$img = jQuery('.product-details__primary-image-button img[itemprop="image"]').attr('srcset').split(' ')[0]
+if (jQuery('.ProductItem-gallery-slides .ProductItem-gallery-slides-item img').length > 0) 
+$img = jQuery('.ProductItem-gallery-slides .ProductItem-gallery-slides-item img').attr('src')
+// .split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -165,8 +166,10 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery('[data-hook="product-gallery-composite"]  [data-hook="product-image"]:first').length > 0) 
-$img = jQuery('[data-hook="product-gallery-composite"]  [data-hook="product-image"]first').attr('src').replace(/\s/g,'%20')    
+/////////////////////////////////////////////////////////////////////////////
+
+if (jQuery('[data-layout-name="classic"] .slick-active [data-hook="product-image"]:first').length > 0) 
+$img = jQuery('[data-layout-name="classic"] .slick-active [data-hook="product-image"]:first').attr('src').replace(/\s/g,'%20')    
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -175,18 +178,21 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
+///////////////////////////////////////
 
-if (jQuery('[data-hook="product-image"]:first').length > 0){
+if (jQuery('[data-hook="thumbnails-container"]  [data-hook="thumbnail-image"]').length > 0){
 $arr = [];
-jQuery('data-hook="product-image"] img').each(function(index){
+jQuery('[data-hook="thumbnails-container"]  [data-hook="thumbnail-image"]').each(function(index){
     if (index < 4) 
     $arr.push(jQuery(this)
     // .find('img:first')
-    .attr("src"))
-    .replace(/\s/g,'%20')    
+    .attr("src")
+    .replace(/\s/g,'%20')  )  
 })
 $arr
 }
+
+//////////////////////////////////////////////////////
 
 product__thumbnail slick-slide slick-current slick-active
 product_gallery_nav 
@@ -220,10 +226,10 @@ else
 $img
 
 
-if (jQuery('#get-image-item-id img').length > 0) 
+if (jQuery('.woocommerce-product-gallery__image img').length > 0) 
     $img = 
     // 'https:' +
-     jQuery('#get-image-item-id img')
+     jQuery('.woocommerce-product-gallery__image img')
     .attr('src')
     // .split(' ')[0]
     // .css('background-image').split('url("')[1].slice(0, -2)
@@ -235,14 +241,28 @@ if ($img.indexOf("http") == -1)
 else
   $img
 
+  //////////////////////////////
 
-  if (jQuery('.card__image-container img').length > 0) 
+  if (jQuery('.slick-active img').length > 0){
+    $arr = [];
+    jQuery('.slick-active img').each(function(index){
+        if (index < 4) 
+        $arr.push('https:'+jQuery(this).attr("src").split(' ')[0])
+    })
+    $arr
+    }
+
+
+  ///////////////////////////////////
+
+
+  if (jQuery('.product-single__image-wrapper img').length > 0) 
     $img = 
     'https:' +
-     jQuery('.card__image-container img')
-    .attr('data-srcset')
+     jQuery('.product-single__image-wrapper img')
+    .attr('src')
     .split(' ')[0]
-    .replace('_85x', '_1000x')
+    // .replace('_85x', '_1080x')
     // .css('background-image').split('url("')[1].slice(0, -2)
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -251,3 +271,13 @@ if ($img.indexOf("http") == -1)
   'https:'+$img
 else
   $img
+
+
+  if (jQuery('.product-single__thumbnails img').length > 0){
+    $arr = [];
+    jQuery('.product-single__thumbnails img').each(function(index){
+        if (index < 4) 
+        $arr.push('https:'+jQuery(this).attr("src").split(' ')[0])
+    })
+    $arr
+    }

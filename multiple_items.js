@@ -765,41 +765,41 @@ if (jQuery(".grid-products a").length > 0 && [].length === 0) {
 
 
 if (
-  jQuery(".product-grid .product-wrapper").length > 0 &&
-  jQuery('.product-single__image').length === 0
+  jQuery(".ProductList-grid .ProductList-item").length > 0 &&
+  jQuery('.product-single__photo-wrapper img').length === 0
 ) {
   $arr = [];
 
-  jQuery(".product-grid .product-wrapper").each(function () {
-    $title = jQuery(this).find('.product__title').text().trim();
+  jQuery(".ProductList-grid .ProductList-item").each(function () {
+    $title = jQuery(this).find('.ProductList-title').text().trim();
 
-    if(jQuery(this).find(".product__img-wrapper").next().text().trim())
-    $img =
-    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
-    // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
-    'https:' + 
-    jQuery(this).find(".product__img-wrapper")
-    .next()
-    .text().trim()
-    .split('src="')[1]
-    .split(' alt')[0].trim()
-    .slice(0, -1)
-    else $img = '' 
+    // if(jQuery(this).find(".image-wrapper").next().text().trim())
+    // $img =
+    // // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
+    // // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+    // 'https:' + 
+    // jQuery(this).find(".image-wrapper")
+    // .next()
+    // .text().trim()
+    // .split('src="')[1]
+    // .split(' alt')[0].trim()
+    // .slice(0, -1)
+    // else $img = '' 
     
-    //  $img = 
-    //   // 'https:' +
-    //      (((jQuery(this).find("img:first").attr("src") ||
-    //     //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
-    //     //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
-    //      jQuery(this).find("img:first").attr("data-src")|| '')))
-    //      .split(' ')[0];
+     $img = 
+      // 'https:' +
+         (((jQuery(this).find(".ProductList-innerImageWrapper img:last").attr("src") ||
+         jQuery(this).find(".ProductList-innerImageWrapper img:last").attr("data-image") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+         jQuery(this).find(".ProductList-innerImageWrapper img:last").attr("data-src")|| '')))
+         .split(' ')[0];
 
     $link = 
-    'https://toasterkiwi.shop' + 
+    'https://www.alfieparis.com' + 
     jQuery(this).find('a:first').attr("href");
 
-    $price = jQuery(this).find(".product__price").text().trim()
-    .split('Regular price')[1].trim()
+    $price = jQuery(this).find(".product-price .sqs-money-native").text().trim()
+    // .split('Regular price')[1].trim()
     
     
     if ($title && $img && $link && $price)
@@ -847,10 +847,11 @@ if (
 }
 
 ///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 
 if (
   jQuery('[data-hook="product-list-wrapper"] li').length > 0 &&
-  jQuery('[data-hook="product-gallery-composite"] [data-hook="product-image"] img').length === 0
+  jQuery('[data-layout-name="classic"] .slick-active [data-hook="product-image"]:first').length === 0
 ) {
   $arr = [];
 
@@ -883,7 +884,7 @@ if (
     jQuery(this).find('a:first').attr("href");
 
     $price = jQuery(this).find('[data-hook="product-item-product-details"] [data-hook="product-item-price-to-pay"]').text().trim()
-    .split('£')[1]
+    .split('$')[1]
     // .trim()
     
     
@@ -893,3 +894,7 @@ if (
     
   $arr;
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////

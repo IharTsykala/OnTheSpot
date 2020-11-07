@@ -34,9 +34,9 @@ jQuery('.product-shop .price:last').text().trim().split('£')[1].split(' ')[0].t
 jQuery('.pdp-style-overwrapper .price-card .lowest:first').text().trim().split(' ')[jQuery('.pdp-style-overwrapper .price-card .lowest:first').text().trim().split(' ').length -1]
 jQuery('.pdp-style-overwrapper .price-card .strike-through:first').text().trim().split(' ')[jQuery('.pdp-style-overwrapper .price-card .strike-through:first').text().trim().split(' ').length -1]
 
-jQuery('.price .money:last').text().trim()
-jQuery('.mar-product-price .mar-price:first').text().trim() ||
- jQuery('.mar-product-price .discount_price').text().trim()
+jQuery('.ProductItem-details .product-price').text().trim()
+jQuery('.ProductItem-details .mar-price:first').text().trim() ||
+ jQuery('.ProductItem-details .discount_price').text().trim()
 
 jQuery('div[itemprop="offers"] span[itemprop="price"]').text().trim()
 
@@ -115,10 +115,10 @@ our_price_display
 'USD' + ' ' + jQuery('.product-info__header_price.dj_skin_product_detail_price.money').text().trim().split('p.')[1]
 
 
-jQuery('#define-profile .price').text().trim()
+jQuery('.summary .price bdi:last').text().trim()
 // .split(' ')[0].trim()
-jQuery('#define-profile .old-price').text().trim() ||
- jQuery('#define-profile .price').text().trim()
+jQuery('.summary .price bdi:first').text().trim() ||
+ jQuery('.summary .price bdi:last').text().trim()
 //  .split(' ')[0].trim()
 
 jQuery('.price-area .base_price').text().trim() ||
@@ -164,4 +164,4 @@ jQuery('.price-box .regular-price .price').text().trim().split(',')[0])
 
 
 jQuery('.product-single__price .product-price').text().trim()
-jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price"]').text().trim().split('£')[1]
+jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price"]').text().trim().split('$')[1]

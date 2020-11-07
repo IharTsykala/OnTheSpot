@@ -28,16 +28,16 @@ if (
   $arr
 }
 
-if (jQuery("#Collection .grid__item").length > 0 && [].length === 0) {
+if (jQuery("#CollectionSection .grid__item").length > 0 && [].length === 0) {
   $arr = []
 
-  jQuery("#Collection .grid__item").each(function () {
-    $title = jQuery(this).find(".product-card__title").text().trim()
+  jQuery("#CollectionSection .grid__item").each(function () {
+    $title = jQuery(this).find(".grid-link__title").text().trim()
 
     $img =
       "https:" +
       jQuery(this)
-        .find(".product-card__image-with-placeholder-wrapper")
+        .find(".product__img-wrapper")
         .next()
         .text()
         .trim()
@@ -46,10 +46,12 @@ if (jQuery("#Collection .grid__item").length > 0 && [].length === 0) {
         .slice(0, -1)
 
     $link =
-      "https://gaspwardrobe.com" + jQuery(this).find("a:first").attr("href")
+      "https://nightanddaynetmarket.com" + jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".price-item--regular").text().trim()
-    // .split('Regular price')[1].split('No reviews')[0].trim()
+    $price = jQuery(this).find(".grid-link__meta").text().trim()
+    .split('Regular price')[1]
+    // .split('No reviews')[0]
+    .trim()
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -260,6 +262,37 @@ if (
     // .split('€')[1]
 
     // if ($title && $img && $link && $price)    
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+
+if (
+  jQuery("ul.products li").length > 0 &&
+  jQuery('.woocommerce-product-gallery__image img').length === 0  
+) {
+  $arr = []
+
+  jQuery("ul.products li").each(function () {
+    $title = jQuery(this).find(".woocommerce-loop-product__title").text().trim()  
+
+    $img = 
+      // 'https:' +
+         (((jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+         jQuery(this).find("img:last").attr("srcset")|| '')))
+         .split(' ')[0];
+
+    $link =
+    // 'https://sunrise-gym.com' +
+      jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this).find(".price bdi:last").text().trim()   
+    // .split('€')[1]
+
+    if ($title && $img && $link && $price)    
       $arr.push([$title, $img, $link, $price])
   })
   $arr
