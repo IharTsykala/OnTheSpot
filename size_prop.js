@@ -610,7 +610,7 @@ if (
 }
 return $text;
 
-swatch-button swatch-selector star-set-btn star-btn-size-md star-btn-border-1 star-set-btn-rad-0 star-btn-text-upper swatch-selected swatch-allow-animation
+swatch-button. swatch-selector star-set-btn star-btn-size-md star-btn-border-1 star-set-btn-rad-0 star-btn-text-upper swatch-selected swatch-allow-animation
 
 
 // Select
