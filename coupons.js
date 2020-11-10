@@ -92,9 +92,15 @@ jQuery('[data-test="cart-price-value"]:last')
 
 jQuery('[aria-controls="collapse-coupon"]')[0].click()
 jQuery('[name="coupon_code_collapse"]')
-jQuery('[value="Apply coupon"]')
-jQuery('.Total bdi:last')
+jQuery('[value="Apply coupon"]:last')
+jQuery('.order-total bdi:last')
 
-jQuery('#voucherAndCouponsCoantainer input[id="voucherInput"]')
-jQuery('#voucherAndCouponsCoantainer button[id="applyVoucherBtn"]')
-jQuery('.totals-row-summary .totals-col-price:last')
+jQuery(".showcoupon")[0].click()
+jQuery('[id="checkout_reduction_code"]')
+jQuery('[data-trekkie-id="apply_discount_button"]:last')
+jQuery('.total-line .payment-due__price')
+
+
+jQuery('.field input[placeholder="Enter your discount code here"]')
+jQuery('.field button.field__input-btn')
+jQuery('.total-line .payment-due__price')

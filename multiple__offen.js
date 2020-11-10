@@ -224,7 +224,7 @@ jQuery('.product-single__image').length
 
 if (
   jQuery("ul.grid--view-items li").length > 0 &&
-  jQuery('img.product-gallery__image').length === 0  
+  jQuery('.product-single__media-wrapper img.zoomImg').length === 0  
 ) {
   $arr = []
 
@@ -233,7 +233,7 @@ if (
 
     if(jQuery(this).find("a:first").next().next().next().text().trim())
     $img =
-    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
+    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] 
     // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
     'https:' + 
     jQuery(this).find("a:first")
@@ -261,7 +261,7 @@ if (
     // jQuery(this).find(".price").text().trim())
     // .split('€')[1]
 
-    // if ($title && $img && $link && $price)    
+    if ($title && $img && $link && $price)    
       $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -300,3 +300,65 @@ if (
 
 
 document.querySelectorAll('.product-list--collection .product-item')
+
+
+if (
+  jQuery(".grid-uniform .grid__item").length > 0 &&
+  jQuery('img#mainimage:first').length === 0
+) {
+  $arr = []
+
+  jQuery(".grid-uniform .grid__item").each(function () {
+    $title = jQuery(this).find(".product-title").text().trim()
+
+    $img =
+    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
+    jQuery(this).find('.product-image:first').css('background-image')
+    .split('url(')[1]
+    .slice(1,-2)
+    //  ||
+    // ('https:' + 
+    //   ((jQuery(this).find(".grid__image-ratio:first").attr('data-bgset') ||
+    //     jQuery(this).find(".grid__image-ratio:first").next().attr('data-bgset'))).trim().split(' ')[0].slice(0, -1))
+
+    $link =
+    'https://epikcanvas.com' +
+      jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this).find(".product-price .money:first").text().trim()
+    if ($title && $img && $link && $price)    
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+
+if (
+  jQuery(".collection__products .grid__item").length > 0 &&
+  jQuery('img#mainimage:first').length === 0
+) {
+  $arr = []
+
+  jQuery(".collection__products .grid__item").each(function () {
+    $title = jQuery(this).find(".product-title").text().trim()
+
+    $img =
+    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
+    jQuery(this).find('.product-image:first').css('background-image')
+    .split('url(')[1]
+    .slice(1,-2)
+    //  ||
+    // ('https:' + 
+    //   ((jQuery(this).find(".grid__image-ratio:first").attr('data-bgset') ||
+    //     jQuery(this).find(".grid__image-ratio:first").next().attr('data-bgset'))).trim().split(' ')[0].slice(0, -1))
+
+    $link =
+    'https://epikcanvas.com' +
+      jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this).find(".product-price .money:first").text().trim()
+    if ($title && $img && $link && $price)    
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}

@@ -50,7 +50,7 @@ if (jQuery('input[id="add"]').attr('value').toLowerCase().indexOf('out') >= 0) {
   $status = false;
 }
 
-if (jQuery('[id="button-cart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+if (jQuery('[id="add-to-cart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {
   $status = false;

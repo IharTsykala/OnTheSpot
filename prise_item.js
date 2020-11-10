@@ -88,8 +88,8 @@ document.querySelectorAll("._36DZFj .mrug3u")
 '€' + (jQuery('#artikel-redna-cena span:last').text().trim().split(' ')[0] || jQuery('#artikel-cena').text().trim().split(' ')[0])
 
 
-'ريال' + (jQuery('.product-info-price .price:first').text().trim())
-'ريال' + (jQuery('.product-info-price .price:last').text().trim()||
+'ريال' + (jQuery('.ProductPrice1 .price:first').text().trim())
+'ريال' + (jQuery('.ProductPrice1 .price:last').text().trim()||
  jQuery('.product-info-price .price:first').text().trim())
 
  'TL' + ' ' + jQuery('.product-list__price:first').text().trim().slice(0, -3)
@@ -163,5 +163,5 @@ jQuery('.price-box .special-price .price').text().trim().split(',')[0] ||
 jQuery('.price-box .regular-price .price').text().trim().split(',')[0])
 
 
-jQuery('.product-single__price .product-price').text().trim()
+jQuery('[data-product-price]').text().trim().split('$')[1]
 jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price"]').text().trim().split('$')[1]

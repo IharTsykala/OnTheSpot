@@ -5,7 +5,7 @@ wait_for(function(){return jQuery && jQuery.fn.jquery ;})
 
 // fix enter on space
 .replace(/\r|\n/g, ' ')  .replace(/\s/g,'%20')
-.replace('_85x', '_1000x')
+.replace('_85x', '_1000x') .replace('\\','\/')
 
 \/cart
 

@@ -61,27 +61,28 @@ if (
 
 
 if (
-  jQuery(".zoomWindowContainer .grid-product").length > 0 &&
+  jQuery(".collection__products .product-tile").length > 0 &&
   jQuery('img#mainimage:first').length === 0
 ) {
   $arr = []
 
-  jQuery("#gf-products .grid-product").each(function () {
-    $title = jQuery(this).find(".grid-product__title").text().trim()
+  jQuery(".collection__products .product-tile").each(function () {
+    $title = jQuery(this).find(".type-body-regular").text().trim()
 
     $img =
-    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
-    // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
-    ('https:' + 
-      ((jQuery(this).find(".grid__image-ratio:first").attr('data-bgset') ||
-        jQuery(this).find(".grid__image-ratio:first").next().attr('data-bgset'))).trim().split(' ')[0].slice(0, -1))
+  'https:' +
+  (((jQuery(this).find("img:first").attr("src") ||
+   jQuery(this).find("img:first").attr("srcset") ||
+   jQuery(this).find("img:last").attr("srcset") ||
+   jQuery(this).find("img:last").attr("srcset")|| '')))
+   .split(' ')[0];
 
     $link =
-    'https://minimale-animale.com/' +
-      jQuery(this).find(".grid-product__content a:first").attr("href")
+    'https://www.siesmarjanarchive.com' +
+      jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".grid-product__price .money:first").text().trim()
-    // if ($title && $img && $link && $price)    
+    $price = jQuery(this).find(".sale:first").text().trim()
+    if ($title && $img && $link && $price)    
       $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -218,7 +219,7 @@ if (
 if (
   jQuery(".CollectionMain .ProductList .ProductItem__Wrapper").length > 0 
   &&
-  jQuery(".Product__Slideshow .Product__SlideItem:first img:first").length === 0
+  jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img:first').length === 0
 ) {
   $arr = [];
 
@@ -236,7 +237,8 @@ if (
 
     $link = 'https://summituk.co.uk' + jQuery(this).find("a:first").attr("href");
 
-    $price = jQuery(this).find(".ProductItem__Price .money:first").text().trim().split(' ')[0]
+    $price = jQuery(this).find(".ProductItem__Price:first").text().trim()
+    // .split(' ')[0]
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
@@ -512,20 +514,32 @@ if (
 
 
 if (
-  jQuery("#gf-products .grid-view-item").length > 0 &&
-  jQuery(".product-image.swiper-slide-active img").length === 0
+  jQuery('[id="four-columns"] .product-index-inner').length > 0 &&
+  jQuery('.c-scrolling-photos img:first').length === 0
 ) {
   $arr = [];
 
-  jQuery("#gf-products .grid-view-item").each(function () {
-    $title = jQuery(this).find(".product-item-title-h5").text().trim().split(' / ')[0];
+  jQuery('[id="four-columns"] .product-index-inner').each(function () {
+    $title = jQuery(this).find(".product-title").text().trim()
+    // .split(' / ')[0];
 
-    $img = jQuery(this).find("img.img-responsive:first").attr("src")
+    if(jQuery(this).find("img:first").next().next().next().text().trim())
+    $img =
+    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] 
+    // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+    'https:' + 
+    jQuery(this).find("img:first")
+    .next().next().next()
+    .text().trim()
+    .split('src="')[1]
+    .split(' alt')[0].trim()
+    .slice(0, -1)
+    else $img = ''
 
-    $link = 'https://dossier.co' + jQuery(this).find("a:first").attr("href");
+    $link = 'https://juliettehogan.com' + jQuery(this).find("a:first").attr("href");
 
-    $price = jQuery(this).find(".product-item-title-h5").text().trim()
-    .split(' / ')[1]
+    $price = jQuery(this).find(".prod-price").text().trim()
+    // .split(' / ')[1]
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
@@ -765,40 +779,40 @@ if (jQuery(".grid-products a").length > 0 && [].length === 0) {
 
 
 if (
-  jQuery(".ProductList-grid .ProductList-item").length > 0 &&
-  jQuery('.product-single__photo-wrapper img').length === 0
+  jQuery(".product-grid .collection-product-wrap").length > 0 &&
+  jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img').length === 0
 ) {
   $arr = [];
 
-  jQuery(".ProductList-grid .ProductList-item").each(function () {
-    $title = jQuery(this).find('.ProductList-title').text().trim();
+  jQuery(".product-grid .collection-product-wrap").each(function () {
+    $title = jQuery(this).find('.title').text().trim();
 
-    // if(jQuery(this).find(".image-wrapper").next().text().trim())
-    // $img =
-    // // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
-    // // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
-    // 'https:' + 
-    // jQuery(this).find(".image-wrapper")
-    // .next()
-    // .text().trim()
-    // .split('src="')[1]
-    // .split(' alt')[0].trim()
-    // .slice(0, -1)
-    // else $img = '' 
+  //   if(jQuery(this).find("img:first").next().next().text().trim())
+  //   $img =
+  //   // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
+  //   // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+  //   'https:' + 
+  //   jQuery(this).find("img:first")
+  //   .next().next()
+  //   .text().trim()
+  //   .split('src="')[1]
+  //   .split(' alt')[0].trim()
+  //   .slice(0, -1)
+  //   else $img = '' 
     
      $img = 
       // 'https:' +
-         (((jQuery(this).find(".ProductList-innerImageWrapper img:last").attr("src") ||
-         jQuery(this).find(".ProductList-innerImageWrapper img:last").attr("data-image") ||
-        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
-         jQuery(this).find(".ProductList-innerImageWrapper img:last").attr("data-src")|| '')))
+         (((jQuery(this).find("img:first").attr("src") ||
+         jQuery(this).find("img:first").attr("data-srcset") ||
+         jQuery(this).find("img:last").attr("data-src") ||
+         jQuery(this).find("img:last").attr("data-zoom")|| '')))
          .split(' ')[0];
 
     $link = 
-    'https://www.alfieparis.com' + 
+    'https://www.merchzcool.com' + 
     jQuery(this).find('a:first').attr("href");
 
-    $price = jQuery(this).find(".product-price .sqs-money-native").text().trim()
+    $price = jQuery(this).find(".price .money:first").text().trim()
     // .split('Regular price')[1].trim()
     
     
@@ -898,3 +912,73 @@ if (
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
+
+
+if (jQuery("#CollectionSection .grid__item").length > 0 && [].length === 0) {
+  $arr = []
+
+  jQuery("#CollectionSection .grid__item").each(function () {
+    $title = jQuery(this).find(".grid-link__title").text().trim()
+
+    $img =
+      "https:" +
+      jQuery(this)
+        .find(".product__img-wrapper")
+        .next()
+        .text()
+        .trim()
+        .split('src="')[1]
+        .split(" alt")[0]
+        .slice(0, -1)
+
+    $link =
+      "https://nightanddaynetmarket.com" + jQuery(this).find("a:first").attr("href")
+
+    $price = (jQuery(this).find(".grid-link__meta").text().trim()
+    .split('From')[1] ||
+    jQuery(this).find(".grid-link__meta").text().trim().split('Regular price')[1])
+    // .split('No reviews')[0]
+    // .trim()
+
+    if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+
+  $arr
+}
+
+if (
+  jQuery(".collection-page .grid__item").length > 0 &&
+  jQuery('img#mainimage:first').length === 0
+) {
+  $arr = []
+
+  jQuery(".collection-page .grid__item").each(function () {
+    $title = jQuery(this).find(".collection-page__meta--title").text().trim()
+
+    if((jQuery(this).find('.collection-page__image-inner:first').css('background-image')|| 
+    jQuery(this).find('.collection-page__image-inner:last').css('background-image') || '')
+    .split('url(')[1])
+
+    $img =
+    (jQuery(this).find('.collection-page__image-inner:first').css('background-image')|| 
+    jQuery(this).find('.collection-page__image-inner:last').css('background-image') || '')
+    .split('url(')[1]
+    .slice(1,-2)
+
+    else $img = ''
+    //  ||
+    // ('https:' + 
+    //   ((jQuery(this).find(".grid__image-ratio:first").attr('data-bgset') ||
+    //     jQuery(this).find(".grid__image-ratio:first").next().attr('data-bgset'))).trim().split(' ')[0].slice(0, -1))
+
+    $link =
+    'https://epikcanvas.com' +
+      jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this).find(".product-price .money:last").text().trim()
+    if ($title && $img && $link && $price)    
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}

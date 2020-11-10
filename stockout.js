@@ -19,8 +19,19 @@ jQuery('[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'out of stock
 
 ///////////////////////////////////////////////////////////////
 
-if (jQuery('button.sqs-add-to-cart-button').text().trim().toLowerCase() == 'sold out' || 
-jQuery('button.sqs-add-to-cart-button').text().trim().toLowerCase() == 'out of stock'
+if (jQuery('[data-action="add-to-cart"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[data-action="add-to-cart"]').text().trim().toLowerCase() == 'out of stock' )
+// ||
+// jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
+ {
+  $status = true
+} else {
+  $status = false;
+}
+data-action="add-to-cart"
+
+if (jQuery('button.btn-buy-now').text().trim().toLowerCase() == 'sold out' || 
+jQuery('button.btn-buy-now').text().trim().toLowerCase() == 'out of stock'
 ) {
   $status = true
 } else {
@@ -172,7 +183,7 @@ if (jQuery('button.btn-cart-add').length === 0 && jQuery('.product-notifier').te
   $status = false;
 }
 
-if (jQuery('.sold-out-big').text().trim().toLowerCase()  === 'sold out!') {
+if (jQuery('.out-of-stock').text().trim()  === 'Out of stock') {
   $status = true
 } else {
   $status = false;

@@ -64,18 +64,19 @@ else
 $img
 ///////////////////////////////////////////
 
-if (jQuery('.ProductItem-gallery-slides .ProductItem-gallery-slides-item img:first').length > 0){
+if (jQuery('.is-selected img').length > 0){
  $arr = [];
-jQuery('.ProductItem-gallery-slides .ProductItem-gallery-slides-item img:first').each(function(index){
+jQuery('.is-selected img').each(function(index){
      if (index < 4) 
      $arr.push(jQuery(this).attr('src'))
  })
 $arr
 }
+/////////////////////////
 
-if (jQuery('.ProductItem-gallery-slides .ProductItem-gallery-slides-item img').length > 0) 
-$img = jQuery('.ProductItem-gallery-slides .ProductItem-gallery-slides-item img').attr('src')
-// .split(' ')[0]
+if (jQuery('.product-image .zoomF img:first').length > 0) 
+$img = jQuery('.product-image .zoomF img:first').attr('src')
+.split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -84,14 +85,16 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery('.slick-track img').length > 0){
+if (jQuery('.product-image .zoomF img').length > 0){
 $arr = [];
-jQuery('.slick-track img').each(function(index){
+jQuery('.product-image .zoomF img').each(function(index){
     if (index < 4) 
-    $arr.push('https:'+jQuery(this).attr("srcset").split(' ')[0])
+    $arr.push(jQuery(this).attr("src").split(' ')[0])
 })
 $arr
 }
+
+//////////////////////////////
 pdp-main-img primary-images col-12
 
 let img
@@ -141,8 +144,6 @@ let containerUl = Array.from(document.querySelectorAll('ul.LzhdeS li ._2_AcLJ'))
 if(containerUl.length > 4) containerUl.length = 4
 containerUl.map(item=>item.getAttribute('style', "background-image").slice(21, -1))
 
-// .filter(item=>item.hasAttribute('style', "background-image"))
-// background-image:url(https://rukminim1.flixcart.com/image/128/128/k3xcdjk0pkrrdj/sari/y/5/f/free-black-vjs1299-1-v-j-fashion-vjs1299-1-original-imafjfbhjr7hmmtz.jpeg?q=70)
 
 if (jQuery(".primary-image-carousel-container .slick-active img:first").length > 0) 
 $img =  jQuery(".primary-image-carousel-container .slick-active img:first").attr("src")
@@ -226,10 +227,10 @@ else
 $img
 
 
-if (jQuery('.woocommerce-product-gallery__image img').length > 0) 
+if (jQuery('img#ProductPhotoImg').length > 0) 
     $img = 
-    // 'https:' +
-     jQuery('.woocommerce-product-gallery__image img')
+    'https:' +
+     jQuery('img#ProductPhotoImg')
     .attr('src')
     // .split(' ')[0]
     // .css('background-image').split('url("')[1].slice(0, -2)
@@ -256,14 +257,14 @@ else
   ///////////////////////////////////
 
 
-  if (jQuery('.product-single__image-wrapper img').length > 0) 
+  if (jQuery('.zoomWindowContainer div:first').length > 0) 
     $img = 
-    'https:' +
-     jQuery('.product-single__image-wrapper img')
-    .attr('src')
-    .split(' ')[0]
+    // 'https:' +
+     jQuery('.zoomWindowContainer div:first')
+    // .attr('src')
+    // .split(' ')[0]
     // .replace('_85x', '_1080x')
-    // .css('background-image').split('url("')[1].slice(0, -2)
+    .css('background-image').split('url("')[1].slice(0, -2)
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -273,11 +274,24 @@ else
   $img
 
 
-  if (jQuery('.product-single__thumbnails img').length > 0){
+  if (jQuery('.VueCarousel-slide img').length > 0){
     $arr = [];
-    jQuery('.product-single__thumbnails img').each(function(index){
+    jQuery('.VueCarousel-slide img').each(function(index){
         if (index < 4) 
-        $arr.push('https:'+jQuery(this).attr("src").split(' ')[0])
+        $arr.push(jQuery(this).attr("src").split(' ')[0])
     })
     $arr
     }
+
+
+    if (jQuery('.VueCarousel-slide-active img').length > 0) 
+$img = jQuery('.VueCarousel-slide-active img').attr('src')
+.split(' ')[0]
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+

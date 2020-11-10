@@ -378,16 +378,16 @@ return $text
   //
 
 
-  if (jQuery("div.product__variants:contains(Size) .swatch-size input").length > 0) {
+  if (jQuery("div.product__variants-wrapper:contains(Size) .swatch-size input").length > 0) {
     ;[
-      jQuery("div.product__variants:contains(Size) .swatch-size input:checked").length > 0
-        ? jQuery("div.product__variants:contains(Size) .swatch-size input:checked")
+      jQuery("div.product__variants-wrapper:contains(Size) .swatch-size input:checked").length > 0
+        ? jQuery("div.product__variants-wrapper:contains(Size) .swatch-size input:checked")
         .next()
         .text().trim()
         .replace(/\s\s+/g, "")
     : "Select item",
   jQuery.makeArray(
-    jQuery("div.product__variants:contains(Size) .swatch-size input").map(function (i, e) {
+    jQuery("div.product__variants-wrapper:contains(Size) .swatch-size input").map(function (i, e) {
       if (jQuery(e).next().text().trim() != "")
         return jQuery(e).next().text().trim()
     })
@@ -397,10 +397,10 @@ return $text
   ;["No Size", ["No Size"]]
   }
   
-  if (jQuery("div.product__variants:contains(Size) .swatch-size input").length > 0  &&
+  if (jQuery("div.product__variants-wrapper:contains(Size) .swatch-size input").length > 0  &&
   $sarg != "Select Size" &&
   $sarg != "No Size") {
-  jQuery("div.product__variants:contains(Size) .swatch-size input").each(function () {
+  jQuery("div.product__variants-wrapper:contains(Size) .swatch-size input").each(function () {
   if (jQuery(this).next().text().trim() == $sarg) {
     jQuery(this).next().text().trim()[0].click()
   }
@@ -412,12 +412,12 @@ return $text
   
   $text = false;
   if (
-    jQuery("div.product__variants:contains(Size) .swatch-size input").length > 0 &&
+    jQuery("div.product__variants-wrapper:contains(Size) .swatch-size input").length > 0 &&
     $sarg != "No Size" &&
     $sarg != "Select Size"
   ) {
     $text = true;
-    jQuery("div.product__variants:contains(Size) .swatch-size input").each(function (index) {
+    jQuery("div.product__variants-wrapper:contains(Size) .swatch-size input").each(function (index) {
       if (
         jQuery(this).next().text().trim() == $sarg &&
         !jQuery(this).attr('.data-availability') === 'soldout'
@@ -681,16 +681,16 @@ return $text;
 
 
  // Select
- if (jQuery(".variant-option:contains(Size) option").length > 0) {
+ if (jQuery(".variation:contains(Size) option").length > 0) {
   [
-    jQuery(".variant-option:contains(Size) option:selected").text() != ""
-      ? jQuery(".variant-option:contains(Size) option:selected")
+    jQuery(".variation:contains(Size) option:selected").text() != ""
+      ? jQuery(".variation:contains(Size) option:selected")
           .text()
           .trim()
           // .replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery(".variant-option:contains(Size) option").map(function (i, e) {
+      jQuery(".variation:contains(Size) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -702,11 +702,11 @@ return $text;
 
 //pa_Sizes clicker
 if (
-jQuery(".variant-option:contains(Size) option").length > 0 &&
+jQuery(".variation:contains(Size) option").length > 0 &&
 $sarg != "Select Size" &&
 $sarg != "No Size"
 ) {
-jQuery(".variant-option:contains(Size) option").each(function () {
+jQuery(".variation:contains(Size) option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {     
       jQuery(this).trigger("change");
   }
@@ -718,12 +718,12 @@ return true;
 //pa_Sizes stock status
 $text = false;
 if (
-jQuery(".variant-option:contains(Size) option").length > 0 &&
+jQuery(".variation:contains(Size) option").length > 0 &&
 $sarg != "No Size" &&
 $sarg != "Select Size"
 ) {
 $text = true;
-jQuery(".variant-option:contains(Size) option").each(function (index) {
+jQuery(".variation:contains(Size) option").each(function (index) {
   if (
     jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
     !jQuery(this).attr('disabled')
@@ -733,3 +733,4 @@ jQuery(".variant-option:contains(Size) option").each(function (index) {
 });
 }
 return $text;
+
