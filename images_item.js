@@ -51,10 +51,10 @@ else
 
  //////////////////////
 
- if (jQuery('[class="zoomImg"]').length > 0) 
+ if (jQuery('[role="presentation"]:first').length > 0) 
  $img =
   // 'https://www.perfectlens.ca' +
-   jQuery('[class="zoomImg"]').attr('src')
+   jQuery('[role="presentation"]:first').attr('src')
 else
  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -74,8 +74,8 @@ $arr
 }
 /////////////////////////
 
-if (jQuery('.product-image .zoomF img:first').length > 0) 
-$img = jQuery('.product-image .zoomF img:first').attr('src')
+if (jQuery('.product-single__photo img:first').length > 0) 
+$img = jQuery('.product-single__photo img:first').attr('src')
 .split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -85,9 +85,9 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery('.product-image .zoomF img').length > 0){
+if (jQuery('.product-single__photo img').length > 0){
 $arr = [];
-jQuery('.product-image .zoomF img').each(function(index){
+jQuery('.product-single__photo img').each(function(index){
     if (index < 4) 
     $arr.push(jQuery(this).attr("src").split(' ')[0])
 })
@@ -227,10 +227,10 @@ else
 $img
 
 
-if (jQuery('img#ProductPhotoImg').length > 0) 
+if (jQuery('.photo-zoom-link [role="presentation"]').length > 0) 
     $img = 
     'https:' +
-     jQuery('img#ProductPhotoImg')
+     jQuery('.photo-zoom-link [role="presentation"]')
     .attr('src')
     // .split(' ')[0]
     // .css('background-image').split('url("')[1].slice(0, -2)
@@ -244,11 +244,11 @@ else
 
   //////////////////////////////
 
-  if (jQuery('.slick-active img').length > 0){
+  if (jQuery('.slick-slide img').length > 0){
     $arr = [];
-    jQuery('.slick-active img').each(function(index){
+    jQuery('.slick-slide img').each(function(index){
         if (index < 4) 
-        $arr.push('https:'+jQuery(this).attr("src").split(' ')[0])
+        $arr.push('https:'+jQuery(this).attr("data-srcset").split(' ')[0])
     })
     $arr
     }
@@ -274,18 +274,18 @@ else
   $img
 
 
-  if (jQuery('.VueCarousel-slide img').length > 0){
+  if (jQuery('[class="box--product-image gallery-item show-lazy-preloader current"] img').length > 0){
     $arr = [];
-    jQuery('.VueCarousel-slide img').each(function(index){
+    jQuery('class="box--product-image gallery-item show-lazy-preloader current"] img').each(function(index){
         if (index < 4) 
-        $arr.push(jQuery(this).attr("src").split(' ')[0])
+        $arr.push('https:'+jQuery(this).attr("src").split(' ')[0])
     })
     $arr
     }
 
 
-    if (jQuery('.VueCarousel-slide-active img').length > 0) 
-$img = jQuery('.VueCarousel-slide-active img').attr('src')
+    if (jQuery('[class="box--product-image gallery-item show-lazy-preloader current"] img').length > 0) 
+$img = jQuery('[class="box--product-image gallery-item show-lazy-preloader current"] img').attr('src')
 .split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')

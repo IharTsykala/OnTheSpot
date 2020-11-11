@@ -514,32 +514,37 @@ if (
 
 
 if (
-  jQuery('[id="four-columns"] .product-index-inner').length > 0 &&
-  jQuery('.c-scrolling-photos img:first').length === 0
+  jQuery('#MainContent .grid__item').length > 0 &&
+  jQuery('.product-single__photo img:first').length === 0
 ) {
   $arr = [];
 
-  jQuery('[id="four-columns"] .product-index-inner').each(function () {
-    $title = jQuery(this).find(".product-title").text().trim()
+  jQuery('#MainContent .grid__item').each(function () {
+    $title = jQuery(this).find(".product-card__name").text().trim()
     // .split(' / ')[0];
 
-    if(jQuery(this).find("img:first").next().next().next().text().trim())
+    if(jQuery(this).find(".product-card__image").next().text().trim())
     $img =
     // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] 
     // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
     'https:' + 
-    jQuery(this).find("img:first")
-    .next().next().next()
+    jQuery(this).find(".product-card__image")
+    .next()
     .text().trim()
     .split('src="')[1]
-    .split(' alt')[0].trim()
+    .split(' alt')[0]
+    // .trim()
     .slice(0, -1)
     else $img = ''
 
-    $link = 'https://juliettehogan.com' + jQuery(this).find("a:first").attr("href");
+    $link = 'https://crewmatestore.com/' + jQuery(this).find("a:first")
+    .attr("href");
 
-    $price = jQuery(this).find(".prod-price").text().trim()
-    // .split(' / ')[1]
+    $price = jQuery(this).find(".product-card__price").text().trim()
+    .split('Regular price')[1] ||
+    jQuery(this).find(".product-card__price").text().trim()
+    .split('From')[1]
+    // .trim()
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
@@ -754,20 +759,22 @@ if (
   $arr
 }
 
-if (jQuery(".grid-products a").length > 0 && [].length === 0) {
+if (jQuery("#product-loop .product-index-inner").length > 0 &&
+jQuery('.photo-zoom-link [role="presentation"]').length === 0) {
   $arr = []
 
-  jQuery(".grid-products a").each(function () {
-    $title = jQuery(this).find("h3.plp-product__title").text().trim()
+  jQuery("#product-loop .product-index-inner").each(function () {
+    $title = jQuery(this).parent().find("h3").text().trim()
 
-    $img = "https:" + jQuery(this).find("img:first").attr("src")
+    $img = "https:" + jQuery(this).parent().find("img:first").attr("src")
 
-    $link = "https://eu.aimeleondore.com" + jQuery(this).attr("href")
+    $link = "https://hiddencosmetics.co" + jQuery(this).parent().attr("href")
 
     $price =
-      "€" +
-      (jQuery(this).find(".plp-product__price .money").attr("ge-data-converted-price") ||
-      jQuery(this).find(".plp-product__price ").attr("ge-data-converted-price"))
+      // "€" +     
+        jQuery(this).parent().find(".price .money:first").text().trim()
+      //  ||
+      // jQuery(this).find(".plp-product__price ").attr("ge-data-converted-price"))
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -804,8 +811,8 @@ if (
       // 'https:' +
          (((jQuery(this).find("img:first").attr("src") ||
          jQuery(this).find("img:first").attr("data-srcset") ||
-         jQuery(this).find("img:last").attr("data-src") ||
-         jQuery(this).find("img:last").attr("data-zoom")|| '')))
+         jQuery(this).find("img:first").attr("data-src") ||
+         jQuery(this).find("img:first").attr("data-zoom")|| '')))
          .split(' ')[0];
 
     $link = 

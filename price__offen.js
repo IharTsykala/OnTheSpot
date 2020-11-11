@@ -33,7 +33,13 @@ jQuery('.modal_price .current_price').text().trim()
 jQuery('.product-info-main .price-box:first .price:last').text().trim()
 jQuery('.product-info-main .price-box:first .price:first').text().trim()
 
-jQuery('#ProductPrice1 .money:first').text().trim()
+jQuery('.ProductMeta__PriceList .Price:first').text().trim()
+jQuery('.ProductMeta__PriceList .Price:last').text().trim()
+
+jQuery('#product-price .money:first').text().trim()
+jQuery('#product-price .money:last').text().trim()
+
+jQuery('#ProductPrice-product-template:first').text().trim()
 jQuery('.size-h3:first').text().trim() || jQuery('.modal_price').text().trim()
 
 '$'+jQuery(".featured-products__price #ProductPrice").text().trim().split('$')[1]

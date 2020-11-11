@@ -28,30 +28,32 @@ if (
   $arr
 }
 
-if (jQuery("#CollectionSection .grid__item").length > 0 && [].length === 0) {
+if (jQuery("#CollectionSection .grid__item").length > 0 &&
+jQuery('.photo-zoom-link [role="presentation"]').length === 0) {
   $arr = []
 
   jQuery("#CollectionSection .grid__item").each(function () {
-    $title = jQuery(this).find(".grid-link__title").text().trim()
+    $title = jQuery(this).find(".grid-product__title").text().trim()
 
     $img =
-      "https:" +
-      jQuery(this)
-        .find(".product__img-wrapper")
-        .next()
-        .text()
-        .trim()
-        .split('src="')[1]
-        .split(" alt")[0]
-        .slice(0, -1)
+      // "https:" +
+      ((jQuery(this).find('.grid-product__secondary-image').css('background-image') || '')
+      .split('url(')[1] || '')
+      .slice(1,-2)
+        // .next()
+        // .text()
+        // .trim()
+        // .split('src="')[1]
+        // .split(" alt")[0]
+        // .slice(0, -1)
 
     $link =
-      "https://nightanddaynetmarket.com" + jQuery(this).find("a:first").attr("href")
+      "https://uk.etatlibredorange.com" + jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".grid-link__meta").text().trim()
-    .split('Regular price')[1]
+    $price = jQuery(this).find(".grid-product__price .money:first").text().trim()
+    // .split('Regular price')[1]
     // .split('No reviews')[0]
-    .trim()
+    // .trim()
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -151,8 +153,8 @@ if (
 
     $link = 'https://www.hairburst.com' + jQuery(this).find("a.ProductItem__ImageWrapper").attr("href");
 
-    $price = jQuery(this).find(".ProductItem__PriceList .money:first").text().trim()
-    // if ($title && $img && $link && $price)
+    $price = jQuery(this).find(".ProductItem__PriceList .Price:first").text().trim()
+    if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });
 
@@ -326,7 +328,7 @@ if (
       jQuery(this).find("a:first").attr("href")
 
     $price = jQuery(this).find(".product-price .money:first").text().trim()
-    if ($title && $img && $link && $price)    
+    // if ($title && $img && $link && $price)    
       $arr.push([$title, $img, $link, $price])
   })
   $arr

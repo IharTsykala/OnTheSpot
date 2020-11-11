@@ -1510,3 +1510,81 @@ if (
   });
 }
 return $text;
+
+
+
+
+
+
+
+if (jQuery("div.swatch:contains(Size) input").length > 0) {
+  ;[
+    jQuery("div.swatch:contains(Size) input:checked").length > 0
+      ? jQuery("div.swatch:contains(Size) input:checked")
+      .attr("value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery("div.swatch:contains(Size) input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Size", ["No Size"]]
+}
+
+
+if (jQuery("div.swatch:contains(Size) input").length > 0  &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size") {
+  jQuery("div.swatch:contains(Size) input").each(function () {
+  if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).next()[0].click()
+  }
+  })
+  }
+  wait_for(function () {
+  return true
+  })
+
+
+$text = false;
+if (
+  jQuery("div.swatch:contains(Size) input").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("div.swatch:contains(Size) input").each(function (index) {
+    console.log(jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg, !jQuery(this).parent().hasClass('available'))
+    console.log(jQuery(this).parent())
+    if (
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
+      jQuery(this).parent().hasClass('available')
+    ) {
+      $text = false;
+    }
+  });
+}
+$text;
+
+
+$text = false;
+if (
+  jQuery("div.ProductForm__Option:contains(Size) input").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("div.ProductForm__Option:contains(Size) input").each(function (index) {   
+    if (
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+$text;

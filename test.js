@@ -31,15 +31,14 @@ const Subject = function() {
   return {
   subscribeObserver: (observer) => this.observers.push(observer),  
   
-  helloObserver: (observer) => observer.notify('obs')
+  helloObserver: (observer) => 
+  observer.hello('hello!')
 };
 }
 
-var Observer = function() {
-  return {
-  notify: function(index) {
-      console.log("Observer " + index);
-  }
+var Observer = function() {  
+  this.hello = function(index) {
+      console.log("Observer " + index); 
   }
 }
 
@@ -49,5 +48,5 @@ const observer = new Observer()
 
 subject.subscribeObserver(observer)
 
-subject.helloObserver()
+subject.helloObserver(observer)
 
