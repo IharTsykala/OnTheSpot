@@ -64,13 +64,13 @@ jQuery('.photo-zoom-link [role="presentation"]').length === 0) {
 
 
 if (
-  jQuery(".productList .grid__item").length > 0 &&
-  jQuery("#product-featured-image").length === 0
+  jQuery(".container .product-item").length > 0 &&
+  jQuery('[class="product-gallery__item slick-slide"] img').length === 0
 ) {
   $arr = []
 
-  jQuery(".productList .grid__item").each(function () {
-    $title = jQuery(this).find(".grid-view-item__title").text().trim()
+  jQuery(".container .product-item").each(function () {
+    $title = jQuery(this).find(".product-title").text().trim()
 
     $img =
       "https:" +
@@ -78,11 +78,11 @@ if (
         .find("img:first")
         .attr("src")
 
-    $link = "https:" + jQuery(this).find("a:first").attr("href")
+    $link = "https://theroyallookforless.com" + jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".grid-view-item__meta .money:last").text().trim()
+    $price = jQuery(this).find(".product-price--current:first").text().trim()
 
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -111,20 +111,22 @@ if (jQuery(".products-collection a").length > 0 && [].length === 0) {
   $arr
 }
 
-if (jQuery('.products [itemprop="itemListElement"]').length > 0 &&
- jQuery(".product_section .image__container img").length === 0) {
+if (jQuery('.products .product-item').length > 0 &&
+ jQuery(".fotorama__active img").length === 0) {
   $arr = []
 
-  jQuery('.products [itemprop="itemListElement"]').each(function () {
-    $title = jQuery(this).find(".title").text().trim()
+  jQuery('.products .product-item').each(function () {
+    $title = jQuery(this).find(".product-item-link").text().trim()
 
-    $img = "https:" + jQuery(this).find("img:first").attr("src")
+    $img = jQuery(this).find("img:first").attr("src")
 
-    $link = "https://www.daziusa.com/" + jQuery(this).find('a:first').attr("href")
+    $link = 
+    // "https://cuoieriashop.com" + 
+    jQuery(this).find('a:first').attr("href")
 
     $price =
       // "€" +
-      jQuery(this).find(".price .money:last").text().trim()
+      jQuery(this).find(".price:first").text().trim()
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -191,27 +193,35 @@ if (
   $arr
 }
 
-
+// !!!!!!!!!!!!!!!!
 if (
-  jQuery('ul.products-grid li').length > 0 &&
-  [].length === 0
+  jQuery('ul.grid--view-items li').length > 0 &&
+  jQuery('.product-single__photo [role="presentation"]:first').length === 0
 ) {
   $arr = [];
 
-  jQuery('ul.products-grid li').each(function () {
-    $title = jQuery(this).find(".product_name").text().trim();
+  jQuery('ul.grid--view-items li').each(function () {
+    $title = jQuery(this).find(".grid-view-item__title").text().trim();
 
-    $img = 
-    // 'https:' +     
-     jQuery(this).find(".product_image img:last").attr('src')
-    //  .split('src="')[2].split(' ')[0].slice(0, -1) 
+    if(jQuery(this).find(".product-card__image-with-placeholder-wrapper").next().text().trim())
+    $img =
+    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] 
+    // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+    'https:' + 
+    jQuery(this).find(".product-card__image-with-placeholder-wrapper")
+    .next()
+    .text().trim()
+    .split('src="')[1]
+    .split(' alt')[0].trim()
+    .slice(0, -1)
+    else $img = ''
      
 
     $link =
-    //  'https://www.hairburst.com' +
+     'https://www.rjswim.com' +
        jQuery(this).find("a:first").attr("href");
 
-    $price = 'RSD' + jQuery(this).find(".price-box .price:last").text().trim()
+    $price = jQuery(this).find(".price-item--regular").text().trim()
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });

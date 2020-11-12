@@ -16,7 +16,7 @@ jQuery('.site-name img:first').attr('alt')
 jQuery('h1:first').text().trim()
 
 jQuery('h2.product-name').text().trim()
-jQuery('h1.title-xl').text().trim().replace(/\r|\n/g, ' ').split(' ').slice(0,2).join(' ')
+jQuery('.product__title').text().trim().replace(/\r|\n/g, ' ').split(' ').slice(0,2).join(' ')
 
 jQuery('h2.ProductMeta__Vendor').text().trim() || jQuery('div[class="-vBYKX"]').text().trim()
 document.querySelector('h1').innerText.trim() || document.querySelector('div[class="-vBYKX"]').innerText.trim()

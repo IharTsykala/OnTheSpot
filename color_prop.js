@@ -778,3 +778,117 @@ if (
   });
 }
 return $text;
+
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+
+if (jQuery(".color-swatch-wrapper:contains(Color) input").length > 0) {
+  ;[
+    jQuery(".color-swatch-wrapper:contains(Color) input:checked").length > 0
+      ? jQuery(".color-swatch-wrapper:contains(Color) input:checked")
+      .attr("value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery(".color-swatch-wrapper:contains(Color) input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Color", ["No Color"]]
+}
+
+
+$text = false;
+if (
+  jQuery(".color-swatch-wrapper:contains(Color) input").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery(".color-swatch-wrapper:contains(Color) input").each(function (index) {
+    if (
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+$text = false;
+if (
+  jQuery(".color-swatch-wrapper:contains(Color) input").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery(".color-swatch-wrapper:contains(Color) input").each(function (index) {
+    if (
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+if (jQuery(".selector-wrapper:contains(Color) select:first option").length > 0) {
+  [
+    jQuery(".selector-wrapper:contains(Color) select:first option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Color) select:first option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".selector-wrapper:contains(Color) select:first option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Color", ["No Color"]];
+}
+
+
+if (
+  jQuery(".selector-wrapper:contains(Color) select:first option").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+  ) {
+  jQuery(".selector-wrapper:contains(Color) select:first option").each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).trigger("change");
+    }
+  });
+  }
+  wait_for(function () {
+  return true;
+  });
+
+
+  $text = false;
+if (
+  jQuery(".selector-wrapper:contains(Color) select:first option").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery(".selector-wrapper:contains(Color) select:first option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;

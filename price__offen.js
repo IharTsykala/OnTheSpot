@@ -39,8 +39,8 @@ jQuery('.ProductMeta__PriceList .Price:last').text().trim()
 jQuery('#product-price .money:first').text().trim()
 jQuery('#product-price .money:last').text().trim()
 
-jQuery('#ProductPrice-product-template:first').text().trim()
-jQuery('.size-h3:first').text().trim() || jQuery('.modal_price').text().trim()
+jQuery('.price .price-item--sale:first').text().trim()
+jQuery('.price .price-item--sale').text().trim() || jQuery('.product__price .price-item--regular:first').text().trim()
 
 '$'+jQuery(".featured-products__price #ProductPrice").text().trim().split('$')[1]
 '$'+jQuery(".featured-products__price #ComparePrice").text().trim().split('$')[1]||

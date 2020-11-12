@@ -366,16 +366,16 @@ return $text;
 
 
 // Select
-if (jQuery(".product-form__option:contains(Size) option").length > 0) {
+if (jQuery("#AddToCartForm:contains(Size) option").length > 0) {
   [
-    jQuery(".product-form__option:contains(Size)  option:selected").text() != ""
-      ? jQuery(".product-form__option:contains(Size)  option:selected")
+    jQuery("#AddToCartForm:contains(Size)  option:selected").text() != ""
+      ? jQuery("#AddToCartForm:contains(Size)  option:selected")
           .text()
           .trim()
           // .replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery(".product-form__option:contains(Size) option").map(function (i, e) {
+      jQuery("#AddToCartForm:contains(Size) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -387,11 +387,11 @@ if (jQuery(".product-form__option:contains(Size) option").length > 0) {
 
 //pa_sizes clicker
 if (
-jQuery(".product-form__option:contains(Size) option").length > 0 &&
+jQuery("#AddToCartForm:contains(Size) option").length > 0 &&
 $sarg != "Select Size" &&
 $sarg != "No Size"
 ) {
-jQuery(".product-form__option:contains(Size) option").each(function () {
+jQuery("#AddToCartForm:contains(Size) option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {     
       jQuery(this).trigger("change");
   }
@@ -403,12 +403,12 @@ return true;
 //pa_sizes stock status
 $text = false;
 if (
-jQuery(".product-form__option:contains(Size) option").length > 0 &&
+jQuery("#AddToCartForm:contains(Size) option").length > 0 &&
 $sarg != "No Size" &&
 $sarg != "Select Size"
 ) {
 $text = true;
-jQuery(".product-form__option:contains(Size) option").each(function (index) {
+jQuery("#AddToCartForm:contains(Size) option").each(function (index) {
   if (
     jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
     !jQuery(this).attr('disabled')
@@ -1588,3 +1588,206 @@ if (
   });
 }
 $text;
+
+
+if (jQuery(".product__variants-wrapper:last button").length > 0) {
+  [
+    jQuery(
+      ".product__variants-wrapper:last button.product__option--active"
+    ).length > 0
+      ? jQuery(".product__variants-wrapper:last button.product__option--active")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".product__variants-wrapper:last button").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Size", ["No Size"]];
+
+
+if (jQuery(".selector-wrapper:contains(Size) select:first option").length > 0) {
+  [
+    jQuery(".selector-wrapper:contains(Size) select:first option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Size) select:first option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".selector-wrapper:contains(Size) select:first option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Size", ["No Size"]];
+}
+
+
+if (
+  jQuery(".selector-wrapper:contains(Size) select:first option").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+  ) {
+  jQuery(".selector-wrapper:contains(Size) select:first option").each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).trigger("change");
+    }
+  });
+  }
+  wait_for(function () {
+  return true;
+  });
+
+
+  $text = false;
+if (
+  jQuery(".selector-wrapper:contains(Size) select:first option").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery(".selector-wrapper:contains(Size) select:first option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+vtex-store-components-3-x-skuSelectorNameContainer
+
+if (jQuery("form.variant:target .form__selections .form__options--size a").length > 0) {
+  [
+    jQuery(
+      "form.variant:target .form__selections .form__options--size a.active"
+    ).length > 0
+      ?jQuery(
+        "form.variant:target .form__selections .form__options--size a.active"
+        )
+        // .css('background-size')
+        .text().trim().replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery("form.variant:target .form__selections .form__options--size a").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text() !== '')
+         return jQuery(e)
+        //  .css('background-size')
+         .text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ];
+} else ["No Size", ["No Size"]];
+
+jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimensions')
+
+
+if (
+  jQuery("form.variant:target .form__selections .form__options--size a").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery("form.variant:target .form__selections .form__options--size a").each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+//pa_sizes stock status
+$text = false;
+if (
+  jQuery("form.variant:target .form__selections .form__options--size a").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("form.variant:target .form__selections .form__options--size a").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('.unavailable')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+/////////////////////////////////////
+/////////////////////////////////////////////
+
+vtex-store-components-3-x-skuSelectorItem--17-cm vtex-store-components-3-x-skuSelectorItem--selected
+
+
+if (jQuery('div.vtex-store-components-3-x-skuSelectorSubcontainer:contains(Size) [role="button"]').length > 0) {
+  [
+    jQuery(
+      'div.vtex-store-components-3-x-skuSelectorSubcontainer:contains(Size) [role="button"].vtex-store-components-3-x-skuSelectorItem--selected'
+    ).length > 0
+      ?jQuery(
+        'div.vtex-store-components-3-x-skuSelectorSubcontainer:contains(Size) [role="button"].vtex-store-components-3-x-skuSelectorItem--selected'
+        ).find('.textSwatch')
+        .text().trim().replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery('div.vtex-store-components-3-x-skuSelectorSubcontainer:contains(Size) [role="button"]').map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text() !== '')
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Size", ["No Size"]];
+
+jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimensions')
+
+
+if (
+  jQuery('div.vtex-store-components-3-x-skuSelectorSubcontainer:contains(Size) [role="button"]').length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery('div.vtex-store-components-3-x-skuSelectorSubcontainer:contains(Size) [role="button"]').each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+//pa_sizes stock status
+$text = false;
+if (
+  jQuery('div.vtex-store-components-3-x-skuSelectorSubcontainer:contains(Size) [role="button"]').length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery('div.vtex-store-components-3-x-skuSelectorSubcontainer:contains(Size) [role="button"]').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('.data-availability') === 'soldout'
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;

@@ -97,10 +97,14 @@ jQuery('.order-total bdi:last')
 
 jQuery(".showcoupon")[0].click()
 jQuery('[id="checkout_reduction_code"]')
-jQuery('[data-trekkie-id="apply_discount_button"]:last')
-jQuery('.total-line .payment-due__price')
+jQuery('[id="cart-coupon-add"]:last')
+jQuery('td[class="monetary"]:last')
 
 
-jQuery('.field input[placeholder="Enter your discount code here"]')
-jQuery('.field button.field__input-btn')
-jQuery('.total-line .payment-due__price')
+document.querySelector('input[id="cart-coupon"]')
+document.querySelector('[id="cart-coupon-add"]:last')
+document.querySelector('.total-line .payment-due__price')
+
+jQuery('[id="coupon_code"]')
+jQuery('[value="Applica sconto"]:last')
+jQuery('td[data-th="Totale ordine"] .price:last')

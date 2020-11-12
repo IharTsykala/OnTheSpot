@@ -297,23 +297,25 @@ document.querySelectorAll('._3KsTU0 img._30XEf0')
 // $price = ('€' + jQuery(this).find(".price-new").attr('data-csscontent')).split(' ')[0]
 
 
-if (jQuery("#bc-sf-filter-products .grid-product__content").length > 0  &&
-  jQuery(".product-image-main img").length === 0
+if (jQuery(".flex-wrap section").length > 0  &&
+  [].length === 0
 ) {
   $arr = [];
 
-  jQuery("#bc-sf-filter-products .grid-product__content").each(function () {
-    $title = jQuery(this).find(".grid-product__title").text().trim();
+  jQuery(".flex-wrap section").each(function () {
+    $title = jQuery(this).find(".vtex-product-summary-2-x-brandName").text().trim();
 
     $img =   
-    jQuery(this).find("div.grid-product__secondary-image").attr('data-bgset').split(' ')[0]
+    jQuery(this).find("img:first").attr('src')
+    // .split(' ')[0]
 
-    $link = 'https://www.farah.co.uk/' + jQuery(this).find('a:first').attr("href");
+    $link = 'https://www.pandoraoficial.com.mx' + jQuery(this).find('a:first').attr("href");
 
-    $price = jQuery(this).find(".grid-product__price span:last").text().trim() || 
-    jQuery(this).find(".grid-product__price").text().trim()
+    $price = jQuery(this).find(".vtex-store-components-3-x-sellingPrice:first").text().trim().split('Ahora')[1]
+     || 
+    jQuery(this).find(".vtex-store-components-3-x-sellingPrice:first").text().trim()
     
-    if ($title && $img && $link && $price)
+    // if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });
     
@@ -987,5 +989,116 @@ if (
     if ($title && $img && $link && $price)    
       $arr.push([$title, $img, $link, $price])
   })
+  $arr
+}
+
+if (jQuery("#CollectionSection .grid__item").length > 0 &&
+jQuery('.photo-zoom-link [role="presentation"]').length === 0) {
+  $arr = []
+
+  jQuery("#CollectionSection .grid__item").each(function () {
+    $title = jQuery(this).find(".grid-product__title").text().trim()
+
+    $img =
+      // "https:" +
+      (((jQuery(this).find('.grid-product__secondary-image').css('background-image') || '')
+      .split('url(')[1] || '')
+      .slice(1,-2) ||
+      ("https:" +((jQuery(this).find('img.grid-product__image')
+        .next()
+        .text()
+        .trim() || '')
+        .split('src="')[1] || '')
+        .split('alt')[0].trim()
+        .slice(0, -1)))
+
+    $link =
+      "https://uk.etatlibredorange.com" + jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this).find(".grid-product__price .money:first").text().trim()
+    // .split('Regular price')[1]
+    // .split('No reviews')[0]
+    // .trim()
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+
+  $arr
+}
+
+
+if (
+  jQuery('.container li').length > 0 &&
+  jQuery('.product-single__photo img:first').length === 0
+) {
+  $arr = [];
+
+  jQuery('.container li').each(function () {
+    $title = jQuery(this).find(".product-grid__product__title").text().trim().split('£')[0].trim()
+    // .split(' / ')[0];
+
+    if(jQuery(this).find(".product-grid__product__img-container").find('noscript').text().trim())
+    $img =
+    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] 
+    // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+    'https:' + 
+    jQuery(this).find(".product-grid__product__img-container")
+    .find('noscript')
+    .text().trim()
+    .split('src="')[1]
+    .split(' alt')[0]
+    // .trim()
+    .slice(0, -1)
+    else $img = ''
+
+    $link = 'https://ukshop.sabah.am' + jQuery(this).find("a:first")
+    .attr("href");
+
+    $price = '£' + jQuery(this).find(".product-grid__product__title").text().trim().split('£')[1]
+    // .split('Regular price')[1] ||
+    // jQuery(this).find(".product-card__price").text().trim()
+    // .split('From')[1]
+    // .trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+
+if (
+  jQuery('ul.grid--view-items li').length > 0 &&
+  jQuery('.product-single__photo img:first').length === 0
+) {
+  $arr = [];
+
+  jQuery('ul.grid--view-items li').each(function () {
+    $title = jQuery(this).find(".grid-view-item__title").text().trim();
+
+    if(jQuery(this).find(".product-card__image-with-placeholder-wrapper").next().text().trim())
+    $img =
+    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] 
+    // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+    'https:' + 
+    jQuery(this).find(".product-card__image-with-placeholder-wrapper")
+    .next()
+    .text().trim()
+    .split('src="')[1]
+    .split(' alt')[0].trim()
+    .slice(0, -1)
+    else $img = ''
+     
+
+    $link =
+     'https://www.rjswim.com' +
+       jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find(".price-item--sale").text().trim() ||  jQuery(this).find(".price-item--regular").text().trim()
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+
   $arr
 }

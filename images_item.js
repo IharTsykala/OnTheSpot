@@ -51,10 +51,10 @@ else
 
  //////////////////////
 
- if (jQuery('[role="presentation"]:first').length > 0) 
+ if (jQuery('.product-single__photo [role="presentation"]:first').length > 0) 
  $img =
   // 'https://www.perfectlens.ca' +
-   jQuery('[role="presentation"]:first').attr('src')
+   jQuery('.product-single__photo [role="presentation"]:first').attr('src')
 else
  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -64,18 +64,18 @@ else
 $img
 ///////////////////////////////////////////
 
-if (jQuery('.is-selected img').length > 0){
+if (jQuery('.product-single__thumbnails img').length > 0){
  $arr = [];
-jQuery('.is-selected img').each(function(index){
+jQuery('.product-single__thumbnails img').each(function(index){
      if (index < 4) 
-     $arr.push(jQuery(this).attr('src'))
+     $arr.push('https:'+jQuery(this).attr('src'))
  })
 $arr
 }
 /////////////////////////
 
-if (jQuery('.product-single__photo img:first').length > 0) 
-$img = jQuery('.product-single__photo img:first').attr('src')
+if (jQuery('.swiper-slide-active img:first').length > 0) 
+$img = jQuery('.swiper-slide-active img:first').attr('src')
 .split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -85,9 +85,9 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery('.product-single__photo img').length > 0){
+if (jQuery('.swiper-slide-active img').length > 0){
 $arr = [];
-jQuery('.product-single__photo img').each(function(index){
+jQuery('.swiper-slide-active img').each(function(index){
     if (index < 4) 
     $arr.push(jQuery(this).attr("src").split(' ')[0])
 })
@@ -274,9 +274,9 @@ else
   $img
 
 
-  if (jQuery('[class="box--product-image gallery-item show-lazy-preloader current"] img').length > 0){
+  if (jQuery('[class="product-gallery__item slick-slide"] img').length > 0){
     $arr = [];
-    jQuery('class="box--product-image gallery-item show-lazy-preloader current"] img').each(function(index){
+    jQuery('[class="product-gallery__item slick-slide"] img').each(function(index){
         if (index < 4) 
         $arr.push('https:'+jQuery(this).attr("src").split(' ')[0])
     })
@@ -284,8 +284,8 @@ else
     }
 
 
-    if (jQuery('[class="box--product-image gallery-item show-lazy-preloader current"] img').length > 0) 
-$img = jQuery('[class="box--product-image gallery-item show-lazy-preloader current"] img').attr('src')
+    if (jQuery('[class="product-gallery__item slick-slide"] img').length > 0) 
+$img = jQuery('[class="product-gallery__item slick-slide"] img').attr('src')
 .split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -295,3 +295,26 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
+/////////////////////////////////////////////////
+////////////////////////////////////////////////////
+
+if (jQuery('.fotorama__active img').length > 0) 
+$img = jQuery('.fotorama__active img').attr('src')
+// .split(' ')[0]
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+
+
+if (jQuery('.fotorama__active img').length > 0){
+  $arr = [];
+  jQuery('.fotorama__active img').each(function(index){
+      if (index < 4) 
+      $arr.push(jQuery(this).attr("src").split(' ')[0])
+  })
+  $arr
+  }

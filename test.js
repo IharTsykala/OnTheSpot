@@ -50,3 +50,14 @@ subject.subscribeObserver(observer)
 
 subject.helloObserver(observer)
 
+
+const array =  [1,2,5,7,9]
+
+const sortArray = (array) => {
+  const newArray = array.slice()
+  newArray.sort((a,b)=>a-b)
+
+  return newArray[newArray.length -2]
+}
+
+sortArray(array)

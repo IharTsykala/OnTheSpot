@@ -30,8 +30,8 @@ jQuery('[value="Add to Cart"]').text().trim().toLowerCase() == 'out of stock' )
 }
 data-action="add-to-cart"
 
-if (jQuery('button.btn-buy-now').text().trim().toLowerCase() == 'sold out' || 
-jQuery('button.btn-buy-now').text().trim().toLowerCase() == 'out of stock'
+if (jQuery('button#product-addtocart-button').text().trim().toLowerCase() == 'sold out' || 
+jQuery('button#product-addtocart-button').text().trim().toLowerCase() == 'out of stock'
 ) {
   $status = true
 } else {
@@ -95,8 +95,8 @@ if (jQuery('#collection--options--wrapper .alert-danger').text().trim().toLowerC
     $status = false;
 }
 
-if (jQuery('button.shopify-payment-button__button').text().trim().toLowerCase() == 'sold out' ||
- jQuery('button.shopify-payment-button__button').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('button.vtex-button').text().trim().toLowerCase() == 'sold out' ||
+ jQuery('button.vtex-button').text().trim().toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;
@@ -215,3 +215,13 @@ if (jQuery('input[id="back-in-stock-subscribe-27906"]').attr('disabled')) {
 } else {
   $status = false;
 }
+
+
+if (jQuery('.vtex-add-to-cart-button-0-x-buttonText').text().trim() == 'No disponible' ||
+ jQuery('button.vtex-button').text().trim() == 'No disponible') {
+  $status = true
+} else {
+  $status = false;
+}
+
+
