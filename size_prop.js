@@ -541,7 +541,7 @@ if (
   jQuery(".product__variants-wrapper button").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
-      !jQuery(this).attr("data-available")
+      !jQuery(this).parent().hasClass("soldout")
     ) {
       $text = false;
     }

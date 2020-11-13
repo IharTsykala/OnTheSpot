@@ -52,7 +52,7 @@ if (
       "https://www.lakenzie.com/" +
       jQuery(this).find("h2.ProductItem__Title a:first").attr("href")
 
-    $price = jQuery(this).find(".ProductItem__Price .money:first").text().trim()
+    $price = jQuery(this).find(".ProductItem__Price.Price:first").text().trim()
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
@@ -329,19 +329,20 @@ findify-lists--products-list
 findify-widget--product__price cgFaj _19m_S
 
 if (
-  jQuery(".product-grid__items-list .product-item").length > 0 &&
+  jQuery(".product-collection .product-item").length > 0 &&
   jQuery(".img.product-images__image:first").length === 0
 ) {
   $arr = [];
 
-  jQuery(".product-grid__items-list .product-item").each(function () {
-    $title = jQuery(this).find(".product-item__name:first").text().trim();
+  jQuery(".product-collection .product-item").each(function () {
+    $title = jQuery(this).find(".product-title:first").text().trim();
 
-    $img = jQuery(this).find("a.product-item__link img:first").attr("src")      
+    $img = jQuery(this).find("img:first").attr("src")      
 
-    $link = 'https://www.nittygrittystore.com/' + jQuery(this).find("a.product-item__link").attr("href");
+    $link = 'https://kiwisboutique.com' + jQuery(this).find("a:first").attr("href");
 
-    $price = '€' + ' ' +  jQuery(this).find('.price .price__value:first').text().trim().slice(0, -3).trim()
+    $price = jQuery(this).find('.regular-product:first').text().trim()
+    // .slice(0, -3).trim()
     
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
@@ -516,22 +517,22 @@ if (
 
 
 if (
-  jQuery('#MainContent .grid__item').length > 0 &&
-  jQuery('.product-single__photo img:first').length === 0
+  jQuery('.ProductListWrapper .ProductItem__Wrapper').length > 0 &&
+  jQuery('[class="Product__Slideshow Product__Slideshow--zoomable Carousel"] img').length === 0
 ) {
   $arr = [];
 
-  jQuery('#MainContent .grid__item').each(function () {
-    $title = jQuery(this).find(".product-card__name").text().trim()
+  jQuery('.ProductListWrapper .ProductItem__Wrapper').each(function () {
+    $title = jQuery(this).find(".ProductItem__Title").text().trim()
     // .split(' / ')[0];
 
-    if(jQuery(this).find(".product-card__image").next().text().trim())
+    if(jQuery(this).find("img:first").next().next().text().trim())
     $img =
     // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] 
     // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
     'https:' + 
-    jQuery(this).find(".product-card__image")
-    .next()
+    jQuery(this).find("img:first")
+    .next().next()
     .text().trim()
     .split('src="')[1]
     .split(' alt')[0]
@@ -539,13 +540,13 @@ if (
     .slice(0, -1)
     else $img = ''
 
-    $link = 'https://crewmatestore.com/' + jQuery(this).find("a:first")
+    $link = 'https://joeythelabel.com' + jQuery(this).find("a:first")
     .attr("href");
 
-    $price = jQuery(this).find(".product-card__price").text().trim()
-    .split('Regular price')[1] ||
-    jQuery(this).find(".product-card__price").text().trim()
-    .split('From')[1]
+    $price = jQuery(this).find(".ProductItem__Price:first").text().trim()
+    // .split('Regular price')[1] ||
+    // jQuery(this).find(".product-card__price").text().trim()
+    // .split('From')[1]
     // .trim()
     
     if ($title && $img && $link && $price)
@@ -736,13 +737,13 @@ if (
 
 
 if (
-  jQuery(".columns .product-wrap").length > 0 &&
-  jQuery("#product-featured-image").length === 0
+  jQuery("#Collection .grid__item").length > 0 &&
+  [].length === 0
 ) {
   $arr = []
 
-  jQuery(".columns .product-wrap").each(function () {
-    $title = jQuery(this).find(".hidden-product-link").text().trim()
+  jQuery("#Collection .grid__item").each(function () {
+    $title = jQuery(this).find(".indiv-product-title-text").text().trim()
 
     $img =
       "https:" +
@@ -750,12 +751,12 @@ if (
         .find("img:first")
         .attr("src")
 
-    $link = "https://americfashion.com" + jQuery(this).find("a:first").attr("href")
+    $link = "https://www.thegerdu.com" + jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".money:first").text().trim()
+    $price = jQuery(this).find(".money-styling .money:first").text().trim()
     // .split('Br')[1].split(' ')[0]
 
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -788,44 +789,44 @@ jQuery('.photo-zoom-link [role="presentation"]').length === 0) {
 
 
 if (
-  jQuery(".product-grid .collection-product-wrap").length > 0 &&
+  jQuery(".container .product-wrap").length > 0 &&
   jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img').length === 0
 ) {
   $arr = [];
 
-  jQuery(".product-grid .collection-product-wrap").each(function () {
+  jQuery(".container .product-wrap").each(function () {
     $title = jQuery(this).find('.title').text().trim();
 
-  //   if(jQuery(this).find("img:first").next().next().text().trim())
-  //   $img =
-  //   // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
-  //   // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
-  //   'https:' + 
-  //   jQuery(this).find("img:first")
-  //   .next().next()
-  //   .text().trim()
-  //   .split('src="')[1]
-  //   .split(' alt')[0].trim()
-  //   .slice(0, -1)
-  //   else $img = '' 
+    if(jQuery(this).find(".image-element__wrap").next().text().trim())
+    $img =
+    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] || 
+    // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+    'https:' + 
+    jQuery(this).find(".image-element__wrap")
+    .next()
+    .text().trim()
+    .split('src="')[1]
+    .split(' alt')[0].trim()
+    .slice(0, -1)
+    else $img = '' 
     
-     $img = 
-      // 'https:' +
-         (((jQuery(this).find("img:first").attr("src") ||
-         jQuery(this).find("img:first").attr("data-srcset") ||
-         jQuery(this).find("img:first").attr("data-src") ||
-         jQuery(this).find("img:first").attr("data-zoom")|| '')))
-         .split(' ')[0];
+    //  $img = 
+    //   // 'https:' +
+    //      (((jQuery(this).find("img:first").attr("src") ||
+    //      jQuery(this).find("img:first").attr("data-srcset") ||
+    //      jQuery(this).find("img:first").attr("data-src") ||
+    //      jQuery(this).find("img:first").attr("data-zoom")|| '')))
+    //      .split(' ')[0];
 
     $link = 
-    'https://www.merchzcool.com' + 
+    'https://www.lesuth.com' + 
     jQuery(this).find('a:first').attr("href");
 
-    $price = jQuery(this).find(".price .money:first").text().trim()
+    $price = jQuery(this).find(".price .current_price").text().trim()
     // .split('Regular price')[1].trim()
     
     
-    if ($title && $img && $link && $price)
+    // if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });  
     
@@ -1100,5 +1101,33 @@ if (
     $arr.push([$title, $img, $link, $price]);
   });
 
+  $arr
+}
+
+
+if (
+  jQuery("#Collection .grid__item").length > 0 &&
+  [].length === 0
+) {
+  $arr = []
+
+  jQuery("#Collection .grid__item").each(function () {
+    $title = jQuery(this).find(".indiv-product-title-text").text().trim()
+
+    $img =
+      "https:" +
+      jQuery(this)
+        .find("img:first")
+        .attr("src")
+        .slice(0, -1)
+
+    $link = "https://www.thegerdu.com" + jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this).find(".money-styling .money:first").text().trim()
+    // .split('Br')[1].split(' ')[0]
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
+  })
   $arr
 }

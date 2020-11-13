@@ -839,16 +839,16 @@ if (
 return $text;
 
 
-if (jQuery(".selector-wrapper:contains(Color) select:first option").length > 0) {
+if (jQuery('[property_name="Color"] a').length > 0) {
   [
-    jQuery(".selector-wrapper:contains(Color) select:first option:selected").text() != ""
-      ? jQuery(".selector-wrapper:contains(Color) select:first option:selected")
+    jQuery('[property_name="Color"] a.cur').text() != ""
+      ? jQuery('[property_name="Color"] a.cur')
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Color",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(Color) select:first option").map(function (i, e) {
+      jQuery('[property_name="Color"] a').map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -860,11 +860,11 @@ if (jQuery(".selector-wrapper:contains(Color) select:first option").length > 0) 
 
 
 if (
-  jQuery(".selector-wrapper:contains(Color) select:first option").length > 0 &&
+  jQuery('[property_name="Color"] a').length > 0 &&
   $sarg != "Select Color" &&
   $sarg != "No Color"
   ) {
-  jQuery(".selector-wrapper:contains(Color) select:first option").each(function () {
+  jQuery('[property_name="Color"] a').each(function () {
     if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
       jQuery(this).trigger("change");
     }
@@ -877,12 +877,12 @@ if (
 
   $text = false;
 if (
-  jQuery(".selector-wrapper:contains(Color) select:first option").length > 0 &&
+  jQuery('[property_name="Color"] a').length > 0 &&
   $sarg != "No Color" &&
   $sarg != "Select Color"
 ) {
   $text = true;
-  jQuery(".selector-wrapper:contains(Color) select:first option").each(function (index) {
+  jQuery('[property_name="Color"] a').each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')
@@ -892,3 +892,6 @@ if (
   });
 }
 return $text;
+
+/////////////////////////////
+//////////////////////////////

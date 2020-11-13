@@ -46,8 +46,11 @@ jQuery('.price .price-item--sale').text().trim() || jQuery('.product__price .pri
 '$'+jQuery(".featured-products__price #ComparePrice").text().trim().split('$')[1]||
 '$'+jQuery(".featured-products__price #ProductPrice").text().trim().split('$')[1]
  ||
-jQuery(".product__price-sku .product__price").text().trim()
+jQuery(".product--price  .product__price").text().trim()
 
 jQuery("[data-product-price]").text().trim().split('$')[1]
 jQuery("[data-compare-price]").text().trim().split('$')[1] ||
 jQuery("[data-product-price]").text().trim().split('$')[1]
+
+jQuery('.product--price .price--main').text().trim()
+jQuery('.product--price .price--compare-at').text().trim() || jQuery('.product--price .price--main').text().trim()

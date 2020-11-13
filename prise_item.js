@@ -169,3 +169,5 @@ jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price
 'SEK' + jQuery('.product__variant-availability:not(.hide)').text().trim().split('|')[1]
 
 '$' + jQuery('.js-price-wrapper .product__price--current:first').text().trim()
+
+'€' + jQuery('.ProductMeta__Price:first').text().trim().split('US')[1]

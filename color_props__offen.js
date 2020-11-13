@@ -541,3 +541,60 @@ if (
   });
 }
 return $text;
+
+
+
+// button button
+if (jQuery(".Popover__ValueList:first button").length > 0) {
+  [
+    jQuery(
+      ".Popover__ValueList:first button.is-selected"
+    ).length > 0
+      ? jQuery(".Popover__ValueList:first button.is-selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".Popover__ValueList:first button").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Color", ["No Color"]];
+
+
+if (
+  jQuery(".Popover__ValueList:first button").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery(".Popover__ValueList:first button").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+$text = false;
+if (
+  jQuery(".Popover__ValueList:first button").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery(".Popover__ValueList:first button").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("data-available")
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;

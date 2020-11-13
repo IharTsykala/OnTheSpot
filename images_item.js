@@ -298,8 +298,8 @@ $img
 /////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 
-if (jQuery('.fotorama__active img').length > 0) 
-$img = jQuery('.fotorama__active img').attr('src')
+if (jQuery('.Product__SlideItem Product__SlideItem--image img:first').length > 0) 
+$img = jQuery('.Product__SlideItem Product__SlideItem--image img:first').attr('src')
 // .split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -310,11 +310,11 @@ else
 $img
 
 
-if (jQuery('.fotorama__active img').length > 0){
+if (jQuery('[class="Product__Slideshow Product__Slideshow--zoomable Carousel"] img').length > 0){
   $arr = [];
-  jQuery('.fotorama__active img').each(function(index){
+  jQuery('[class="Product__Slideshow Product__Slideshow--zoomable Carousel"] img').each(function(index){
       if (index < 4) 
-      $arr.push(jQuery(this).attr("src").split(' ')[0])
+      $arr.push(jQuery(this).attr("src"))
   })
   $arr
   }

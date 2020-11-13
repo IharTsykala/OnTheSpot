@@ -30,8 +30,8 @@ jQuery('[value="Add to Cart"]').text().trim().toLowerCase() == 'out of stock' )
 }
 data-action="add-to-cart"
 
-if (jQuery('button#product-addtocart-button').text().trim().toLowerCase() == 'sold out' || 
-jQuery('button#product-addtocart-button').text().trim().toLowerCase() == 'out of stock'
+if (jQuery('button.shopify-payment-button__button').text().trim().toLowerCase() == 'sold out' || 
+jQuery('button.shopify-payment-button__button').text().trim().toLowerCase() == 'out of stock'
 ) {
   $status = true
 } else {
@@ -45,7 +45,7 @@ if (jQuery('a[id="BIS_trigger"]:not(.h-tp-hidden)').text().trim() == 'Notify me 
   $status = false;
 }
 
-if (jQuery('.columns').text().trim().toLowerCase() == 'sold out' ) {
+if (jQuery('.product-out-of-stock').text().trim() == 'Sorry, currently out of stock' ) {
   $status = true
 } else {
   $status = false;

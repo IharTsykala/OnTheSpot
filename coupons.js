@@ -26,9 +26,9 @@ jQuery('button[value="Apply Voucher"]')
 jQuery('.grand_total .price:last')
 
 jQuery('a.showcoupon')[0].click()
-jQuery('input[id="coupon_code"]')
-jQuery('button[value="Primeni"]')
-jQuery('.order-total bdi')
+jQuery('.cart-template.active [placeholder="Código"]:last')
+jQuery('.cart-template.active [id="cart-coupon-add"]:last')
+jQuery('.cart-template.active .monetary:last')
 
 name="coupon-code-medium"
 
@@ -108,3 +108,10 @@ document.querySelector('.total-line .payment-due__price')
 jQuery('[id="coupon_code"]')
 jQuery('[value="Applica sconto"]:last')
 jQuery('td[data-th="Totale ordine"] .price:last')
+
+jQuery('input.order_discount_code')
+jQuery('input.order_discount_code_btn')
+jQuery('[id="order_totalprice"]')
+jQuery('[name="coupon_code"]')
+jQuery('[value="Apply"]:first')
+jQuery('[id="totalprice"]')

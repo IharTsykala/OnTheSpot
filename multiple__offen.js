@@ -235,40 +235,41 @@ jQuery('.product-single__image').length
 
 
 if (
-  jQuery("ul.grid--view-items li").length > 0 &&
+  jQuery("ul.common_pro_list1 li").length > 0 &&
   jQuery('.product-single__media-wrapper img.zoomImg').length === 0  
 ) {
   $arr = []
 
-  jQuery("ul.grid--view-items li").each(function () {
-    $title = jQuery(this).find(".product-card__title").text().trim()
+  jQuery("ul.common_pro_list1 li").each(function () {
+    $title = jQuery(this).find(".name").text().trim()
 
-    if(jQuery(this).find("a:first").next().next().next().text().trim())
-    $img =
-    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] 
-    // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
-    'https:' + 
-    jQuery(this).find("a:first")
-    .next().next().next()
-    .text().trim()
-    .split('src="')[1]
-    .split(' alt')[0].trim()
-    .slice(0, -1)
-    else $img = ''
+    // if(jQuery(this).find("a:first").next().next().next().text().trim())
+    // $img =
+    // // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] 
+    // // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+    // 'https:' + 
+    // jQuery(this).find("a:first")
+    // .next().next().next()
+    // .text().trim()
+    // .split('src="')[1]
+    // .split(' alt')[0].trim()
+    // .slice(0, -1)
+    // else $img = ''
 
-    // $img = 
-    //   // 'https:' +
-    //      (((jQuery(this).find(".attachment-woocommerce_thumbnail img:first").attr("src") ||
-    //     //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
-    //     //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
-    //      jQuery(this).find(".attachment-woocommerce_thumbnail:last").attr("src")|| '')))
-    //      .split(', ')[0];
+    $img = 
+      // 'https:' +
+         (((jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+         jQuery(this).find("img:last").attr("src")|| '')))
+        //  .split(', ')[0];
+        .replace(/\s/g,'%20')
 
     $link =
-    'https://sunrise-gym.com' +
+    'https://www.beautyonface.com' +
       jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".price .price__regular dd").text().trim()
+    $price = jQuery(this).find(".price:first").text().trim().split('US')[1]
     // ||
     // jQuery(this).find(".price").text().trim())
     // .split('€')[1]
@@ -281,16 +282,16 @@ if (
 
 
 if (
-  jQuery("ul.products li").length > 0 &&
+  jQuery("ul.productgrid--items li").length > 0 &&
   jQuery('.woocommerce-product-gallery__image img').length === 0  
 ) {
   $arr = []
 
-  jQuery("ul.products li").each(function () {
-    $title = jQuery(this).find(".woocommerce-loop-product__title").text().trim()  
+  jQuery("ul.productgrid--items li").each(function () {
+    $title = jQuery(this).find(".productitem--title").text().trim()  
 
     $img = 
-      // 'https:' +
+      'https:' +
          (((jQuery(this).find("img:first").attr("src") ||
         //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
         //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
@@ -298,10 +299,10 @@ if (
          .split(' ')[0];
 
     $link =
-    // 'https://sunrise-gym.com' +
+    'https://www.mcsquares.com' +
       jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".price bdi:last").text().trim()   
+    $price = jQuery(this).find(".price--main .money").text().trim()   
     // .split('€')[1]
 
     if ($title && $img && $link && $price)    
