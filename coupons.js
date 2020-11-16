@@ -69,6 +69,12 @@ document.querySelector('input[data-hook="coupon-input"]')
 document.querySelector('button[data-hook="coupon-button"]')
 document.querySelectorAll('[data-hook="total-value"]')[0]
 
+jQuery('span[data-hook="add-coupon-title-text"]')[0].click()
+document.querySelectorAll('span.wdWUI')[0].click()
+document.querySelector('input[data-hook="coupon-input"]')
+document.querySelector('button[data-hook="coupon-button"]')
+document.querySelectorAll('[data-hook="total-value"]')[0]
+
 
 jQuery("button[data-zta='enterCouponBtn']").click()
 jQuery('input[name="coupon"]:first')
@@ -95,23 +101,25 @@ jQuery('[name="coupon_code_collapse"]')
 jQuery('[value="Apply coupon"]:last')
 jQuery('.order-total bdi:last')
 
-jQuery(".showcoupon")[0].click()
-jQuery('[id="checkout_reduction_code"]')
-jQuery('[id="cart-coupon-add"]:last')
-jQuery('td[class="monetary"]:last')
+jQuery('[aria-label="Brug rabatkode"]')[0].click()
+jQuery('[id="discount_name"]')
+jQuery('[name="submitAddDiscount"]:last')
+jQuery('span[id="total_price"]:last')
 
 
 document.querySelector('input[id="cart-coupon"]')
 document.querySelector('[id="cart-coupon-add"]:last')
 document.querySelector('.total-line .payment-due__price')
 
-jQuery('[id="coupon_code"]')
-jQuery('[value="Applica sconto"]:last')
-jQuery('td[data-th="Totale ordine"] .price:last')
+jQuery('[class="order1Actions"] span')[0].click()
+jQuery('[id="basket-voucher-voucherinput"]')
+jQuery('[id="voucher-commit-code"]')
+jQuery('.total .right')
 
-jQuery('input.order_discount_code')
-jQuery('input.order_discount_code_btn')
-jQuery('[id="order_totalprice"]')
+jQuery('[class="link-coupon-add"]')[0].click()
+jQuery('.cart-totalizers [id="cart-coupon"]:first')
+jQuery('.cart-totalizers [id="cart-coupon-add"]:first')
+jQuery('tfoot td[class="monetary"]:first')
 jQuery('[name="coupon_code"]')
 jQuery('[value="Apply"]:first')
 jQuery('[id="totalprice"]')

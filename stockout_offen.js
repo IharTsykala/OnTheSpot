@@ -76,3 +76,13 @@ jQuery('[data-action="add-to-cart"]').text().trim().toLowerCase() == 'out of sto
 } else {
   $status = false;
 }
+
+if (jQuery('[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'out of stock' )
+// ||
+// jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
+ {
+  $status = true
+} else {
+  $status = false;
+}

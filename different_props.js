@@ -222,3 +222,155 @@ if (
   });
 }
 return $text;
+
+
+////////////////////////////////////
+//////////////////////
+
+if (jQuery("fieldset.single-option-radio input").length > 0) {
+  ;[
+    jQuery("fieldset.single-option-radio input:checked").length > 0
+      ? jQuery("fieldset.single-option-radio input:checked")
+      .attr("value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery("fieldset.single-option-radio input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Size", ["No Size"]]
+}
+
+////////////
+
+if (jQuery("fieldset.single-option-radio input").length > 0) {
+  ;[
+    jQuery("fieldset.single-option-radio input:checked").length > 0
+      ? jQuery("fieldset.single-option-radio input:checked")
+      .attr("value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery("fieldset.single-option-radio input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Size", ["No Size"]]
+}
+
+
+////
+
+if (jQuery("fieldset.single-option-radio input").length > 0  &&
+$sarg != "Select Size" &&
+$sarg != "No Size") {
+jQuery("fieldset.single-option-radio input").each(function () {
+if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+  jQuery(this).next()[0].click()
+}
+})
+}
+wait_for(function () {
+return true
+})
+
+$text = false;
+if (
+  jQuery("fieldset.single-option-radio input").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("fieldset.single-option-radio input").each(function (index) {
+    if (
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('.data-availability') === 'soldout'
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+// /////////////////////
+
+$text = false;
+if (
+  jQuery("fieldset.single-option-radio input").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("fieldset.single-option-radio input").each(function (index) {
+    if (
+      jQuery(this).val().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass('soldout')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text
+
+//////////////////////////////////////
+if (jQuery(".container-SkuTalla:contains(Talla:) li").length > 0) {
+  [
+    jQuery(".container-SkuTalla:contains(Talla:) li.selected").text() != ""
+      ? jQuery(".container-SkuTalla:contains(Talla:) li.selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".container-SkuTalla:contains(Talla:) li").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Size", ["No Size"]];
+}
+
+if (
+  jQuery(".container-SkuTalla:contains(Talla:) li").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+  ) {
+  jQuery(".container-SkuTalla:contains(Talla:) li").each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).trigger("change");
+    }
+  });
+  }
+  wait_for(function () {
+  return true;
+  });
+  
+  $text = false;
+  if (
+    jQuery(".container-SkuTalla:contains(Talla:) li").length > 0 &&
+    $sarg != "No Size" &&
+    $sarg != "Select Size"
+  ) {
+    $text = true;
+    jQuery(".container-SkuTalla:contains(Talla:) li").each(function (index) {
+      if (
+        jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+        !jQuery(this).attr('disabled')
+      ) {
+        $text = false;
+      }
+    });
+  }
+  return $text;
+
+//////////////////////////////////////////////////
+  ////////////////////////////////////

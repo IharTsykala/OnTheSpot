@@ -201,7 +201,8 @@ if (
 
     $img = 
     'https:' +     
-     jQuery(this).find(".product__img").next().text().trim().split('src="')[1].split(' ')[0].slice(0, -1) 
+     jQuery(this).find(".product__img").next().text().trim()
+    //  .split('src="')[1].split(' ')[0].slice(0, -1) 
      
 
     $link = 'https://www.shopbeergear.com' + jQuery(this).find("a.product-link").attr("href");
@@ -1123,11 +1124,75 @@ if (
 
     $link = "https://www.thegerdu.com" + jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".money-styling .money:first").text().trim()
+    $price = jQuery(this).find(".money-styling .money:last").text().trim().split('Kezdőár:')[1]
+     || jQuery(this).find(".money-styling .money:last").text().trim()   
     // .split('Br')[1].split(' ')[0]
 
     // if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])
   })
   $arr
+}
+
+
+if (
+  jQuery(".section-list .product-card").length > 0 &&
+  jQuery(".Product__SlideItem--image.is-selected img").length === 0
+) {
+  $arr = [];
+
+  jQuery(".section-list .product-card").each(function () {
+    $title = jQuery(this).find("h2.product-title").text().trim().replace(/\s\s+/g, "");
+
+    $img =
+    // 'https:' +
+     jQuery(this).find("img:first").attr("src") 
+    //  jQuery(this).find("img:first").attr("data-src") ||
+    //  jQuery(this).find("img:first").attr("data-second-image") ||
+    //  jQuery(this).find("img:first").attr("data-srcset") ||
+    //  jQuery(this).find("img:first").attr("srcset") 
+
+    $link =
+     'https://www.emag.hu' + 
+    jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find(".product-price-current:last").text().trim()
+    // .split('RON')[0].trim().split(' ').join('')
+    //  || jQuery(this).find(".card__price").text().trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+if (
+  jQuery(".card-collection .card").length > 0 &&
+  jQuery(".Product__SlideItem--image.is-selected img").length === 0
+) {
+  $arr = [];
+
+  jQuery(".card-collection .card").each(function () {
+    $title = jQuery(this).find("h2.product-title-zone").text().trim().replace(/\s\s+/g, "");
+
+    $img =
+    // 'https:' +
+     jQuery(this).find("img:first").attr("src") 
+    //  jQuery(this).find("img:first").attr("data-src") ||
+    //  jQuery(this).find("img:first").attr("data-second-image") ||
+    //  jQuery(this).find("img:first").attr("data-srcset") ||
+    //  jQuery(this).find("img:first").attr("srcset") 
+
+    $link =
+     'https://www.emag.hu' + 
+    jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find(".product-new-price:last").text().trim()
+    // .split('RON')[0].trim().split(' ').join('')
+    //  || jQuery(this).find(".card__price").text().trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
 }

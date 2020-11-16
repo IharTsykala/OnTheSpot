@@ -166,8 +166,15 @@ jQuery('.price-box .regular-price .price').text().trim().split(',')[0])
 jQuery('[data-product-price]').text().trim().split('$')[1]
 jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price"]').text().trim().split('$')[1]
 
+jQuery('[data-hook="formatted-primary-price"]').text().trim().split('$')[1]
+jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price"]').text().trim().split('$')[1]
+
 'SEK' + jQuery('.product__variant-availability:not(.hide)').text().trim().split('|')[1]
 
 '$' + jQuery('.js-price-wrapper .product__price--current:first').text().trim()
 
-'€' + jQuery('.ProductMeta__Price:first').text().trim().split('US')[1]
+'PEN' + ' ' + jQuery('#our_price_display').text().trim().split('S/.')[1]
+
+jQuery('.price .goods_price:first').text().trim().split('US')[1]
+
+jQuery('.prc-priceline-price:first').text().trim() || jQuery('.Price_Productinfo:first').text().trim()

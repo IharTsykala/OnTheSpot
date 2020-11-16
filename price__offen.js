@@ -46,11 +46,15 @@ jQuery('.price .price-item--sale').text().trim() || jQuery('.product__price .pri
 '$'+jQuery(".featured-products__price #ComparePrice").text().trim().split('$')[1]||
 '$'+jQuery(".featured-products__price #ProductPrice").text().trim().split('$')[1]
  ||
-jQuery(".product--price  .product__price").text().trim()
 
-jQuery("[data-product-price]").text().trim().split('$')[1]
-jQuery("[data-compare-price]").text().trim().split('$')[1] ||
-jQuery("[data-product-price]").text().trim().split('$')[1]
+'DKK' + jQuery('.product-price-wrap .productPrice:first [itemprop="price"]').text().trim()
+'HUF' + jQuery(".price_withVat:first").text().trim().split('Ft')[0]
+'HUF' +jQuery(".product-old-price:first").text().trim().split('Ft')[0] ||
+'HUF' +jQuery(".product-new-price:first").text().trim().split('Ft')[0]
+// .split('$')[1]
 
 jQuery('.product--price .price--main').text().trim()
 jQuery('.product--price .price--compare-at').text().trim() || jQuery('.product--price .price--main').text().trim()
+
+'€' + jQuery('.price-wrapper .price:first').text().trim().split('€')[0]
+'€' + jQuery('.old-price .price').text().trim().split('€')[0] || '€' + jQuery('.price-wrapper .price:first').text().trim().split('€')[0]

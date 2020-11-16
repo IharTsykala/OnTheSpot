@@ -195,6 +195,35 @@ $arr
 
 //////////////////////////////////////////////////////
 
+
+/////////////////////////////////////////////////////////////////////////////
+
+if (jQuery('[data-hook="product-image"]:first').length > 0) 
+$img = jQuery('[data-hook="product-image"]:first').attr('src').replace(/\s/g,'%20')    
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+
+///////////////////////////////////////
+
+if (jQuery('[data-hook="product-image"]').length > 0){
+$arr = [];
+jQuery('[data-hook="product-image"]').each(function(index){
+    if (index < 4) 
+    $arr.push(jQuery(this)
+    // .find('img:first')
+    .attr("src")
+    .replace(/\s/g,'%20')  )  
+})
+$arr
+}
+
+/////////////////////////////////////////////////////
+
 product__thumbnail slick-slide slick-current slick-active
 product_gallery_nav 
 
@@ -298,8 +327,8 @@ $img
 /////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 
-if (jQuery('.Product__SlideItem Product__SlideItem--image img:first').length > 0) 
-$img = jQuery('.Product__SlideItem Product__SlideItem--image img:first').attr('src')
+if (jQuery('.Product__SlideItem img:first').length > 0) 
+$img = jQuery('.Product__SlideItem  img:first').attr('src')
 // .split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -310,9 +339,30 @@ else
 $img
 
 
-if (jQuery('[class="Product__Slideshow Product__Slideshow--zoomable Carousel"] img').length > 0){
+if (jQuery('.Product__SlideshowNav--thumbnails img').length > 0){
   $arr = [];
-  jQuery('[class="Product__Slideshow Product__Slideshow--zoomable Carousel"] img').each(function(index){
+  jQuery('.Product__SlideshowNav--thumbnails img').each(function(index){
+      if (index < 4) 
+      $arr.push('https:'+jQuery(this).attr("src"))
+  })
+  $arr
+  }
+
+  if (jQuery('#view_full_size img:first').length > 0) 
+$img = jQuery('#view_full_size img:first').attr('src')
+.split(', ')[0]
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+
+
+if (jQuery('#thumbs_list_frame img').length > 0){
+  $arr = [];
+  jQuery('.slick-active img').each(function(index){
       if (index < 4) 
       $arr.push(jQuery(this).attr("src"))
   })
