@@ -58,3 +58,6 @@ jQuery('.product--price .price--compare-at').text().trim() || jQuery('.product--
 
 '€' + jQuery('.price-wrapper .price:first').text().trim().split('€')[0]
 '€' + jQuery('.old-price .price').text().trim().split('€')[0] || '€' + jQuery('.price-wrapper .price:first').text().trim().split('€')[0]
+
+'HUF' + jQuery(".price_withVat:first").text().trim().split('Ft')[0]
+'HUF' + jQuery(".origPrice:first").next().text().trim().split('Ft')[0] || 'HUF' + jQuery(".price_withVat:first").text().trim().split('Ft')[0]
