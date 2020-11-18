@@ -691,10 +691,10 @@ if (
     $img = 
     // 'https://www.lampegiganten.dk' +
     //  (jQuery(this).find(".panel-body a:first img").attr("data-src") ||
-       jQuery(this).find("a:first img:first").attr("src") ||
-       jQuery(this).find("a:first img:first").attr("data-src") ||
-       jQuery(this).find("a:first source:first").attr("data-srcset") ||
-       jQuery(this).find("a:first source:first").attr("srcset")
+       jQuery(this).find("img:first").attr("src") 
+      //  jQuery(this).find("a:first img:first").attr("data-src") ||
+      //  jQuery(this).find("a:first source:first").attr("data-srcset") ||
+      //  jQuery(this).find("a:first source:first").attr("srcset")
 
     $link =
     //  'https://www.lampegiganten.dk' +

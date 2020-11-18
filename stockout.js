@@ -19,8 +19,8 @@ jQuery('[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'out of stock
 
 ///////////////////////////////////////////////////////////////
 
-if (jQuery('[id="add_to_cart"]').text().trim().toLowerCase() == 'sold out' || 
-jQuery('[id="add_to_cart"]').text().trim().toLowerCase() == 'out of stock' )
+if (jQuery('[title="Comprar"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[title="Comprar"]').text().trim().toLowerCase() == 'out of stock' )
 // ||
 // jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
  {
@@ -45,7 +45,7 @@ if (jQuery('a[id="BIS_trigger"]:not(.h-tp-hidden)').text().trim() == 'Notify me 
   $status = false;
 }
 
-if (jQuery('.product-out-of-stock').text().trim() == 'Sorry, currently out of stock' ) {
+if (jQuery('.ProductItem-details .sold-out').text().trim() == 'sold out' ) {
   $status = true
 } else {
   $status = false;
@@ -53,8 +53,8 @@ if (jQuery('.product-out-of-stock').text().trim() == 'Sorry, currently out of st
 
 :not(.h-tp-hidden)
 
-if (jQuery('.buyWrapper input').attr('value').toLowerCase().indexOf('sold out')>=0 
-  || jQuery('.buyWrapper input').attr('value').toLowerCase().indexOf('out of stock')>=0) {
+if (jQuery('.ProductItem-details .sold-out').attr('value').toLowerCase().indexOf('sold out')>=0 
+  || jQuery('.ProductItem-details .sold-out').attr('value').toLowerCase().indexOf('out of stock')>=0) {
   $status = true
 } else {
   $status = false;
@@ -101,8 +101,8 @@ if (jQuery('#collection--options--wrapper .alert-danger').text().trim().toLowerC
     $status = false;
 }
 
-if (jQuery('button.addToCart').text().trim().toLowerCase() == 'sold out' ||
- jQuery('button.addToCart').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('button.single_add_to_cart_button').text().trim().toLowerCase() == 'sold out' ||
+ jQuery('button.single_add_to_cart_button').text().trim().toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;
@@ -202,7 +202,7 @@ if (jQuery('.out-of-stock').text().trim()  === 'Out of stock') {
   $status = false;
 }
 
-if (jQuery('.styled__Availability-mu8uqe-4').text().trim().toLowerCase().indexOf('indisponibil') >= 0)
+if (jQuery('.product-stock-status').text().trim().toLowerCase().indexOf('out') >= 0)
   {
   $status = true
 } else {

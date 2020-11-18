@@ -22,8 +22,8 @@ jQuery('button.single_add_to_cart_button').attr('data-button-status') == 'out of
   $status = false;
 }
 
-if (jQuery('button#add-to-cart').text().trim().toLowerCase() == 'sold out' || 
-jQuery('button#add-to-cart').text().trim().toLowerCase() == 'out of stock'
+if (jQuery('button.btn--add-to-cart').text().trim().toLowerCase() == 'sold out' || 
+jQuery('button.btn--add-to-cart').text().trim().toLowerCase() == 'out of stock'
 ) {
   $status = true
 } else {
@@ -44,13 +44,13 @@ if (jQuery('input.addtoBasket').attr('value').toLowerCase().indexOf('out') >= 0)
 }
 
 
-if (jQuery('input[id="AddToCart"]').attr('value').toLowerCase().indexOf('out') >= 0) {
+if (jQuery('input[title="Add to Cart"]').attr('value').toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {
   $status = false;
 }
 
-if (jQuery('[id="add-to-cart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+if (jQuery('[title="Add to Cart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {
   $status = false;

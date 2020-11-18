@@ -117,16 +117,16 @@ return $text;
 //
 
 
-if (jQuery("select#size option").length > 0) {
+if (jQuery('select[class="required-entry super-attribute-select"] option').length > 0) {
   [
-    jQuery("select#size option:selected").text() != ""
-      ? jQuery("select#size option:selected")
+    jQuery('select[class="required-entry super-attribute-select"] option:selected').text() != ""
+      ? jQuery('select[class="required-entry super-attribute-select"] option:selected')
           .text()
           .trim()
           // .replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery("select#size option").map(function (i, e) {
+      jQuery('select[class="required-entry super-attribute-select"] option').map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -137,11 +137,11 @@ if (jQuery("select#size option").length > 0) {
 }
 
 if (
-  jQuery("select#size option").length > 0 &&
+  jQuery('select[class="required-entry super-attribute-select"] option').length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
   ) {
-  jQuery("select#size option").each(function () {
+  jQuery('select[class="required-entry super-attribute-select"] option').each(function () {
     if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
       jQuery(this).trigger("change");
     }
@@ -153,12 +153,12 @@ if (
   
   $text = false;
   if (
-    jQuery("select#size option").length > 0 &&
+    jQuery('select[class="required-entry super-attribute-select"] option').length > 0 &&
     $sarg != "No Size" &&
     $sarg != "Select Size"
   ) {
     $text = true;
-    jQuery("select#size option").each(function (index) {
+    jQuery('select[class="required-entry super-attribute-select"] option').each(function (index) {
       if (
         jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
         !jQuery(this).attr('disabled')
@@ -499,32 +499,32 @@ return $text
 
 
   // Select
-  if (jQuery("table.variations:contains(sizes) option").length > 0) {
+  if (jQuery("table.variations tr:contains(Taille) option").length > 0) {
     [
-      jQuery("table.variations:contains(sizes) option:selected").text() != ""
-        ? jQuery("table.variations:contains(sizes) option:selected")
+      jQuery("table.variations tr:contains(Taille) option:selected").text() != ""
+        ? jQuery("table.variations tr:contains(Taille) option:selected")
             .text()
             .trim()
             // .replace(/\s\s+/g, "")
-        : "Select sizes",
+        : "Select Taille",
       jQuery.makeArray(
-        jQuery("table.variations:contains(sizes) option").map(function (i, e) {
+        jQuery("table.variations tr:contains(Taille) option").map(function (i, e) {
           if (jQuery(e).text() != "")
             return jQuery(e).text().trim().replace(/\s\s+/g, "");
         })
       ),
     ];
   } else {
-    ["No sizes", ["No sizes"]];
+    ["No Taille", ["No Taille"]];
   }
 
-  //pa_sizess clicker
+  //pa_Tailles clicker
 if (
-  jQuery("table.variations:contains(sizes) option").length > 0 &&
-  $sarg != "Select sizes" &&
-  $sarg != "No sizes"
+  jQuery("table.variations tr:contains(Taille) option").length > 0 &&
+  $sarg != "Select Taille" &&
+  $sarg != "No Taille"
 ) {
-  jQuery("table.variations:contains(sizes) option").each(function () {
+  jQuery("table.variations tr:contains(Taille) option").each(function () {
     if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {     
         jQuery(this).trigger("change");
     }
@@ -533,15 +533,15 @@ if (
 wait_for(function () {
   return true;
 });
-//pa_sizess stock status
+//pa_Tailles stock status
 $text = false;
 if (
-  jQuery("table.variations:contains(sizes) option").length > 0 &&
-  $sarg != "No sizes" &&
-  $sarg != "Select sizes"
+  jQuery("table.variations tr:contains(Taille) option").length > 0 &&
+  $sarg != "No Taille" &&
+  $sarg != "Select Taille"
 ) {
   $text = true;
-  jQuery("table.variations:contains(sizes) option").each(function (index) {
+  jQuery("table.variations tr:contains(Taille) option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')

@@ -1,30 +1,30 @@
 // Select
-if (jQuery(".selector-wrapper:contains(Colour) option").length > 0) {
+if (jQuery(".selector-wrapper:contains(Color) option").length > 0) {
   [
-    jQuery(".selector-wrapper:contains(Colour) option:selected").text() != ""
-      ? jQuery(".selector-wrapper:contains(Colour) option:selected")
+    jQuery(".selector-wrapper:contains(Color) option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Color) option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
-      : "Select Colour",
+      : "Select Color",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(Colour) option").map(function (i, e) {
+      jQuery(".selector-wrapper:contains(Color) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
     ),
   ];
 } else {
-  ["No Colour", ["No Colour"]];
+  ["No Color", ["No Color"]];
 }
 
-//pa_Colours clicker
+//pa_Colors clicker
 if (
-jQuery(".selector-wrapper:contains(Colour) option").length > 0 &&
-$sarg != "Select Colour" &&
-$sarg != "No Colour"
+jQuery(".selector-wrapper:contains(Color) option").length > 0 &&
+$sarg != "Select Color" &&
+$sarg != "No Color"
 ) {
-jQuery(".selector-wrapper:contains(Colour) option").each(function () {
+jQuery(".selector-wrapper:contains(Color) option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
     jQuery(this).trigger("change");
   }
@@ -36,12 +36,12 @@ return true;
 
 $text = false;
 if (
-  jQuery(".selector-wrapper:contains(Colour) option").length > 0 &&
-  $sarg != "No Colour" &&
-  $sarg != "Select Colour"
+  jQuery(".selector-wrapper:contains(Color) option").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
 ) {
   $text = true;
-  jQuery(".selector-wrapper:contains(Colour) option").each(function (index) {
+  jQuery(".selector-wrapper:contains(Color) option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')
@@ -596,5 +596,60 @@ if (
       $text = false;
     }
   });
+}
+return $text;
+
+
+// Select
+if (jQuery("table.variations tr:contains(Couleur) option").length > 0) {
+  [
+    jQuery("table.variations tr:contains(Couleur) option:selected").text() != ""
+      ? jQuery("table.variations tr:contains(Couleur) option:selected")
+          .text()
+          .trim()
+          // .replace(/\s\s+/g, "")
+      : "Select Couleur",
+    jQuery.makeArray(
+      jQuery("table.variations tr:contains(Couleur) option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Couleur", ["No Couleur"]];
+}
+
+//pa_Couleurs clicker
+if (
+jQuery("table.variations tr:contains(Couleur) option").length > 0 &&
+$sarg != "Select Couleur" &&
+$sarg != "No Couleur"
+) {
+jQuery("table.variations tr:contains(Couleur) option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {     
+      jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+//pa_Couleurs stock status
+$text = false;
+if (
+jQuery("table.variations tr:contains(Couleur) option").length > 0 &&
+$sarg != "No Couleur" &&
+$sarg != "Select Couleur"
+) {
+$text = true;
+jQuery("table.variations tr:contains(Couleur) option").each(function (index) {
+  if (
+    jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+    !jQuery(this).attr('disabled')
+  ) {
+    $text = false;
+  }
+});
 }
 return $text;

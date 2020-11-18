@@ -51,10 +51,10 @@ else
 
  //////////////////////
 
- if (jQuery('.product-single__photo [role="presentation"]:first').length > 0) 
+ if (jQuery('.slick-active [role="presentation"]:first').length > 0) 
  $img =
   // 'https://www.perfectlens.ca' +
-   jQuery('.product-single__photo [role="presentation"]:first').attr('src')
+   jQuery('.slick-active [role="presentation"]:first').attr('src')
 else
  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -64,11 +64,11 @@ else
 $img
 ///////////////////////////////////////////
 
-if (jQuery('.product-single__thumbnails img').length > 0){
+if (jQuery('[role="presentation"]').length > 0){
  $arr = [];
-jQuery('.product-single__thumbnails img').each(function(index){
+jQuery('[role="presentation"]').each(function(index){
      if (index < 4) 
-     $arr.push('https:'+jQuery(this).attr('src'))
+     $arr.push(jQuery(this).attr('src'))
  })
 $arr
 }
@@ -286,10 +286,10 @@ else
   ///////////////////////////////////
 
 
-  if (jQuery('.zoomWindowContainer div:first').length > 0) 
+  if (jQuery('.zoomWindowContainer div.zoomWindow:first').length > 0) 
     $img = 
     // 'https:' +
-     jQuery('.zoomWindowContainer div:first')
+     jQuery('.zoomWindowContainer div.zoomWindow:first')
     // .attr('src')
     // .split(' ')[0]
     // .replace('_85x', '_1080x')
@@ -348,8 +348,8 @@ if (jQuery('.Product__SlideshowNav--thumbnails img').length > 0){
   $arr
   }
 
-  if (jQuery('#view_full_size img:first').length > 0) 
-$img = jQuery('#view_full_size img:first').attr('src')
+  if (jQuery('.etalage_thumb_image:first').length > 0) 
+$img = jQuery('.etalage_thumb_image:first').attr('src')
 .split(', ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -360,11 +360,36 @@ else
 $img
 
 
-if (jQuery('#thumbs_list_frame img').length > 0){
+if (jQuery('.etalage_smallthumb_active img').length > 0){
   $arr = [];
-  jQuery('.slick-active img').each(function(index){
+  jQuery('.etalage_smallthumb_active img').each(function(index){
       if (index < 4) 
       $arr.push(jQuery(this).attr("src"))
   })
   $arr
   }
+
+  ////////////////////////////////
+
+  if (jQuery('.zoomContainer img:first').length > 0) 
+  $img = jQuery('.zoomContainer img:first').attr('src')
+  .split(', ')[0]
+  else
+  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+  
+  if ($img.indexOf("http") == -1)
+  'https:'+$img
+  else
+  $img
+  
+  
+  if (jQuery('.owl-wrapper img').length > 0){
+    $arr = [];
+    jQuery('.owl-wrapper img').each(function(index){
+        if (index < 4) 
+        $arr.push(jQuery(this).attr("src"))
+    })
+    $arr
+    }
+
+  ///////////////////////////////

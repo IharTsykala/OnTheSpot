@@ -61,3 +61,6 @@ jQuery('.product--price .price--compare-at').text().trim() || jQuery('.product--
 
 'HUF' + jQuery(".price_withVat:first").text().trim().split('Ft')[0]
 'HUF' + jQuery(".origPrice:first").next().text().trim().split('Ft')[0] || 'HUF' + jQuery(".price_withVat:first").text().trim().split('Ft')[0]
+
+'PEN' + ' ' + jQuery('.sqs-money-native:first').text().trim().split('S/')[1]
+'PEN' + ' ' + jQuery('.js-PrevPrice:first').text().trim().split('S/')[1] || 'PEN' + ' ' + jQuery('.bestPrice:first').text().trim().split('S/')[1]

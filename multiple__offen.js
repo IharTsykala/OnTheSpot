@@ -379,22 +379,23 @@ if (
 // div div noscript
 
 if (
-  jQuery('#CollectionSection .grid-product__wrapper').length > 0 &&
+  jQuery('.collection-grid .product-item').length > 0 &&
   jQuery('[class="Product__Slideshow Product__Slideshow--zoomable Carousel"] img').length === 0
 ) {
   $arr = [];
 
-  jQuery('#CollectionSection .grid-product__wrapper').each(function () {
-    $title = jQuery(this).find(".grid-product__title").text().trim()
+  jQuery('.collection-grid .product-item').each(function () {
+    $title = jQuery(this).find(".product-item__title").text().trim()
     // .split(' / ')[0];
 
-    if(jQuery(this).find(".product--wrapper").next().text().trim())
+    if(jQuery(this).find(".product-item__image-container").prev().text().trim())
     $img =
     // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] 
     // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
     'https:' + 
-    jQuery(this).find(".product--wrapper")
-    .next()
+    jQuery(this).find(".product-item__image-container")
+    .prev()
+    // .next()
     .text().trim()
     .split('src="')[1]
     .split(' alt')[0]
@@ -402,10 +403,10 @@ if (
     .slice(0, -1)
     else $img = ''
 
-    $link = 'https://carinasboutique.com/' + jQuery(this).find("a:first")
+    $link = 'https://tidystreetstore.com' + jQuery(this).find("a:first")
     .attr("href");
 
-    $price = jQuery(this).find(".grid-product__price:first").text().trim()
+    $price = jQuery(this).find(".product-item__price-wrapper:first").text().trim()
     .split('Regular price')[1].trim() 
     // ||
     // jQuery(this).find(".product-card__price").text().trim()
@@ -454,34 +455,37 @@ if (jQuery("#CollectionSection .grid__item").length > 0 && [].length === 0) {
 // div div img one src
 
 if (
-  jQuery(".product-list-container .WishlistModule").length > 0 &&
-  jQuery(".Product__SlideItem--image.is-selected img").length === 0
+  jQuery(".products-grid .item").length > 0 &&
+  jQuery(".zoomWindowContainer div.zoomWindow:first").length === 0 
+  &&  jQuery(".product-essential").length === 0 
+  
 ) {
   $arr = [];
 
-  jQuery(".product-list-container .WishlistModule").each(function () {
-    $title = jQuery(this).find(".productName").text().trim().replace(/\s\s+/g, "");
+  jQuery(".products-grid .item").each(function () {
+    $title = jQuery(this).find(".item-title").text().trim().replace(/\s\s+/g, "");
 
     $img =
     // 'https:' +
-     (jQuery(this).find("img:first").attr("src") ||
+     (jQuery(this).find('img[class="lazy"]:first').attr("src") ||
     //  jQuery(this).find("img:first").attr("data-src") ||
     //  jQuery(this).find("img:first").attr("data-second-image") ||
-     jQuery(this).find("img:first").attr("src") || '').split(', ')[0] 
+     jQuery(this).find('img[class="lazy"]:first').attr("src") || '').replace(/\s/g,'%20').split(', ')[0] 
     //  jQuery(this).find("img:first").attr("srcset") 
 
 
     $link =
-     'https://www.pionier.pe' + 
+     'https://www.newbalance.com.ar' + 
     jQuery(this).find("a:first").attr("href");
 
-    $price = 'PEN' + ' ' + jQuery(this).find(".price:first").text().trim().split('S/')[1]
+    $price = jQuery(this).find(".price:first").text().trim()
+    // .split('S/')[1]
     // .split('Kezdőár:')[1]
     // || jQuery(this).find(".productCurrency:last").text().trim()
     // .split('RON')[0].trim().split(' ').join('')
     //  || jQuery(this).find(".card__price").text().trim()
     
-    if ($title && $img && $link && $price)
+    // if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });
   $arr;
@@ -526,6 +530,55 @@ if (
 }
 
 
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+// ul li noscript
+
+if (
+  jQuery("ul.products li").length > 0 &&
+  jQuery('.slick-active [role="presentation"]:first').length === 0  
+) {
+  $arr = []
+
+  jQuery("ul.products li").each(function () {
+    $title = jQuery(this).find('h3').text().trim()
+
+    $img =
+    // "https:" +
+    jQuery(this)
+      .find("noscript")
+      // .next()
+      .text()
+      .trim()
+      .split('src="')[1]
+      .split(" size")[0]
+      .split(" class")[0]
+      .slice(0, -1)
+
+    $link =
+    // 'https://www.kukyflor.com' +
+      jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this).find(".woocommerce-Price-currencySymbol:first").parent().text().trim()
+    // .split('S/.')[1]
+    // .split('ex')[0]
+    // ||  jQuery(this).find(".gtm-item-price").text().trim() 
+    // .split('US')[1]
+    // ||
+    // jQuery(this).find(".price").text().trim())
+    // .split('€')[1]
+
+    // if ($title && $img && $link && $price)    
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+
+////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 
 if (
@@ -577,3 +630,35 @@ if (
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+if (
+  jQuery("ul.products-grid li").length > 0 &&
+  jQuery('.zoomImg:first').length === 0
+) {
+  $arr = [];
+
+  jQuery("ul.products-grid li").each(function () {
+    $title = jQuery(this).find(".product-name").text().trim();
+
+    $img = 
+    // 'https://www.lampegiganten.dk' +
+    //  (jQuery(this).find(".panel-body a:first img").attr("data-src") ||
+       jQuery(this).find("img:first").attr("src") 
+      //  jQuery(this).find("a:first img:first").attr("data-src") ||
+      //  jQuery(this).find("a:first source:first").attr("data-srcset") ||
+      //  jQuery(this).find("a:first source:first").attr("srcset")
+
+    $link =
+    //  'https://www.lampegiganten.dk' +
+      jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find(".price-box .price:last").text().trim()
+    
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+////////////////////////////////////////////////////////////
