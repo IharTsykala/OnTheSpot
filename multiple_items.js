@@ -1196,3 +1196,45 @@ if (
   });
   $arr;
 }
+
+
+if (
+  jQuery("ul.products li").length > 0 &&
+  jQuery('.slick-active [role="presentation"]:first').length === 0 
+  && jQuery('.product-information').length === 0  
+) {
+  $arr = []
+
+  jQuery("ul.products li").each(function () {
+    $title = jQuery(this).find('h3').text().trim()
+
+    $img =
+    // "https:" +
+    jQuery(this)
+      .find("noscript")
+      // .next()
+      .text()
+      .trim()
+      .split('src="')[1]
+      .split(" size")[0]
+      .split(" class")[0]
+      .slice(0, -1)
+
+    $link =
+    // 'https://www.kukyflor.com' +
+      jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this).find(".woocommerce-Price-currencySymbol:first").parent().text().trim()
+    // .split('S/.')[1]
+    // .split('ex')[0]
+    // ||  jQuery(this).find(".gtm-item-price").text().trim() 
+    // .split('US')[1]
+    // ||
+    // jQuery(this).find(".price").text().trim())
+    // .split('€')[1]
+
+    // if ($title && $img && $link && $price)    
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}

@@ -601,32 +601,32 @@ return $text;
 
 
 // Select
-if (jQuery("table.variations tr:contains(Couleur) option").length > 0) {
+if (jQuery("table.variations tr:contains(Color) option").length > 0) {
   [
-    jQuery("table.variations tr:contains(Couleur) option:selected").text() != ""
-      ? jQuery("table.variations tr:contains(Couleur) option:selected")
+    jQuery("table.variations tr:contains(Color) option:selected").text() != ""
+      ? jQuery("table.variations tr:contains(Color) option:selected")
           .text()
           .trim()
           // .replace(/\s\s+/g, "")
-      : "Select Couleur",
+      : "Select Color",
     jQuery.makeArray(
-      jQuery("table.variations tr:contains(Couleur) option").map(function (i, e) {
+      jQuery("table.variations tr:contains(Color) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
     ),
   ];
 } else {
-  ["No Couleur", ["No Couleur"]];
+  ["No Color", ["No Color"]];
 }
 
-//pa_Couleurs clicker
+//pa_Colors clicker
 if (
-jQuery("table.variations tr:contains(Couleur) option").length > 0 &&
-$sarg != "Select Couleur" &&
-$sarg != "No Couleur"
+jQuery("table.variations tr:contains(Color) option").length > 0 &&
+$sarg != "Select Color" &&
+$sarg != "No Color"
 ) {
-jQuery("table.variations tr:contains(Couleur) option").each(function () {
+jQuery("table.variations tr:contains(Color) option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {     
       jQuery(this).trigger("change");
   }
@@ -635,15 +635,15 @@ jQuery("table.variations tr:contains(Couleur) option").each(function () {
 wait_for(function () {
 return true;
 });
-//pa_Couleurs stock status
+//pa_Colors stock status
 $text = false;
 if (
-jQuery("table.variations tr:contains(Couleur) option").length > 0 &&
-$sarg != "No Couleur" &&
-$sarg != "Select Couleur"
+jQuery("table.variations tr:contains(Color) option").length > 0 &&
+$sarg != "No Color" &&
+$sarg != "Select Color"
 ) {
 $text = true;
-jQuery("table.variations tr:contains(Couleur) option").each(function (index) {
+jQuery("table.variations tr:contains(Color) option").each(function (index) {
   if (
     jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
     !jQuery(this).attr('disabled')

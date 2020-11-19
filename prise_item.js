@@ -175,8 +175,9 @@ jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price
 
 'PEN' + ' ' + jQuery('#our_price_display').text().trim().split('S/.')[1]
 
-'PKR' + jQuery('.woocommerce-Price-currencySymbol:first').parent().text().trim().split('Rs.')[1]
+'$' + ' ' + jQuery('.woocommerce-Price-currencySymbol:first').parent().text().trim().split('$')[1].split('.')[0]
 
-jQuery('.prc-priceline-price:first').text().trim() || jQuery('.Price_Productinfo:first').text().trim()
+jQuery('.product__price:first').text().trim()
+jQuery('.product__price.on-sale:first').text().trim() || jQuery('.product__price:first').text().trim()
 
-'PKR' + jQuery('.regular-price:first').text().trim().split('Rs.')[1]
+'PKR' + jQuery('#price').text().trim().split('US')[1]

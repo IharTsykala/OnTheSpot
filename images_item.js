@@ -21,12 +21,18 @@ else
 
  m-tp-productimagegallery-preview-wrapper
 
- if (jQuery('.product-single__image').length > 0) 
+ if (jQuery('.slick-active img:first').length > 0) 
     $img = 
     'https:' +
-     jQuery('.product-single__image')
-    .attr('data-srcset')
-    .split(' ')[0]
+     jQuery('.slick-active noscript')
+     .text().trim()
+     .split('src="')[1]
+     .split(' alt')[0]
+     .trim()
+     .slice(0, -1)
+    // .attr('data-srcset')
+    // .split(' ')[0]
+    // .replace('_85x', '_1000x')
     // .css('background-image').split('url("')[1].slice(0, -2)
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -38,11 +44,11 @@ else
   
   // .css('background-image').split('url("')[1].slice(0, -2)
 
-  if (jQuery('.product-single__thumbnail-image').length > 0){
+  if (jQuery('.slick-active img').length > 0){
     $arr = [];
-   jQuery('.product-single__thumbnail-image').each(function(index){
+   jQuery('.slick-active img').each(function(index){
         if (index < 4) 
-        $arr.push(('https:' + jQuery(this).attr('src')).split(' ')[0])
+        $arr.push(('https:' + jQuery(this).attr('data-srcset')).split(' ')[0])
     })
    $arr
  }
@@ -303,18 +309,10 @@ else
   $img
 
 
-  if (jQuery('[class="product-gallery__item slick-slide"] img').length > 0){
-    $arr = [];
-    jQuery('[class="product-gallery__item slick-slide"] img').each(function(index){
-        if (index < 4) 
-        $arr.push('https:'+jQuery(this).attr("src").split(' ')[0])
-    })
-    $arr
-    }
 
 
-    if (jQuery('[class="product-gallery__item slick-slide"] img').length > 0) 
-$img = jQuery('[class="product-gallery__item slick-slide"] img').attr('src')
+    if (jQuery('[class="woocommerce-main-image pswp-main-image zoom"] img:first').length > 0) 
+$img = jQuery('[class="woocommerce-main-image pswp-main-image zoom"] img:first').attr('src')
 .split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -324,6 +322,15 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
+
+if (jQuery('[class="woocommerce-main-image pswp-main-image zoom"] img').length > 0){
+  $arr = [];
+  jQuery('[class="woocommerce-main-image pswp-main-image zoom"] img').each(function(index){
+      if (index < 4) 
+      $arr.push('https:'+jQuery(this).attr("src").split(' ')[0])
+  })
+  $arr
+  }
 /////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 
@@ -371,8 +378,8 @@ if (jQuery('.etalage_smallthumb_active img').length > 0){
 
   ////////////////////////////////
 
-  if (jQuery('.zoomContainer img:first').length > 0) 
-  $img = jQuery('.zoomContainer img:first').attr('src')
+  if (jQuery('#carouselProducts img:first').length > 0) 
+  $img = jQuery('#carouselProducts img:first').attr('src')
   .split(', ')[0]
   else
   $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -383,9 +390,9 @@ if (jQuery('.etalage_smallthumb_active img').length > 0){
   $img
   
   
-  if (jQuery('.owl-wrapper img').length > 0){
+  if (jQuery('#carouselProducts img').length > 0){
     $arr = [];
-    jQuery('.owl-wrapper img').each(function(index){
+    jQuery('#carouselProducts img').each(function(index){
         if (index < 4) 
         $arr.push(jQuery(this).attr("src"))
     })

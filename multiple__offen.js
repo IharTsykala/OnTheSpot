@@ -379,22 +379,22 @@ if (
 // div div noscript
 
 if (
-  jQuery('.collection-grid .product-item').length > 0 &&
+  jQuery('#CollectionAjaxContent .grid__item').length > 0 &&
   jQuery('[class="Product__Slideshow Product__Slideshow--zoomable Carousel"] img').length === 0
 ) {
   $arr = [];
 
-  jQuery('.collection-grid .product-item').each(function () {
-    $title = jQuery(this).find(".product-item__title").text().trim()
+  jQuery('#CollectionAjaxContent .grid__item').each(function () {
+    $title = jQuery(this).find(".grid-product__title").text().trim()
     // .split(' / ')[0];
 
-    if(jQuery(this).find(".product-item__image-container").prev().text().trim())
+    if(jQuery(this).find("noscript").text().trim())
     $img =
     // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] 
     // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
     'https:' + 
-    jQuery(this).find(".product-item__image-container")
-    .prev()
+    jQuery(this).find("noscript")
+    // .prev()
     // .next()
     .text().trim()
     .split('src="')[1]
@@ -403,11 +403,12 @@ if (
     .slice(0, -1)
     else $img = ''
 
-    $link = 'https://tidystreetstore.com' + jQuery(this).find("a:first")
+    $link = 'https://rarelondon.com' + jQuery(this).find("a:first")
     .attr("href");
 
-    $price = jQuery(this).find(".product-item__price-wrapper:first").text().trim()
-    .split('Regular price')[1].trim() 
+    $price = jQuery(this).find(".grid-product__price:first").text().trim().split('€')[2]
+     || jQuery(this).find(".grid-product__price:first").text().trim()
+    // .split('Regular price')[1].trim() 
     // ||
     // jQuery(this).find(".product-card__price").text().trim()
     // .split('From')[1]
@@ -455,37 +456,37 @@ if (jQuery("#CollectionSection .grid__item").length > 0 && [].length === 0) {
 // div div img one src
 
 if (
-  jQuery(".products-grid .item").length > 0 &&
-  jQuery(".zoomWindowContainer div.zoomWindow:first").length === 0 
-  &&  jQuery(".product-essential").length === 0 
+  jQuery('.category__products [class="w-container col"]').length > 0 &&
+  jQuery('[class="woocommerce-main-image pswp-main-image zoom"] img:first').length === 0 
+  // &&  jQuery(".product-essential").length === 0 
   
 ) {
   $arr = [];
 
-  jQuery(".products-grid .item").each(function () {
-    $title = jQuery(this).find(".item-title").text().trim().replace(/\s\s+/g, "");
+  jQuery('.category__products [class="w-container col"]').each(function () {
+    $title = jQuery(this).find(".w-product-title").text().trim().replace(/\s\s+/g, "");
 
     $img =
     // 'https:' +
-     (jQuery(this).find('img[class="lazy"]:first').attr("src") ||
+     (jQuery(this).find('img:first').attr("src") ||
     //  jQuery(this).find("img:first").attr("data-src") ||
     //  jQuery(this).find("img:first").attr("data-second-image") ||
-     jQuery(this).find('img[class="lazy"]:first').attr("src") || '').replace(/\s/g,'%20').split(', ')[0] 
+     jQuery(this).find('img:first').attr("src") || '').replace(/\s/g,'%20').split(', ')[0] 
     //  jQuery(this).find("img:first").attr("srcset") 
 
 
     $link =
-     'https://www.newbalance.com.ar' + 
+     'https://www.huxskateboards.com' + 
     jQuery(this).find("a:first").attr("href");
 
-    $price = jQuery(this).find(".price:first").text().trim()
-    // .split('S/')[1]
+    $price = jQuery(this).find(".font--product-price:first").text().trim()
+    // .split('US')[1]
     // .split('Kezdőár:')[1]
     // || jQuery(this).find(".productCurrency:last").text().trim()
     // .split('RON')[0].trim().split(' ').join('')
     //  || jQuery(this).find(".card__price").text().trim()
     
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price]);
   });
   $arr;

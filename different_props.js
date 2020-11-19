@@ -374,3 +374,60 @@ if (
 
 //////////////////////////////////////////////////
   ////////////////////////////////////
+
+  if (jQuery("fieldset:first input").length > 0) {
+    [
+      jQuery(
+        "fieldset:first input:checked"
+      ).length > 0
+        ?jQuery(
+            "fieldset:first input:checked"
+          )
+          .parent().text().trim().replace(/\s\s+/g, "")
+        : "Select Size",
+      jQuery.makeArray(
+        jQuery("fieldset:first label").map(function (
+          i,
+          e
+        ) {
+          if (jQuery(e).text().trim().replace(/\s\s+/g, "")!=='')
+           return jQuery(e).text().trim().replace(/\s\s+/g, "");
+        })
+      ),
+    ];
+  } else ["No Size", ["No Size"]];
+  
+  jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimensions')
+  
+  
+  if (
+    jQuery("fieldset:first label").length > 0 &&
+    $sarg != "Select Size" &&
+    $sarg != "No Size"
+  ) {
+    jQuery("fieldset:first label").each(function () {
+      if (jQuery(e).text().trim().replace(/\s\s+/g, "")!== $sarg) jQuery(this).click();
+    });
+  }
+  wait_for(function () {
+    return true;
+  });
+  
+  //pa_sizes stock status
+  $text = false;
+  if (
+    jQuery("fieldset:first label").length > 0 &&
+    $sarg != "No Size" &&
+    $sarg != "Select Size"
+  ) {
+    $text = true;
+    jQuery("fieldset:first label").each(function (index) {
+      if (
+        jQuery(this).text().trim().replace(/\s\s+/g, "")!== $sarg &&
+        !jQuery(this).parent().find('input').attr('disabled') === 'disabled'
+      ) {
+        $text = false;
+      }
+    });
+  }
+  return $text;

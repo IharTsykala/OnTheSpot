@@ -30,8 +30,8 @@ jQuery('[title="Comprar"]').text().trim().toLowerCase() == 'out of stock' )
 }
 data-action="add-to-cart"
 
-if (jQuery('button.add-to-cart-btn').text().trim().toLowerCase() == 'sold out' || 
-jQuery('button.add-to-cart-btn').text().trim().toLowerCase() == 'out of stock'
+if (jQuery('button.product-form--add-to-cart').text().trim().toLowerCase() == 'sold out' || 
+jQuery('button.product-form--add-to-cart').text().trim().toLowerCase() == 'out of stock'
 ) {
   $status = true
 } else {
@@ -196,13 +196,13 @@ if (jQuery('button.btn-cart-add').length === 0 && jQuery('.product-notifier').te
   $status = false;
 }
 
-if (jQuery('.out-of-stock').text().trim()  === 'Out of stock') {
+if (jQuery('[id="addProductToCart"] button').text().trim()  === 'Out of stock') {
   $status = true
 } else {
   $status = false;
 }
 
-if (jQuery('.product-stock-status').text().trim().toLowerCase().indexOf('out') >= 0)
+if (jQuery('.shopify-payment-button__button').text().trim().toLowerCase().indexOf('out') >= 0)
   {
   $status = true
 } else {

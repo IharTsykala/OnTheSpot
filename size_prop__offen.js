@@ -499,32 +499,32 @@ return $text
 
 
   // Select
-  if (jQuery("table.variations tr:contains(Taille) option").length > 0) {
+  if (jQuery("table.variations tr:contains(Size) option").length > 0) {
     [
-      jQuery("table.variations tr:contains(Taille) option:selected").text() != ""
-        ? jQuery("table.variations tr:contains(Taille) option:selected")
+      jQuery("table.variations tr:contains(Size) option:selected").text() != ""
+        ? jQuery("table.variations tr:contains(Size) option:selected")
             .text()
             .trim()
             // .replace(/\s\s+/g, "")
-        : "Select Taille",
+        : "Select Size",
       jQuery.makeArray(
-        jQuery("table.variations tr:contains(Taille) option").map(function (i, e) {
+        jQuery("table.variations tr:contains(Size) option").map(function (i, e) {
           if (jQuery(e).text() != "")
             return jQuery(e).text().trim().replace(/\s\s+/g, "");
         })
       ),
     ];
   } else {
-    ["No Taille", ["No Taille"]];
+    ["No Size", ["No Size"]];
   }
 
-  //pa_Tailles clicker
+  //pa_Sizes clicker
 if (
-  jQuery("table.variations tr:contains(Taille) option").length > 0 &&
-  $sarg != "Select Taille" &&
-  $sarg != "No Taille"
+  jQuery("table.variations tr:contains(Size) option").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
 ) {
-  jQuery("table.variations tr:contains(Taille) option").each(function () {
+  jQuery("table.variations tr:contains(Size) option").each(function () {
     if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {     
         jQuery(this).trigger("change");
     }
@@ -533,15 +533,15 @@ if (
 wait_for(function () {
   return true;
 });
-//pa_Tailles stock status
+//pa_Sizes stock status
 $text = false;
 if (
-  jQuery("table.variations tr:contains(Taille) option").length > 0 &&
-  $sarg != "No Taille" &&
-  $sarg != "Select Taille"
+  jQuery("table.variations tr:contains(Size) option").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
 ) {
   $text = true;
-  jQuery("table.variations tr:contains(Taille) option").each(function (index) {
+  jQuery("table.variations tr:contains(Size) option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')
@@ -957,6 +957,62 @@ if (
 ) {
   $text = true;
   jQuery(".Popover__ValueList:first button").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("data-available")
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+// button button
+if (jQuery("#sizeColumn:first button").length > 0) {
+  [
+    jQuery(
+      "#sizeColumn:first button.sizeSelected"
+    ).length > 0
+      ? jQuery("#sizeColumn:first button.sizeSelected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery("#sizeColumn:first button").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Size", ["No Size"]];
+
+
+if (
+  jQuery("#sizeColumn:first button").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery("#sizeColumn:first button").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+$text = false;
+if (
+  jQuery("#sizeColumn:first button").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("#sizeColumn:first button").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr("data-available")

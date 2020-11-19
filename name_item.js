@@ -2,7 +2,7 @@ jQuery('p.product-details__brand').text().trim()
 
 jQuery('.product-name:first').text().trim()
 
-jQuery('h1#title').text().trim().split(' In ')[0]
+jQuery('#title').text().trim().split(' In ')[0]
 
 jQuery('h2[itemprop="name"]').text().trim().replace(/\r|\n/g, 'slash').split('slash')[0]
 jQuery('[itemprop="name"]').text().trim().replace(/\r|\n/g, 'slash').split('slash')[1]
@@ -13,8 +13,8 @@ jQuery('h1').text().trim()
 
 jQuery('.site-name img:first').attr('alt')
 
-jQuery('h1:first').text().trim()
 
+jQuery('h1:first').text().trim()
 jQuery('h2.product-name').text().trim()
 jQuery('.nameProduct').text().trim().replace(/\r|\n/g, ' ').split(' ').slice(0,2).join(' ')
 

@@ -25,10 +25,16 @@ jQuery('#coupon_code')
 jQuery('button[value="Apply Voucher"]')
 jQuery('.grand_total .price:last')
 
+//////////////////////////////
 jQuery('a.showcoupon')[0].click()
-jQuery('.cart-template.active [placeholder="Código"]:last')
-jQuery('.cart-template.active [id="cart-coupon-add"]:last')
-jQuery('.cart-template.active .monetary:last')
+jQuery('[id="coupon_code"]:last')
+jQuery('[value="Apply coupon"]:last')
+jQuery('.woocommerce-Price-amount:last')
+jQuery('a.to_open-coupon')[0].click()
+jQuery('[id="coupon_code"]:last')
+jQuery('[name="apply_coupon"]:last')
+jQuery('.woocommerce-Price-amount:last')
+/////////////////////////////////
 
 name="coupon-code-medium"
 
@@ -101,10 +107,10 @@ jQuery('[placeholder="Discount Code"]:last')
 jQuery('button[data-test="apply-gift-or-promo-code-button"]:last')
 jQuery('.order-total bdi:last')
 
-jQuery('[id="coupon_code_onestepcheckout"]')[0].click()
-jQuery('[id="add_coupon_code_button"]')
-jQuery('[id="checkout-review-table"] price:last')
-jQuery('span.money:last')
+jQuery('[data-value="coupon"]')[0].click()
+jQuery('[name="coupon"]')
+jQuery('.wsite-checkout-payment-actions__form:last')
+jQuery('.wsite-checkout-order-summary__totals-item-amount:last')
 
 
 document.querySelector('input[id="cart-coupon"]')

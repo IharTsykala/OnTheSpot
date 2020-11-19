@@ -457,16 +457,16 @@ wait_for(function () {
 });
 
 // Select
-if (jQuery("select").length > 0) {
+if (jQuery("select:first").length > 0) {
   [
-    jQuery("select option:selected").text() != ""
-      ? jQuery("select option:selected")
+    jQuery("select:first option:selected").text() != ""
+      ? jQuery("select:first option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select width",
     jQuery.makeArray(
-      jQuery("select option").map(function (i, e) {
+      jQuery("select:first option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -478,13 +478,13 @@ if (jQuery("select").length > 0) {
 
 //pa_sizes clicker
 if (
-jQuery("select[id='select-width']").length > 0 &&
+jQuery("select:first").length > 0 &&
 $sarg != "Select width" &&
 $sarg != "No width"
 ) {
-jQuery("select[id='select-width'] option").each(function () {
+jQuery("select:first option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
-    jQuery("select[id='select-width']")
+    jQuery("select:first")
       .text(jQuery(this).text())
       .trigger("change");
   }
@@ -493,6 +493,25 @@ jQuery("select[id='select-width'] option").each(function () {
 wait_for(function () {
 return true;
 });
+
+$text = false;
+if (
+jQuery("select:first option").length > 0 &&
+$sarg != "No Size" &&
+$sarg != "Select Size"
+) {
+$text = true;
+jQuery("select:first option").each(function (index) {
+  if (
+    jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+    !jQuery(this).attr('disabled')
+  ) {
+    $text = false;
+  }
+});
+}
+return $text;
+
 
 // button button
 if (jQuery(".product__variants-wrapper button").length > 0) {
@@ -708,15 +727,15 @@ wait_for(function () {
 
 // for label input
 
-if (jQuery("div.product-info__variants_items:contains(Size) input").length > 0) {
+if (jQuery("div.product-form--variants .radios--root:contains(Size) input").length > 0) {
   ;[
-    jQuery("div.product-info__variants_items:contains(Size) input:checked").length > 0
-      ? jQuery("div.product-info__variants_items:contains(Size) input:checked")
+    jQuery("div.product-form--variants .radios--root:contains(Size) input:checked").length > 0
+      ? jQuery("div.product-form--variants .radios--root:contains(Size) input:checked")
       .attr("value")
       .replace(/\s\s+/g, "")
   : "Select item",
 jQuery.makeArray(
-  jQuery("div.product-info__variants_items:contains(Size) input").map(function (i, e) {
+  jQuery("div.product-form--variants .radios--root:contains(Size) input").map(function (i, e) {
     if (jQuery(e).attr("value") != "")
       return jQuery(e).attr("value").replace(/\s\s+/g, "")
   })
@@ -726,10 +745,10 @@ jQuery.makeArray(
 ;["No Size", ["No Size"]]
 }
 
-if (jQuery("div.product-info__variants_items:contains(Size) input").length > 0  &&
+if (jQuery("div.product-form--variants .radios--root:contains(Size) input").length > 0  &&
 $sarg != "Select Size" &&
 $sarg != "No Size") {
-jQuery("div.product-info__variants_items:contains(Size) input").each(function () {
+jQuery("div.product-form--variants .radios--root:contains(Size) input").each(function () {
 if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
   jQuery(this).next()[0].click()
 }
@@ -741,15 +760,15 @@ return true
 
 $text = false;
 if (
-  jQuery("div.product-info__variants_items:contains(Size) input").length > 0 &&
+  jQuery("div.product-form--variants .radios--root:contains(Size) input").length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true;
-  jQuery("div.product-info__variants_items:contains(Size) input").each(function (index) {
+  jQuery("div.product-form--variants .radios--root:contains(Size) input").each(function (index) {
     if (
-      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
-      !jQuery(this).attr('.data-availability') === 'soldout'
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass('soldout')
     ) {
       $text = false;
     }
@@ -1120,16 +1139,16 @@ if (
 }
 return $text;
 
-if (jQuery("select#size option").length > 0) {
+if (jQuery("select#pa_size option").length > 0) {
   [
-    jQuery("select#size option:selected").text() != ""
-      ? jQuery("select#size option:selected")
+    jQuery("select#pa_size option:selected").text() != ""
+      ? jQuery("select#pa_size option:selected")
           .text()
           .trim()
           // .replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery("select#size option").map(function (i, e) {
+      jQuery("select#pa_size option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -1140,11 +1159,11 @@ if (jQuery("select#size option").length > 0) {
 }
 
 if (
-  jQuery("select#size option").length > 0 &&
+  jQuery("select#pa_size option").length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
   ) {
-  jQuery("select#size option").each(function () {
+  jQuery("select#pa_size option").each(function () {
     if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
       jQuery(this).trigger("change");
     }
@@ -1156,12 +1175,12 @@ if (
   
   $text = false;
   if (
-    jQuery("select#size option").length > 0 &&
+    jQuery("select#pa_size option").length > 0 &&
     $sarg != "No Size" &&
     $sarg != "Select Size"
   ) {
     $text = true;
-    jQuery(select#size option").each(function (index) {
+    jQuery(select#pa_size option").each(function (index) {
       if (
         jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
         !jQuery(this).attr('disabled')
