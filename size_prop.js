@@ -56,15 +56,15 @@ wait_for(function () {
 //pa_sizes stock status
 $text = false;
 if (
-  jQuery("#option-size").length > 0 &&
+  jQuery(".ProductForm__Option option").length > 0 &&
   $sarg != "No Color" &&
   $sarg != "Select Color"
 ) {
   $text = true;
-  jQuery("#option-size option").each(function (index) {
+  jQuery(".ProductForm__Option option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
-      !jQuery(this).text().trim().replace(/\s\s+/g, "").indexOf("out") >= 0
+      !jQuery(this).hasClass('stockout') >= 0
     ) {
       $text = false;
     }
@@ -198,23 +198,29 @@ return $text;
 
   // for li a
 
-  if (jQuery(".variant_options_list__wrapper a").length > 0) {
+  if (jQuery("ul.size a").length > 0) {
     [
       jQuery(
-        ".variant_options_list__wrapper a.variant_options_list__selected"
+        "ul.size a.variant_options_list__selected"
       ).length > 0
-        ? JSON.parse(jQuery(
-            ".variant_options_list__wrapper a.variant_options_list__selected"
+        ? jQuery(
+            "ul.size a.variant_options_list__selected"
           )
-          .attr('data-layer-click')).interaction.value
+          .text()
+            .trim()
+            .replace(/\s\s+/g, "")
         : "Select Color",
       jQuery.makeArray(
-        jQuery(".variant_options_list__wrapper a").map(function (
+        jQuery("ul.size a").map(function (
           i,
           e
         ) {
-          if (JSON.parse(jQuery(e).attr('data-layer-click')).interaction.value)
-           return JSON.parse(jQuery(e).attr('data-layer-click')).interaction.value;
+          if (jQuery(e)  .text()
+          .trim()
+          .replace(/\s\s+/g, ""))
+           return JSON.parse(jQuery(e).text()
+           .trim()
+           .replace(/\s\s+/g, ""));
         })
       ),
     ];
@@ -227,12 +233,34 @@ return $text;
     $sarg != "No Color"
   ) {
     jQuery("ul.size a").each(function () {
-      if (JSON.parse(jQuery(e).attr('data-layer-click')).interaction.value == $sarg) jQuery(this).click();
+      if (jQuery(e).text()
+      .trim()
+      .replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
     });
   }
   wait_for(function () {
     return true;
   });
+
+  $val = false;
+  if (
+    jQuery("ul.size a").length > 0 &&
+    $sarg != "No size" &&
+    $sarg != "Select size"
+  ) {
+    $val = true;
+    jQuery("ul.size a").each(function () {
+      if (
+        jQuery(this).text()
+        .trim()
+        .replace(/\s\s+/g, "") == $sarg &&
+        !jQuery(this).hasClass("unavailable")
+      ) {
+        $val = false;
+      }
+    });
+  }
+  return $val;
 
   
 
@@ -496,12 +524,12 @@ return true;
 
 $text = false;
 if (
-jQuery("select:first option").length > 0 &&
+jQuery("select[title="Select book sleeve size"] option").length > 0 &&
 $sarg != "No Size" &&
 $sarg != "Select Size"
 ) {
 $text = true;
-jQuery("select:first option").each(function (index) {
+jQuery("select[title="Select book sleeve size"] option").each(function (index) {
   if (
     jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
     !jQuery(this).attr('disabled')
@@ -1632,16 +1660,16 @@ if (jQuery(".product__variants-wrapper:last button").length > 0) {
 } else ["No Size", ["No Size"]];
 
 
-if (jQuery(".selector-wrapper:contains(Size) select:first option").length > 0) {
+if (jQuery('select[title="Select book sleeve size"] option').length > 0) {
   [
-    jQuery(".selector-wrapper:contains(Size) select:first option:selected").text() != ""
-      ? jQuery(".selector-wrapper:contains(Size) select:first option:selected")
+    jQuery('select[title="Select book sleeve size"] option:selected').text() != ""
+      ? jQuery('select[title="Select book sleeve size"] option:selected')
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(Size) select:first option").map(function (i, e) {
+      jQuery('select[title="Select book sleeve size"] option').map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -1653,11 +1681,11 @@ if (jQuery(".selector-wrapper:contains(Size) select:first option").length > 0) {
 
 
 if (
-  jQuery(".selector-wrapper:contains(Size) select:first option").length > 0 &&
+  jQuery('select[title="Select book sleeve size"] option').length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
   ) {
-  jQuery(".selector-wrapper:contains(Size) select:first option").each(function () {
+  jQuery('select[title="Select book sleeve size"] option').each(function () {
     if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
       jQuery(this).trigger("change");
     }
@@ -1670,12 +1698,12 @@ if (
 
   $text = false;
 if (
-  jQuery(".selector-wrapper:contains(Size) select:first option").length > 0 &&
+  jQuery('select[title="Select book sleeve size"] option').length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true;
-  jQuery(".selector-wrapper:contains(Size) select:first option").each(function (index) {
+  jQuery('select[title="Select book sleeve size"] option').each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')
@@ -1804,6 +1832,59 @@ if (
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('.data-availability') === 'soldout'
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+///////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////
+
+
+if (jQuery("ul.SizeSwatchList input").length > 0) {
+  ;[
+    jQuery("ul.SizeSwatchList input:checked").length > 0
+      ? jQuery("ul.SizeSwatchList input:checked")
+      .attr("value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery("ul.SizeSwatchList input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Size", ["No Size"]]
+}
+
+if (jQuery("ul.SizeSwatchList input").length > 0  &&
+$sarg != "Select Size" &&
+$sarg != "No Size") {
+jQuery("ul.SizeSwatchList input").each(function () {
+if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+  jQuery(this).next()[0].click()
+}
+})
+}
+wait_for(function () {
+return true
+})
+
+$text = false;
+if (
+  jQuery("ul.SizeSwatchList input").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("ul.SizeSwatchList input").each(function (index) {
+    if (
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr('.data-availability')
     ) {
       $text = false;
     }

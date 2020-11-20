@@ -177,7 +177,7 @@ jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price
 
 '$' + ' ' + jQuery('.woocommerce-Price-currencySymbol:first').parent().text().trim().split('$')[1].split('.')[0]
 
-jQuery('.product__price:first').text().trim()
-jQuery('.product__price.on-sale:first').text().trim() || jQuery('.product__price:first').text().trim()
+jQuery('.price-wrapper:first').text().trim().split("$")[2].split(" ")[0]
+jQuery('.price:first del').text().trim() || jQuery('.price:first').text().trim()
 
 'PKR' + jQuery('#price').text().trim().split('US')[1]

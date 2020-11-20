@@ -203,8 +203,8 @@ if (
   $text = true;
   jQuery(".swatch:contains(Color) input").each(function (index) {
     if (
-      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
-      !jQuery(this).attr('.data-availability') === 'soldout'
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr('.data-availability')'
     ) {
       $text = false;
     }

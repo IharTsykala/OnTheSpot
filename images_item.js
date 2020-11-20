@@ -57,10 +57,10 @@ else
 
  //////////////////////
 
- if (jQuery('.slick-active [role="presentation"]:first').length > 0) 
+ if (jQuery('.js-zoom-enabled [role="presentation"]:first').length > 0) 
  $img =
   // 'https://www.perfectlens.ca' +
-   jQuery('.slick-active [role="presentation"]:first').attr('src')
+   jQuery('.js-zoom-enabled [role="presentation"]:first').attr('src')
 else
  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -311,8 +311,8 @@ else
 
 
 
-    if (jQuery('[class="woocommerce-main-image pswp-main-image zoom"] img:first').length > 0) 
-$img = jQuery('[class="woocommerce-main-image pswp-main-image zoom"] img:first').attr('src')
+    if (jQuery('[class="image-slide carousel-cell is-selected"] img:first').length > 0) 
+$img = jQuery('[class="image-slide carousel-cell is-selected"] img:first').attr('src')
 .split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -323,9 +323,9 @@ else
 $img
 
 
-if (jQuery('[class="woocommerce-main-image pswp-main-image zoom"] img').length > 0){
+if (jQuery('.product-single__thumbnail img').length > 0){
   $arr = [];
-  jQuery('[class="woocommerce-main-image pswp-main-image zoom"] img').each(function(index){
+  jQuery('.product-single__thumbnail img').each(function(index){
       if (index < 4) 
       $arr.push('https:'+jQuery(this).attr("src").split(' ')[0])
   })
@@ -334,8 +334,8 @@ if (jQuery('[class="woocommerce-main-image pswp-main-image zoom"] img').length >
 /////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 
-if (jQuery('.Product__SlideItem img:first').length > 0) 
-$img = jQuery('.Product__SlideItem  img:first').attr('src')
+if (jQuery('.Product__SlideItem--image img:first').length > 0) 
+$img = jQuery('.Product__SlideItem--image  img:first').attr('src')
 // .split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -346,17 +346,18 @@ else
 $img
 
 
-if (jQuery('.Product__SlideshowNav--thumbnails img').length > 0){
+if (jQuery('.Product__SlideshowNavImage img').length > 0){
   $arr = [];
-  jQuery('.Product__SlideshowNav--thumbnails img').each(function(index){
+  jQuery('.Product__SlideshowNavImage img').each(function(index){
       if (index < 4) 
       $arr.push('https:'+jQuery(this).attr("src"))
   })
   $arr
   }
 
-  if (jQuery('.etalage_thumb_image:first').length > 0) 
-$img = jQuery('.etalage_thumb_image:first').attr('src')
+  if (jQuery('.fotorama__active img:first').length > 0) 
+$img = jQuery('.fotorama__active img:first').attr('src')
+// .replace('=100', '=1050')
 .split(', ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -367,9 +368,9 @@ else
 $img
 
 
-if (jQuery('.etalage_smallthumb_active img').length > 0){
+if (jQuery('.fotorama__active img').length > 0){
   $arr = [];
-  jQuery('.etalage_smallthumb_active img').each(function(index){
+  jQuery('.fotorama__active img').each(function(index){
       if (index < 4) 
       $arr.push(jQuery(this).attr("src"))
   })
