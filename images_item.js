@@ -355,12 +355,12 @@ if (jQuery('.Product__SlideshowNavImage img').length > 0){
   $arr
   }
 
-  if (jQuery('.fotorama__active img:first').length > 0) 
-$img = jQuery('.fotorama__active img:first').attr('src')
+  if (jQuery('.product-cover img:first').length > 0) 
+$img = jQuery('.product-cover img:first').attr('data-zoom-image')
 // .replace('=100', '=1050')
 .split(', ')[0]
 else
-$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('src')
 
 if ($img.indexOf("http") == -1)
 'https:'+$img
@@ -368,11 +368,11 @@ else
 $img
 
 
-if (jQuery('.fotorama__active img').length > 0){
+if (jQuery('.thumb-container img').length > 0){
   $arr = [];
-  jQuery('.fotorama__active img').each(function(index){
+  jQuery('.thumb-container img').each(function(index){
       if (index < 4) 
-      $arr.push(jQuery(this).attr("src"))
+      $arr.push('https:'+jQuery(this).attr("src"))
   })
   $arr
   }

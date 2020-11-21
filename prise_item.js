@@ -177,7 +177,9 @@ jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price
 
 '$' + ' ' + jQuery('.woocommerce-Price-currencySymbol:first').parent().text().trim().split('$')[1].split('.')[0]
 
-jQuery('.price-wrapper:first').text().trim().split("$")[2].split(" ")[0]
-jQuery('.price:first del').text().trim() || jQuery('.price:first').text().trim()
+"XOF" + ' ' + (jQuery('.product-price:first').text().trim().replace(/\s/g,'').split("CFA")[0])
+// .split("CFA")[2].split(" ")[0]
+"XOF" + ' ' + (jQuery('.regular-price:first').text().trim().replace(/\s/g,'').split("CFA")[0]) 
+|| "XOF" + ' ' + (jQuery('.product-price:first').text().trim().replace(/\s/g,'').split("CFA")[0])
 
 'PKR' + jQuery('#price').text().trim().split('US')[1]

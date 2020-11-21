@@ -247,23 +247,7 @@ jQuery.makeArray(
 
 ////////////
 
-if (jQuery("fieldset.single-option-radio input").length > 0) {
-  ;[
-    jQuery("fieldset.single-option-radio input:checked").length > 0
-      ? jQuery("fieldset.single-option-radio input:checked")
-      .attr("value")
-      .replace(/\s\s+/g, "")
-  : "Select item",
-jQuery.makeArray(
-  jQuery("fieldset.single-option-radio input").map(function (i, e) {
-    if (jQuery(e).attr("value") != "")
-      return jQuery(e).attr("value").replace(/\s\s+/g, "")
-  })
-),
-]
-} else {
-;["No Size", ["No Size"]]
-}
+
 
 
 ////
@@ -281,23 +265,7 @@ wait_for(function () {
 return true
 })
 
-$text = false;
-if (
-  jQuery("fieldset.single-option-radio input").length > 0 &&
-  $sarg != "No Size" &&
-  $sarg != "Select Size"
-) {
-  $text = true;
-  jQuery("fieldset.single-option-radio input").each(function (index) {
-    if (
-      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
-      !jQuery(this).attr('.data-availability') === 'soldout'
-    ) {
-      $text = false;
-    }
-  });
-}
-return $text;
+
 
 // /////////////////////
 
@@ -431,3 +399,59 @@ if (
     });
   }
   return $text;
+
+
+  ////////////////////////////////////////////
+
+if (jQuery("div.swatch:contains(Maat) input").length > 0) {
+  ;[
+    jQuery("div.swatch:contains(Maat) input:checked").length > 0
+      ? jQuery("div.swatch:contains(Maat) input:checked")
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery("div.swatch:contains(Maat) input").map(function (i, e) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Maat", ["No Maat"]]
+}
+
+if (
+  jQuery("div.swatch:contains(Maat) input").length > 0 &&
+  $sarg != "Select Maat" &&
+  $sarg != "No Maat"
+) {
+  jQuery("div.swatch:contains(Maat) input").each(function () {
+    if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery("div.swatch:contains(Maat) input").length > 0 &&
+  $sarg != "No Maat" &&
+  $sarg != "Select Maat"
+) {
+  $text = true
+  jQuery("div.swatch:contains(Maat) input").each(function (index) {
+    if (
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr(".data-availability")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+// ////////////////////////

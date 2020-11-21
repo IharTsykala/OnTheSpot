@@ -399,15 +399,15 @@ if (
 // div div noscript
 
 if (
-  jQuery("#collection-page-template .product-index").length > 0 &&
+  jQuery(".product-list .product-item").length > 0 &&
   jQuery(
-    '[class="Product__Slideshow Product__Slideshow--zoomable Carousel"] img'
+    '.product-gallery__size-limiter img:first'
   ).length === 0
 ) {
   $arr = []
 
-  jQuery("#collection-page-template .product-index").each(function () {
-    $title = jQuery(this).find(".prod-title").text().trim()
+  jQuery(".product-list .product-item").each(function () {
+    $title = jQuery(this).find(".product-item__title").text().trim()
     // .split(' / ')[0];
 
     if (jQuery(this).find("noscript").text().trim())
@@ -425,13 +425,14 @@ if (
           .split(" alt")[0]
           .trim()
           .slice(0, -1)
+          // .replace('gif', 'jpg')
     else $img = ""
 
-    $link = "https://rarelondon.com" + jQuery(this).find("a:first").attr("href")
+    $link = "https://shop.gamebyte.com" + jQuery(this).find("a:first").attr("href")
 
     $price =
-      jQuery(this).find(".onsale:first").text().trim() ||
-      jQuery(this).find(".prod-price:first").text().trim()
+      jQuery(this).find(".product-item__price-list .price:first").text().trim() 
+      // jQuery(this).find(".prod-price:first").text().trim()
     // .split('Regular price')[1].trim()
     // ||
     // jQuery(this).find(".product-card__price").text().trim()
@@ -486,18 +487,18 @@ if (jQuery("#CollectionSection .grid__item").length > 0 && [].length === 0) {
 // div div img one src
 
 if (
-  jQuery(".container .product").length > 0 &&
-  jQuery('.product-images img:first img:first')
+  jQuery(".products .product-container").length > 0 &&
+  jQuery('.product-gallery__size-limiter img:first')
     .length === 0
-  &&  jQuery(".product-single").length === 0
+  // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
 
-  jQuery(".container .product").each(function () {
-    $title = jQuery(this).find(".title").text().trim().replace(/\s\s+/g, "")
+  jQuery(".products .product-container").each(function () {
+    $title = jQuery(this).find(".product-name").text().trim()
 
     $img =
-      "https:" +
+      // "https:" +
       (
         jQuery(this).find("img:first").attr("src") ||
         //  jQuery(this).find("img:first").attr("data-src") ||
@@ -505,26 +506,16 @@ if (
         jQuery(this).find("img:first").attr("src") ||
         ""
       )
-        .replace(/\s/g, "%20")
-        .split(", ")[0]
-    //  jQuery(this).find("img:first").attr("srcset")
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]   
 
     $link =
-      "https://eredipisano.com" + jQuery(this).find("a:first").attr("href")
+      "https://shop.gamebyte.com/" + jQuery(this).find("a:first").attr("href")
 
     $price =
-      "$" +
-      jQuery(this)
-        .find(".price:first")
-        .text()
-        .trim()
-        .split("$")[2]
-        .split(" ")[0]
-    // .split('US')[1]
-    // .split('Kezdőár:')[1]
-    // || jQuery(this).find(".productCurrency:last").text().trim()
-    // .split('RON')[0].trim().split(' ').join('')
-    //  || jQuery(this).find(".card__price").text().trim()
+      // "$" +     
+      "XOF" + ' ' + (jQuery(this).find(".product-price:first").text().trim().replace(/\s/g,'').split("CFA")[0])         
+        // .split("Sale price")[1]   
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -535,13 +526,13 @@ if (
 // ul li only src
 
 if (
-  jQuery("ul.product_list li").length > 0 &&
-  jQuery(".product-single__media-wrapper img.zoomImg").length === 0
+  jQuery('ul[id="js-products-ul"] li').length > 0 &&
+  jQuery(".images-container  a:first").length === 0
 ) {
   $arr = []
 
-  jQuery("ul.product_list li").each(function () {
-    $title = jQuery(this).find('h5[itemprop="name"]').text().trim()
+  jQuery('ul[id="js-products-ul"] li').each(function () {
+    $title = jQuery(this).find('.tit').text().trim()
 
     $img =
       // 'https:' +
@@ -560,8 +551,8 @@ if (
       jQuery(this).find("a:first").attr("href")
 
     $price =
-      "PEN" +
-      jQuery(this).find(".product-price:first").text().trim().split("S/.")[1]
+      // "PEN" +
+      jQuery(this).find(".price span:first").text().trim()
     // .split('ex')[0]
     // ||  jQuery(this).find(".gtm-item-price").text().trim()
     // .split('US')[1]

@@ -1112,25 +1112,14 @@ return $val
 
 //
 
-if (
-  jQuery('select option')
-    .length > 0
-) {
+if (jQuery("select#group_4 option").length > 0) {
   ;[
-    jQuery(
-      'select option:selected'
-    ).text() != ""
-      ? jQuery(
-          'select option:selected'
-        )
-          .text()
-          .trim()
+    jQuery("select#group_4 option:selected").text() != ""
+      ? jQuery("select#group_4 option:selected").text().trim()
       : // .replace(/\s\s+/g, "")
         "Select Size",
     jQuery.makeArray(
-      jQuery(
-        'select option'
-      ).map(function (i, e) {
+      jQuery("select#group_4 option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "")
       })
@@ -1141,18 +1130,15 @@ if (
 }
 
 if (
-  jQuery('select option')
-    .length > 0 &&
+  jQuery("select#group_4 option").length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery('select option').each(
-    function () {
-      if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
-        jQuery(this).trigger("change")
-      }
+  jQuery("select#group_4 option").each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).trigger("change")
     }
-  )
+  })
 }
 wait_for(function () {
   return true
@@ -1160,24 +1146,141 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery('select option')
-    .length > 0 &&
+  jQuery("select#group_4 option").length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true
-  jQuery('select option').each(
-    function (index) {
-      if (
-        jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
-        !jQuery(this).attr("disabled")
-      ) {
-        $text = false
-      }
+  jQuery("select#group_4 option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $text = false
     }
-  )
+  })
 }
 return $text
 
 /////////////////////////////////////////
 /////////////////////////////////////////////////////
+
+////////////////////////////////////
+//////////////////////
+
+if (jQuery("fieldset.single-option-radio input").length > 0) {
+  ;[
+    jQuery("fieldset.single-option-radio input:checked").length > 0
+      ? jQuery("fieldset.single-option-radio input:checked")
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery("fieldset.single-option-radio input").map(function (i, e) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Size", ["No Size"]]
+}
+
+////////////
+
+////
+
+if (
+  jQuery("fieldset.single-option-radio input").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery("fieldset.single-option-radio input").each(function () {
+    if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+// /////////////////////
+
+$text = false
+if (
+  jQuery("fieldset.single-option-radio input").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true
+  jQuery("fieldset.single-option-radio input").each(function (index) {
+    if (
+      jQuery(this).val().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass("soldout")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+///////////////////////////////////////////
+///////////////////////////////////////////////////
+
+// for li a
+
+if (jQuery(".attr-wrap:contains(размер) ul.js-attr-list li").length > 0) {
+  ;[
+    jQuery(".attr-wrap:contains(размер) ul.js-attr-list li.active").length > 0
+      ? jQuery(".attr-wrap:contains(размер) ul.js-attr-list li.active")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".attr-wrap:contains(размер) ul.js-attr-list li").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else ["No Size", ["No Size"]]
+
+if (
+  jQuery(".attr-wrap:contains(размер) ul.js-attr-list li").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery(".attr-wrap:contains(размер) ul.js-attr-list li").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg)
+      jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$val = false
+if (
+  jQuery(".attr-wrap:contains(размер) ul.js-attr-list li").length > 0 &&
+  $sarg != "No size" &&
+  $sarg != "Select size"
+) {
+  $val = true
+  jQuery(".attr-wrap:contains(размер) ul.js-attr-list li").each(function () {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass("unavailable")
+    ) {
+      $val = false
+    }
+  })
+}
+return $val
+
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////////////

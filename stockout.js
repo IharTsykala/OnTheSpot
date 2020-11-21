@@ -7,8 +7,8 @@ if (jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimen
 
 ///////////////////////////////////////////
 
-if (jQuery('[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'sold out' || 
-jQuery('[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'out of stock' )
+if (jQuery('[data-button-action="add-to-cart"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[data-button-action="add-to-cart"]').text().trim().toLowerCase() == 'out of stock' )
 // ||
 // jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
  {
@@ -196,7 +196,7 @@ if (jQuery('button.btn-cart-add').length === 0 && jQuery('.product-notifier').te
   $status = false;
 }
 
-if (jQuery('[id="addProductToCart"] button').text().trim()  === 'Out of stock') {
+if (jQuery('.add-to-cart-buttons button').text().trim()  === 'Out of stock') {
   $status = true
 } else {
   $status = false;
@@ -216,7 +216,7 @@ jQuery('.product-rbox h2').text().trim() == 'Izdelka trenutno ni v ponudbi') {
   $status = false;
 }
 
-if (jQuery('input[id="product-add-to-cart"]').attr('value').toLowerCase().indexOf('pranešti') >= 0) {
+if (jQuery('input[id="form-action-addToCart"]').attr('value').toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {
   $status = false;

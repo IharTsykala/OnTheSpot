@@ -198,41 +198,41 @@ return $text;
 
   // for li a
 
-  if (jQuery("ul.size a").length > 0) {
+  if (jQuery("ul#configurable_swatch_size a").length > 0) {
     [
       jQuery(
-        "ul.size a.variant_options_list__selected"
+        "ul#configurable_swatch_size li.active"
       ).length > 0
         ? jQuery(
-            "ul.size a.variant_options_list__selected"
+            "ul#configurable_swatch_size li.active"
           )
           .text()
             .trim()
             .replace(/\s\s+/g, "")
-        : "Select Color",
+        : "Select Size",
       jQuery.makeArray(
-        jQuery("ul.size a").map(function (
+        jQuery("ul#configurable_swatch_size a").map(function (
           i,
           e
         ) {
           if (jQuery(e)  .text()
           .trim()
           .replace(/\s\s+/g, ""))
-           return JSON.parse(jQuery(e).text()
+           return jQuery(e).text()
            .trim()
-           .replace(/\s\s+/g, ""));
+           .replace(/\s\s+/g, "");
         })
       ),
     ];
-  } else ["No Color", ["No Color"]];
+  } else ["No Size", ["No Size"]];
 
 
   if (
-    jQuery("ul.size a").length > 0 &&
-    $sarg != "Select Color" &&
-    $sarg != "No Color"
+    jQuery("ul#configurable_swatch_size a").length > 0 &&
+    $sarg != "Select Size" &&
+    $sarg != "No Size"
   ) {
-    jQuery("ul.size a").each(function () {
+    jQuery("ul#configurable_swatch_size a").each(function () {
       if (jQuery(e).text()
       .trim()
       .replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
@@ -244,12 +244,12 @@ return $text;
 
   $val = false;
   if (
-    jQuery("ul.size a").length > 0 &&
+    jQuery("ul#configurable_swatch_size a").length > 0 &&
     $sarg != "No size" &&
     $sarg != "Select size"
   ) {
     $val = true;
-    jQuery("ul.size a").each(function () {
+    jQuery("ul#configurable_swatch_size a").each(function () {
       if (
         jQuery(this).text()
         .trim()
@@ -1885,6 +1885,61 @@ if (
     if (
       jQuery(this).attr("value") == $sarg &&
       !jQuery(this).attr('.data-availability')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+//////////////////////////////
+////////////////////////////////////////////
+
+// for label input
+
+if (jQuery("div.form-field:contains(Size) input").length > 0) {
+  ;[
+    jQuery("div.form-field:contains(Size) input:checked").length > 0
+      ? jQuery("div.form-field:contains(Size) input:checked")
+      .attr("value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery("div.form-field:contains(Size) input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Size", ["No Size"]]
+}
+
+if (jQuery("div.form-field:contains(Size) input").length > 0  &&
+$sarg != "Select Size" &&
+$sarg != "No Size") {
+jQuery("div.form-field:contains(Size) input").each(function () {
+if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+  jQuery(this).next()[0].click()
+}
+})
+}
+wait_for(function () {
+return true
+})
+
+$text = false;
+if (
+  jQuery("div.form-field:contains(Size) input").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("div.form-field:contains(Size) input").each(function (index) {
+    if (
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass('soldout')
     ) {
       $text = false;
     }
