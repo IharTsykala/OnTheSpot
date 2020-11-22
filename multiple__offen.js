@@ -509,6 +509,7 @@ if (
         // .replace(/\s/g, "%20")
         .split(" ")[0]   
 
+        
     $link =
       "https://shop.gamebyte.com/" + jQuery(this).find("a:first").attr("href")
 
