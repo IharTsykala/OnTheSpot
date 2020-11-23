@@ -184,7 +184,7 @@ if (
 //////////////////////
 
 if (
-  jQuery('ol.product-items li').length > 0 &&
+  jQuery("ol.product-items li").length > 0 &&
   jQuery('[class="product media"] .fotorama__active img').length === 0
 ) {
   $arr = []
@@ -399,15 +399,13 @@ if (
 // div div noscript
 
 if (
-  jQuery(".product-list .product-item").length > 0 &&
-  jQuery(
-    '.product-gallery__size-limiter img:first'
-  ).length === 0
+  jQuery(".grid-uniform .grid__item").length > 0 &&
+  jQuery(".product-single__photo-wrapper img:first").length === 0
 ) {
   $arr = []
 
-  jQuery(".product-list .product-item").each(function () {
-    $title = jQuery(this).find(".product-item__title").text().trim()
+  jQuery(".grid-uniform .grid__item").each(function () {
+    $title = jQuery(this).find(".grid-product__title").text().trim()
     // .split(' / ')[0];
 
     if (jQuery(this).find("noscript").text().trim())
@@ -425,15 +423,19 @@ if (
           .split(" alt")[0]
           .trim()
           .slice(0, -1)
-          // .replace('gif', 'jpg')
+    // .replace('gif', 'jpg')
     else $img = ""
 
-    $link = "https://shop.gamebyte.com" + jQuery(this).find("a:first").attr("href")
+    $link =
+      "https://vivolicious.co.za" + jQuery(this).find("a:first").attr("href")
 
-    $price =
-      jQuery(this).find(".product-item__price-list .price:first").text().trim() 
+    $price = jQuery(this)
+      .find(".grid-product__price:first")
+      .text()
+      .trim()
       // jQuery(this).find(".prod-price:first").text().trim()
-    // .split('Regular price')[1].trim()
+      // .split("Prix régulier")[1]
+      .trim()
     // ||
     // jQuery(this).find(".product-card__price").text().trim()
     // .split('From')[1]
@@ -487,18 +489,17 @@ if (jQuery("#CollectionSection .grid__item").length > 0 && [].length === 0) {
 // div div img one src
 
 if (
-  jQuery(".products .product-container").length > 0 &&
-  jQuery('.product-gallery__size-limiter img:first')
-    .length === 0
+  jQuery(".grid-uniform .grid__item").length > 0 &&
+  jQuery(".details-gallery__image-wrapper-inner img.details-gallery__picture:first").length === 0
   // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
 
-  jQuery(".products .product-container").each(function () {
-    $title = jQuery(this).find(".product-name").text().trim()
+  jQuery(".grid-uniform .grid__item").each(function () {
+    $title = jQuery(this).find(".grid-product__title").text().trim()
 
     $img =
-      // "https:" +
+      "https:" +
       (
         jQuery(this).find("img:first").attr("src") ||
         //  jQuery(this).find("img:first").attr("data-src") ||
@@ -507,16 +508,57 @@ if (
         ""
       )
         // .replace(/\s/g, "%20")
-        .split(" ")[0]   
+        .split(" ")[0]
 
-        
     $link =
-      "https://shop.gamebyte.com/" + jQuery(this).find("a:first").attr("href")
+      "https://vivolicious.co.za" + jQuery(this).find("a:first").attr("href")
 
-    $price =
-      // "$" +     
-      "XOF" + ' ' + (jQuery(this).find(".product-price:first").text().trim().replace(/\s/g,'').split("CFA")[0])         
-        // .split("Sale price")[1]   
+    $price =     
+      jQuery(this)
+        .find(".product-price__price:first")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+        // .split("CFA")[0]
+    // .split("Sale price")[1]
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+// div div background image
+
+if (
+  jQuery(".grid--uniform .grid__item").length > 0 &&
+  jQuery(".product-gallery__size-limiter img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".grid--uniform .grid__item").each(function () {
+    $title = jQuery(this).find(".grid-product__title").text().trim()
+
+    $img =
+      // "https:" +
+      (
+        (
+          jQuery(this)
+            .find(".grid-product__secondary-image")
+            .css("background-image") || ""
+        ).split("url(")[1] || ""
+      ).slice(1, -2)
+
+    $link = "https://earthpak.com" + jQuery(this).find("a:first").attr("href")
+
+    $price =      
+      jQuery(this)
+        .find(".grid-product__price:first")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+    // .split("Sale price")[1]
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -527,13 +569,13 @@ if (
 // ul li only src
 
 if (
-  jQuery('ul[id="js-products-ul"] li').length > 0 &&
+  jQuery("ul#products-list li").length > 0 &&
   jQuery(".images-container  a:first").length === 0
 ) {
   $arr = []
 
-  jQuery('ul[id="js-products-ul"] li').each(function () {
-    $title = jQuery(this).find('.tit').text().trim()
+  jQuery("ul#products-list li").each(function () {
+    $title = jQuery(this).find(".product-name").text().trim()
 
     $img =
       // 'https:' +
@@ -553,8 +595,11 @@ if (
 
     $price =
       // "PEN" +
-      jQuery(this).find(".price span:first").text().trim()
-    // .split('ex')[0]
+      jQuery(this)
+        .find(".special-price .price:first")
+        .text()
+        .trim()
+        .split(",–")[0]
     // ||  jQuery(this).find(".gtm-item-price").text().trim()
     // .split('US')[1]
     // ||

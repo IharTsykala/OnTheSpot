@@ -177,9 +177,24 @@ jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price
 
 '$' + ' ' + jQuery('.woocommerce-Price-currencySymbol:first').parent().text().trim().split('$')[1].split('.')[0]
 
-"XOF" + ' ' + (jQuery('.product-price:first').text().trim().replace(/\s/g,'').split("CFA")[0])
+"XOF" + ' ' + (jQuery('.special-price .price:first').text().trim().replace(/\s/g,'').split(",–")[0])
 // .split("CFA")[2].split(" ")[0]
 "XOF" + ' ' + (jQuery('.regular-price:first').text().trim().replace(/\s/g,'').split("CFA")[0]) 
 || "XOF" + ' ' + (jQuery('.product-price:first').text().trim().replace(/\s/g,'').split("CFA")[0])
 
 'PKR' + jQuery('#price').text().trim().split('US')[1]
+
+'ZAR' + jQuery('.product-single__price.on-sale:first').text().trim().replace(/\s/g,'').split('R')[1]
+'ZAR' +jQuery('.product-single__price--wrapper:first').text().trim().replace(/\s/g,'').split('R')[1] ||
+'ZAR' +jQuery('.product-single__price.on-sale:first').text().trim().replace(/\s/g,'').split('R')[1]
+ZAR
+
+jQuery('.ProductMeta__PriceList .Price:first').text().trim().replace(/\s/g,'')
+jQuery('.ProductMeta__PriceList .Price:last').text().trim().replace(/\s/g,'') ||
+jQuery('.product-single__price on-sale:first').text().trim().replace(/\s/g,'')
+
+
+jQuery('.product-shop .price ins:first').text().trim() || jQuery('.product-shop .special-price .price:first').text().trim()
+ || jQuery('.product-shop .regular-price:first').text().trim()
+jQuery('.product-shop .price del:first').text().trim() || jQuery('.product-shop .old-price .price:first').text().trim()
+ || jQuery('.product-shop .price ins:first').text().trim() || jQuery('.product-shop .regular-price:first').text().trim()

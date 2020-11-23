@@ -36,6 +36,10 @@ jQuery('[name="apply_coupon"]:last')
 jQuery('.woocommerce-Price-amount:last')
 /////////////////////////////////
 
+jQuery('[id="coupon_code"]:last')
+jQuery('[title="Gutschein einlösen"]:last')
+jQuery('td.complete-sum .price:last')
+
 name="coupon-code-medium"
 
 w-totals-value value cart_info_total_items_total
@@ -113,17 +117,17 @@ jQuery('[value="Apply Discount"]')
 jQuery('.table-totals .price:last')
 
 // #payment[style="display: list-item;"]
-document.querySelector('input[id="cart-coupon"]')
-document.querySelector('[id="cart-coupon-add"]:last')
-document.querySelector('.total-line .payment-due__price')
+document.querySelector('input[id="discount-code"]')
+document.querySelector('[value="Applica sconto"]:last')
+document.querySelector('.totals .price:last')
 
-jQuery('[class="order1Actions"] span')[0].click()
-jQuery('.apply-coupon [placeholder="Выберите или введите код купона"]')
-jQuery('.apply-coupon [class="apply-btn"]')
-jQuery('.total div:last')
+jQuery('[class="ec-link"]')[0].click()
+jQuery('input[id="discount-code"]')
+jQuery('[value="Applica sconto"]:last')
+jQuery('.totals .price:last')
 
 ///////////////////////////////////////////////////
-jQuery('[class="coupon-code-add"]')[0].click()
+jQuery('[id="discount-code"]')[0].click()
 jQuery('[class="redeemable-label"]')[0].click()
 jQuery('input[id="couponcode"]')
 jQuery('input[value="Apply"]:first')
