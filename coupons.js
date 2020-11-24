@@ -122,9 +122,9 @@ document.querySelector('[value="Applica sconto"]:last')
 document.querySelector('.totals .price:last')
 
 jQuery('[class="ec-link"]')[0].click()
-jQuery('input[id="discount-code"]')
-jQuery('[value="Applica sconto"]:last')
-jQuery('.totals .price:last')
+jQuery('input[id="coupon_code_onestepcheckout"]')
+jQuery('[id="add_coupon_code_button"]:last')
+jQuery('[id="checkout-review-table"] .last .price:last')
 
 ///////////////////////////////////////////////////
 jQuery('[id="discount-code"]')[0].click()

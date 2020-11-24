@@ -401,4 +401,48 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
     $arr
     }
 
-  ///////////////////////////////
+  //////////////////////////////////////
+  ///////////////////////
+  
+  if (jQuery('.fotorama__active img:first').length > 0) 
+  $img = (jQuery('.fotorama__active img:first').attr('src') || jQuery('.fotorama__active img:first').attr('src'))
+  .replace(/\s/g,'%20')
+  .split(', ')[0]
+  else
+  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+  
+  if ($img.indexOf("http") == -1)
+  'https:'+$img
+  else
+  $img
+
+  /////////////////////////////
+  /////////////////////////////////////////////
+
+  if (jQuery('.product-image img:first').length > 0) 
+  $img = jQuery('.product-image img:first').attr('src')
+  // .replace('=100', '=1050')
+  .split(', ')[0]
+  // else
+  // $img = jQuery('meta[property="og:image"]:eq(0)').attr('src')
+
+  if (jQuery('#wrap img:first').length > 0) 
+  $img = jQuery('#wrap img:first').attr('src')
+  // .replace('=100', '=1050')
+  .split(', ')[0]
+  // else
+  // $img = jQuery('meta[property="og:image"]:eq(0)').attr('src')
+  
+  if ($img.indexOf("http") == -1)
+  'https:'+$img
+  else
+  $img
+
+  if (jQuery('.product-image img').length > 0){
+    $arr = [];
+    jQuery('.product-image img').each(function(index){
+        if (index < 4) 
+        $arr.push(jQuery(this).attr("src"))
+    })
+    $arr
+    }

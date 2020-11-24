@@ -198,3 +198,12 @@ jQuery('.product-shop .price ins:first').text().trim() || jQuery('.product-shop 
  || jQuery('.product-shop .regular-price:first').text().trim()
 jQuery('.product-shop .price del:first').text().trim() || jQuery('.product-shop .old-price .price:first').text().trim()
  || jQuery('.product-shop .price ins:first').text().trim() || jQuery('.product-shop .regular-price:first').text().trim()
+
+
+ jQuery('.special-price .price:first').text().trim().replace(/\s/g,'').split(",–")[0]
+  || jQuery('.price-box .price:first').text().trim().replace(/\s/g,'').split(",–")[0]
+
+  jQuery('.old-price .price:first').text().trim().replace(/\s/g,'').split(",–")[0] 
+  || jQuery('.special-price .price:first').text().trim().replace(/\s/g,'').split(",–")[0] 
+    || jQuery('.price-box .price:first').text().trim().replace(/\s/g,'').split(",–")[0]
+   

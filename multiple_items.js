@@ -1239,3 +1239,44 @@ if (
   $arr
 }
 
+
+if (
+  jQuery('ul#products-list li').length > 0 &&
+  jQuery(".images-container  a:first").length === 0
+) {
+  $arr = []
+
+  jQuery('ul#products-list li').each(function () {
+    $title = jQuery(this).find('.product-name').text().trim()
+
+    $img =
+      // 'https:' +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+        jQuery(this).find("img:last").attr("src") ||
+        ""
+      )
+        //  .split(', ')[0];
+        .replace(/\s/g, "%20")
+
+    $link =
+      // 'https://www.kukyflor.com' +
+      jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // "PEN" +
+      jQuery(this).find(".special-price .price:first").text().trim()
+    .split(',–')[0]
+    ||  jQuery(this).find(".price-box .price:first").text().trim()
+    .split(',–')[0]
+    // ||
+    // jQuery(this).find(".price").text().trim())
+    // .split('€')[1]
+
+    if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
