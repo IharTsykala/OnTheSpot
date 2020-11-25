@@ -121,10 +121,10 @@ document.querySelector('input[id="discount-code"]')
 document.querySelector('[value="Applica sconto"]:last')
 document.querySelector('.totals .price:last')
 
-jQuery('[class="ec-link"]')[0].click()
-jQuery('input[id="coupon_code_onestepcheckout"]')
-jQuery('[id="add_coupon_code_button"]:last')
-jQuery('[id="checkout-review-table"] .last .price:last')
+jQuery('.has-open-cart [class="button"]:first a')[0].click()
+jQuery('.has-open-cart input[placeholder="Coupon Code"]')
+jQuery('.has-open-cart .apply-coupon-button:last')
+jQuery('.has-open-cart .line-item-content:last')
 
 ///////////////////////////////////////////////////
 jQuery('[id="discount-code"]')[0].click()

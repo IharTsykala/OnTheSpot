@@ -1280,3 +1280,59 @@ if (
   })
   $arr
 }
+
+
+
+if (
+  jQuery('.collection-grid .product-item').length > 0 &&
+  jQuery('.product__photo--single img:first').length === 0
+) {
+  $arr = [];
+
+  jQuery('.collection-grid .product-item').each(function () {
+    $title = jQuery(this).find(".product-item__title").text().trim()
+    // .split(' / ')[0];
+
+    if(jQuery(this).find(".product-item__image-container").prev().text().trim())
+    $img =
+    // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1] 
+    // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+    'https:' + 
+    jQuery(this).find(".product-item__image-container")
+    .prev()
+    // .next()
+    .text().trim()
+    .split('src="')[1]
+    .split(' alt')[0]
+    .trim()
+    .slice(0, -1)
+    else $img = ''
+
+    $link = 'https://tidystreetstore.com' + jQuery(this).find("a:first")
+    .attr("href");
+
+    $price = ((jQuery(this).find(".product-item__price-wrapper:first").text().trim()
+    .split('Regular price')[1] || '').trim() 
+    ||
+    (jQuery(this).find(".product-item__price-wrapper:first").text().trim()
+    .split('from ')[1] || '').trim()) 
+    // jQuery(this).find(".product-card__price").text().trim()
+    // .split('From')[1]
+    // .trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+if (jQuery('.product__photo--single img:first').length > 0) 
+$img = jQuery('.product__photo--single img:first').attr('src')
+.split(', ')[0]
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img

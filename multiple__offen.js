@@ -399,13 +399,13 @@ if (
 // div div noscript
 
 if (
-  jQuery(".grid-uniform .grid__item").length > 0 &&
+  jQuery('[id="AjaxinateContainer"] .grid__item').length > 0 &&
   jQuery(".product-single__photo-wrapper img:first").length === 0
 ) {
   $arr = []
 
-  jQuery(".grid-uniform .grid__item").each(function () {
-    $title = jQuery(this).find(".grid-product__title").text().trim()
+  jQuery('[id="AjaxinateContainer"] .grid__item').each(function () {
+    $title = jQuery(this).find(".indiv-product-title-text").text().trim()
     // .split(' / ')[0];
 
     if (jQuery(this).find("noscript").text().trim())
@@ -414,32 +414,24 @@ if (
         // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
         "https:" +
         jQuery(this)
-          .find("noscript")
-          // .prev()
-          // .next()
+          .find("noscript")          
           .text()
           .trim()
           .split('src="')[1]
-          .split(" alt")[0]
+          .split('data')[0]          
           .trim()
           .slice(0, -1)
     // .replace('gif', 'jpg')
     else $img = ""
 
     $link =
-      "https://vivolicious.co.za" + jQuery(this).find("a:first").attr("href")
+      "https://jpcontacts.com" + jQuery(this).find("a:first").attr("href")
 
     $price = jQuery(this)
-      .find(".grid-product__price:first")
+      .find(".money:first")
       .text()
       .trim()
-      // jQuery(this).find(".prod-price:first").text().trim()
-      // .split("Prix régulier")[1]
-      .trim()
-    // ||
-    // jQuery(this).find(".product-card__price").text().trim()
-    // .split('From')[1]
-    // .trim()
+      
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -489,14 +481,14 @@ if (jQuery("#CollectionSection .grid__item").length > 0 && [].length === 0) {
 // div div img one src
 
 if (
-  jQuery(".grid-uniform .grid__item").length > 0 &&
+  jQuery(".collection-matrix .product").length > 0 &&
   jQuery(".details-gallery__image-wrapper-inner img.details-gallery__picture:first").length === 0
   // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
 
-  jQuery(".grid-uniform .grid__item").each(function () {
-    $title = jQuery(this).find(".grid-product__title").text().trim()
+  jQuery(".collection-matrix .product").each(function () {
+    $title = jQuery(this).find(".prod_title").text().trim()
 
     $img =
       "https:" +
@@ -511,18 +503,18 @@ if (
         .split(" ")[0]
 
     $link =
-      "https://vivolicious.co.za" + jQuery(this).find("a:first").attr("href")
+      "https://prideearth.com" + jQuery(this).find("a:first").attr("href")
 
     $price =     
       jQuery(this)
-        .find(".product-price__price:first")
+        .find(".prod_prices:first")
         .text()
         .trim()
         .replace(/\s/g, "")
         // .split("CFA")[0]
     // .split("Sale price")[1]
 
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr

@@ -189,8 +189,8 @@ jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price
 'ZAR' +jQuery('.product-single__price.on-sale:first').text().trim().replace(/\s/g,'').split('R')[1]
 ZAR
 
-jQuery('.ProductMeta__PriceList .Price:first').text().trim().replace(/\s/g,'')
-jQuery('.ProductMeta__PriceList .Price:last').text().trim().replace(/\s/g,'') ||
+jQuery('.product-single-price:last').text().trim().replace(/\s/g,'')
+jQuery('.product__price:first').text().trim().replace(/\s/g,'') ||
 jQuery('.product-single__price on-sale:first').text().trim().replace(/\s/g,'')
 
 
@@ -203,7 +203,7 @@ jQuery('.product-shop .price del:first').text().trim() || jQuery('.product-shop 
  jQuery('.special-price .price:first').text().trim().replace(/\s/g,'').split(",–")[0]
   || jQuery('.price-box .price:first').text().trim().replace(/\s/g,'').split(",–")[0]
 
-  jQuery('.old-price .price:first').text().trim().replace(/\s/g,'').split(",–")[0] 
+  jQuery('[id="price-field"]:first').text().trim().replace(/\s/g,'').split(",–")[0] 
   || jQuery('.special-price .price:first').text().trim().replace(/\s/g,'').split(",–")[0] 
     || jQuery('.price-box .price:first').text().trim().replace(/\s/g,'').split(",–")[0]
    

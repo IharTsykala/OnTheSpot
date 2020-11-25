@@ -455,3 +455,65 @@ if (
 return $text
 
 // ////////////////////////
+/////////////////////////////////
+
+
+////////////////////////////////////////////////////
+////////////////////////////////////////////////
+
+if (jQuery(".variant-wrapper:contains(Shape) input").length > 0) {
+  ;[
+    jQuery(".variant-wrapper:contains(Shape) input:checked").length > 0
+      ? jQuery(".variant-wrapper:contains(Shape) input:checked")
+          // .next()
+          // .text().trim()
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery(".variant-wrapper:contains(Shape) input").map(function (i, e) {
+        if (jQuery(e).attr("value") != "") return jQuery(e).next().text().trim()
+      })
+    ),
+  ]
+} else {
+  ;["No Shape", ["No Shape"]]
+}
+
+if (
+  jQuery("div.product-form__option:contains(Shape) input").length > 0 &&
+  $sarg != "Select Shape" &&
+  $sarg != "No Shape"
+) {
+  jQuery("div.product-form__option:contains(Shape) input").each(function () {
+    if (jQuery(this).attr("value") == $sarg) {
+      jQuery(this)[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery("div.product-form__option:contains(Shape) input").length > 0 &&
+  $sarg != "No Shape" &&
+  $sarg != "Select Shape"
+) {
+  $text = true
+  jQuery("div.product-form__option:contains(Shape) input").each(function (
+    index
+  ) {
+    if (
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr(".data-availability")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+//////////////////////////////////////////////////////
+///////////////////////////////////////////////////

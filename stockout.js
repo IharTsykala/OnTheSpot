@@ -7,8 +7,8 @@ if (jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimen
 
 ///////////////////////////////////////////
 
-if (jQuery('[id="outofstockflag"]').text().trim().toLowerCase() == 'sold out' || 
-jQuery('[id="outofstockflag"]').text().trim().toLowerCase() == 'out of stock' )
+if (jQuery('[id="buy_it_now"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[id="buy_it_now"]').text().trim().toLowerCase() == 'out of stock' )
 // ||
 // jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
  {
@@ -131,7 +131,7 @@ if (jQuery('.sold-out-message').css('display') !== 'none') {
 }
 sold-out-message
 
-if (jQuery('[class="btnx normal green buy single"]:contains(Sold Out)').length) {
+if (jQuery('[id="buy_it_now"]:contains(Sold Out)').length) {
   $status = true
 } else {
   $status = false;

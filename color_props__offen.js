@@ -204,7 +204,7 @@ if (
   jQuery(".swatch:contains(Color) input").each(function (index) {
     if (
       jQuery(this).attr("value") == $sarg &&
-      !jQuery(this).attr('.data-availability')'
+      !jQuery(this).attr('.data-availability')
     ) {
       $text = false;
     }
@@ -704,7 +704,7 @@ if (
   ) {
     if (
       jQuery(this).attr("value") == $sarg &&
-      !jQuery(this).attr(".data-availability") === "soldout"
+      !jQuery(this).attr(".data-availability")
     ) {
       $text = false
     }
