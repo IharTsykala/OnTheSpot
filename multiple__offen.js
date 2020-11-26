@@ -166,7 +166,7 @@ if (
         .slice(0, -1)
 
     $link =
-      "https://freakins.com/" +
+      "https://championsclub.gg" +
       jQuery(this).find("a.ProductItem__ImageWrapper").attr("href")
 
     $price = jQuery(this)
@@ -399,13 +399,13 @@ if (
 // div div noscript
 
 if (
-  jQuery('[id="AjaxinateContainer"] .grid__item').length > 0 &&
-  jQuery(".product-single__photo-wrapper img:first").length === 0
+  jQuery('.container .product-wrap').length > 0 &&
+  jQuery(".product-gallery__link img:first").length === 0
 ) {
   $arr = []
 
-  jQuery('[id="AjaxinateContainer"] .grid__item').each(function () {
-    $title = jQuery(this).find(".indiv-product-title-text").text().trim()
+  jQuery('.container .product-wrap').each(function () {
+    $title = jQuery(this).find(".product-thumbnail__title").text().trim()
     // .split(' / ')[0];
 
     if (jQuery(this).find("noscript").text().trim())
@@ -418,19 +418,21 @@ if (
           .text()
           .trim()
           .split('src="')[1]
-          .split('data')[0]          
+          .split(" ")[0]         
           .trim()
           .slice(0, -1)
     // .replace('gif', 'jpg')
     else $img = ""
 
     $link =
-      "https://jpcontacts.com" + jQuery(this).find("a:first").attr("href")
+      "https://firebox.com" + jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this)
-      .find(".money:first")
-      .text()
-      .trim()
+      $price =      
+      jQuery(this)
+        .find(".money:first")
+        .text()
+        .trim()
+        .replace(/\s/g, "")        
       
 
     if ($title && $img && $link && $price)
@@ -443,7 +445,7 @@ if (jQuery("#CollectionSection .grid__item").length > 0 && [].length === 0) {
   $arr = []
 
   jQuery("#CollectionSection .grid__item").each(function () {
-    $title = jQuery(this).find(".grid-product__title").text().trim()
+    $title = jQuery(this).find(".product-card__title").text().trim()
 
     $img =
       "https:" +
@@ -481,21 +483,21 @@ if (jQuery("#CollectionSection .grid__item").length > 0 && [].length === 0) {
 // div div img one src
 
 if (
-  jQuery(".collection-matrix .product").length > 0 &&
-  jQuery(".details-gallery__image-wrapper-inner img.details-gallery__picture:first").length === 0
-  // &&  jQuery(".product-single").length === 0
+  jQuery('[data-pf-type="ProductList"] [data-pf-type="ProductBox"]').length > 0 &&
+  jQuery('[data-pf-type="MasterImage"] img[role="presentation"].zoomImg:first').length === 0
+  &&  jQuery('[class="sc-oUbqx bgMQOP pf-8b8bf404"]').length === 0
 ) {
   $arr = []
 
-  jQuery(".collection-matrix .product").each(function () {
-    $title = jQuery(this).find(".prod_title").text().trim()
+  jQuery('[data-pf-type="ProductList"] [data-pf-type="ProductBox"]').each(function () {
+    $title = jQuery(this).find('[data-product-type="title"]').text().trim()
 
     $img =
       "https:" +
       (
         jQuery(this).find("img:first").attr("src") ||
         //  jQuery(this).find("img:first").attr("data-src") ||
-        //  jQuery(this).find("img:first").attr("data-second-image") ||
+        //  jQuery(this).find("img:first").attr("data-srcset") ||
         jQuery(this).find("img:first").attr("src") ||
         ""
       )
@@ -503,15 +505,16 @@ if (
         .split(" ")[0]
 
     $link =
-      "https://prideearth.com" + jQuery(this).find("a:first").attr("href")
+      "https://pipe-decor.com" + jQuery(this).find("a:first").attr("href")
 
     $price =     
-      jQuery(this)
-        .find(".prod_prices:first")
+    // "$" + 
+    jQuery(this)
+        .find('[data-product-type="price"]:first')
         .text()
         .trim()
         .replace(/\s/g, "")
-        // .split("CFA")[0]
+        // .split("$")[2] || '').trim()
     // .split("Sale price")[1]
 
     if ($title && $img && $link && $price)
@@ -530,7 +533,7 @@ if (
   $arr = []
 
   jQuery(".grid--uniform .grid__item").each(function () {
-    $title = jQuery(this).find(".grid-product__title").text().trim()
+    $title = jQuery(this).find(".product-card__title").text().trim()
 
     $img =
       // "https:" +
@@ -542,16 +545,21 @@ if (
         ).split("url(")[1] || ""
       ).slice(1, -2)
 
-    $link = "https://earthpak.com" + jQuery(this).find("a:first").attr("href")
+    $link = "https://organika.com" + jQuery(this).find("a:first").attr("href")
 
     $price =      
       jQuery(this)
-        .find(".grid-product__price:first")
+        .find(".price-item--sale:first")
         .text()
         .trim()
         .replace(/\s/g, "")
-    // .split("Sale price")[1]
-
+        ||
+        jQuery(this)
+        .find(".price-item--regular:first")
+        .text()
+        .trim()
+        .replace(/\s/g, "")  
+    
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
@@ -561,13 +569,13 @@ if (
 // ul li only src
 
 if (
-  jQuery("ul#products-list li").length > 0 &&
+  jQuery("ul.snize-search-results-content li").length > 0 &&
   jQuery(".images-container  a:first").length === 0
 ) {
   $arr = []
 
-  jQuery("ul#products-list li").each(function () {
-    $title = jQuery(this).find(".product-name").text().trim()
+  jQuery("ul.snize-search-results-content li").each(function () {
+    $title = jQuery(this).find(".snize-title").text().trim()
 
     $img =
       // 'https:' +
@@ -588,7 +596,7 @@ if (
     $price =
       // "PEN" +
       jQuery(this)
-        .find(".special-price .price:first")
+        .find(".snize-price-list:first")
         .text()
         .trim()
         .split(",–")[0]

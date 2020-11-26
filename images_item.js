@@ -311,8 +311,8 @@ else
 
 
 
-    if (jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img:first').length > 0) 
-$img = jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img:first').attr('srcset')
+    if (jQuery('[data-product-gallery-image-zoom] img:first').length > 0) 
+$img = jQuery('[data-product-gallery-image-zoom] img:first').attr('srcset')
 .split(' ')[0]
 .replace('200x', '1000x')
 else
@@ -324,9 +324,9 @@ else
 $img
 
 
-if (jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img').length > 0){
+if (jQuery('[data-product-gallery-image-zoom] img').length > 0){
   $arr = [];
-  jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img').each(function(index){
+  jQuery('[data-product-gallery-image-zoom] img').each(function(index){
       if (index < 4) 
       $arr.push('https:'+jQuery(this).attr("srcset").split(' ')[0])
   })
@@ -380,8 +380,8 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
 
   ////////////////////////////////
 
-  if (jQuery('.product-single__photo-wrapper img:first').length > 0) 
-  $img = jQuery('.product-single__photo-wrapper img:first').attr('src')
+  if (jQuery('[data-pf-type="ProductImagePagination"] img.zoomImg:first').length > 0) 
+  $img = jQuery('[data-pf-type="ProductImagePagination"] img.zoomImg:first').attr('src')
   .split(', ')[0]
   else
   $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -392,9 +392,9 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   $img
   
   
-  if (jQuery('.product-single__photo-wrapper img').length > 0){
+  if (jQuery('[data-pf-type="ImageItem"] img').length > 0){
     $arr = [];
-    jQuery('.product-single__photo-wrapper img').each(function(index){
+    jQuery('[data-pf-type="ImageItem"] img').each(function(index){
         if (index < 4) 
         $arr.push('https:'+jQuery(this).attr("src"))
     })
@@ -419,8 +419,8 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   /////////////////////////////
   /////////////////////////////////////////////
 
-  if (jQuery('.zoom-main img:first').length > 0) 
-  $img = jQuery('.zoom-main img:first').attr('src')  
+  if (jQuery('.js-zoom-enabled img:first').length > 0) 
+  $img = jQuery('.js-zoom-enabled img:first').attr('src')  
   .split(' ')[0]
   // .replace('360x', '1080x')
   else
@@ -431,9 +431,9 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   else
   $img
 
-  if (jQuery('.zoom-click img').length > 0){
+  if (jQuery('.js-zoom-enabled img').length > 0){
     $arr = [];
-    jQuery('.zoom-click img').each(function(index){
+    jQuery('.js-zoom-enabled img').each(function(index){
         if (index < 4) 
         $arr.push('https:'+jQuery(this).attr('src')  
         .split(' ')[0])

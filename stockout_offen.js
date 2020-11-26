@@ -50,7 +50,7 @@ if (jQuery('input[id="add-to-cart"]').attr('value').toLowerCase().indexOf('out')
   $status = false;
 }
 
-if (jQuery('[class="add-bag "]').text().trim().toLowerCase().indexOf('out') >= 0) {
+if (jQuery('[data-pf-type="ProductATC"]').text().trim().toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {
   $status = false;

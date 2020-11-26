@@ -1,10 +1,10 @@
 jQuery('p.product-details__brand').text().trim()
 
-jQuery('.productView-title:first').text().trim()
+jQuery('.product-title:first').text().trim()
 
 jQuery('#title').text().trim().split(' In ')[0]
 
-jQuery('h2[itemprop="name"]').text().trim().replace(/\r|\n/g, 'slash').split('slash')[0]
+jQuery('h3[data-product-type="title"]:first').text().trim().replace(/\r|\n/g, 'slash').split('slash')[0]
 jQuery('[itemprop="name"]').text().trim().replace(/\r|\n/g, 'slash').split('slash')[1]
 .replace(/\r|\n/g, ' ')
 

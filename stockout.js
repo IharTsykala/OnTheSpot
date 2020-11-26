@@ -53,8 +53,8 @@ if (jQuery('.ProductItem-details .sold-out').text().trim() == 'sold out' ) {
 
 :not(.h-tp-hidden)
 
-if (jQuery('.ProductItem-details .sold-out').attr('value').toLowerCase().indexOf('sold out')>=0 
-  || jQuery('.ProductItem-details .sold-out').attr('value').toLowerCase().indexOf('out of stock')>=0) {
+if (jQuery('.shopify-payment-button__button').attr('value').toLowerCase().indexOf('sold out')>=0 
+  || jQuery('.shopify-payment-button__button').attr('value').toLowerCase().indexOf('out of stock')>=0) {
   $status = true
 } else {
   $status = false;

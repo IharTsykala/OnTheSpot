@@ -94,7 +94,7 @@ jQuery(".price .price-item--sale").text().trim() ||
   "HUF" + jQuery(".product-new-price:first").text().trim().split("Ft")[0]
 // .split('$')[1]
 
-jQuery(".product--price .price--main").text().trim()
+jQuery("[data-product-price]").text().trim()
 jQuery(".product--price .price--compare-at").text().trim() ||
   jQuery(".product--price .price--main").text().trim()
 
