@@ -380,11 +380,11 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
 
   ////////////////////////////////
 
-  if (jQuery('[data-pf-type="ProductImagePagination"] img.zoomImg:first').length > 0) 
+  if (jQuery('.swiper-slide-active img.zoomImg:first').length > 0) 
   $img = jQuery('[data-pf-type="ProductImagePagination"] img.zoomImg:first').attr('src')
   .split(', ')[0]
   else
-  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+  $img = jQuery('.swiper-slide-active img.zoomImg:first').attr('content')
   
   if ($img.indexOf("http") == -1)
   'https:'+$img
@@ -404,8 +404,8 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   //////////////////////////////////////
   ///////////////////////
   
-  if (jQuery('.fotorama__active img:first').length > 0) 
-  $img = (jQuery('.fotorama__active img:first').attr('src') || jQuery('.fotorama__active img:first').attr('src'))
+  if (jQuery('.swiper-slide-active img:first').length > 0) 
+  $img = (jQuery('.swiper-slide-active img:first').attr('src') || jQuery('.fotorama__active img:first').attr('src'))
   .replace(/\s/g,'%20')
   .split(', ')[0]
   else
@@ -419,8 +419,8 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   /////////////////////////////
   /////////////////////////////////////////////
 
-  if (jQuery('.js-zoom-enabled img:first').length > 0) 
-  $img = jQuery('.js-zoom-enabled img:first').attr('src')  
+  if (jQuery('.Product__SlideItem img:first').length > 0) 
+  $img = jQuery('.Product__SlideItem img:first').attr('srcset')  
   .split(' ')[0]
   // .replace('360x', '1080x')
   else
@@ -431,9 +431,9 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   else
   $img
 
-  if (jQuery('.js-zoom-enabled img').length > 0){
+  if (jQuery('.Product__SlideshowNavImage img').length > 0){
     $arr = [];
-    jQuery('.js-zoom-enabled img').each(function(index){
+    jQuery('.Product__SlideshowNavImage img').each(function(index){
         if (index < 4) 
         $arr.push('https:'+jQuery(this).attr('src')  
         .split(' ')[0])

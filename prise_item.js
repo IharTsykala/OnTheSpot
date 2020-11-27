@@ -189,9 +189,9 @@ jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price
 'ZAR' +jQuery('.product-single__price.on-sale:first').text().trim().replace(/\s/g,'').split('R')[1]
 ZAR
 
-jQuery('[data-product-type="price"]:first').text().trim().replace(/\s/g,'')
-jQuery('[data-product-type="price"]:last').text().trim().replace(/\s/g,'') ||
-jQuery('[data-product-type="price"]:last').text().trim().replace(/\s/g,'')
+jQuery('.ProductItem__PriceList:first .Price:first').text().trim().replace(/\s/g,'')
+jQuery('.ProductItem__PriceList:first .Price:last').text().trim().replace(/\s/g,'') ||
+jQuery('.ProductItem__PriceList:first .Price:first').text().trim().replace(/\s/g,'')
 
 
 jQuery('.product-shop .price ins:first').text().trim() || jQuery('.product-shop .special-price .price:first').text().trim()
@@ -208,7 +208,7 @@ jQuery('.product-shop .price del:first').text().trim() || jQuery('.product-shop 
     || jQuery('.price-box .price:first').text().trim().replace(/\s/g,'').split(",–")[0]
 
   
-    '$' +  jQuery('[name="add"]:first').text().trim().replace(/\s/g,'').split('$')[1]
-    '$' + jQuery('[name="add"]:first s').text().trim().replace(/\s/g,'').split('$')[1] ||
-    '$' + jQuery('[name="add"]:first').text().trim().replace(/\s/g,'').split('$')[1]
+    '$' +  jQuery('.ProductItem__PriceList:first .Price:first').text().trim().replace(/\s/g,'').split('$')[1]
+    '$' + jQuery('.ProductItem__PriceList:first .Price:first').text().trim().replace(/\s/g,'').split('$')[1] ||
+    '$' + jQuery('.ProductItem__PriceList:first .Price:first').text().trim().replace(/\s/g,'').split('$')[1]
    

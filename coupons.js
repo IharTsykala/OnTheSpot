@@ -61,7 +61,7 @@ promotionCode
 
 jQuery("a.promo-code-button")[0].click()
 jQuery('input[name="discount_name"]')
-jQuery('button[class="btn btn-primary"]')
+jQuery('button[data-trekkie-id="apply_discount_button"]')
 jQuery('[class="cart-summary-line cart-total col-auto"] .value')
 jQuery('form input[value="Remove"]:last')[0].click()
 
@@ -123,7 +123,7 @@ document.querySelector('.totals .price:last')
 
 jQuery('.has-open-cart [class="button"]:first a')[0].click()
 jQuery('.has-open-cart input[placeholder="Coupon Code"]')
-jQuery('.has-open-cart .apply-coupon-button:last')
+jQuery('.svg.:last')
 jQuery('.has-open-cart .line-item-content:last')
 
 ///////////////////////////////////////////////////
@@ -136,3 +136,23 @@ jQuery('input[name="redeemableCode"]:first')
 jQuery('button[id="applyRedeemableButton"]:first')
 jQuery('.cart-priceItem-value:last')
 ///////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////
+/////////////
+jQuery('[data-value="coupon"]')
+jQuery('[name="coupon"]')
+jQuery('.has-open-cart input[placeholder="Coupon Code"]')
+jQuery('.has-open-cart [class="button"]:first a')
+[name="coupon"], .has-open-cart input[placeholder="Coupon Code"], .has-open-cart [class="button"]:first a
+.wsite-checkout-payment-actions__form:last, .has-open-cart .apply-coupon-button:last
+jQuery('.wsite-checkout-payment-actions__form:last')
+jQuery('.has-open-cart .apply-coupon-button:last')
+if (jQuery('.has-open-cart [class="button"]:first a').length) {
+  jQuery('.has-open-cart [class="button"]:first a')[0].click()
+  } else {
+  jQuery('[data-value="coupon"]')[0].click()
+  }
+
+
+/////////////////////////
+/////////////////

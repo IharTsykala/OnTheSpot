@@ -951,16 +951,16 @@ if (
 return $text
 
 // button button
-if (jQuery(".Popover__ValueList:first button").length > 0) {
+if (jQuery(".Popover__ValueList:last button").length > 0) {
   ;[
-    jQuery(".Popover__ValueList:first button.is-selected").length > 0
-      ? jQuery(".Popover__ValueList:first button.is-selected")
+    jQuery(".Popover__ValueList:last button.is-selected").length > 0
+      ? jQuery(".Popover__ValueList:last button.is-selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery(".Popover__ValueList:first button").map(function (i, e) {
+      jQuery(".Popover__ValueList:last button").map(function (i, e) {
         if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
           return jQuery(e).text().trim().replace(/\s\s+/g, "")
       })
@@ -969,11 +969,11 @@ if (jQuery(".Popover__ValueList:first button").length > 0) {
 } else ["No Size", ["No Size"]]
 
 if (
-  jQuery(".Popover__ValueList:first button").length > 0 &&
+  jQuery(".Popover__ValueList:last button").length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery(".Popover__ValueList:first button").each(function () {
+  jQuery(".Popover__ValueList:last button").each(function () {
     if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg)
       jQuery(this).click()
   })
@@ -984,12 +984,12 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery(".Popover__ValueList:first button").length > 0 &&
+  jQuery(".Popover__ValueList:last button").length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true
-  jQuery(".Popover__ValueList:first button").each(function (index) {
+  jQuery(".Popover__ValueList:last button").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr("data-available")
@@ -1001,16 +1001,16 @@ if (
 return $text
 
 // button button
-if (jQuery("#sizeColumn:first button").length > 0) {
+if (jQuery("#sizeColumn:last button").length > 0) {
   ;[
-    jQuery("#sizeColumn:first button.sizeSelected").length > 0
-      ? jQuery("#sizeColumn:first button.sizeSelected")
+    jQuery("#sizeColumn:last button.sizeSelected").length > 0
+      ? jQuery("#sizeColumn:last button.sizeSelected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery("#sizeColumn:first button").map(function (i, e) {
+      jQuery("#sizeColumn:last button").map(function (i, e) {
         if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
           return jQuery(e).text().trim().replace(/\s\s+/g, "")
       })
@@ -1019,11 +1019,11 @@ if (jQuery("#sizeColumn:first button").length > 0) {
 } else ["No Size", ["No Size"]]
 
 if (
-  jQuery("#sizeColumn:first button").length > 0 &&
+  jQuery("#sizeColumn:last button").length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery("#sizeColumn:first button").each(function () {
+  jQuery("#sizeColumn:last button").each(function () {
     if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg)
       jQuery(this).click()
   })
@@ -1339,3 +1339,109 @@ if (
 return $text
 
 // ////////////////////////
+
+// div div span
+
+if (jQuery(".option:contains(Size) div.swatch-Size span").length > 0) {
+  ;[
+    jQuery(".option:contains(Size) div.swatch-Size.selected").length > 0
+      ? jQuery(".option:contains(Size) div.swatch-Size.selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".option:contains(Size) div.swatch-Size span").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else ["No Size", ["No Size"]]
+
+if (
+  jQuery(".swatches:last div.swatch-Size span").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery(".swatches:last div.swatch-Size span").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg)
+      jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$val = false
+if (
+  jQuery("..swatches:last div.swatch-Size span").length > 0 &&
+  $sarg != "No size" &&
+  $sarg != "Select size"
+) {
+  $val = true
+  jQuery(".swatches:last div.swatch-Size span).each(function () {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass("unavailable")
+    ) {
+      $val = false
+    }
+  })
+}
+return $val
+
+////////////////////////////
+
+// button button
+if (jQuery('[id="popover-5983025791146-product-template-size"] .Popover__ValueList:last button').length > 0) {
+  ;[
+    jQuery('[id="popover-5983025791146-product-template-size"] .Popover__ValueList:last button.is-selected').length > 0
+      ? jQuery('[id="popover-5983025791146-product-template-size"] .Popover__ValueList:last button.is-selected')
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery('[id="popover-5983025791146-product-template-size"] .Popover__ValueList:last button').map(function (i, e) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else ["No Size", ["No Size"]]
+
+if (
+  jQuery('[id="popover-5983025791146-product-template-size"] .Popover__ValueList:last button').length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery('[id="popover-5983025791146-product-template-size"] .Popover__ValueList:last button').each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg)
+      jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery('[id="popover-5983025791146-product-template-size"] .Popover__ValueList:last button').length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true
+  jQuery('[id="popover-5983025791146-product-template-size"] .Popover__ValueList:last button').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("data-available")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text

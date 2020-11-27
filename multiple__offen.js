@@ -166,7 +166,7 @@ if (
         .slice(0, -1)
 
     $link =
-      "https://championsclub.gg" +
+      "https://af1.la" +
       jQuery(this).find("a.ProductItem__ImageWrapper").attr("href")
 
     $price = jQuery(this)
@@ -483,34 +483,34 @@ if (jQuery("#CollectionSection .grid__item").length > 0 && [].length === 0) {
 // div div img one src
 
 if (
-  jQuery('[data-pf-type="ProductList"] [data-pf-type="ProductBox"]').length > 0 &&
-  jQuery('[data-pf-type="MasterImage"] img[role="presentation"].zoomImg:first').length === 0
-  &&  jQuery('[class="sc-oUbqx bgMQOP pf-8b8bf404"]').length === 0
+  jQuery('.collections-results .product-card').length > 0 &&
+  jQuery('.swiper-slide-active img').length === 0
+  &&  jQuery('.product-details__desc-col').length === 0
 ) {
   $arr = []
 
-  jQuery('[data-pf-type="ProductList"] [data-pf-type="ProductBox"]').each(function () {
-    $title = jQuery(this).find('[data-product-type="title"]').text().trim()
+  jQuery('.collections-results .product-card').each(function () {
+    $title = jQuery(this).find('.product-card__title').text().trim()
 
     $img =
-      "https:" +
+      // "https:" +
       (
         jQuery(this).find("img:first").attr("src") ||
-        //  jQuery(this).find("img:first").attr("data-src") ||
+         jQuery(this).find("source:first").attr("srcset") ||
         //  jQuery(this).find("img:first").attr("data-srcset") ||
-        jQuery(this).find("img:first").attr("src") ||
+        jQuery(this).find("img:last").attr("srcset") ||
         ""
       )
         // .replace(/\s/g, "%20")
         .split(" ")[0]
 
     $link =
-      "https://pipe-decor.com" + jQuery(this).find("a:first").attr("href")
+      "https://barefootdreams.com" + jQuery(this).find("a:first").attr("href")
 
     $price =     
     // "$" + 
     jQuery(this)
-        .find('[data-product-type="price"]:first')
+        .find('.product-card__price:first')
         .text()
         .trim()
         .replace(/\s/g, "")
