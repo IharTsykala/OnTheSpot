@@ -208,7 +208,22 @@ jQuery('.product-shop .price del:first').text().trim() || jQuery('.product-shop 
     || jQuery('.price-box .price:first').text().trim().replace(/\s/g,'').split(",–")[0]
 
   
-    '$' +  jQuery('.ProductItem__PriceList:first .Price:first').text().trim().replace(/\s/g,'').split('$')[1]
+    '$' +  jQuery('.product-price:first').text().trim().replace(/\s/g,'').split('$')[1]
     '$' + jQuery('.ProductItem__PriceList:first .Price:first').text().trim().replace(/\s/g,'').split('$')[1] ||
     '$' + jQuery('.ProductItem__PriceList:first .Price:first').text().trim().replace(/\s/g,'').split('$')[1]
    
+
+    jQuery('[id="ProductPrice-product-template"]:first').text().trim()
+    if(jQuery('[id="ComparePrice-product-template"] .money:first').text().trim() === '€0') 
+    jQuery('[id="ProductPrice-product-template"]:first').text().trim()
+    else jQuery('[id="ComparePrice-product-template"] .money:first').text().trim()
+  
+    jQuery(".new-price:first").text().trim()
+jQuery(".old-price:first").text().trim() ||
+  jQuery(".new-price:first").text().trim()
+
+  jQuery(".ProductMeta__Price.Price--highlight:first").text().trim() 
+  || jQuery(".ProductMeta__Price:first").text().trim()
+  jQuery(".ProductMeta__Price.Price--compareAt:first").text().trim() ||
+    jQuery(".ProductMeta__Price.Price--highlight:first").text().trim()
+    || jQuery(".ProductMeta__Price:first").text().trim()

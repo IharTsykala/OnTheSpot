@@ -94,9 +94,9 @@ jQuery(".price .price-item--sale").text().trim() ||
   "HUF" + jQuery(".product-new-price:first").text().trim().split("Ft")[0]
 // .split('$')[1]
 
-jQuery("[data-product-price]").text().trim()
+jQuery(".product__price:first").text().trim()
 jQuery(".product--price .price--compare-at").text().trim() ||
-  jQuery(".product--price .price--main").text().trim()
+  jQuery(".product__price:first").text().trim()
 
 "€" + jQuery(".price-wrapper .price:first").text().trim().split("€")[0]
 "€" + jQuery(".old-price .price").text().trim().split("€")[0] ||

@@ -30,8 +30,8 @@ jQuery('[class="shg-product-atc-btn-wrapper shg-align-center"]').text().trim().t
 }
 data-action="add-to-cart"
 
-if (jQuery('button.btn--size-standard').text().trim().toLowerCase() == 'sold out' || 
-jQuery('button.btn--size-standard').text().trim().toLowerCase() == 'out of stock'
+if (jQuery('button.btn-addtocart').text().trim().toLowerCase() == 'sold out' || 
+jQuery('button.btn-addtocart').text().trim().toLowerCase() == 'out of stock'
 ) {
   $status = true
 } else {
