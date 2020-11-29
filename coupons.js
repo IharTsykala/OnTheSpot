@@ -87,9 +87,9 @@ document.querySelectorAll('[data-hook="total-value"]')[0]
 
 
 jQuery("button[data-zta='enterCouponBtn']").click()
-jQuery('input[name="coupon"]:first')
-jQuery('input[value="Apply Coupon"]')
-jQuery('#price-now .ib:last')
+jQuery('input[id="gui-form-code"]:first')
+jQuery('a.gui-button-small')
+jQuery('.gui-price strong')
 
 // 
 jQuery("#cadeaubonText")[0].click()

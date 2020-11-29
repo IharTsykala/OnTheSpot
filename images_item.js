@@ -311,17 +311,17 @@ else
 
 
 
-    if (jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img:first').length > 0) 
-$img = jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img:first').attr('srcset')
-.split(' ')[0]
-.replace('200x', '1000x')
-else
-$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
-
-if ($img.indexOf("http") == -1)
-'https:'+$img
-else
-$img
+  if (jQuery('[class="product-media product-media--image product-media--on-screen"] img:first').length > 0) 
+  $img = jQuery('[class="product-media product-media--image product-media--on-screen"] img:first').attr('srcset')  
+  .split(' ')[0]
+  .replace('180x', '1080x')
+  else
+  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+  
+  if ($img.indexOf("http") == -1)
+  'https:'+$img
+  else
+  $img
 
 
 if (jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img').length > 0){
@@ -335,11 +335,12 @@ if (jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell 
 /////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 
-if (jQuery('.Product__SlideItem--image img:first').length > 0) 
-$img = jQuery('.Product__SlideItem--image  img:first').attr('src')
+if (jQuery('.product-media .product-image img:first').length > 0) 
+$img = jQuery('.product-media .product-image img:first').attr('src')
 // .split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
 
 if ($img.indexOf("http") == -1)
 'https:'+$img
@@ -347,9 +348,9 @@ else
 $img
 
 
-if (jQuery('.Product__SlideshowNavImage img').length > 0){
+if (jQuery('.product-media .product-image img').length > 0){
   $arr = [];
-  jQuery('.Product__SlideshowNavImage img').each(function(index){
+  jQuery('.product-media .product-image img').each(function(index){
       if (index < 4) 
       $arr.push('https:'+jQuery(this).attr("src"))
   })

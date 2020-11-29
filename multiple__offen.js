@@ -399,14 +399,14 @@ if (
 // div div noscript
 
 if (
-  jQuery('.tt-product-listing .tt-product').length > 0 &&
-  jQuery(".product-gallery__link img:first").length === 0
+  jQuery(".productgrid--items .grid__item").length > 0 &&
+  jQuery('[class="product-media product-media--image product-media--on-screen"] img:first').length === 0
+  // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
 
-  jQuery('.tt-product-listing .tt-product').each(function () {
-    $title = jQuery(this).find(".product-title").text().trim()
-    // .split(' / ')[0];
+  jQuery(".grid--uniform .grid__item").each(function () {
+    $title = jQuery(this).find(".product-block__title-link").text().trim()
 
     if (jQuery(this).find("noscript").text().trim())
       $img =
@@ -424,90 +424,57 @@ if (
     // .replace('gif', 'jpg')
     else $img = ""
 
-    $link =
-      "https://gatsport.com" + jQuery(this).find("a.tt-btn-compare:first").attr("href")
+    $link = "https://urbannativeera.com" + jQuery(this)
+    .find("a:first")
+    .attr("href")
 
-      $price =      
+    $price =      
       jQuery(this)
-        .find(".price .money:first")
+        .find(".product-price:first")
         .text()
         .trim()
         .replace(/\s/g, "")        
-      
-
-    // if ($title && $img && $link && $price)
-      $arr.push([$title, $img, $link, $price])
-  })
-  $arr
-}
-
-if (jQuery(".tt-product-listing .tt-product").length > 0 && [].length === 0) {
-  $arr = []
-
-  jQuery(".tt-product-listing .tt-product").each(function () {
-    $title = jQuery(this).find(".product-block__title").text().trim()
-
-    $img =
-      "https:" +
-      (
-        jQuery(this)
-        .find("noscript")
-        // .next()
-        .text()
-        .trim()
-        .split('src="')[1]
-        .split(" alt")[0]||'')
-        .trim()
-        .slice(0, -1)
-
-    $link = "https://urbannativeera.com" + jQuery(this).find("a:first").attr("href")
-
-    $price = jQuery(this)
-      .find(".product-price__reduced")
-      .text()
-      .trim()
-      // .split("Regular price")[1]
-    // jQuery(this)   
-
+    
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
-
   $arr
 }
+
+
 
 // div div img one src
 
 if (
-  jQuery('.tt-product-listing .tt-product').length > 0 &&
+  jQuery('.products-list .product-element').length > 0 &&
   jQuery('.swiper-slide-active img').length === 0
   // &&  jQuery('.product-details__desc-col').length === 0
 ) {
   $arr = []
 
-  jQuery('.tt-product-listing .tt-product').each(function () {
-    $title = jQuery(this).find('.description').text().trim()
+  jQuery('.products-list .product-element').each(function () {
+    $title = jQuery(this).find('.product-title').text().trim()
 
     $img =
-      "https:" +
+      // "https:" +
       (
         jQuery(this).find("img:first").attr("src") ||
-        //  jQuery(this).find("source:first").attr("srcset") ||
+         jQuery(this).find("img:first").attr("srcset") ||
         //  jQuery(this).find("img:first").attr("data-srcset") ||
-        jQuery(this).find("img:last").attr("src") ||
+        // jQuery(this).find("img:last").attr("src") ||
         ""
       )
         // .replace(/\s/g, "%20")
         .split(" ")[0]
 
     $link =
-      "https://gatsport.com" +
-       jQuery(this).find("a.tt-btn-compare:first").attr("href")
+      // "https://www.oliverbrown.org.uk/" +
+       jQuery(this).find("a:first").attr("href")
 
     $price =     
     // "$" + 
     jQuery(this)
-        .find('.tt-price .pricehidden')
+        .find('.product-price-change .new-price')
         .text()
         .trim()
         .replace(/\s/g, "")
@@ -530,26 +497,26 @@ if (
   $arr = []
 
   jQuery(".grid--uniform .grid__item").each(function () {
-    $title = jQuery(this).find(".grid-product__title").text().trim()
+    $title = jQuery(this).find(".product-block__title-link").text().trim()
 
     $img =
       // "https:" +
       (
         (
           jQuery(this)
-            .find(".grid__image-ratio--portrait:first")
+            .find(".rimage-background:first")
             .css("background-image") || ""
         )
         .split("url(")[1] || ""
       ).slice(1, -2)
 
-    $link = "https://www.mabelandwoods.com.au" + jQuery(this)
+    $link = "https://urbannativeera.com" + jQuery(this)
     .find("a:first")
     .attr("href")
 
     $price =      
       jQuery(this)
-        .find(".grid-product__price:first")
+        .find(".product-price:first")
         .text()
         .trim()
         .replace(/\s/g, "")        
@@ -612,16 +579,16 @@ if (
 // ul li noscript
 
 if (
-  jQuery("ul.product-summary-list li").length > 0 &&
+  jQuery("ul.productgrid--items li").length > 0 &&
   jQuery('.slick-active [role="presentation"]:first').length === 0
 ) {
   $arr = []
 
-  jQuery("ul.product-summary-list li").each(function () {
-    $title = jQuery(this).find(".name").text().trim()
+  jQuery("ul.productgrid--items li").each(function () {
+    $title = jQuery(this).find(".productitem--title").text().trim()
 
     $img =
-      // "https:" +
+      "https:" +
       (
         jQuery(this)
           .find("noscript")
@@ -632,24 +599,17 @@ if (
       )
         .split(" ")[0]
         // .split(" class")[0]
-        .slice(0, -1)
+        .slice(0, -2)
 
     $link =
-      "https://www.thestorygift.co.uk/" +
+      "https://muji.ca" +
       jQuery(this).find("a:first").attr("href")
 
     $price = jQuery(this)
-      .find(".price:first")
+      .find(".price--main .money:first")
       // .parent()
       .text()
       .trim()
-    // .split('S/.')[1]
-    // .split('ex')[0]
-    // ||  jQuery(this).find(".gtm-item-price").text().trim()
-    // .split('US')[1]
-    // ||
-    // jQuery(this).find(".price").text().trim())
-    // .split('€')[1]
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])

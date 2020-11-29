@@ -113,15 +113,15 @@ return $text
 //
 
 if (
-  jQuery('select[class="required-entry super-attribute-select"] option')
+  jQuery('select[id="data-product-option-0"] option')
     .length > 0
 ) {
   ;[
     jQuery(
-      'select[class="required-entry super-attribute-select"] option:selected'
+      'select[id="data-product-option-0"] option:selected'
     ).text() != ""
       ? jQuery(
-          'select[class="required-entry super-attribute-select"] option:selected'
+          'select[id="data-product-option-0"] option:selected'
         )
           .text()
           .trim()
@@ -129,7 +129,7 @@ if (
         "Select Size",
     jQuery.makeArray(
       jQuery(
-        'select[class="required-entry super-attribute-select"] option'
+        'select[id="data-product-option-0"] option'
       ).map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "")
@@ -141,12 +141,12 @@ if (
 }
 
 if (
-  jQuery('select[class="required-entry super-attribute-select"] option')
+  jQuery('select[id="data-product-option-0"] option')
     .length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery('select[class="required-entry super-attribute-select"] option').each(
+  jQuery('select[id="data-product-option-0"] option').each(
     function () {
       if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
         jQuery(this).trigger("change")
@@ -160,13 +160,13 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery('select[class="required-entry super-attribute-select"] option')
+  jQuery('select[id="data-product-option-0"] option')
     .length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true
-  jQuery('select[class="required-entry super-attribute-select"] option').each(
+  jQuery('select[id="data-product-option-0"] option').each(
     function (index) {
       if (
         jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&

@@ -218,12 +218,17 @@ jQuery('.product-shop .price del:first').text().trim() || jQuery('.product-shop 
     jQuery('[id="ProductPrice-product-template"]:first').text().trim()
     else jQuery('[id="ComparePrice-product-template"] .money:first').text().trim()
   
-    jQuery(".new-price:first").text().trim()
-jQuery(".old-price:first").text().trim() ||
-  jQuery(".new-price:first").text().trim()
+    jQuery(".price--main:first").text().trim()
+jQuery(".price--compare-at:first").text().trim() ||
+  jQuery(".price--main:first").text().trim()
 
   jQuery(".ProductMeta__Price.Price--highlight:first").text().trim() 
   || jQuery(".ProductMeta__Price:first").text().trim()
   jQuery(".ProductMeta__Price.Price--compareAt:first").text().trim() ||
     jQuery(".ProductMeta__Price.Price--highlight:first").text().trim()
     || jQuery(".ProductMeta__Price:first").text().trim()
+
+    jQuery(".new-price .price-update:first").text().trim()
+    jQuery(".product-price-initial:first").text().trim() ||
+      jQuery(".new-price .price-update:first").text().trim()
+    
