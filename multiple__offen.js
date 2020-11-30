@@ -446,20 +446,20 @@ if (
 // div div img one src
 
 if (
-  jQuery('.products-list .product-element').length > 0 &&
+  jQuery('[id="products-body"] .single-figure-inner').length > 0 &&
   jQuery('.swiper-slide-active img').length === 0
   // &&  jQuery('.product-details__desc-col').length === 0
 ) {
   $arr = []
 
-  jQuery('.products-list .product-element').each(function () {
-    $title = jQuery(this).find('.product-title').text().trim()
+  jQuery('[id="products-body"] .single-figure-inner').each(function () {
+    $title = jQuery(this).find('.tile').text().trim()
 
     $img =
       // "https:" +
       (
         jQuery(this).find("img:first").attr("src") ||
-         jQuery(this).find("img:first").attr("srcset") ||
+         jQuery(this).find("img:first").attr("data-original") ||
         //  jQuery(this).find("img:first").attr("data-srcset") ||
         // jQuery(this).find("img:last").attr("src") ||
         ""
@@ -469,19 +469,19 @@ if (
 
     $link =
       // "https://www.oliverbrown.org.uk/" +
-       jQuery(this).find("a:first").attr("href")
+       jQuery(this).find("a.tile:first").attr("href")
 
     $price =     
     // "$" + 
     jQuery(this)
-        .find('.product-price-change .new-price')
+        .find('.price:first')
         .text()
         .trim()
         .replace(/\s/g, "")
         // .split("$")[2] || '').trim()
     // .split("Sale price")[1]
 
-    if ($title && $img && $link && $price)
+    // if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -530,13 +530,13 @@ if (
 // ul li only src
 
 if (
-  jQuery("ul.snize-search-results-content li").length > 0 &&
+  jQuery(".product-list ul li").length > 0 &&
   jQuery(".images-container  a:first").length === 0
 ) {
   $arr = []
 
-  jQuery("ul.snize-search-results-content li").each(function () {
-    $title = jQuery(this).find(".snize-title").text().trim()
+  jQuery(".product-list ul li").each(function () {
+    $title = jQuery(this).find(".item-name").text().trim()
 
     $img =
       // 'https:' +
@@ -544,28 +544,25 @@ if (
         jQuery(this).find("img:first").attr("src") ||
         //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
         //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
-        jQuery(this).find("img:last").attr("src") ||
+        jQuery(this).find("img:first").attr("srcset") ||
         ""
       )
-        //  .split(', ')[0];
-        .replace(/\s/g, "%20")
+         .split(', ')[0];
+        // .replace(/\s/g, "%20")
 
     $link =
-      // 'https://www.kukyflor.com' +
+      'https://www.stevenstone.co.uk' +
       jQuery(this).find("a:first").attr("href")
 
     $price =
-      // "PEN" +
+      "£" + ' ' +
       jQuery(this)
-        .find(".snize-price-list:first")
+        .find(".oe_default_price .oe_currency_value:last")
         .text()
         .trim()
-        .split(",–")[0]
-    // ||  jQuery(this).find(".gtm-item-price").text().trim()
-    // .split('US')[1]
-    // ||
-    // jQuery(this).find(".price").text().trim())
-    // .split('€')[1]
+        // .split("kr")[0] 
+        // .trim() 
+        
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -718,3 +715,72 @@ if (
 }
 
 ////////////////////////////////////////////////////////////
+if (
+  jQuery('.category__products [class="w-container col"]').length > 0 &&
+  jQuery('[class="woocommerce-main-image pswp-main-image zoom"] img:first').length === 0 
+  // &&  jQuery(".product-essential").length === 0 
+  
+) {
+  $arr = [];
+
+  jQuery('.category__products [class="w-container col"]').each(function () {
+    $title = jQuery(this).find(".w-product-title").text().trim().replace(/\s\s+/g, "");
+
+    $img =
+    // 'https:' +
+     (jQuery(this).find('img:first').attr("src") ||
+    //  jQuery(this).find("img:first").attr("data-src") ||
+    //  jQuery(this).find("img:first").attr("data-second-image") ||
+     jQuery(this).find('img:first').attr("src") || '').replace(/\s/g,'%20').split(', ')[0] 
+    //  jQuery(this).find("img:first").attr("srcset") 
+
+
+    $link =
+     'https://www.huxskateboards.com' + 
+    jQuery(this).find("a:first").attr("href");
+
+    $price = jQuery(this).find(".font--product-price:first").text().trim()
+    // .split('US')[1]
+    // .split('Kezdőár:')[1]
+    // || jQuery(this).find(".productCurrency:last").text().trim()
+    // .split('RON')[0].trim().split(' ').join('')
+    //  || jQuery(this).find(".card__price").text().trim()
+    
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}
+
+if (
+  jQuery('.category__wrapper .category__products [class="w-cell col col-6 col-sm-6 col-md-4"]').length > 0 &&
+  jQuery('[class="woocommerce-main-image pswp-main-image zoom"] img:first').length === 0 
+  // &&  jQuery(".product-essential").length === 0 
+  
+) {
+  $arr = [];
+
+  jQuery('.category__wrapper .category__products [class="w-cell col col-6 col-sm-6 col-md-4"]').each(function () {
+    $title = jQuery(this).find(".w-product-title").text().trim().replace(/\s\s+/g, "");
+
+    $img =
+    // 'https:' +
+     (jQuery(this).find('img:first').attr("src") ||
+    //  jQuery(this).find("img:first").attr("data-src") ||
+    //  jQuery(this).find("img:first").attr("data-second-image") ||
+     jQuery(this).find('img:first').attr("srcset") || '').replace(/\s/g,'%20').split(', ')[0] 
+    //  jQuery(this).find("img:first").attr("srcset") 
+
+
+    $link =
+     'https://www.huxskateboards.com' + 
+    jQuery(this).find("a:first").attr("href");
+
+    $price = (jQuery(this).find(".font--product-price:first").text().trim().split(' - ')[0] ||
+    jQuery(this).find(".font--product-price:first").text().trim())    
+    
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price]);
+  });
+  $arr;
+}

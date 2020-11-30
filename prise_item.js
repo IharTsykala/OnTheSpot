@@ -228,7 +228,35 @@ jQuery(".price--compare-at:first").text().trim() ||
     jQuery(".ProductMeta__Price.Price--highlight:first").text().trim()
     || jQuery(".ProductMeta__Price:first").text().trim()
 
-    jQuery(".new-price .price-update:first").text().trim()
-    jQuery(".product-price-initial:first").text().trim() ||
+    "£" + ' ' + jQuery(".product-info .oe_currency_value:last").text().trim()
+    "£" + ' ' +jQuery(".product-info .oe_currency_value:first").text().trim() ||
       jQuery(".new-price .price-update:first").text().trim()
     
+      'DKK' + ' ' + (jQuery(".special-price .price:first").text().trim().split("kr")[0].trim() 
+      ||  jQuery(".regular-price:first").text().trim().split("kr")[0].trim())
+      'DKK' + ' ' + (jQuery(".old-price .price:first").text().trim().split("kr")[0].trim() 
+       ||jQuery(".special-price price:first").text().trim().split("kr")[0].trim() 
+      ||  jQuery(".regular-price:first").text().trim().split("kr")[0].trim())
+
+
+      jQuery(".price__regular .price-item:first").text().trim()
+      jQuery(".price__sale .price-item:first").text().trim() ||
+        jQuery(".price__regular .price-item:first").text().trim()
+
+        jQuery(".price--compare-at:first .money").text().trim() ||
+  jQuery(".price--main:first .money").text().trim()
+
+
+  jQuery('.current_price:first').text().trim().replace(/\s/g,'') ||
+  jQuery('.snize-price:first').text().trim().replace(/\s/g,'')
+
+
+  jQuery('.was-price:first').text().trim().replace(/\s/g,'') ||
+jQuery('.current_price:first').text().trim().replace(/\s/g,'') ||
+jQuery('.snize-price:first').text().trim().replace(/\s/g,'')
+
+jQuery('.current_price:first').text().trim().replace(/\s/g,'') ||
+  jQuery('.snize-price:first').text().trim().replace(/\s/g,'')
+
+  jQuery('.was-price:last').text().trim().replace(/\s/g,'') ||
+jQuery('.current_price:first').text().trim().replace(/\s/g,'')

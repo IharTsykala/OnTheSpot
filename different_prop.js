@@ -58,3 +58,66 @@ if (
   });
 }
 return $val;
+
+////////////////////////////////////////////////////////////////
+///////////////////////////////////////////
+////////////////////////////////////////////////////////
+
+// ul li
+
+if (jQuery('ul[id="model-dropdown"] li').length > 0) {
+  [
+    jQuery(
+      'ul[id="model-dropdown"] li.active'
+    ).length > 0
+      ?jQuery(
+          'ul[id="model-dropdown"] li.active'
+        )       
+          .text().trim().replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery('ul[id="model-dropdown"] li').map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e)
+        .text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e)
+         .text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Size", ["No Size"]];
+
+
+if (
+  jQuery('ul[id="model-dropdown"] li').length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery('ul[id="model-dropdown"] li').each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "")) jQuery(this).cbuttonck();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+//pa_sizes stock status
+$text = false;
+if (
+  jQuery('ul[id="model-dropdown"] li').length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery('ul[id="model-dropdown"] li').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("data-available")
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;

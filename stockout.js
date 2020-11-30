@@ -66,6 +66,12 @@ if (jQuery('.buyWrapper input').attr('value').toLowerCase().indexOf('out')>=0) {
   $status = false;
 }
 
+if (jQuery('.details-product-purchase__add-buttons .form-control__button-text:last').text().trim().toLowerCase().indexOf('out')>=0) {
+  $status = true
+} else {
+  $status = false;
+}
+
 if (jQuery('input#variant-add').attr('value').toLowerCase() == 'sold out' || jQuery('input#variant-add').attr('value').toLowerCase() == 'out of stock'
  || jQuery('input#variant-add').attr('value').toLowerCase() == 'unavailable') {
   $status = true
@@ -117,8 +123,8 @@ if (jQuery('.AddtoCart').text().trim().toLowerCase() == 'sold out' ||
 
 // span[id="main:lblNotAvailable"]
 
-if (jQuery('button[id="AddToCart-product-template"]').text().trim().toLowerCase() == 'sold out' ||
- jQuery('button[id="AddToCart-product-template"]').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('button[id="chooseDiamondBtn"]').text().trim().toLowerCase() == 'sold out' ||
+ jQuery('button[id="chooseDiamondBtn"]').text().trim().toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;
@@ -239,6 +245,13 @@ if (jQuery('.vtex-add-to-cart-button-0-x-buttonText').text().trim() == 'No dispo
 
 
 if (jQuery('input[id="form-action-addToCart"]').attr('value').toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (!jQuery('[id="add-to-cart"]').length > 0 )
+ {
   $status = true
 } else {
   $status = false;

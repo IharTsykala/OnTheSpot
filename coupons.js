@@ -8,7 +8,7 @@ jQuery('.field input[id="checkout_reduction_code"]')
 jQuery('.field button.field__input-btn')
 jQuery('.total-line .payment-due__price')
 
-jQuery('body.no-promo input[id="discount-code"]')
+jQuery('button[data-trekkie-id="apply_discount_button"]')
 
 jQuery('[class="grand totals"] .price:first')
 
@@ -87,9 +87,9 @@ document.querySelectorAll('[data-hook="total-value"]')[0]
 
 
 jQuery("button[data-zta='enterCouponBtn']").click()
-jQuery('input[id="gui-form-code"]:first')
-jQuery('a.gui-button-small')
-jQuery('.gui-price strong')
+jQuery('input[id="id_couponcode"]:first')
+jQuery('[id="onestepcheckout-coupon-add"]')
+jQuery('.onestepcheckout-totals .price:last')
 
 // 
 jQuery("#cadeaubonText")[0].click()
@@ -121,10 +121,10 @@ document.querySelector('input[id="discount-code"]')
 document.querySelector('[value="Applica sconto"]:last')
 document.querySelector('.totals .price:last')
 
-jQuery('.has-open-cart [class="button"]:first a')[0].click()
-jQuery('.has-open-cart input[placeholder="Coupon Code"]')
-jQuery('.svg.:last')
-jQuery('.has-open-cart .line-item-content:last')
+jQuery('[id="have-discount"]:first')[0].click()
+jQuery('input[id="discount-code"]')
+jQuery('[id="discount-code-btn"]:last')
+jQuery('.summary-price:last')
 
 ///////////////////////////////////////////////////
 jQuery('[id="discount-code"]')[0].click()

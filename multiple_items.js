@@ -1336,3 +1336,144 @@ if ($img.indexOf("http") == -1)
 'https:'+$img
 else
 $img
+
+if (
+  jQuery(".grid-uniform .grid__item").length > 0 &&
+  jQuery(".image-zoom img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".grid-uniform .grid__item").each(function () {
+    $title = jQuery(this).find(".grid-link__title").text().trim()
+
+    $img =
+      "https:" +
+      (
+        jQuery(this).find("img.ls-is-cached:first").attr("src") ||
+        //  jQuery(this).find("img:first").attr("data-src") ||
+        //  jQuery(this).find("img:first").attr("data-second-image") ||
+        jQuery(this).find("img.ls-is-cached:first").attr("data-src") ||
+        ""
+      )
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://www.slownorth.com" + jQuery(this).find("a:first").attr("href")
+
+    $price =     
+      jQuery(this)
+        .find(".collection__product-price:first")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+        // .split("CFA")[0]
+    // .split("Sale price")[1]
+
+    if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+
+if (
+  jQuery("ul.snize-search-results-content li").length > 0 &&
+  jQuery(".images-container  a:first").length === 0
+) {
+  $arr = []
+
+  jQuery("ul.snize-search-results-content li").each(function () {
+    $title = jQuery(this).find(".snize-title").text().trim()
+
+    $img =
+      // 'https:' +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+        jQuery(this).find("img:last").attr("src") ||
+        ""
+      )
+        //  .split(', ')[0];
+        .replace(/\s/g, "%20")
+
+    $link =
+      // 'https://www.kukyflor.com' +
+      jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // "PEN" +
+      jQuery(this)
+        .find(".snize-price-list .snize-price:first")
+        .text()
+        .trim()
+        .split(",–")[0]
+    // ||  jQuery(this).find(".gtm-item-price").text().trim()
+    // .split('US')[1]
+    // ||
+    // jQuery(this).find(".price").text().trim())
+    // .split('€')[1]
+
+    if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+if (jQuery('.image__container img:first').length > 0) 
+  $img = jQuery('.image__container img:first').attr('src')  
+  .split(' ')[0]
+  // .replace('360x', '1080x')
+  else
+  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+  
+  if ($img.indexOf("http") == -1)
+  'https:'+$img
+  else
+  $img
+
+  if (
+    jQuery("ul.snize-search-results-content li").length > 0 &&
+    jQuery(".images-container  img:first").length === 0
+  ) {
+    $arr = []
+  
+    jQuery("ul.snize-search-results-content li").each(function () {
+      $title = jQuery(this).find(".snize-title").text().trim()
+  
+      $img =
+        // 'https:' +
+        (
+          jQuery(this).find("img:first").attr("src") ||
+          //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+          //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+          jQuery(this).find("img:last").attr("src") ||
+          ""
+        )
+          //  .split(', ')[0];
+          .replace(/\s/g, "%20")
+  
+      $link =
+        // 'https://www.kukyflor.com' +
+        jQuery(this).find("a:first").attr("href")
+  
+      $price =
+        // "PEN" +
+        jQuery(this)
+          .find(".snize-price-list .snize-price:first")
+          .text()
+          .trim()
+          .split(",–")[0]
+      // ||  jQuery(this).find(".gtm-item-price").text().trim()
+      // .split('US')[1]
+      // ||
+      // jQuery(this).find(".price").text().trim())
+      // .split('€')[1]
+  
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    })
+    $arr
+  }

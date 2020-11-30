@@ -311,10 +311,10 @@ else
 
 
 
-  if (jQuery('[class="product-media product-media--image product-media--on-screen"] img:first').length > 0) 
-  $img = jQuery('[class="product-media product-media--image product-media--on-screen"] img:first').attr('srcset')  
+  if (jQuery('[class="zoomWrapper"] img:first').length > 0) 
+  $img = jQuery('[class="zoomWrapper"] img:first').attr('data-zoom-image')  
   .split(' ')[0]
-  .replace('180x', '1080x')
+  // .replace('180x', '1080x')
   else
   $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
   
@@ -324,19 +324,31 @@ else
   $img
 
 
-if (jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img').length > 0){
+if (jQuery('[class="zoomWrapper"] img').length > 0){
   $arr = [];
-  jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img').each(function(index){
+  jQuery('[class="zoomWrapper"] img').each(function(index){
       if (index < 4) 
-      $arr.push('https:'+jQuery(this).attr("srcset").split(' ')[0])
+      $arr.push('https:'+jQuery(this).attr("src").split(' ')[0])
   })
   $arr
   }
 /////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 
-if (jQuery('.product-media .product-image img:first').length > 0) 
-$img = jQuery('.product-media .product-image img:first').attr('src')
+if (jQuery('.slides li:first').length > 0) 
+$img = jQuery('.slides li:first').next().find('img:first').attr('src')
+// .split(' ')[0]
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+
+if (jQuery('.flex-active-slide img:first').length > 0) 
+$img = jQuery('.flex-active-slide img:first').attr('src')
 // .split(' ')[0]
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
@@ -348,9 +360,9 @@ else
 $img
 
 
-if (jQuery('.product-media .product-image img').length > 0){
+if (jQuery('.flex-active-slide img').length > 0){
   $arr = [];
-  jQuery('.product-media .product-image img').each(function(index){
+  jQuery('.flex-active-slide img').each(function(index){
       if (index < 4) 
       $arr.push('https:'+jQuery(this).attr("src"))
   })
