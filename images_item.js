@@ -311,8 +311,8 @@ else
 
 
 
-  if (jQuery('[class="zoomWrapper"] img:first').length > 0) 
-  $img = jQuery('[class="zoomWrapper"] img:first').attr('data-zoom-image')  
+  if (jQuery('[class="flex-active-slide"] img:first').length > 0) 
+  $img = jQuery('[class="flex-active-slide"] img:first').attr('src')  
   .split(' ')[0]
   // .replace('180x', '1080x')
   else
@@ -324,9 +324,9 @@ else
   $img
 
 
-if (jQuery('[class="zoomWrapper"] img').length > 0){
+if (jQuery('[class="flex-active-slide"] img').length > 0){
   $arr = [];
-  jQuery('[class="zoomWrapper"] img').each(function(index){
+  jQuery('[class="flex-active-slide"] img').each(function(index){
       if (index < 4) 
       $arr.push('https:'+jQuery(this).attr("src").split(' ')[0])
   })
@@ -347,11 +347,14 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery('.flex-active-slide img:first').length > 0) 
-$img = jQuery('.flex-active-slide img:first').attr('src')
+if (jQuery('.principalimage img:first').length > 0) 
+$img =
+'https://www.dooc.eu' +
+jQuery('.principalimage img:first').attr('src')
 // .split(' ')[0]
 else
-$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+$img =
+ jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
 
 if ($img.indexOf("http") == -1)
@@ -360,11 +363,11 @@ else
 $img
 
 
-if (jQuery('.flex-active-slide img').length > 0){
+if (jQuery('.principalimage img').length > 0){
   $arr = [];
-  jQuery('.flex-active-slide img').each(function(index){
+  jQuery('.principalimage img').each(function(index){
       if (index < 4) 
-      $arr.push('https:'+jQuery(this).attr("src"))
+      $arr.push('https://www.dooc.eu'+jQuery(this).attr("src"))
   })
   $arr
   }

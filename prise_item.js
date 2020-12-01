@@ -258,5 +258,7 @@ jQuery('.snize-price:first').text().trim().replace(/\s/g,'')
 jQuery('.current_price:first').text().trim().replace(/\s/g,'') ||
   jQuery('.snize-price:first').text().trim().replace(/\s/g,'')
 
-  jQuery('.was-price:last').text().trim().replace(/\s/g,'') ||
+  jQuery('.price-productpage:first').text().trim().replace(/\s/g,'') ||
 jQuery('.current_price:first').text().trim().replace(/\s/g,'')
+
+'₽' + ' ' + jQuery('.price-standard:first').text().trim().replace(/\s/g,'').split('руб')[0].trim()

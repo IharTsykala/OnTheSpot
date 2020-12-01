@@ -44,7 +44,7 @@ if (jQuery('input.addtoBasket').attr('value').toLowerCase().indexOf('out') >= 0)
 }
 
 
-if (jQuery('input[id="add-to-cart"]').attr('value').toLowerCase().indexOf('out') >= 0) {
+if (jQuery('input[id="addToCart"]').attr('value').toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {
   $status = false;

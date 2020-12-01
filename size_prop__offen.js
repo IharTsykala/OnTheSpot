@@ -333,15 +333,15 @@ return $text
 
 ////////////////////////////////////////////
 
-if (jQuery("div.swatch:contains(Size) input").length > 0) {
+if (jQuery("div.swatch:contains(size) input").length > 0) {
   ;[
-    jQuery("div.swatch:contains(Size) input:checked").length > 0
-      ? jQuery("div.swatch:contains(Size) input:checked")
+    jQuery("div.swatch:contains(size) input:checked").length > 0
+      ? jQuery("div.swatch:contains(size) input:checked")
           .attr("value")
           .replace(/\s\s+/g, "")
       : "Select item",
     jQuery.makeArray(
-      jQuery("div.swatch:contains(Size) input").map(function (i, e) {
+      jQuery("div.swatch:contains(size) input").map(function (i, e) {
         if (jQuery(e).attr("value") != "")
           return jQuery(e).attr("value").replace(/\s\s+/g, "")
       })
@@ -352,11 +352,11 @@ if (jQuery("div.swatch:contains(Size) input").length > 0) {
 }
 
 if (
-  jQuery("div.swatch:contains(Size) input").length > 0 &&
+  jQuery("div.swatch:contains(size) input").length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery("div.swatch:contains(Size) input").each(function () {
+  jQuery("div.swatch:contains(size) input").each(function () {
     if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
       jQuery(this).next()[0].click()
     }
@@ -368,12 +368,12 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery("div.swatch:contains(Size) input").length > 0 &&
+  jQuery("div.swatch:contains(size) input").length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true
-  jQuery("div.swatch:contains(Size) input").each(function (index) {
+  jQuery("div.swatch:contains(size) input").each(function (index) {
     if (
       jQuery(this).attr("value") == $sarg &&
       !jQuery(this).attr(".data-availability")

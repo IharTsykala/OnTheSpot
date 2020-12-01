@@ -895,3 +895,57 @@ return $text;
 
 /////////////////////////////
 //////////////////////////////
+
+// Select
+if (jQuery(".selector-wrapper:first option").length > 0) {
+  [
+    jQuery(".selector-wrapper:first option:selected").text() != ""
+      ? jQuery(".selector-wrapper:first option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select GOLD COLOR",
+    jQuery.makeArray(
+      jQuery(".selector-wrapper:first option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No GOLD COLOR", ["No GOLD COLOR"]];
+}
+
+//pa_GOLD COLORs clicker
+if (
+jQuery(".selector-wrapper:first option").length > 0 &&
+$sarg != "Select GOLD COLOR" &&
+$sarg != "No GOLD COLOR"
+) {
+jQuery(".selector-wrapper:first option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+
+$text = false;
+if (
+  jQuery(".selector-wrapper:first option").length > 0 &&
+  $sarg != "No GOLD COLOR" &&
+  $sarg != "Select GOLD COLOR"
+) {
+  $text = true;
+  jQuery(".selector-wrapper:first option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;

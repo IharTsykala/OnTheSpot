@@ -109,3 +109,12 @@ jQuery(".product--price .price--compare-at").text().trim() ||
 "PEN" + " " + jQuery(".sqs-money-native:first").text().trim().split("S/")[1]
 "PEN" + " " + jQuery(".js-PrevPrice:first").text().trim().split("S/")[1] ||
   "PEN" + " " + jQuery(".bestPrice:first").text().trim().split("S/")[1]
+
+
+  jQuery('.current_price:first').text().trim().replace(/\s/g,'') ||
+  jQuery('.snize-price:first').text().trim().replace(/\s/g,'')
+
+
+  jQuery('.was-price:first').text().trim().replace(/\s/g,'') ||
+jQuery('.current_price:first').text().trim().replace(/\s/g,'') ||
+jQuery('.snize-price:first').text().trim().replace(/\s/g,'')

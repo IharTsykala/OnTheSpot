@@ -399,14 +399,14 @@ if (
 // div div noscript
 
 if (
-  jQuery(".productgrid--items .grid__item").length > 0 &&
+  jQuery(".grid-uniform .grid__item").length > 0 &&
   jQuery('[class="product-media product-media--image product-media--on-screen"] img:first').length === 0
   // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
 
-  jQuery(".grid--uniform .grid__item").each(function () {
-    $title = jQuery(this).find(".product-block__title-link").text().trim()
+  jQuery(".grid-uniform .grid__item").each(function () {
+    $title = jQuery(this).find(".grid-product__title").text().trim()
 
     if (jQuery(this).find("noscript").text().trim())
       $img =
@@ -424,16 +424,18 @@ if (
     // .replace('gif', 'jpg')
     else $img = ""
 
-    $link = "https://urbannativeera.com" + jQuery(this)
+    $link = "https://moodsclothing.com" + jQuery(this)
     .find("a:first")
     .attr("href")
 
     $price =      
       jQuery(this)
-        .find(".product-price:first")
+        .find(".grid-product__price:first")
         .text()
         .trim()
-        .replace(/\s/g, "")        
+        .replace(/\s/g, "") 
+        .split('Regularprice')[1] 
+        
     
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -446,20 +448,20 @@ if (
 // div div img one src
 
 if (
-  jQuery('[id="products-body"] .single-figure-inner').length > 0 &&
-  jQuery('.swiper-slide-active img').length === 0
+  jQuery('[id="bodycenter_wrapper"] .product').length > 0 &&
+  jQuery('[class="flex-active-slide"] img:first').length === 0
   // &&  jQuery('.product-details__desc-col').length === 0
 ) {
   $arr = []
 
-  jQuery('[id="products-body"] .single-figure-inner').each(function () {
-    $title = jQuery(this).find('.tile').text().trim()
+  jQuery('[id="bodycenter_wrapper"] .product').each(function () {
+    $title = jQuery(this).find('.product-name').text().trim()
 
     $img =
-      // "https:" +
+      "https://www.dooc.eu" +
       (
         jQuery(this).find("img:first").attr("src") ||
-         jQuery(this).find("img:first").attr("data-original") ||
+        //  jQuery(this).find("img:first").attr("data-src") ||
         //  jQuery(this).find("img:first").attr("data-srcset") ||
         // jQuery(this).find("img:last").attr("src") ||
         ""
@@ -468,20 +470,18 @@ if (
         .split(" ")[0]
 
     $link =
-      // "https://www.oliverbrown.org.uk/" +
-       jQuery(this).find("a.tile:first").attr("href")
+      "https://www.dooc.eu" +
+       jQuery(this).find("a:first").attr("href")
 
     $price =     
     // "$" + 
     jQuery(this)
-        .find('.price:first')
+        .find('.product-price:first')
         .text()
         .trim()
-        .replace(/\s/g, "")
-        // .split("$")[2] || '').trim()
-    // .split("Sale price")[1]
+        .replace(/\s/g, "")       
 
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -686,16 +686,16 @@ if (
 ////////////////////////////////////////////////////////////
 
 if (
-  jQuery("ul.products-grid li").length > 0 &&
+  jQuery("ul.catalog-list li div").length > 0 &&
   jQuery(".zoomImg:first").length === 0
 ) {
   $arr = []
 
-  jQuery("ul.products-grid li").each(function () {
-    $title = jQuery(this).find(".product-name").text().trim()
+  jQuery("ul.catalog-list li div").each(function () {
+    $title = jQuery(this).find(".product-card-title").text().trim()
 
     $img =
-      // 'https://www.lampegiganten.dk' +
+      'https://lavzjewellery.ru/' +
       //  (jQuery(this).find(".panel-body a:first img").attr("data-src") ||
       jQuery(this).find("img:first").attr("src")
     //  jQuery(this).find("a:first img:first").attr("data-src") ||
@@ -703,12 +703,12 @@ if (
     //  jQuery(this).find("a:first source:first").attr("srcset")
 
     $link =
-      //  'https://www.lampegiganten.dk' +
+       'https://lavzjewellery.ru/' +
       jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".price-box .price:last").text().trim()
+    $price = jQuery(this).find(".product-card-price:last").text().trim()
 
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])
   })
   $arr

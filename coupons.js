@@ -16,9 +16,9 @@ jQuery('[class="grand totals"] .price:first')
 .field button.field__input-btn
 .total-line-table .payment-due__price
 
-jQuery('#voucherAndCouponsCoantainer input[id="voucherInput"]')
-jQuery('.sourceCodeApplyBtn')
-jQuery('.ml-basket-total-value')
+jQuery('[placeholder="Código de descuento"]:last')
+jQuery('[name="submitAddDiscountCart"]')
+jQuery('.totalamount .price:first')
 
 jQuery('#reduction button:first').click()
 jQuery('#coupon_code')

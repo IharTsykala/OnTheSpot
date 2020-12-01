@@ -123,8 +123,8 @@ if (jQuery('.AddtoCart').text().trim().toLowerCase() == 'sold out' ||
 
 // span[id="main:lblNotAvailable"]
 
-if (jQuery('button[id="chooseDiamondBtn"]').text().trim().toLowerCase() == 'sold out' ||
- jQuery('button[id="chooseDiamondBtn"]').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('button[id="submitAddCart"]').text().trim().toLowerCase() == 'sold out' ||
+ jQuery('button[id="submitAddCart"]').text().trim().toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;
@@ -208,7 +208,7 @@ if (jQuery('.add-to-cart-buttons button').text().trim()  === 'Out of stock') {
   $status = false;
 }
 
-if (jQuery('.shopify-payment-button__button').text().trim().toLowerCase().indexOf('out') >= 0)
+if (jQuery('.add-to-cart').text().trim().toLowerCase().indexOf('out') >= 0)
   {
   $status = true
 } else {
