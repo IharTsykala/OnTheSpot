@@ -44,13 +44,13 @@ if (jQuery('input.addtoBasket').attr('value').toLowerCase().indexOf('out') >= 0)
 }
 
 
-if (jQuery('input[id="addToCart"]').attr('value').toLowerCase().indexOf('out') >= 0) {
+if (jQuery('input[class="add"]').attr('value').toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {
   $status = false;
 }
 
-if (jQuery('[data-to-cart-label="Add to Cart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+if (jQuery('[class="add"]').text().trim().toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {
   $status = false;

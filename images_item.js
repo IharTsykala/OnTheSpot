@@ -163,8 +163,8 @@ else
 $img
 
 
-if (jQuery('.image:first').length > 0) 
-$img = jQuery(".image:first").css('background-image').slice(5, -2)
+if (jQuery('.zoomWindowContainer div:first').length > 0) 
+$img = jQuery(".zoomWindowContainer div:first").css('background-image').slice(5, -2)
 else
 $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
@@ -292,10 +292,10 @@ else
   ///////////////////////////////////
 
 
-  if (jQuery('.image:first').length > 0) 
+  if (jQuery('.zoomWindowContainer div:first').length > 0) 
     $img = 
     // 'https:' +
-     jQuery('.image:first')
+     jQuery('.zoomWindowContainer div:first')
     // .attr('src')
     // .split(' ')[0]
     // .replace('_85x', '_1080x')
@@ -311,8 +311,8 @@ else
 
 
 
-  if (jQuery('[class="flex-active-slide"] img:first').length > 0) 
-  $img = jQuery('[class="flex-active-slide"] img:first').attr('src')  
+  if (jQuery('.product-single__photos img:first').length > 0) 
+  $img = jQuery('.product-single__photos img:first').attr('src')  
   .split(' ')[0]
   // .replace('180x', '1080x')
   else
@@ -324,9 +324,9 @@ else
   $img
 
 
-if (jQuery('[class="flex-active-slide"] img').length > 0){
+if (jQuery('.product-single__photos img').length > 0){
   $arr = [];
-  jQuery('[class="flex-active-slide"] img').each(function(index){
+  jQuery('.product-single__photos img').each(function(index){
       if (index < 4) 
       $arr.push('https:'+jQuery(this).attr("src").split(' ')[0])
   })
@@ -347,10 +347,12 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery('.principalimage img:first').length > 0) 
+//////////////////////
+
+if (jQuery('.ProductItem-gallery-slides-item img:first').length > 0) 
 $img =
-'https://www.dooc.eu' +
-jQuery('.principalimage img:first').attr('src')
+// 'https:' +
+jQuery('.ProductItem-gallery-slides-item img:first').attr('src')
 // .split(' ')[0]
 else
 $img =
@@ -363,11 +365,11 @@ else
 $img
 
 
-if (jQuery('.principalimage img').length > 0){
+if (jQuery('.ProductItem-gallery-thumbnails-item img').length > 0){
   $arr = [];
-  jQuery('.principalimage img').each(function(index){
+  jQuery('.ProductItem-gallery-thumbnails-item img').each(function(index){
       if (index < 4) 
-      $arr.push('https://www.dooc.eu'+jQuery(this).attr("src"))
+      $arr.push(jQuery(this).attr("src"))
   })
   $arr
   }
@@ -396,11 +398,12 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
 
   ////////////////////////////////
 
-  if (jQuery('.swiper-slide-active img.zoomImg:first').length > 0) 
-  $img = jQuery('[data-pf-type="ProductImagePagination"] img.zoomImg:first').attr('src')
-  .split(', ')[0]
+  if (jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img:first').length > 0) 
+  $img = jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img:first').attr('src')
+  .split(' ')[0]
+  .replace('180w', '1080w')
   else
-  $img = jQuery('.swiper-slide-active img.zoomImg:first').attr('content')
+  $img = jQuery('.meta[property="og:image"]:eq(0)').attr('content')
   
   if ($img.indexOf("http") == -1)
   'https:'+$img
@@ -408,11 +411,11 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   $img
   
   
-  if (jQuery('[data-pf-type="ImageItem"] img').length > 0){
+  if (jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"]  img').length > 0){
     $arr = [];
-    jQuery('[data-pf-type="ImageItem"] img').each(function(index){
+    jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img').each(function(index){
         if (index < 4) 
-        $arr.push('https:'+jQuery(this).attr("src"))
+        $arr.push('https:'+jQuery(this).attr("srcset"))
     })
     $arr
     }
@@ -435,8 +438,8 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   /////////////////////////////
   /////////////////////////////////////////////
 
-  if (jQuery('.tt-product-single-img img:first').length > 0) 
-  $img = jQuery('.tt-product-single-img img:first').attr('src')  
+  if (jQuery('.mainBand--product .productItem .prodViews img:first').length > 0) 
+  $img = jQuery('.mainBand--product .productItem .prodViews img:first').attr('src')  
   .split(' ')[0]
   .replace('180x', '1080x')
   else
@@ -447,12 +450,25 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   else
   $img
 
-  if (jQuery('.tt-product-single-img img').length > 0){
+  if (jQuery('.mainBand--product .productItem .prodViews img').length > 0){
     $arr = [];
-    jQuery('.tt-product-single-img img').each(function(index){
+    jQuery('.mainBand--product .productItem .prodViews img').each(function(index){
         if (index < 4) 
-        $arr.push('https:'+jQuery(this).attr('data-srcset')  
+        $arr.push(jQuery(this).attr('src')  
         .split(' ')[0])
     })
     $arr
     }
+
+
+    if (jQuery('.product-slide img:first').length > 0) 
+  $img = jQuery('.product-slide img:first').attr('srcset')  
+  .split(' ')[0]
+  .replace('180x', '1080x')
+  else
+  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+  
+  if ($img.indexOf("http") == -1)
+  'https:'+$img
+  else
+  $img

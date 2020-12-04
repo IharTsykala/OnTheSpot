@@ -239,9 +239,9 @@ jQuery(".price--compare-at:first").text().trim() ||
       ||  jQuery(".regular-price:first").text().trim().split("kr")[0].trim())
 
 
-      jQuery(".price__regular .price-item:first").text().trim()
-      jQuery(".price__sale .price-item:first").text().trim() ||
-        jQuery(".price__regular .price-item:first").text().trim()
+      jQuery('[id="ProductPrice"]:first').text().trim()
+      jQuery(".was:first").text().trim() ||
+        jQuery(".product-price:first").text().trim()
 
         jQuery(".price--compare-at:first .money").text().trim() ||
   jQuery(".price--main:first .money").text().trim()
@@ -255,10 +255,16 @@ jQuery(".price--compare-at:first").text().trim() ||
 jQuery('.current_price:first').text().trim().replace(/\s/g,'') ||
 jQuery('.snize-price:first').text().trim().replace(/\s/g,'')
 
-jQuery('.current_price:first').text().trim().replace(/\s/g,'') ||
+jQuery('.product-price:first').text().trim().replace(/\s/g,'') ||
   jQuery('.snize-price:first').text().trim().replace(/\s/g,'')
 
-  jQuery('.price-productpage:first').text().trim().replace(/\s/g,'') ||
+  jQuery('[id="productPrice-product-template"] .visually-hidden:first').text().trim().replace(/\s/g,'') ||
 jQuery('.current_price:first').text().trim().replace(/\s/g,'')
 
-'₽' + ' ' + jQuery('.price-standard:first').text().trim().replace(/\s/g,'').split('руб')[0].trim()
+'£' + ' ' + jQuery('i:contains(£)').text().trim().replace(/\s/g,'').split('£')[1].trim()
+
+jQuery('.price__sale .price-item--sale:first').text().trim() 
+|| jQuery('.price__regular .price-item--regular:first').text().trim() 
+jQuery('.price__sale .price-item--regular:first').text().trim() 
+|| jQuery('.price__sale .price-item--sale:first').text().trim() 
+||  jQuery('.price__regular .price-item--regular:first').text().trim()

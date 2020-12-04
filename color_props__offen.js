@@ -829,3 +829,54 @@ return $text;
 
 ///////////////////////////////////////////////////////
 ////////////////////////////////////////
+
+// for ul li
+
+if (jQuery("ul.prodColours:first li").length > 0) {
+  ;[
+    jQuery("ul.prodColours:first li.selected").length > 0
+      ? jQuery("ul.prodColours:first li.selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery("ul.prodColours:first li").map(function (i, e) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else ["No Color", ["No Color"]]
+
+if (
+  jQuery("ul.prodColours:first li").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery("ul.prodColours:first li").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg)
+      jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$val = false
+if (
+  jQuery("ul.prodColours:first li").length > 0 &&
+  $sarg != "No size" &&
+  $sarg != "Select size"
+) {
+  $val = true
+  jQuery("ul.prodColours:first li").each(function () {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass("unavailable")
+    ) {
+      $val = false
+    }
+  })
+}
+return $val

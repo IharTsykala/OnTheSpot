@@ -1477,3 +1477,99 @@ if (jQuery('.image__container img:first').length > 0)
     })
     $arr
   }
+
+
+  if (
+    jQuery(".grid-uniform .grid__item").length > 0 &&
+    jQuery('.product-single__image-wrapper img:first').length === 0
+    // &&  jQuery(".product-single").length === 0
+  ) {
+    $arr = []
+  
+    jQuery(".grid-uniform .grid__item").each(function () {
+      $title = jQuery(this).find(".grid-link__title").text().trim()
+  
+      if (jQuery(this).find("noscript").text().trim())
+        $img =
+          // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
+          // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+          "https:" +
+          jQuery(this)
+            .find("noscript")          
+            .text()
+            .trim()
+            .split('src="')[1]
+            .split(" ")[0]         
+            .trim()
+            .slice(0, -1)
+      // .replace('gif', 'jpg')
+      else $img = ""
+  
+      $link = "https://moodsclothing.com" + jQuery(this)
+      .find("a:first")
+      .attr("href")
+  
+      $price =  
+      '$' +    
+       (jQuery(this)
+          .find(".grid-link__meta")
+          .text()
+          .trim()
+          .replace(/\s/g, "") 
+          .split('$')[2]
+          ||
+          jQuery(this)
+          .find(".grid-link__meta")
+          .text()
+          .trim()
+          .replace(/\s/g, "") 
+          .split('$')[1])
+          
+      
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    })
+    $arr
+  }
+
+
+  if (
+    jQuery('[data-pf-type="ProductList"] [data-pf-type="ProductBox"]').length > 0 &&
+    jQuery('[data-pf-type="MasterImage"] img[role="presentation"].zoomImg:first').length === 0
+    &&  jQuery('[data-pf-type="ImageItem"]').length === 0
+  ) {
+    $arr = []
+  
+    jQuery('[data-pf-type="ProductList"] [data-pf-type="ProductBox"]').each(function () {
+      $title = jQuery(this).find('[data-product-type="title"]').text().trim()
+  
+      $img =
+        "https:" +
+        (
+          jQuery(this).find("img:first").attr("src") ||
+          //  jQuery(this).find("img:first").attr("data-src") ||
+          //  jQuery(this).find("img:first").attr("data-srcset") ||
+          jQuery(this).find("img:first").attr("src") ||
+          ""
+        )
+          // .replace(/\s/g, "%20")
+          .split(" ")[0]
+  
+      $link =
+        "https://pipe-decor.com" + jQuery(this).find("a:first").attr("href")
+  
+      $price =     
+      // "$" + 
+      jQuery(this)
+          .find('[data-product-type="price"]:first')
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+          // .split("$")[2] || '').trim()
+      // .split("Sale price")[1]
+  
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    })
+    $arr
+  }

@@ -16,14 +16,14 @@ jQuery('[class="grand totals"] .price:first')
 .field button.field__input-btn
 .total-line-table .payment-due__price
 
-jQuery('[placeholder="Código de descuento"]:last')
-jQuery('[name="submitAddDiscountCart"]')
-jQuery('.totalamount .price:first')
+jQuery('[id="cnc__promocode"]:last')
+jQuery('[ng-disabled="!pmtCtrl.code"]:last')
+jQuery('.ng-binding:last')
 
 jQuery('#reduction button:first').click()
 jQuery('#coupon_code')
 jQuery('button[value="Apply Voucher"]')
-jQuery('.grand_total .price:last')
+jQuery('[class="cart_total-price "]')
 
 //////////////////////////////
 jQuery('a.showcoupon')[0].click()

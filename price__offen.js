@@ -111,10 +111,26 @@ jQuery(".product--price .price--compare-at").text().trim() ||
   "PEN" + " " + jQuery(".bestPrice:first").text().trim().split("S/")[1]
 
 
-  jQuery('.current_price:first').text().trim().replace(/\s/g,'') ||
-  jQuery('.snize-price:first').text().trim().replace(/\s/g,'')
+  jQuery('.modal_price .current_price:first').text().trim().replace(/\s/g,'') ||
+  jQuery('.modal_price .snize-price:first').text().trim().replace(/\s/g,'')
 
 
-  jQuery('.was-price:first').text().trim().replace(/\s/g,'') ||
-jQuery('.current_price:first').text().trim().replace(/\s/g,'') ||
-jQuery('.snize-price:first').text().trim().replace(/\s/g,'')
+  jQuery('.modal_price .was_price .money').text().trim().replace(/\s/g,'') ||
+jQuery('.modal_price .current_price:first').text().trim().replace(/\s/g,'') ||
+jQuery('.modal_price .snize-price:first').text().trim().replace(/\s/g,'')
+
+jQuery('[id="ProductPrice"]:first').text().trim()
+// if(jQuery('[id="ComparePrice"]:first').text().trim().split('$')[1])
+"$" + " " +(+jQuery('[id="ComparePrice"]:first').text().trim().split('$')[1] ||
+  jQuery('[id="ProductPrice"]:first').text().trim().split('$')[1])
+
+  jQuery(".price__regular .money:first").text().trim()
+jQuery(".was_price .price-item:first").text().trim() ||
+  jQuery(".price__regular .price-item:first").text().trim()
+
+jQuery(".current_price .money:first").text().trim()  
+jQuery(".was_price :first").text().trim() ||
+  jQuery(".current_price .money:first").text().trim()
+
+
+  jQuery(".ProductMeta__Price:first").text().trim()
