@@ -312,7 +312,7 @@ if (
     // console.log(jQuery(this),!jQuery(this).attr('class').indexOf("disabled") >= 0)
     if (
       jQuery(this).find('a').text().trim().replace(/\s\s+/g, "") == $sarg &&
-      !jQuery(this).attr('class').indexOf("disabled") >= 0
+      !jQuery(this).hasClass("unavailable")
     ) {
       $text = false;            
     }
@@ -1946,3 +1946,66 @@ if (
   });
 }
 return $text;
+
+////////////////////////////////////////////
+///////////////////////////////////
+
+// a 
+
+if (jQuery(".swatch:first a").length > 0) {
+  [
+    jQuery(
+      ".swatch:first a.selected"
+    ).length > 0
+      ? jQuery(".swatch:first a.selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".swatch:first a").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Size", ["No Size"]];
+
+
+if (
+  jQuery(".swatch:first a").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery(".swatch:first a").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+
+$text = false;
+if (
+jQuery(".swatch:first a").length > 0 &&
+$sarg != "No Size" &&
+$sarg != "Select Size"
+) {  
+$text = true;
+jQuery(".swatch:first a").each(function (index) {  
+  // console.log(jQuery(this),!jQuery(this).attr('class').indexOf("disabled") >= 0)
+  if (
+    jQuery(this).find('a').text().trim().replace(/\s\s+/g, "") == $sarg &&
+    !jQuery(this).hasClass("unavailable")
+  ) {
+    $text = false;            
+  }
+});
+}
+return $text;
+
+//////////////////////

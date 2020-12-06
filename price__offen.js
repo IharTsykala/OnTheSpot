@@ -133,4 +133,22 @@ jQuery(".was_price :first").text().trim() ||
   jQuery(".current_price .money:first").text().trim()
 
 
-  jQuery(".ProductMeta__Price:first").text().trim()
+  jQuery(".product-normal-price:first").text().trim()
+
+  jQuery(".ProductMeta__Price.Price--highlight:first").text().trim() 
+  || jQuery(".ProductMeta__Price:first").text().trim()
+  jQuery(".ProductMeta__Price.Price--compareAt:first").text().trim() ||
+    jQuery(".ProductMeta__Price.Price--highlight:first").text().trim()
+    || jQuery(".ProductMeta__Price:first").text().trim()
+
+
+    jQuery("#ProductPrice:first").text().trim()
+    jQuery("#ComparePrice:first").text().trim() ||
+      jQuery("#ProductPrice:first").text().trim()
+
+
+      jQuery('.price__sale .price-item--sale:first').text().trim() 
+|| jQuery('.price__regular .price-item--regular:first').text().trim() 
+jQuery('.price__sale .price-item--regular:first').text().trim() 
+|| jQuery('.price__sale .price-item--sale:first').text().trim() 
+||  jQuery('.price__regular .price-item--regular:first').text().trim()

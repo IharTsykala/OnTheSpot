@@ -268,3 +268,20 @@ jQuery('.price__sale .price-item--sale:first').text().trim()
 jQuery('.price__sale .price-item--regular:first').text().trim() 
 || jQuery('.price__sale .price-item--sale:first').text().trim() 
 ||  jQuery('.price__regular .price-item--regular:first').text().trim()
+
+
+jQuery('[id="productPrice-product-template"] span:first').text().trim().slice(0,-2)
+jQuery('[id="productPrice-product-template"] small').text().trim().slice(0,-2) ||
+  jQuery('[id="productPrice-product-template"] span').text().trim().slice(0,-2)
+
+  jQuery('[id="ProductPrice-product"]:first').text().trim().slice(0,-2)
+
+  jQuery('.product-price__price:first').text().trim()
+      jQuery(".product-price__price.product-price__sale:first").text().trim() ||
+        jQuery(".product-price__price:first").text().trim()
+
+        "$"+(jQuery('.product-form__info-content .price--highlight:first').text().trim().split("$")[1]
+        || jQuery('.product-form__info-content .price:first').text().trim().split("$")[1] )
+        "$"+(jQuery(".product-form__info-content .price--compare:first").text().trim().split("$")[1]  ||
+          jQuery(".product-form__info-content .price--highlight:first").text().trim().split("$")[1]  
+          || jQuery('.product-form__info-content .price:first').text().trim().split("$")[1] )

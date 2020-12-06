@@ -1284,12 +1284,12 @@ if (
 
 
 if (
-  jQuery('.collection-grid .product-item').length > 0 &&
+  jQuery('.collection--grid .product-item').length > 0 &&
   jQuery('.product__photo--single img:first').length === 0
 ) {
   $arr = [];
 
-  jQuery('.collection-grid .product-item').each(function () {
+  jQuery('.collection--grid .product-item').each(function () {
     $title = jQuery(this).find(".product-item__title").text().trim()
     // .split(' / ')[0];
 

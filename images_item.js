@@ -398,10 +398,10 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
 
   ////////////////////////////////
 
-  if (jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img:first').length > 0) 
-  $img = jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img:first').attr('src')
+  if (jQuery('[class="product-gallery__carousel-item is-selected"] img:first').length > 0) 
+  $img = jQuery('[class="product-gallery__carousel-item is-selected"] img:first').attr('data-zoom')
   .split(' ')[0]
-  .replace('180w', '1080w')
+  .replace('_250', '_1080')
   else
   $img = jQuery('.meta[property="og:image"]:eq(0)').attr('content')
   
@@ -411,11 +411,11 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   $img
   
   
-  if (jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"]  img').length > 0){
+  if (jQuery('[class="product-gallery__thumbnail-list"] img').length > 0){
     $arr = [];
-    jQuery('[class="Product__SlideItem Product__SlideItem--image Carousel__Cell is-selected"] img').each(function(index){
+    jQuery('[class="product-gallery__thumbnail-list"] img').each(function(index){
         if (index < 4) 
-        $arr.push('https:'+jQuery(this).attr("srcset"))
+        $arr.push('https:'+jQuery(this).attr("src"))
     })
     $arr
     }

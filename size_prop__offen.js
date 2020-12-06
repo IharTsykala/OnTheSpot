@@ -113,15 +113,15 @@ return $text
 //
 
 if (
-  jQuery('select[id="ProductSelect-product-template-option-0"] option')
+  jQuery('select[id="productSelect"] option')
     .length > 0
 ) {
   ;[
     jQuery(
-      'select[id="ProductSelect-product-template-option-0"] option:selected'
+      'select[id="productSelect"] option:selected'
     ).text() != ""
       ? jQuery(
-          'select[id="ProductSelect-product-template-option-0"] option:selected'
+          'select[id="productSelect"] option:selected'
         )
           .text()
           .trim()
@@ -129,7 +129,7 @@ if (
         "Select Size",
     jQuery.makeArray(
       jQuery(
-        'select[id="ProductSelect-product-template-option-0"] option'
+        'select[id="productSelect"] option'
       ).map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "")
@@ -141,12 +141,12 @@ if (
 }
 
 if (
-  jQuery('select[id="ProductSelect-product-template-option-0"] option')
+  jQuery('select[id="productSelect"] option')
     .length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery('select[id="ProductSelect-product-template-option-0"] option').each(
+  jQuery('select[id="productSelect"] option').each(
     function () {
       if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
         jQuery(this).trigger("change")
@@ -160,13 +160,13 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery('select[id="ProductSelect-product-template-option-0"] option')
+  jQuery('select[id="productSelect"] option')
     .length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true
-  jQuery('select[id="ProductSelect-product-template-option-0"] option').each(
+  jQuery('select[id="productSelect"] option').each(
     function (index) {
       if (
         jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&

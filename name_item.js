@@ -1,6 +1,6 @@
 jQuery('p.product-details__brand').text().trim()
 
-jQuery('.product__title:first').text().trim()
+jQuery('.product-single__title:first').text().trim()
 
 jQuery('#title').text().trim().split(' In ')[0]
 

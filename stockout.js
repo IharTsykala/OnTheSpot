@@ -7,8 +7,8 @@ if (jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimen
 
 ///////////////////////////////////////////
 
-if (jQuery('[class="button add"]').text().trim().toLowerCase() == 'sold out' || 
-jQuery('[class="button add"]').text().trim().toLowerCase() == 'out of stock' )
+if (jQuery('[class="label-sold-out"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[class="label-sold-out"]').text().trim().toLowerCase() == 'out of stock' )
 // ||
 // jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
  {
@@ -66,7 +66,7 @@ if (jQuery('.buyWrapper input').attr('value').toLowerCase().indexOf('out')>=0) {
   $status = false;
 }
 
-if (jQuery('.details-product-purchase__add-buttons .form-control__button-text:last').text().trim().toLowerCase().indexOf('out')>=0) {
+if (jQuery('.shopify-payment-button__button').text().trim().toLowerCase().indexOf('out')>=0) {
   $status = true
 } else {
   $status = false;
@@ -176,7 +176,7 @@ Array.from(
   e => e.textContent.includes("₹")
 )[16].innerText;
 
-if (jQuery('.single-product [name="add"]').text().trim().toLowerCase().indexOf('out') >= 0) 
+if (jQuery('[class="label-sold-out"]').text().trim().toLowerCase().indexOf('out') >= 0) 
 {
   $status = true
 } else {
@@ -208,7 +208,7 @@ if (jQuery('.add-to-cart-buttons button').text().trim()  === 'Out of stock') {
   $status = false;
 }
 
-if (jQuery('.ProductForm__AddToCart').text().trim().toLowerCase().indexOf('out') >= 0)
+if (jQuery('.productForm-submit').text().trim().toLowerCase().indexOf('out') >= 0)
   {
   $status = true
 } else {
