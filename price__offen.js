@@ -119,10 +119,10 @@ jQuery(".product--price .price--compare-at").text().trim() ||
 jQuery('.modal_price .current_price:first').text().trim().replace(/\s/g,'') ||
 jQuery('.modal_price .snize-price:first').text().trim().replace(/\s/g,'')
 
-jQuery('[id="ProductPrice"]:first').text().trim()
+"DKK" + " " +jQuery('[id="ProductPrice"]:first').text().trim().split('DKK')[0]
 // if(jQuery('[id="ComparePrice"]:first').text().trim().split('$')[1])
-"$" + " " +(+jQuery('[id="ComparePrice"]:first').text().trim().split('$')[1] ||
-  jQuery('[id="ProductPrice"]:first').text().trim().split('$')[1])
+"DKK" + " " +(+jQuery('[id="ComparePrice"]:first').text().trim().split('DKK')[0] ||
+  jQuery('[id="ProductPrice"]:first').text().trim().split('DKK')[0])
 
   jQuery(".price__regular .money:first").text().trim()
 jQuery(".was_price .price-item:first").text().trim() ||
@@ -152,3 +152,7 @@ jQuery(".was_price :first").text().trim() ||
 jQuery('.price__sale .price-item--regular:first').text().trim() 
 || jQuery('.price__sale .price-item--sale:first').text().trim() 
 ||  jQuery('.price__regular .price-item--regular:first').text().trim()
+
+jQuery(".price ins:first").text().trim()
+jQuery(".price del:first").text().trim() ||
+  jQuery(".price ins:first").text().trim()

@@ -8,6 +8,12 @@ jQuery('.field input[id="checkout_reduction_code"]')
 jQuery('.field button.field__input-btn')
 jQuery('.total-line .payment-due__price')
 
+////////////////
+
+jQuery('input[id="order-review-coupon-code"]')
+jQuery('a[id="order-review-apply-coupon"]')
+jQuery('.order-total .woocommerce-Price-amount.amount')
+
 jQuery('button[data-trekkie-id="apply_discount_button"]')
 
 jQuery('[class="grand totals"] .price:first')
@@ -35,6 +41,15 @@ jQuery('[id="coupon_code"]:last')
 jQuery('[name="apply_coupon"]:last')
 jQuery('.woocommerce-Price-amount:last')
 /////////////////////////////////
+
+jQuery('.ec-cart-coupon__text a.ec-link:first')[0].click()
+jQuery('[id="ec-cart-sidebar-discount-coupon-input"]:first')
+jQuery('[class="ec-cart-coupon__buttons"] button:first')
+jQuery('.ec-cart-summary__row--total .ec-cart-summary__total:last')
+jQuery('a.to_open-coupon')[0].click()
+jQuery('[id="coupon_code"]:last')
+jQuery('[name="apply_coupon"]:last')
+jQuery('.woocommerce-Price-amount:last')
 
 jQuery('[id="coupon_code"]:last')
 jQuery('[title="Gutschein einlösen"]:last')

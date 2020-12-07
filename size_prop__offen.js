@@ -113,15 +113,15 @@ return $text
 //
 
 if (
-  jQuery('select[id="productSelect"] option')
+  jQuery('select[class="single-option-selector"]:first option')
     .length > 0
 ) {
   ;[
     jQuery(
-      'select[id="productSelect"] option:selected'
+      'select[class="single-option-selector"]:first option:selected'
     ).text() != ""
       ? jQuery(
-          'select[id="productSelect"] option:selected'
+          'select[class="single-option-selector"]:first option:selected'
         )
           .text()
           .trim()
@@ -129,7 +129,7 @@ if (
         "Select Size",
     jQuery.makeArray(
       jQuery(
-        'select[id="productSelect"] option'
+        'select[class="single-option-selector"]:first option'
       ).map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "")
@@ -141,12 +141,12 @@ if (
 }
 
 if (
-  jQuery('select[id="productSelect"] option')
+  jQuery('select[class="single-option-selector"]:first option')
     .length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery('select[id="productSelect"] option').each(
+  jQuery('select[class="single-option-selector"]:first option').each(
     function () {
       if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
         jQuery(this).trigger("change")
@@ -160,13 +160,13 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery('select[id="productSelect"] option')
+  jQuery('select[class="single-option-selector"]:first option')
     .length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true
-  jQuery('select[id="productSelect"] option').each(
+  jQuery('select[class="single-option-selector"]:first option').each(
     function (index) {
       if (
         jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
@@ -693,7 +693,7 @@ if (
   ) {
     if (
       jQuery(this).attr("value") == $sarg &&
-      !jQuery(this).attr(".data-availability") === "soldout"
+      !jQuery(this).jQuery(this).attr("disabled")
     ) {
       $text = false
     }
@@ -1554,3 +1554,76 @@ if (
   })
 }
 return $val
+
+//////////////////////////////
+//////////////////////////
+///////////
+
+if (
+  jQuery('.select:contains(Size) option')
+    .length > 0
+) {
+  ;[
+    jQuery(
+      '.select:contains(Size) option:.selected'
+    ).text() != ""
+      ? jQuery(
+          '.select:contains(Size) option:.selected'
+        )
+          .text()
+          .trim()
+      : // .replace(/\s\s+/g, "")
+        "Select Size",
+    jQuery.makeArray(
+      jQuery(
+        '.select:contains(Size) option'
+      ).map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Size", ["No Size"]]
+}
+
+if (
+  jQuery('.select:contains(Size) option')
+    .length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery('.select:contains(Size) option').each(
+    function () {
+      if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+        jQuery(this).trigger("change")
+      }
+    }
+  )
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery('.select:contains(Size) option')
+    .length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true
+  jQuery('.select:contains(Size) option').each(
+    function (index) {
+      if (
+        jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+        !jQuery(this).attr("disabled")
+      ) {
+        $text = false
+      }
+    }
+  )
+}
+return $text
+
+//////////////////////////////////////////

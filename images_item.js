@@ -398,10 +398,10 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
 
   ////////////////////////////////
 
-  if (jQuery('[class="product-gallery__carousel-item is-selected"] img:first').length > 0) 
-  $img = jQuery('[class="product-gallery__carousel-item is-selected"] img:first').attr('data-zoom')
+  if (jQuery('[class="product-gallery__carousel-item is-selected "] img:first').length > 0) 
+  $img = jQuery('[class="product-gallery__carousel-item is-selected "] img:first').attr('data-srcset')
   .split(' ')[0]
-  .replace('_250', '_1080')
+  .replace('_400', '_1100')
   else
   $img = jQuery('.meta[property="og:image"]:eq(0)').attr('content')
   
@@ -411,11 +411,11 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   $img
   
   
-  if (jQuery('[class="product-gallery__thumbnail-list"] img').length > 0){
+  if (jQuery('[class="product-gallery__carousel-item is-selected "] img:first').length > 0){
     $arr = [];
-    jQuery('[class="product-gallery__thumbnail-list"] img').each(function(index){
+    jQuery('[class="product-gallery__carousel-item is-selected "] img:first').each(function(index){
         if (index < 4) 
-        $arr.push('https:'+jQuery(this).attr("src"))
+        $arr.push('https:'+jQuery(this).attr("data-srcset"))
     })
     $arr
     }
@@ -438,10 +438,10 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   /////////////////////////////
   /////////////////////////////////////////////
 
-  if (jQuery('.mainBand--product .productItem .prodViews img:first').length > 0) 
-  $img = jQuery('.mainBand--product .productItem .prodViews img:first').attr('src')  
+  if (jQuery('.image__container img:first').length > 0) 
+  $img = jQuery('.image__container img:first').attr('src')  
   .split(' ')[0]
-  .replace('180x', '1080x')
+  // .replace('180x', '1080x')
   else
   $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
   
@@ -450,11 +450,11 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   else
   $img
 
-  if (jQuery('.mainBand--product .productItem .prodViews img').length > 0){
+  if (jQuery('.image__container img').length > 0){
     $arr = [];
-    jQuery('.mainBand--product .productItem .prodViews img').each(function(index){
+    jQuery('.image__container img').each(function(index){
         if (index < 4) 
-        $arr.push(jQuery(this).attr('src')  
+        $arr.push('https:'+jQuery(this).attr('src')  
         .split(' ')[0])
     })
     $arr

@@ -7,8 +7,8 @@ if (jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimen
 
 ///////////////////////////////////////////
 
-if (jQuery('[class="label-sold-out"]').text().trim().toLowerCase() == 'sold out' || 
-jQuery('[class="label-sold-out"]').text().trim().toLowerCase() == 'out of stock' )
+if (jQuery('[class="form-control__button"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[class="form-control__button"]').text().trim().toLowerCase() == 'out of stock' )
 // ||
 // jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
  {
@@ -53,8 +53,8 @@ if (jQuery('.ProductItem-details .sold-out').text().trim() == 'sold out' ) {
 
 :not(.h-tp-hidden)
 
-if (jQuery('.shopify-payment-button__button').attr('value').toLowerCase().indexOf('sold out')>=0 
-  || jQuery('.shopify-payment-button__button').attr('value').toLowerCase().indexOf('out of stock')>=0) {
+if (jQuery('.shopify-payment-button__button').text().trim().toLowerCase().indexOf('sold out')>=0 
+  || jQuery('.shopify-payment-button__button').text().trim().toLowerCase().indexOf('out of stock')>=0) {
   $status = true
 } else {
   $status = false;
@@ -176,7 +176,7 @@ Array.from(
   e => e.textContent.includes("₹")
 )[16].innerText;
 
-if (jQuery('[class="label-sold-out"]').text().trim().toLowerCase().indexOf('out') >= 0) 
+if (jQuery('.add_to_cart_button').text().trim().toLowerCase().indexOf('out') >= 0) 
 {
   $status = true
 } else {
@@ -202,13 +202,19 @@ if (jQuery('button.btn-cart-add').length === 0 && jQuery('.product-notifier').te
   $status = false;
 }
 
-if (jQuery('.add-to-cart-buttons button').text().trim()  === 'Out of stock') {
+if (jQuery('.add-to-card__inner button').text().trim()  === 'Out of stock') {
   $status = true
 } else {
   $status = false;
 }
 
-if (jQuery('.productForm-submit').text().trim().toLowerCase().indexOf('out') >= 0)
+if (!jQuery('.add-to-card__inner .btn-primary').length) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('.ProductForm__AddToCart').text().trim().toLowerCase().indexOf('out') >= 0)
   {
   $status = true
 } else {

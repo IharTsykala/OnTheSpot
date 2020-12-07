@@ -276,7 +276,7 @@ jQuery('[id="productPrice-product-template"] small').text().trim().slice(0,-2) |
 
   jQuery('[id="ProductPrice-product"]:first').text().trim().slice(0,-2)
 
-  jQuery('.product-price__price:first').text().trim()
+  jQuery('[class="details-product-price__value ec-price-item notranslate"]').text().trim()
       jQuery(".product-price__price.product-price__sale:first").text().trim() ||
         jQuery(".product-price__price:first").text().trim()
 
@@ -285,3 +285,13 @@ jQuery('[id="productPrice-product-template"] small').text().trim().slice(0,-2) |
         "$"+(jQuery(".product-form__info-content .price--compare:first").text().trim().split("$")[1]  ||
           jQuery(".product-form__info-content .price--highlight:first").text().trim().split("$")[1]  
           || jQuery('.product-form__info-content .price:first').text().trim().split("$")[1] )
+
+          "NZD" + ' ' + jQuery('.price:first').text().trim().split("NZ$")[1]
+
+          'HKD' + ' ' +(
+          jQuery(".ProductMeta__Price.Price--highlight:first").text().trim() .split("$")[1]
+  || jQuery(".ProductMeta__Price:first").text().trim().split("$")[1])
+  'HKD' + ' ' +(
+  jQuery(".ProductMeta__Price.Price--compareAt:first").text().trim().split("$")[1] ||
+    jQuery(".ProductMeta__Price.Price--highlight:first").text().trim().split("$")[1]
+    || jQuery(".ProductMeta__Price:first").text().trim().split("$")[1])
