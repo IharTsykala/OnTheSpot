@@ -176,7 +176,7 @@ Array.from(
   e => e.textContent.includes("₹")
 )[16].innerText;
 
-if (jQuery('.add_to_cart_button').text().trim().toLowerCase().indexOf('out') >= 0) 
+if (jQuery('.sl-subhead- span:first').text().trim().toLowerCase().indexOf('out') >= 0) 
 {
   $status = true
 } else {

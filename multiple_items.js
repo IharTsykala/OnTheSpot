@@ -1573,3 +1573,106 @@ if (jQuery('.image__container img:first').length > 0)
     })
     $arr
   }
+
+
+  if (
+    jQuery(".collectionGrid-row .collectionBlock").length > 0 &&
+    jQuery('[class="responsive-image__wrapper easyzoom easyzoom--adjacent is-ready").length === 0
+    // &&  jQuery(".product-single").length === 0
+  ) {
+    $arr = []
+  
+    jQuery(".collectionGrid-row .collectionBlock").each(function () {
+      $title = jQuery(this).find(".collectionBlock__title").text().trim()
+  
+      if (jQuery(this).find("noscript").text().trim())
+        $img =
+          // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
+          // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+          "https:" +
+          jQuery(this)
+            .find("noscript")          
+            .text()
+            .trim()
+            // .split('src="')[1]
+            .split("url('")[1]
+            .split("');")[0]         
+            .trim()
+            .slice(0, -2)
+      // .replace('gif', 'jpg')
+      else $img = ""
+  
+      $link = "https://deco.miami" + jQuery(this)
+      .find("a:first")
+      .attr("href")
+  
+      $price =  
+      '$' +    
+        (jQuery(this)
+          .find(".collectionBlock__price:first")
+          .text()
+          .trim()
+          .replace(/\s/g, "") 
+          .split('$')[2] 
+          ||
+          jQuery(this)
+          .find(".collectionBlock__price:first")
+          .text()
+          .trim()
+          .replace(/\s/g, "") 
+          .split('$')[1])
+          
+      
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    })
+    $arr
+  }
+
+
+  if (
+    jQuery(".grid-uniform .grid-item").length > 0 &&
+    jQuery('.product-photo-container img:first').length === 0
+    // &&  jQuery(".product-single").length === 0
+  ) {
+    $arr = []
+  
+    jQuery(".grid-uniform .grid-item").each(function () {
+      $title = jQuery(this).find("p").text().trim()
+  
+      if (jQuery(this).find("noscript").text().trim())
+        $img =
+          // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
+          // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+          "https:" +
+          jQuery(this)
+            .find("noscript")          
+            .text()
+            .trim()
+            .split('src="')[1]
+            .split(" ")[0]         
+            .trim()
+            .slice(0, -1)
+      // .replace('gif', 'jpg')
+      else $img = ""
+  
+      $link = "https://uhlan.co.uk" + jQuery(this)
+      .find("a:first")
+      .attr("href")
+  
+      $price =  
+      // '$' +    
+       jQuery(this)
+          .find(".product-item--price .visually-hidden:last")
+          .text()
+          .trim()
+          .replace(/\s/g, "") 
+          // .split('$')[2]
+         
+          
+      
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    })
+    $arr
+  }

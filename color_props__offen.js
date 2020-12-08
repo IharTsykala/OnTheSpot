@@ -163,15 +163,15 @@ return $text;
 
 ///////////////////////
 
-if (jQuery(".swatch:contains(color) input").length > 0) {
+if (jQuery(".swatch:contains(Color) input").length > 0) {
   ;[
-    jQuery(".swatch:contains(color) input:checked").length > 0
-      ? jQuery(".swatch:contains(color) input:checked")
+    jQuery(".swatch:contains(Color) input:checked").length > 0
+      ? jQuery(".swatch:contains(Color) input:checked")
       .attr("value")
       .replace(/\s\s+/g, "")
   : "Select item",
 jQuery.makeArray(
-  jQuery(".swatch:contains(color) input").map(function (i, e) {
+  jQuery(".swatch:contains(Color) input").map(function (i, e) {
     if (jQuery(e).attr("value") != "")
       return jQuery(e).attr("value").replace(/\s\s+/g, "")
   })
@@ -181,10 +181,10 @@ jQuery.makeArray(
 ;["No Color", ["No Color"]]
 }
 
-if (jQuery(".swatch:contains(color) input").length > 0  &&
+if (jQuery(".swatch:contains(Color) input").length > 0  &&
 $sarg != "Select Color" &&
 $sarg != "No Color") {
-jQuery(".swatch:contains(color) input").each(function () {
+jQuery(".swatch:contains(Color) input").each(function () {
 if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
   jQuery(this).next()[0].click()
 }
@@ -196,12 +196,12 @@ return true
 
 $text = false;
 if (
-  jQuery(".swatch:contains(color) input").length > 0 &&
+  jQuery(".swatch:contains(Color) input").length > 0 &&
   $sarg != "No Color" &&
   $sarg != "Select Color"
 ) {
   $text = true;
-  jQuery(".swatch:contains(color) input").each(function (index) {
+  jQuery(".swatch:contains(Color) input").each(function (index) {
     if (
       jQuery(this).attr("value") == $sarg &&
       !jQuery(this).attr('.data-availability')

@@ -295,3 +295,35 @@ jQuery('[id="productPrice-product-template"] small').text().trim().slice(0,-2) |
   jQuery(".ProductMeta__Price.Price--compareAt:first").text().trim().split("$")[1] ||
     jQuery(".ProductMeta__Price.Price--highlight:first").text().trim().split("$")[1]
     || jQuery(".ProductMeta__Price:first").text().trim().split("$")[1])
+
+
+    '$'+(jQuery('[id="productPrice"] .visually-hidden:first').next().text().trim().replace(/\s/g,'').split('$')[1]
+    ||  jQuery('[id="productPrice"] .visually-hidden:first ').text().trim().replace(/\s/g,'').split('$')[1])
+    '$'+jQuery('[id="productPrice"] .visually-hidden:first ').text().trim().replace(/\s/g,'').split('$')[1]
+
+    jQuery('.product-price .product-sale-price:first').text().trim() 
+|| jQuery('.product-price .product-normal-price:first').text().trim() ||
+jQuery('.product-price .product-sale-price:first').text().trim()
+
+if(jQuery('.product-price .product-compare-price:first').text().trim() === jQuery('.product-sale-price:first').text().trim() 
+|| (!+jQuery('.product-price .product-compare-price:first').text().trim().split('$')[1])) ''
+else {
+  jQuery('.product-price .product-compare-price:first').text().trim() 
+|| jQuery('.product-sale-price:first').text().trim() 
+||  jQuery('.product-normal-price:first').text().trim()
+}
+ jQuery('.product-detail__title-area .product-price__reduced:first').text().trim().replace(/\s/g,'') ||
+jQuery('.product-detail__title-area .product-price:first').text().trim().replace(/\s/g,'') 
+
+ jQuery('[id="productPrice-product-template"] .visually-hidden:first').text().trim().replace(/\s/g,'')
+ || jQuery('.product-detail__title-area .product-price:first').text().trim().replace(/\s/g,'') 
+
+ jQuery(".price--highlight:first").text().trim() ||
+ jQuery(".price:first").text().trim()
+jQuery(".price--compare:first").text().trim() ||  
+  jQuery(".price--highlight:first").text().trim() ||
+ jQuery(".price:first").text().trim()
+
+ jQuery('.pay-price:first').text().trim().replace(/\s/g,'') 
+ jQuery('.orig-price:first').text().trim().replace(/\s/g,'') ||
+ jQuery('.pay-price:first').text().trim().replace(/\s/g,'')

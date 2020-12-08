@@ -10,9 +10,14 @@ jQuery('.total-line .payment-due__price')
 
 ////////////////
 
-jQuery('input[id="order-review-coupon-code"]')
-jQuery('a[id="order-review-apply-coupon"]')
-jQuery('.order-total .woocommerce-Price-amount.amount')
+jQuery('.cart-coupon-open')[0].click()
+jQuery('.order-item input[placeholder="Discount code"]:last')
+jQuery('button.sl-main-btn:last')
+jQuery('.order-total strong')
+jQuery('.cart-coupon-main input[placeholder="Discount code"]:last')
+jQuery('.cart-coupon-main button.sl-main-btn:last')
+jQuery('.cart-total-price strong:last')
+
 
 jQuery('button[data-trekkie-id="apply_discount_button"]')
 
@@ -32,7 +37,7 @@ jQuery('button[value="Apply Voucher"]')
 jQuery('[class="cart_total-price "]')
 
 //////////////////////////////
-jQuery('a.showcoupon')[0].click()
+jQuery('.cart-coupon-open')[0].click()
 jQuery('[id="coupon_code"]:last')
 jQuery('[value="Apply coupon"]:last')
 jQuery('.woocommerce-Price-amount:last')
@@ -42,14 +47,19 @@ jQuery('[name="apply_coupon"]:last')
 jQuery('.woocommerce-Price-amount:last')
 /////////////////////////////////
 
-jQuery('.ec-cart-coupon__text a.ec-link:first')[0].click()
-jQuery('[id="ec-cart-sidebar-discount-coupon-input"]:first')
-jQuery('[class="ec-cart-coupon__buttons"] button:first')
-jQuery('.ec-cart-summary__row--total .ec-cart-summary__total:last')
+jQuery('input[id="cnc__promocode"]:last')[0].click()
+jQuery(' input[id="couponcode"]:first')
+jQuery('[ng-disabled="!pmtCtrl.code"]:last')
+jQuery('.ng-binding:last')
 jQuery('a.to_open-coupon')[0].click()
 jQuery('[id="coupon_code"]:last')
 jQuery('[name="apply_coupon"]:last')
 jQuery('.woocommerce-Price-amount:last')
+if(jQuery('input[name="redeemableCode"]:first')[0]) {
+  jQuery('input[name="redeemableCode"]:first')[0].click()
+} else if (jQuery('input[name="redeemableCode"]:first')[0]) {
+  jQuery('input[name="redeemableCode"]:first')[0].click()
+} else jQuery('.coupon-code-add:first')[0].click()
 
 jQuery('[id="coupon_code"]:last')
 jQuery('[title="Gutschein einlösen"]:last')

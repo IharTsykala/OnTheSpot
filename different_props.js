@@ -517,3 +517,55 @@ return $text
 
 //////////////////////////////////////////////////////
 ///////////////////////////////////////////////////
+
+
+///////////////////////
+
+if (jQuery(".swatch:contains(Dozen) input").length > 0) {
+  ;[
+    jQuery(".swatch:contains(Dozen) input:checked").length > 0
+      ? jQuery(".swatch:contains(Dozen) input:checked")
+      .attr("value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery(".swatch:contains(Dozen) input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Dozen", ["No Dozen"]]
+}
+
+if (jQuery(".swatch:contains(Dozen) input").length > 0  &&
+$sarg != "Select Dozen" &&
+$sarg != "No Dozen") {
+jQuery(".swatch:contains(Dozen) input").each(function () {
+if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+  jQuery(this).next()[0].click()
+}
+})
+}
+wait_for(function () {
+return true
+})
+
+$text = false;
+if (
+  jQuery(".swatch:contains(Dozen) input").length > 0 &&
+  $sarg != "No Dozen" &&
+  $sarg != "Select Dozen"
+) {
+  $text = true;
+  jQuery(".swatch:contains(Dozen) input").each(function (index) {
+    if (
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr('.data-availability')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;

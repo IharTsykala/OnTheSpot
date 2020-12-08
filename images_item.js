@@ -398,10 +398,10 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
 
   ////////////////////////////////
 
-  if (jQuery('[class="product-gallery__carousel-item is-selected "] img:first').length > 0) 
-  $img = jQuery('[class="product-gallery__carousel-item is-selected "] img:first').attr('data-srcset')
-  .split(' ')[0]
-  .replace('_400', '_1100')
+  if (jQuery('[class="swiper-slide swiper-slide-active"] img:first').length > 0) 
+  $img = jQuery('[class="swiper-slide swiper-slide-active"] img:first')  
+  .attr('src') 
+  // .replace('_300', '_1080')
   else
   $img = jQuery('.meta[property="og:image"]:eq(0)').attr('content')
   
@@ -409,13 +409,15 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   'https:'+$img
   else
   $img
+
+
   
   
-  if (jQuery('[class="product-gallery__carousel-item is-selected "] img:first').length > 0){
+  if (jQuery('[class="swiper-slide swiper-slide-active"] img').length > 0){
     $arr = [];
-    jQuery('[class="product-gallery__carousel-item is-selected "] img:first').each(function(index){
+    jQuery('[class="swiper-slide swiper-slide-active"] img').each(function(index){
         if (index < 4) 
-        $arr.push('https:'+jQuery(this).attr("data-srcset"))
+        $arr.push('https:'+jQuery(this).attr("src"))
     })
     $arr
     }
@@ -438,8 +440,8 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   /////////////////////////////
   /////////////////////////////////////////////
 
-  if (jQuery('.image__container img:first').length > 0) 
-  $img = jQuery('.image__container img:first').attr('src')  
+  if (jQuery('.product__image-wrapper img:first').length > 0) 
+  $img = jQuery('.product__image-wrapper img:first').attr('src')  
   .split(' ')[0]
   // .replace('180x', '1080x')
   else
@@ -450,9 +452,9 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   else
   $img
 
-  if (jQuery('.image__container img').length > 0){
+  if (jQuery('.product__image-wrapper img').length > 0){
     $arr = [];
-    jQuery('.image__container img').each(function(index){
+    jQuery('.product__image-wrapper img').each(function(index){
         if (index < 4) 
         $arr.push('https:'+jQuery(this).attr('src')  
         .split(' ')[0])
@@ -460,15 +462,3 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
     $arr
     }
 
-
-    if (jQuery('.product-slide img:first').length > 0) 
-  $img = jQuery('.product-slide img:first').attr('srcset')  
-  .split(' ')[0]
-  .replace('180x', '1080x')
-  else
-  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
-  
-  if ($img.indexOf("http") == -1)
-  'https:'+$img
-  else
-  $img

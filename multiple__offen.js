@@ -527,13 +527,13 @@ if (
 // ul li only src
 
 if (
-  jQuery("ul.products li").length > 0 &&
+  jQuery("ul.swiper-wrapper li").length > 0 &&
   jQuery(".mainBand--product .productItem .prodViews img:first").length === 0
 ) {
   $arr = []
 
-  jQuery("ul.products li").each(function () {
-    $title = jQuery(this).find("h2").text().trim()
+  jQuery("ul.swiper-wrapper li").each(function () {
+    $title = jQuery(this).find(".name").text().trim()
 
     $img =
       // 'https:' +
@@ -546,11 +546,11 @@ if (
       ).split(", ")[0]
     // .replace(/\s/g, "%20")
 
-    $link = "https://science.bio" + jQuery(this).find("a:first").attr("href")
+    $link = "https://www.tmisya.com" + jQuery(this).find("a:first").attr("href")
 
     $price =
       // "$" + ' ' +
-      jQuery(this).find(".woocommerce-Price-amount.amount:last").text().trim()
+      jQuery(this).find(".pay-price:last").text().trim()
     // .split("$")[1]
     // .trim()
 
@@ -806,7 +806,7 @@ if (
 
 if (
   jQuery(".grid-uniform .grid-item").length > 0 &&
-  jQuery(".image-zoom img:first").length === 0
+  jQuery(".product__image-wrapper img:first").length === 0
   // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
@@ -830,7 +830,7 @@ if (
     // .replace('gif', 'jpg')
     else $img = ""
 
-    $link = "https://uhlan.co.uk" + jQuery(this).find("a:first").attr("href")
+    $link = "https://www.musicjunction.com.au" + jQuery(this).find("a:first").attr("href")
 
     $price =
       // '$' +
@@ -1123,6 +1123,49 @@ if (
   $arr
 }
 
+// div div one src
+
+if (
+  jQuery(".grid-uniform .grid__item").length > 0 &&
+  jQuery('[class="product__photo slick-slide slick-current slick-active"] img:first').length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".grid-uniform .grid__item").each(function () {
+    $title = jQuery(this).find(".name_wrapper").text().trim()
+
+    $img =
+      "https:" +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find("img:first").attr("data-srcset") ||
+        //  jQuery(this).find("img:first").attr("srcset") ||
+        // jQuery(this).find("img:last").attr("src") ||
+        ""
+      )
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://www.piyama.com" +
+      jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // '$' +
+      jQuery(this)
+        .find(".price_wrapper:last")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+    .split('USD')[0]
+
+    if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
 // div div img one src
 
 if (
@@ -1207,22 +1250,26 @@ if (
 
 // div a container
 
-if (jQuery(".container a").length > 0 && [].length === 0) {
+if (jQuery(".searchResults a").length > 0 && [].length === 0) {
   $arr = []
 
-  jQuery(".container a").each(function () {
-    $title = jQuery(this).find("h3").text().trim()
+  jQuery(".searchResults a").each(function () {
+    $title = jQuery(this).find(".product-title").text().trim()
 
     $img = "https:" + jQuery(this).find("img:first").attr("src")
 
-    $link = "https://social-goods.com" + jQuery(this).attr("href")
+    $link = "https://ru.ifixit.com" + jQuery(this).attr("href")
 
     $price =
       // "€" +
-      jQuery(this)
-        .find(".brand")
+      (jQuery(this)
+        .find(".price-container .price:first")
         .text().trim()
-        .split('/')[1]
+        .split('От')[1]
+        ||
+        jQuery(this)
+        .find(".price-container .price:first")
+        .text().trim())
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -1339,43 +1386,36 @@ if (
 // div a img one src
 
 if (
-  jQuery(".products a").length > 0 &&
-  // jQuery( 'ul.slides .image__container img:first').length === 0
-    jQuery('h1[class="product_name"]').length === 0
+  jQuery(".product-list .product-item").length > 0 &&
+  jQuery(
+    '[class="product-gallery__carousel-item is-selected "] img:first'
+  ).length === 0
+  // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
 
-  jQuery(".products a").each(function () {
-    $title = jQuery(this).find(".title").text().trim()
+  jQuery(".product-list .product-item").each(function () {
+    $title = jQuery(this).find(".product-item__title").text().trim()
 
     $img =
-      "https:" +
-      (
-        jQuery(this).find("img:first").attr("src") ||
-         jQuery(this).find("img:first").attr("srcset") ||
-        //  jQuery(this).find("img:first").attr("srcset") ||
-        // jQuery(this).find("img:last").attr("src") ||
-        ""
-      )
-        // .replace(/\s/g, "%20")
-        .split(" ")[0]
+    "https:" +
+    (
+      jQuery(this).find("img:first").attr("srcset") ||
+       jQuery(this).find("img:first").attr("data-srcset") ||
+      //  jQuery(this).find("img:first").attr("srcset") ||
+      // jQuery(this).find("img:last").attr("src") ||
+      ""
+    )
+      // .replace(/\s/g, "%20")
+      .split(" ")[0]
 
-   $link =
-      "https://levels.shop" + 
-      jQuery(this).attr("href")
+    $link =
+      "https://huntthemoon.co.uk" + jQuery(this).find("a:first").attr("href")
 
-      $price = 
-    //  '$' +
-    jQuery(this)
-      .find(".price:first")
-      .text()
-      .trim()
-      .replace(/\s/g, "")
-      // .split('$')[1]
-       
-    
+    $price = jQuery(this).find(".price span:first").text().trim().replace(/\s/g, "")
+    // .split('$')[1]
 
-    if ($title && $img && $link && $price)
+    // if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -1386,7 +1426,7 @@ if (
 
 if (
   jQuery("ul.products li").length > 0 &&
-  jQuery('[class="woocommerce-product-gallery__image flex-active-slide"] img:first').length === 0
+  jQuery('.product-gallery__carousel-item img:first').length === 0
 ) {
   $arr = []
 
@@ -1422,36 +1462,41 @@ if (
 // .product-list .product-item nonscript img 
 
 if (
-  jQuery(".product-list .product-item").length > 0 &&
-  jQuery(
-    '[class="product-gallery__carousel-item is-selected "] img:first'
-  ).length === 0
-  // &&  jQuery(".product-single").length === 0
+  jQuery("ul.productList li.productItem").length > 0 &&
+  jQuery(".mainBand--product .productItem .prodViews img:first").length === 0
 ) {
   $arr = []
 
-  jQuery(".product-list .product-item").each(function () {
-    $title = jQuery(this).find(".product-item__title").text().trim()
+  jQuery("ul.productList li.productItem").each(function () {
+    $title = jQuery(this).find(".prodName").text().trim()
 
     $img =
-    "https:" +
-    (
-      jQuery(this).find("img:first").attr("srcset") ||
-       jQuery(this).find("img:first").attr("data-srcset") ||
-      //  jQuery(this).find("img:first").attr("srcset") ||
-      // jQuery(this).find("img:last").attr("src") ||
-      ""
-    )
-      // .replace(/\s/g, "%20")
-      .split(" ")[0]
+      // 'https:' +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+        // jQuery(this).find("img:last").attr("src") ||
+        ""
+      )
+         .split(', ')[0];
+        // .replace(/\s/g, "%20")
 
     $link =
-      "https://huntthemoon.co.uk" + jQuery(this).find("a:first").attr("href")
+      'https://www.cue.com' +
+      jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".price span:first").text().trim().replace(/\s/g, "")
-    // .split('$')[1]
+    $price =
+      // "$" + ' ' +
+      jQuery(this)
+        .find(".priceRRP:first")
+        .text()
+        .trim()
+        // .split("$")[1] 
+        // .trim() 
+        
 
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr

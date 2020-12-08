@@ -156,3 +156,6 @@ jQuery('.price__sale .price-item--regular:first').text().trim()
 jQuery(".price ins:first").text().trim()
 jQuery(".price del:first").text().trim() ||
   jQuery(".price ins:first").text().trim()
+ 
+jQuery('[data-price-wrapper] [data-product-price]').text().trim() ||
+  '£' + ' ' + jQuery('i:contains(£)').text().trim().replace(/\s/g,'').split('£')[1].trim()
