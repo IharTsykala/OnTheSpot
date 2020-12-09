@@ -176,7 +176,7 @@ Array.from(
   e => e.textContent.includes("₹")
 )[16].innerText;
 
-if (jQuery('.sl-subhead- span:first').text().trim().toLowerCase().indexOf('out') >= 0) 
+if (jQuery('.product-form--atc-button:first').text().trim().toLowerCase().indexOf('out') >= 0) 
 {
   $status = true
 } else {

@@ -142,9 +142,9 @@ jQuery(".was_price :first").text().trim() ||
     || jQuery(".ProductMeta__Price:first").text().trim()
 
 
-    jQuery("#ProductPrice:first").text().trim()
-    jQuery("#ComparePrice:first").text().trim() ||
-      jQuery("#ProductPrice:first").text().trim()
+    jQuery(".price #ProductPrice:first span:first").text().trim()
+    jQuery(".price #ComparePrice:first span:first").text().trim() ||
+      jQuery(".price #ProductPrice:first span:first").text().trim()
 
 
       jQuery('.price__sale .price-item--sale:first').text().trim() 
@@ -159,3 +159,11 @@ jQuery(".price del:first").text().trim() ||
  
 jQuery('[data-price-wrapper] [data-product-price]').text().trim() ||
   '£' + ' ' + jQuery('i:contains(£)').text().trim().replace(/\s/g,'').split('£')[1].trim()
+
+  '$'+jQuery(".product--price  .price--main:first").text().trim().split('$')[1]
+  '$'+(jQuery(".product--price  .price--compare-at").text().trim().split('$')[1] ||
+  jQuery(".product--price  .price--main:first").text().trim().split('$')[1])
+
+  '$'+jQuery(".price-list  .price--highlight:first").text().trim().split('$')[1]
+  '$'+(jQuery(".price-list  .price--compare").text().trim().split('$')[1] ||
+  jQuery(".price-list  .price--highlight:first").text().trim().split('$')[1])

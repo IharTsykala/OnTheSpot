@@ -10,10 +10,10 @@ jQuery('.total-line .payment-due__price')
 
 ////////////////
 
-jQuery('.cart-coupon-open')[0].click()
-jQuery('.order-item input[placeholder="Discount code"]:last')
-jQuery('button.sl-main-btn:last')
-jQuery('.order-total strong')
+jQuery('[class="styled-input __checkbox"]:first')[0].click()
+jQuery('[id="coupon_input"] input[id="coupon"]:last')
+jQuery('[id="coupon_input"] a:last')
+jQuery('[id="allSum_FORMATED"]:last')
 jQuery('.cart-coupon-main input[placeholder="Discount code"]:last')
 jQuery('.cart-coupon-main button.sl-main-btn:last')
 jQuery('.cart-total-price strong:last')
@@ -181,3 +181,10 @@ if (jQuery('.has-open-cart [class="button"]:first a').length) {
 
 /////////////////////////
 /////////////////
+
+
+if(jQuery('input[name="redeemableCode"]:first')[0]) {
+  jQuery('input[name="redeemableCode"]:first')[0].click()
+} else if (jQuery('.coupon-code-add:first')[0]) {
+  jQuery('.coupon-code-add:first')[0].click()
+}

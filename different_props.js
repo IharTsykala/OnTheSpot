@@ -57,16 +57,16 @@ if (
 //////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 
-if (jQuery(".select:contains(Metal Color) .selector-wrapper option").length > 0) {
+if (jQuery("select.dropdown option").length > 0) {
   [
-    jQuery(".select:contains(Metal Color) .selector-wrapper option:selected").text() != ""
-      ? jQuery(".select:contains(Metal Color) .selector-wrapper option:selected")
+    jQuery("select.dropdown option:selected").text() != ""
+      ? jQuery("select.dropdown option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Metal Color",
     jQuery.makeArray(
-      jQuery(".select:contains(Metal Color) .selector-wrapper option").map(function (i, e) {
+      jQuery("select.dropdown option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -78,11 +78,11 @@ if (jQuery(".select:contains(Metal Color) .selector-wrapper option").length > 0)
 
 //pa_Metal Colors clicker
 if (
-jQuery(".select:contains(Metal Color) .selector-wrapper option").length > 0 &&
+jQuery("select.dropdown option").length > 0 &&
 $sarg != "Select Metal Color" &&
 $sarg != "No Metal Color"
 ) {
-jQuery(".select:contains(Metal Color) .selector-wrapper option").each(function () {
+jQuery("select.dropdown option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
     jQuery(this).trigger("change");
   }
@@ -94,12 +94,12 @@ return true;
 
 $text = false;
 if (
-  jQuery(".select:contains(Metal Color) .selector-wrapper option").length > 0 &&
+  jQuery("select.dropdown option").length > 0 &&
   $sarg != "No Metal Color" &&
   $sarg != "Select Metal Color"
 ) {
   $text = true;
-  jQuery(".select:contains(Metal Color) .selector-wrapper option").each(function (index) {
+  jQuery("select.dropdown option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')

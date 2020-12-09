@@ -327,3 +327,22 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.pay-price:first').text().trim().replace(/\s/g,'') 
  jQuery('.orig-price:first').text().trim().replace(/\s/g,'') ||
  jQuery('.pay-price:first').text().trim().replace(/\s/g,'')
+
+
+ jQuery('[id="productPrice-product-template"] [aria-hidden="true"]:first').text().trim().replace(/\s/g,'').slice(0, -2)
+ jQuery('[id="productPrice-product-template"] [aria-hidden="true"]:last').text().trim().replace(/\s/g,'').slice(0, -2)
+
+ 'CAD'+jQuery('.product-single__prices [id="ProductPrice"]:first').text().trim().replace(/\s/g,'').split('CAD')[0]
+
+ jQuery('.product__price:first').text().trim().replace(/\s/g,'')
+
+ jQuery('[id="productPrice"]:first').text().trim().replace(/\s/g,'').slice(0,-2) 
+ jQuery('[id="productPrice"]:last strike').text().trim().replace(/\s/g,'') ||
+ jQuery('[id="productPrice"]:first').text().trim().replace(/\s/g,'').slice(0,-2) 
+
+ jQuery('.woocommerce-Price-currencySymbol:first').parent().text().trim()
+  
+
+ jQuery('.product-price:first [data-product-price]').text().trim().replace(/\s/g,'') 
+ jQuery('.product-price:first [data-compare-price]').text().trim().replace(/\s/g,'') ||
+ jQuery('.product-price:first [data-product-price]').text().trim().replace(/\s/g,'')

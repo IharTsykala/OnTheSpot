@@ -56,6 +56,11 @@ if (jQuery('[name="add"]').text().trim().toLowerCase().indexOf('out') >= 0) {
   $status = false;
 }
 
+if (jQuery('[name="add"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
 
 if (jQuery('[name="add"]').text().trim().toLowerCase() == 'sold out' || 
 jQuery('[name="add"]').text().trim().toLowerCase() == 'out of stock' )
