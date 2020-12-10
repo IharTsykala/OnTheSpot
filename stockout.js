@@ -19,10 +19,17 @@ jQuery('[class="form-control__button"]').text().trim().toLowerCase() == 'out of 
 
 ///////////////////////////////////////////////////////////////
 
-if (jQuery('[class="shg-product-atc-btn-wrapper shg-align-center"]').text().trim().toLowerCase() == 'sold out' || 
-jQuery('[class="shg-product-atc-btn-wrapper shg-align-center"]').text().trim().toLowerCase() == 'out of stock' )
+if (jQuery('[value="Add to cart"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[value="Add to cart"]').text().trim().toLowerCase() == 'out of stock' )
 // ||
 // jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
+ {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (!(jQuery('[value="Ajouter au panier"]').length > 0) )
  {
   $status = true
 } else {
@@ -257,6 +264,13 @@ if (jQuery('input[id="form-action-addToCart"]').attr('value').toLowerCase().inde
 }
 
 if (!jQuery('[id="addToBag"]').length > 0 )
+ {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('[id="add-to-cart"]').hasClass('disabled') )
  {
   $status = true
 } else {

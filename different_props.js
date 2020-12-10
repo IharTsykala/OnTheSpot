@@ -170,16 +170,16 @@ if (
 return $text;
 
 
-if (jQuery(".selector-wrapper option").length > 0) {
+if (jQuery(".selector-wrapper:contains(Purity) option").length > 0) {
   [
-    jQuery(".selector-wrapper option:selected").text() != ""
-      ? jQuery(".selector-wrapper option:selected")
+    jQuery(".selector-wrapper:contains(Purity) option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Purity) option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Color",
     jQuery.makeArray(
-      jQuery(".selector-wrapper option").map(function (i, e) {
+      jQuery(".selector-wrapper:contains(Purity) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -191,11 +191,11 @@ if (jQuery(".selector-wrapper option").length > 0) {
 
 //pa_Colors clicker
 if (
-jQuery(".selector-wrapper option").length > 0 &&
+jQuery(".selector-wrapper:contains(Purity) option").length > 0 &&
 $sarg != "Select Color" &&
 $sarg != "No Color"
 ) {
-jQuery(".selector-wrapper option").each(function () {
+jQuery(".selector-wrapper:contains(Purity) option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
     jQuery(this).trigger("change");
   }
@@ -207,12 +207,12 @@ return true;
 
 $text = false;
 if (
-  jQuery(".selector-wrapper option").length > 0 &&
+  jQuery(".selector-wrapper:contains(Purity) option").length > 0 &&
   $sarg != "No Color" &&
   $sarg != "Select Color"
 ) {
   $text = true;
-  jQuery(".selector-wrapper option").each(function (index) {
+  jQuery(".selector-wrapper:contains(Purity) option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')
@@ -569,3 +569,61 @@ if (
   });
 }
 return $text;
+
+////////////////////////////////////////
+/////////////////
+
+
+if (jQuery(".variant-wrapper:contains(Length) input").length > 0) {
+  ;[
+    jQuery(".variant-wrapper:contains(Length) input:checked").length > 0
+      ? jQuery(".variant-wrapper:contains(Length) input:checked")
+          // .next()
+          // .text().trim()
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery(".variant-wrapper:contains(Length) input").map(function (i, e) {
+        if (jQuery(e).attr("value") != "") return jQuery(e).next().text().trim()
+      })
+    ),
+  ]
+} else {
+  ;["No Color", ["No Color"]]
+}
+
+if (
+  jQuery(".variant-wrapper:contains(Length) input").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery(".variant-wrapper:contains(Length) input").each(function () {
+    if (jQuery(this).attr("value") == $sarg) {
+      jQuery(this)[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery(".variant-wrapper:contains(Length) input").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true
+  jQuery(".variant-wrapper:contains(Length) input").each(function (
+    index
+  ) {
+    if (
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr(".data-availability")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text

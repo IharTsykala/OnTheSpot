@@ -1632,7 +1632,7 @@ if (jQuery('.image__container img:first').length > 0)
 
   if (
     jQuery(".grid-uniform .grid-item").length > 0 &&
-    jQuery('.product-photo-container img:first').length === 0
+    jQuery('.image-zoom img:first').length === 0
     // &&  jQuery(".product-single").length === 0
   ) {
     $arr = []

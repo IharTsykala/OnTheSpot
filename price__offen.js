@@ -119,10 +119,10 @@ jQuery(".product--price .price--compare-at").text().trim() ||
 jQuery('.modal_price .current_price:first').text().trim().replace(/\s/g,'') ||
 jQuery('.modal_price .snize-price:first').text().trim().replace(/\s/g,'')
 
-"DKK" + " " +jQuery('[id="ProductPrice"]:first').text().trim().split('DKK')[0]
-// if(jQuery('[id="ComparePrice"]:first').text().trim().split('$')[1])
-"DKK" + " " +(+jQuery('[id="ComparePrice"]:first').text().trim().split('DKK')[0] ||
-  jQuery('[id="ProductPrice"]:first').text().trim().split('DKK')[0])
+jQuery('[id="ProductPrice"]:first').text().trim()
+
+jQuery('[id="ComparePrice"]:first').text().trim() ||
+  jQuery('[id="ProductPrice"]:first').text().trim()
 
   jQuery(".price__regular .money:first").text().trim()
 jQuery(".was_price .price-item:first").text().trim() ||

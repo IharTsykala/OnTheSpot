@@ -346,3 +346,23 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.product-price:first [data-product-price]').text().trim().replace(/\s/g,'') 
  jQuery('.product-price:first [data-compare-price]').text().trim().replace(/\s/g,'') ||
  jQuery('.product-price:first [data-product-price]').text().trim().replace(/\s/g,'')
+
+
+ jQuery('.product_single_price:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
+ jQuery('.product_single_price:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
+ jQuery('.product_single_price:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
+
+ jQuery('.price:first[id="price-preview"]').text().trim().replace(/\s/g,'')
+
+ jQuery('[class="product__price on-sale"]:first').text().trim().replace(/\s/g,'') ||
+ jQuery('[class="product__price"]:first').text().trim().replace(/\s/g,'') 
+ jQuery('[class="product__price product__price--compare"]:first').text().trim().replace(/\s/g,'') ||
+ jQuery('[class="product__price"]:first').text().trim().replace(/\s/g,'') 
+
+ jQuery('[data-price-wrapper]:first [data-product-price]').text().trim().replace(/\s/g,'')
+
+ jQuery('.price-preview-container:first .price').text().trim().replace(/\s/g,'')
+
+ jQuery('.product-price:first .product-price__final').text().trim().replace(/\s/g,'') 
+ jQuery('.product-price:first .product-price__final').text().trim().replace(/\s/g,'') ||
+ jQuery('.product-price:first .product-price__final').text().trim().replace(/\s/g,'')
