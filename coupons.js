@@ -14,9 +14,9 @@ jQuery('[class="styled-input __checkbox"]:first')[0].click()
 jQuery('[id="coupon_input"] input[id="coupon"]:last')
 jQuery('[id="coupon_input"] a:last')
 jQuery('[id="allSum_FORMATED"]:last')
-jQuery('.cart-coupon-main input[placeholder="Discount code"]:last')
-jQuery('.cart-coupon-main button.sl-main-btn:last')
-jQuery('.cart-total-price strong:last')
+jQuery('input[placeholder="Kuponkód"]:last')
+jQuery('button[class="btn btn-md btn-primary ac-test-coupon-submit"]:last')
+jQuery('[data-test-id="checkoutSummaryGrossTotal"]:last')
 
 
 jQuery('button[data-trekkie-id="apply_discount_button"]')
@@ -185,6 +185,12 @@ if (jQuery('.has-open-cart [class="button"]:first a').length) {
 
 if(jQuery('input[name="redeemableCode"]:first')[0]) {
   jQuery('input[name="redeemableCode"]:first')[0].click()
+} else if (jQuery('.coupon-code-add:first')[0]) {
+  jQuery('.coupon-code-add:first')[0].click()
+}
+
+if(jQuery('input[name="redeemableCode"]:last').length > 0){
+  jQuery('input[name="redeemableCode"]:last').click()
 } else if (jQuery('.coupon-code-add:first')[0]) {
   jQuery('.coupon-code-add:first')[0].click()
 }

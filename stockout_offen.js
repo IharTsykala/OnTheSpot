@@ -56,7 +56,13 @@ if (jQuery('[name="add"]').text().trim().toLowerCase().indexOf('out') >= 0) {
   $status = false;
 }
 
-if (jQuery('[name="add"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+if (jQuery('[name="add"]').attr('disabled')) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('[data-click="addToCart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {
   $status = false;

@@ -276,3 +276,10 @@ if (jQuery('[id="add-to-cart"]').hasClass('disabled') )
 } else {
   $status = false;
 }
+
+if (jQuery('.sqs-add-to-cart-button').text().trim().toLowerCase().indexOf('out')  >= 0
+) {
+  $status = true
+} else {
+  $status = false;
+}

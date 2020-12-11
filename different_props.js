@@ -170,32 +170,32 @@ if (
 return $text;
 
 
-if (jQuery(".selector-wrapper:contains(Purity) option").length > 0) {
+if (jQuery(".selector-wrapper:contains(Capacity) option").length > 0) {
   [
-    jQuery(".selector-wrapper:contains(Purity) option:selected").text() != ""
-      ? jQuery(".selector-wrapper:contains(Purity) option:selected")
+    jQuery(".selector-wrapper:contains(Capacity) option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Capacity) option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
-      : "Select Color",
+      : "Select Capacity",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(Purity) option").map(function (i, e) {
+      jQuery(".selector-wrapper:contains(Capacity) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
     ),
   ];
 } else {
-  ["No Color", ["No Color"]];
+  ["No Capacity", ["No Capacity"]];
 }
 
-//pa_Colors clicker
+//pa_Capacitys clicker
 if (
-jQuery(".selector-wrapper:contains(Purity) option").length > 0 &&
-$sarg != "Select Color" &&
-$sarg != "No Color"
+jQuery(".selector-wrapper:contains(Capacity) option").length > 0 &&
+$sarg != "Select Capacity" &&
+$sarg != "No Capacity"
 ) {
-jQuery(".selector-wrapper:contains(Purity) option").each(function () {
+jQuery(".selector-wrapper:contains(Capacity) option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
     jQuery(this).trigger("change");
   }
@@ -207,12 +207,12 @@ return true;
 
 $text = false;
 if (
-  jQuery(".selector-wrapper:contains(Purity) option").length > 0 &&
-  $sarg != "No Color" &&
-  $sarg != "Select Color"
+  jQuery(".selector-wrapper:contains(Capacity) option").length > 0 &&
+  $sarg != "No Capacity" &&
+  $sarg != "Select Capacity"
 ) {
   $text = true;
-  jQuery(".selector-wrapper:contains(Purity) option").each(function (index) {
+  jQuery(".selector-wrapper:contains(Capacity) option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')
@@ -627,3 +627,164 @@ if (
   })
 }
 return $text
+
+////////////////////////////////////////////////////
+
+// for ul li
+
+if (jQuery(".product-attribute-item:contains(Szín) li").length > 0) {
+  ;[
+    jQuery(".product-attribute-item:contains(Szín) li.selected span").length > 0
+      ? jQuery(".product-attribute-item:contains(Szín) li.selected span")
+          .attr('title') .trim()         
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".product-attribute-item:contains(Szín) li span").map(function (i, e) {
+        if (jQuery(e).attr('title').trim())
+          return jQuery(e).attr('title').trim()
+      })
+    ),
+  ]
+} else ["No Color", ["No Color"]]
+
+if (
+  jQuery(".product-attribute-item:contains(Szín) li span").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery(".product-attribute-item:contains(Szín) li span").each(function () {
+    if (jQuery(e).attr('title').trim() == $sarg)
+      jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$val = false
+if (
+  jQuery(".product-attribute-item:contains(Szín) li span").length > 0 &&
+  $sarg != "No size" &&
+  $sarg != "Select size"
+) {
+  $val = false
+  jQuery(".product-attribute-item:contains(Szín) li span").each(function () {
+    if (
+      jQuery(this).attr('title').trim() == $sarg &&
+      !jQuery(this).hasClass("unavailable")
+    ) {      
+      $val = false
+    }
+  })
+}
+return $val
+/////////////////////////////////////////
+////////////////////////////////////////////////////
+
+// for ul li
+
+if (jQuery(".product-attribute-item:contains(Méret) li").length > 0) {
+  ;[
+    jQuery(".product-attribute-item:contains(Méret) li.selected").length > 0
+      ? jQuery(".product-attribute-item:contains(Méret) li.selected")
+      .text().trim().replace(/\s\s+/g, "")   
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".product-attribute-item:contains(Méret) li").map(function (i, e) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else ["No Color", ["No Color"]]
+
+if (
+  jQuery(".product-attribute-item:contains(Méret) li").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery(".product-attribute-item:contains(Méret) li").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg)
+      jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$val = false
+if (
+  jQuery(".product-attribute-item:contains(Méret) li").length > 0 &&
+  $sarg != "No size" &&
+  $sarg != "Select size"
+) {
+  $val = true
+  jQuery(".product-attribute-item:contains(Méret) li").each(function () {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass("unavailable")
+    ) {
+      $val = false
+    }
+  })
+}
+return $val
+
+/////////////////////////////////
+
+////////////////////////////////
+
+
+if (jQuery("div.product-form__option:contains(Source) input").length > 0) {
+  ;[
+    jQuery("div.product-form__option:contains(Source) input:checked").length > 0
+      ? jQuery("div.product-form__option:contains(Source) input:checked")
+      // .next()
+      // .text().trim()
+      .attr('value')
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery("div.product-form__option:contains(Source) input").map(function (i, e) {
+    if (jQuery(e).attr('value') != "")
+      return jQuery(e).attr('value')
+  })
+),
+]
+} else {
+;["No Source", ["No Source"]]
+}
+
+if (jQuery("div.product-form__option:contains(Source) input").length > 0  &&
+$sarg != "Select Source" &&
+$sarg != "No Source") {
+jQuery("div.product-form__option:contains(Source) input").each(function () {
+if (jQuery(this).attr('value') == $sarg) {
+  jQuery(this)[0].click()
+}
+})
+}
+wait_for(function () {
+return true
+})
+
+$text = false;
+if (
+  jQuery("div.product-form__option:contains(Source) input").length > 0 &&
+  $sarg != "No Source" &&
+  $sarg != "Select Source"
+) {
+  $text = true;
+  jQuery("div.product-form__option:contains(Source) input").each(function (index) {
+    if (
+      jQuery(this).attr('value') == $sarg &&
+      !jQuery(this).attr('.data-availability')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+/////////////////////////////////////

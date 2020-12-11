@@ -110,28 +110,28 @@ return $text;
 
 
 
-if (jQuery("mar-pdp-color-container:contains( Colors ) input").length > 0) {
+if (jQuery("div.product-info__variants_items:contains(color) input").length > 0) {
   ;[
-    jQuery("div.product-info__variants_items:contains(Color) input:checked").length > 0
-      ? jQuery("div.product-info__variants_items:contains(Color) input:checked")
+    jQuery("div.product-info__variants_items:contains(color) input:checked").length > 0
+      ? jQuery("div.product-info__variants_items:contains(color) input:checked")
       .attr("value")
       .replace(/\s\s+/g, "")
   : "Select item",
 jQuery.makeArray(
-  jQuery("div.product-info__variants_items:contains(Color) input").map(function (i, e) {
+  jQuery("div.product-info__variants_items:contains(color) input").map(function (i, e) {
     if (jQuery(e).attr("value") != "")
       return jQuery(e).attr("value").replace(/\s\s+/g, "")
   })
 ),
 ]
 } else {
-;["No Color", ["No Color"]]
+;["No color", ["No color"]]
 }
 
-if (jQuery("div.product-info__variants_items:contains(Color) input").length > 0  &&
-$sarg != "Select Color" &&
-$sarg != "No Color") {
-jQuery("div.product-info__variants_items:contains(Color) input").each(function () {
+if (jQuery("div.product-info__variants_items:contains(color) input").length > 0  &&
+$sarg != "Select color" &&
+$sarg != "No color") {
+jQuery("div.product-info__variants_items:contains(color) input").each(function () {
 if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
   jQuery(this).next()[0].click()
 }
@@ -143,15 +143,15 @@ return true
 
 $text = false;
 if (
-  jQuery("div.product-info__variants_items:contains(Color) input").length > 0 &&
-  $sarg != "No Color" &&
-  $sarg != "Select Color"
+  jQuery("div.product-info__variants_items:contains(color) input").length > 0 &&
+  $sarg != "No color" &&
+  $sarg != "Select color"
 ) {
   $text = true;
-  jQuery("div.product-info__variants_items:contains(Color) input").each(function (index) {
+  jQuery("div.product-info__variants_items:contains(color) input").each(function (index) {
     if (
-      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
-      !jQuery(this).attr('.data-availability') === 'soldout'
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr('.data-availability')
     ) {
       $text = false;
     }
@@ -232,7 +232,7 @@ if (jQuery("div.product-form__option:contains(Color) input").length > 0) {
 jQuery.makeArray(
   jQuery("div.product-form__option:contains(Color) input").map(function (i, e) {
     if (jQuery(e).attr('value') != "")
-      return jQuery(e).next().text().trim()
+      return jQuery(e).attr('value')
   })
 ),
 ]
@@ -263,7 +263,7 @@ if (
   jQuery("div.product-form__option:contains(Color) input").each(function (index) {
     if (
       jQuery(this).attr('value') == $sarg &&
-      !jQuery(this).attr('.data-availability') === 'soldout'
+      !jQuery(this).attr('.data-availability')
     ) {
       $text = false;
     }
@@ -880,3 +880,56 @@ if (
   })
 }
 return $val
+
+////////////////////////////////////////////
+
+//////////////////////
+
+if (jQuery(".PD-variantsList:first input").length > 0) {
+  ;[
+    jQuery(".PD-variantsList:first input:checked").length > 0
+      ? jQuery(".PD-variantsList:first input:checked")
+      .attr("value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery(".PD-variantsList:first input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Color", ["No Color"]]
+}
+
+if (jQuery(".PD-variantsList:first input").length > 0  &&
+$sarg != "Select Color" &&
+$sarg != "No Color") {
+jQuery(".PD-variantsList:first input").each(function () {
+if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+  jQuery(this).next()[0].click()
+}
+})
+}
+wait_for(function () {
+return true
+})
+
+$text = false;
+if (
+  jQuery(".PD-variantsList:first input").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery(".PD-variantsList:first input").each(function (index) {
+    if (
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr('.data-availability')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;

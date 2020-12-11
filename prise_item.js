@@ -366,3 +366,24 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.product-price:first .product-price__final').text().trim().replace(/\s/g,'') 
  jQuery('.product-price:first .product-price__final').text().trim().replace(/\s/g,'') ||
  jQuery('.product-price:first .product-price__final').text().trim().replace(/\s/g,'')
+
+ jQuery('[class="product-price-special product-page-price-special"]:first').text().trim().replace(/\s/g,'') ||
+ jQuery('[class="product-price product-page-price"').text().trim().replace(/\s/g,'') 
+ jQuery('[class="product-price-original product-page-price-original"]:first').text().trim().replace(/\s/g,'') ||
+ jQuery('[class="product-price product-page-price"]:first').text().trim().replace(/\s/g,'') 
+
+ jQuery('.pricearea:first .price').text().trim().replace(/\s/g,'')
+
+ jQuery('.product-price:first .price').text().trim().replace(/\s/g,'') 
+
+ jQuery('.modal_price:first .current_price').text().trim().replace(/\s/g,'') 
+
+ jQuery('.PD-priceInfo:first .PD-price').text().trim().replace(/\s/g,'') 
+
+ '$'+jQuery('.product-price:first .sqs-money-native').text().trim().replace(/\s/g,'') 
+
+ jQuery('.product-info__header_price-wrapper:first .product-info__header_price').text().trim().replace(/\s/g,'') 
+
+ jQuery(".product-price .current-price").text().trim()
+
+ jQuery(".prices .price").text().trim()

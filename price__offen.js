@@ -167,3 +167,8 @@ jQuery('[data-price-wrapper] [data-product-price]').text().trim() ||
   '$'+jQuery(".price-list  .price--highlight:first").text().trim().split('$')[1]
   '$'+(jQuery(".price-list  .price--compare").text().trim().split('$')[1] ||
   jQuery(".price-list  .price--highlight:first").text().trim().split('$')[1])
+
+  "$"+(jQuery('.product-form__info-content .price--highlight:first').text().trim().split("$")[1]
+  || jQuery('.product-form__info-content .price:first').text().trim().split("$")[1] )
+  "$"+(jQuery(".product-form__info-content .price--compare:first").text().trim().split("$")[1]    
+    || jQuery('.product-form__info-content .price:first').text().trim().split("$")[1] )

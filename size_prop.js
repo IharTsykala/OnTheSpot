@@ -1223,28 +1223,28 @@ if (
   //
 
 
-  if (jQuery("div.product-info__variants_items:contains(Size) input").length > 0) {
+  if (jQuery("div.product-info__variants_items:contains(size) input").length > 0) {
     ;[
-      jQuery("div.product-info__variants_items:contains(Size) input:checked").length > 0
-        ? jQuery("div.product-info__variants_items:contains(Size) input:checked")
+      jQuery("div.product-info__variants_items:contains(size) input:checked").length > 0
+        ? jQuery("div.product-info__variants_items:contains(size) input:checked")
         .attr("value")
         .replace(/\s\s+/g, "")
     : "Select item",
   jQuery.makeArray(
-    jQuery("div.product-info__variants_items:contains(Size) input").map(function (i, e) {
+    jQuery("div.product-info__variants_items:contains(size) input").map(function (i, e) {
       if (jQuery(e).attr("value") != "")
         return jQuery(e).attr("value").replace(/\s\s+/g, "")
     })
   ),
   ]
   } else {
-  ;["No Size", ["No Size"]]
+  ;["No size", ["No size"]]
   }
   
-  if (jQuery("div.product-info__variants_items:contains(Size) input").length > 0  &&
-  $sarg != "Select Size" &&
-  $sarg != "No Size") {
-  jQuery("div.product-info__variants_items:contains(Size) input").each(function () {
+  if (jQuery("div.product-info__variants_items:contains(size) input").length > 0  &&
+  $sarg != "Select size" &&
+  $sarg != "No size") {
+  jQuery("div.product-info__variants_items:contains(size) input").each(function () {
   if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
     jQuery(this).next()[0].click()
   }
@@ -1256,15 +1256,15 @@ if (
   
   $text = false;
   if (
-    jQuery("div.product-info__variants_items:contains(Size) input").length > 0 &&
-    $sarg != "No Size" &&
-    $sarg != "Select Size"
+    jQuery("div.product-info__variants_items:contains(size) input").length > 0 &&
+    $sarg != "No size" &&
+    $sarg != "Select size"
   ) {
     $text = true;
-    jQuery("div.product-info__variants_items:contains(Size) input").each(function (index) {
+    jQuery("div.product-info__variants_items:contains(size) input").each(function (index) {
       if (
         jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
-        !jQuery(this).attr('.data-availability') === 'soldout'
+        !jQuery(this).attr('.data-availability')
       ) {
         $text = false;
       }
