@@ -387,3 +387,21 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery(".product-price .current-price").text().trim()
 
  jQuery(".prices .price").text().trim()
+ 
+
+    jQuery('[id="ProductPrice-product-template"]:first').text().trim()
+
+    jQuery('[id="ComparePrice-product-template"] .money:first').text().trim()
+    || jQuery('[id="ProductPrice-product-template"]:first').text().trim()
+  
+
+    jQuery('.product-page--price-wrapper:first .product-page--price').text().trim()
+
+    jQuery('.product-page--price-wrapper:first .product-page--compare-price').text().trim()
+    || jQuery('.product-page--price-wrapper:first .product-page--price').text().trim()
+    
+
+    jQuery('.modal_price:first .current_price').text().trim().replace(/\s/g,'') 
+
+    jQuery('.modal_price:first .was_price').text().trim().replace(/\s/g,'') 
+    || jQuery('.modal_price:first .current_price').text().trim().replace(/\s/g,'') 

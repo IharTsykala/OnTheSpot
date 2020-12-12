@@ -62,6 +62,13 @@ if (jQuery('[name="add"]').attr('disabled')) {
   $status = false;
 }
 
+if (jQuery('[name="add"]').css('display')==='none') {
+  $status = true
+} else {
+  $status = false;
+}
+
+
 if (jQuery('[data-click="addToCart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {

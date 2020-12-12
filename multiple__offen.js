@@ -402,14 +402,14 @@ if (
 // div div noscript
 
 if (
-  jQuery(".collection-list .list-item").length > 0 &&
-  jQuery(".product-image-container img:first").length === 0
+  jQuery(".collection-listing--collection .collection-listing--product").length > 0 &&
+  jQuery(".swiper-wrapper img:first").length === 0
   // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
 
-  jQuery(".collection-list .list-item").each(function () {
-    $title = jQuery(this).find(".list-title").text().trim()
+  jQuery(".collection-listing--collection .collection-listing--product").each(function () {
+    $title = jQuery(this).find(".product--title").text().trim()
 
     if (jQuery(this).find("noscript").text().trim())
       $img =
@@ -429,12 +429,13 @@ if (
     else $img = ""
 
     $link =
-      "https://www.autelpilot.com" + jQuery(this).find("a:first").attr("href")
+      "https://tenshundredsthousands.com" + 
+      jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".price:first").text().trim().replace(/\s/g, "")
+    $price = jQuery(this).find(".product--price-wrapper .product--price:first").text().trim().replace(/\s/g, "")
     // .split('$')[1]
 
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -1409,7 +1410,7 @@ if (
         // .replace(/\s/g, "%20")
         .split(" ")[0]
 
-    $link = "https://jacoje.com" + jQuery(this).find("a:first").attr("href")
+    $link = "https://villainoutwear.com" + jQuery(this).find("a:first").attr("href")
 
     $price = jQuery(this)
       .find(".price span.money:first")
@@ -1418,7 +1419,7 @@ if (
       .replace(/\s/g, "")
     // .split('$')[1]
 
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])
   })
   $arr
