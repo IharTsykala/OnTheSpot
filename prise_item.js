@@ -399,9 +399,15 @@ jQuery(".price--compare:first").text().trim() ||
 
     jQuery('.product-page--price-wrapper:first .product-page--compare-price').text().trim()
     || jQuery('.product-page--price-wrapper:first .product-page--price').text().trim()
-    
+
 
     jQuery('.modal_price:first .current_price').text().trim().replace(/\s/g,'') 
 
     jQuery('.modal_price:first .was_price').text().trim().replace(/\s/g,'') 
     || jQuery('.modal_price:first .current_price').text().trim().replace(/\s/g,'') 
+
+    jQuery('.product__price:first [data-product-price]').text().trim()
+
+    jQuery('.product__price:first [data-compare-price]').text().trim()
+    ||  jQuery('.product__price:first [data-product-price]').text().trim()
+

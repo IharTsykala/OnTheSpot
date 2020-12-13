@@ -324,9 +324,9 @@ else
   $img
 
 
-if (jQuery('.product-single__photos img').length > 0){
+if (jQuery('.product-single__thumbnail-item img').length > 0){
   $arr = [];
-  jQuery('.product-single__photos img').each(function(index){
+  jQuery('.product-single__thumbnail-item img').each(function(index){
       if (index < 4) 
       $arr.push('https:'+jQuery(this).attr("src").split(' ')[0])
   })

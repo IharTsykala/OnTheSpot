@@ -981,7 +981,7 @@ if (
       jQuery(this).find(".grid-product__price").text().trim().replace(/\s/g, "")
     // .split('$')[1]
 
-    if ($title && $img && $link && $price)
+    // if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -1252,7 +1252,7 @@ if (
         .replace(/\s/g, "")
     // .split('$')[1]
 
-    if ($title && $img && $link && $price)
+    // if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -1804,6 +1804,49 @@ if (
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+
+// div div img one src
+
+if (
+  jQuery(".grid--uniform .grid__item").length > 0 &&
+  jQuery('.product-single__photos img:first')
+    .length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".grid--uniform .grid__item").each(function () {
+    $title = jQuery(this).find(".product-card__name").text().trim()
+
+    $img =
+      "https:" +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        jQuery(this).find("img:first").attr("data-srcset") ||
+        jQuery(this).find("img:first").attr("srcset") ||
+        // jQuery(this).find("img:last").attr("src") ||
+        ""
+      )
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link = "https://shwainc.com" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+    
+    jQuery(this)
+      .find(".product-card__price:first")
+      .text()
+      .trim()
+      .replace(/\s/g, "")
+    .split('$')[1] || ''
+
+    if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
   })
   $arr
 }
