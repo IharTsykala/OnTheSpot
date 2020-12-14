@@ -113,15 +113,15 @@ return $text
 //
 
 if (
-  jQuery('select[data-variant-option-name="SIZE"]:first option')
+  jQuery('select[id="variant-listbox-option-0"]:first option')
     .length > 0
 ) {
   ;[
     jQuery(
-      'select[data-variant-option-name="SIZE"]:first option:selected'
+      'select[id="variant-listbox-option-0"]:first option:selected'
     ).text() != ""
       ? jQuery(
-          'select[data-variant-option-name="SIZE"]:first option:selected'
+          'select[id="variant-listbox-option-0"]:first option:selected'
         )
           .text()
           .trim()
@@ -129,7 +129,7 @@ if (
         "Select Size",
     jQuery.makeArray(
       jQuery(
-        'select[data-variant-option-name="SIZE"]:first option'
+        'select[id="variant-listbox-option-0"]:first option'
       ).map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "")
@@ -141,12 +141,12 @@ if (
 }
 
 if (
-  jQuery('select[data-variant-option-name="SIZE"]:first option')
+  jQuery('select[id="variant-listbox-option-0"]:first option')
     .length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery('select[data-variant-option-name="SIZE"]:first option').each(
+  jQuery('select[id="variant-listbox-option-0"]:first option').each(
     function () {
       if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
         jQuery(this).trigger("change")
@@ -160,13 +160,13 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery('select[data-variant-option-name="SIZE"]:first option')
+  jQuery('select[id="variant-listbox-option-0"]:first option')
     .length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true
-  jQuery('select[data-variant-option-name="SIZE"]:first option').each(
+  jQuery('select[id="variant-listbox-option-0"]:first option').each(
     function (index) {
       if (
         jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
@@ -1794,3 +1794,60 @@ if (
 return $text;
 
 ///////////////////////////////////////////////////////
+//////////////////
+
+// div label
+
+if (jQuery("div.shop-panel__variant-detail:contains(Size) .shop-panel__variant-value-list label").length > 0) {
+  [
+    jQuery(
+      "div.shop-panel__variant-detail:contains(Size) .shop-panel__variant-value-list label.active"
+    ).length > 0
+      ? jQuery("div.shop-panel__variant-detail:contains(Size) .shop-panel__variant-value-list label.active")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery("div.shop-panel__variant-detail:contains(Size) .shop-panel__variant-value-list label").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Size", ["No Size"]];
+
+
+if (
+  jQuery("div.shop-panel__variant-detail:contains(Size) .shop-panel__variant-value-list label").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery("div.shop-panel__variant-detail:contains(Size) .shop-panel__variant-value-list label").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+$text = false;
+if (
+  jQuery("div.shop-panel__variant-detail:contains(Size) .shop-panel__variant-value-list label").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery("div.shop-panel__variant-detail:contains(Size) .shop-panel__variant-value-list label").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("data-available")
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;

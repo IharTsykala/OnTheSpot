@@ -53,6 +53,60 @@ if (
 return $text;
 
 
+// Select
+if (jQuery(".selector-wrapper:contains(Colour):first option").length > 0) {
+  [
+    jQuery(".selector-wrapper:contains(Colour):first option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Colour):first option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Colour",
+    jQuery.makeArray(
+      jQuery(".selector-wrapper:contains(Colour):first option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Colour", ["No Colour"]];
+}
+
+//pa_Colours clicker
+if (
+jQuery(".selector-wrapper:contains(Colour):first option").length > 0 &&
+$sarg != "Select Colour" &&
+$sarg != "No Colour"
+) {
+jQuery(".selector-wrapper:contains(Colour):first option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+
+$text = false;
+if (
+  jQuery(".selector-wrapper:contains(Colour):first option").length > 0 &&
+  $sarg != "No Colour" &&
+  $sarg != "Select Colour"
+) {
+  $text = true;
+  jQuery(".selector-wrapper:contains(Colour):first option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
 
 // Select
 if (jQuery("#product-options-wrapper option").length > 0) {
@@ -927,6 +981,65 @@ if (
     if (
       jQuery(this).attr("value") == $sarg &&
       !jQuery(this).attr('.data-availability')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+///////////////////////////////////////
+//////////////////////////////
+/////////////////////
+
+// div label
+
+if (jQuery("div.shop-panel__variant-detail:contains(Color) .shop-panel__variant-value-list label").length > 0) {
+  [
+    jQuery(
+      "div.shop-panel__variant-detail:contains(Color) .shop-panel__variant-value-list label.active"
+    ).length > 0
+      ? jQuery("div.shop-panel__variant-detail:contains(Color) .shop-panel__variant-value-list label.active")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery("div.shop-panel__variant-detail:contains(Color) .shop-panel__variant-value-list label").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Color", ["No Color"]];
+
+
+if (
+  jQuery("div.shop-panel__variant-detail:contains(Color) .shop-panel__variant-value-list label").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery("div.shop-panel__variant-detail:contains(Color) .shop-panel__variant-value-list label").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+$text = false;
+if (
+  jQuery("div.shop-panel__variant-detail:contains(Color) .shop-panel__variant-value-list label").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery("div.shop-panel__variant-detail:contains(Color) .shop-panel__variant-value-list label").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("data-available")
     ) {
       $text = false;
     }

@@ -788,3 +788,59 @@ return $text;
 
 
 /////////////////////////////////////
+
+// div label
+
+if (jQuery("div.shop-panel__variant-detail:contains(Length) .shop-panel__variant-value-list label").length > 0) {
+  [
+    jQuery(
+      "div.shop-panel__variant-detail:contains(Length) .shop-panel__variant-value-list label.active"
+    ).length > 0
+      ? jQuery("div.shop-panel__variant-detail:contains(Length) .shop-panel__variant-value-list label.active")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Length",
+    jQuery.makeArray(
+      jQuery("div.shop-panel__variant-detail:contains(Length) .shop-panel__variant-value-list label").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Length", ["No Length"]];
+
+
+if (
+  jQuery("div.shop-panel__variant-detail:contains(Length) .shop-panel__variant-value-list label").length > 0 &&
+  $sarg != "Select Length" &&
+  $sarg != "No Length"
+) {
+  jQuery("div.shop-panel__variant-detail:contains(Length) .shop-panel__variant-value-list label").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+$text = false;
+if (
+  jQuery("div.shop-panel__variant-detail:contains(Length) .shop-panel__variant-value-list label").length > 0 &&
+  $sarg != "No Length" &&
+  $sarg != "Select Length"
+) {
+  $text = true;
+  jQuery("div.shop-panel__variant-detail:contains(Length) .shop-panel__variant-value-list label").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("data-available")
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;

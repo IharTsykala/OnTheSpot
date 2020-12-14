@@ -335,6 +335,9 @@ jQuery(".price--compare:first").text().trim() ||
  'CAD'+jQuery('.product-single__prices [id="ProductPrice"]:first').text().trim().replace(/\s/g,'').split('CAD')[0]
 
  jQuery('.product__price:first').text().trim().replace(/\s/g,'')
+ 
+
+ ||jQuery('.product__price:first').text().trim().replace(/\s/g,'')
 
  jQuery('[id="productPrice"]:first').text().trim().replace(/\s/g,'').slice(0,-2) 
  jQuery('[id="productPrice"]:last strike').text().trim().replace(/\s/g,'') ||
@@ -351,6 +354,10 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.product_single_price:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
  jQuery('.product_single_price:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
  jQuery('.product_single_price:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
+
+ jQuery('.price-wrapper:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
+ jQuery('.price-wrapper:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
+ jQuery('.price-wrapper:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
 
  jQuery('.price:first[id="price-preview"]').text().trim().replace(/\s/g,'')
 
@@ -411,3 +418,21 @@ jQuery(".price--compare:first").text().trim() ||
     jQuery('.product__price:first [data-compare-price]').text().trim()
     ||  jQuery('.product__price:first [data-product-price]').text().trim()
 
+    jQuery('.one-product-info__price:first .money').text().trim()
+
+    jQuery('[id="productPrice-product-template"]:first .money:first').text().trim().replace(/\s/g,'')
+
+    jQuery('.prices:first .actual-price').text().trim()
+
+    jQuery('.prices:first .compare-price .money').text().trim()
+    ||  jQuery('.prices:first .actual-price').text().trim()
+
+    '€' + ' ' + jQuery('.ps-cta__price:first .ps-cta__price-new').text().trim()
+
+    '€' + ' ' + (jQuery('.ps-cta__price:first .ps-cta__price-old').text().trim()
+    ||  jQuery('.ps-cta__price:first .ps-cta__price-new').text().trim())
+
+    jQuery('.product_price:first .money').text().trim()
+
+    jQuery('.pdp-hero__price-container:first').text().trim().split('From')[1] 
+    || jQuery('.pdp-hero__price-container:first').text().trim().split('From') 
