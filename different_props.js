@@ -844,3 +844,63 @@ if (
   });
 }
 return $text;
+
+/////////////////////////////////////////////////////
+
+// ul li
+
+if (jQuery("div.ProductForm__Option:contains(Taille) input").length > 0) {
+  ;[
+    jQuery("div.ProductForm__Option:contains(Taille) input:checked").length > 0
+      ? jQuery("div.ProductForm__Option:contains(Taille) input:checked")
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery("div.ProductForm__Option:contains(Taille) input").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Taille", ["No Taille"]]
+}
+
+if (
+  jQuery("div.ProductForm__Option:contains(Taille) input").length > 0 &&
+  $sarg != "Select Taille" &&
+  $sarg != "No Taille"
+) {
+  jQuery("div.ProductForm__Option:contains(Taille) input").each(function () {
+    if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery("div.ProductForm__Option:contains(Taille) input").length > 0 &&
+  $sarg != "No Taille" &&
+  $sarg != "Select Taille"
+) {
+  $text = true
+  jQuery("div.ProductForm__Option:contains(Taille) input").each(function (index) {
+    if (
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr(".data-availability")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+////////////////////////////////////////////////////

@@ -436,3 +436,5 @@ jQuery(".price--compare:first").text().trim() ||
 
     jQuery('.pdp-hero__price-container:first').text().trim().split('From')[1] 
     || jQuery('.pdp-hero__price-container:first').text().trim().split('From') 
+
+    jQuery(".ProductMeta__PriceList .ProductMeta__Price:first").text().trim()

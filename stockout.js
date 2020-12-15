@@ -299,3 +299,9 @@ if (jQuery('[id="AddToCart"]').text().trim().toLowerCase().indexOf('notify') >= 
 } else {
   $status = false;
 }
+
+if (jQuery('[itemprop="availability"]').attr('href').toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

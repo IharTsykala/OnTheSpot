@@ -166,17 +166,17 @@ if (
         .slice(0, -1)
 
     $link =
-      "https://benotable.co" +
+      "https://www.sneakher.fr" +
       jQuery(this).find("a.ProductItem__ImageWrapper").attr("href")
 
     $price =
-      "HKD" +
-      " " +
+      // "HKD" +
+      // " " +
       jQuery(this)
         .find(".ProductItem__PriceList:first .Price:first")
         .text()
         .trim()
-        .split("$")[1]
+        // .split("$")[1]
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
@@ -567,7 +567,7 @@ if (
 
 if (
   jQuery("ul.grid--uniform li").length > 0 &&
-  jQuery(".product-single__photo-wrapper img:first").length === 0
+  jQuery(".product-single__photos img:first").length === 0
 ) {
   $arr = []
 
@@ -588,16 +588,18 @@ if (
         // .split(" class")[0]
         .slice(0, -2)
 
-    $link = "https://shoptrendrebels.com" + jQuery(this).find("a:first").attr("href")
+    $link =
+     "https://shop.lunii.com" +
+     jQuery(this).find("a:first").attr("href")
 
     $price =
-      "$" +
-      " " +
+      // "$" +
+      // " " +
       jQuery(this)
         .find(".price-item--regular:first")
         .text()
         .trim()
-        .split("$")[1]
+        // .split("$")[1]
     // .trim()
 
     if ($title && $img && $link && $price)
@@ -899,16 +901,16 @@ if (
 // div div img one src
 
 if (
-  jQuery(".collection-product .product-inner").length > 0 &&
+  jQuery(".container .box").length > 0 &&
   jQuery(
-    '[class="product__photo slick-slide slick-current slick-active"] img:first'
+    '.product-single__photos img:first'
   ).length === 0
   // &&  jQuery('.product-details__desc-col').length === 0
 ) {
   $arr = []
 
-  jQuery(".collection-product .product-inner").each(function () {
-    $title = jQuery(this).find(".title").text().trim()
+  jQuery(".container .box").each(function () {
+    $title = jQuery(this).find("h3:last").text().trim()
 
     $img =
       // "https:" +
@@ -923,18 +925,18 @@ if (
         .split(" ")[0]
 
     $link =
-      "https://nz.camillaandmarc.com" +
+      // "https://lunii.com" +
       jQuery(this).find("a:first").attr("href")
 
     $price =
-      "NZD" +
-      " " +
+      // "NZD" +
+      // " " +
       jQuery(this)
         .find(".price:first")
         .text()
         .trim()
         .replace(/\s/g, "")
-        .split("NZ$")[1]
+        // .split("NZ$")[1]
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
