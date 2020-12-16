@@ -1046,3 +1046,222 @@ if (
   });
 }
 return $text;
+//////////////////////////////////////////////////////
+//////////////////////////////
+if (jQuery('.swatch[data-option-index="0"] input').length > 0) {
+  ;[
+    jQuery('.swatch[data-option-index="0"] input:checked').length > 0
+      ? jQuery('.swatch[data-option-index="0"] input:checked')
+      .attr("option_value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery('.swatch[data-option-index="0"] input').map(function (i, e) {
+    if (jQuery(e).attr("option_value") != "")
+      return jQuery(e).attr("option_value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Colour", ["No Colour"]]
+}
+
+if (jQuery('.swatch[data-option-index="0"] input').length > 0  &&
+$sarg != "Select Colour" &&
+$sarg != "No Colour") {
+jQuery('.swatch[data-option-index="0"] input').each(function () {
+if (jQuery(this).attr("option_value").replace(/\s\s+/g, "") == $sarg) {
+  jQuery(this).next()[0].click()
+}
+})
+}
+wait_for(function () {
+return true
+})
+
+$text = false;
+if (
+  jQuery('.swatch[data-option-index="0"] input').length > 0 &&
+  $sarg != "No Colour" &&
+  $sarg != "Select Colour"
+) {
+  $text = true;
+  jQuery('.swatch[data-option-index="0"] input').each(function (index) {
+    if (
+      jQuery(this).attr("option_value") == $sarg &&
+      !jQuery(this).attr('.data-availability')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+////////////
+//////////////////
+
+// div a text trim
+
+if (jQuery('div.colors-wrapper a').length > 0) {
+  [
+    jQuery(
+      'div.colors-wrapper a:first'
+    ).length > 0
+      ? jQuery('div.colors-wrapper a:first')
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery('div.colors-wrapper a').map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Color", ["No Color"]];
+
+
+if (
+  jQuery('div.colors-wrapper a').length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery('div.colors-wrapper a').each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+$text = false;
+if (
+  jQuery('div.colors-wrapper a').length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery('div.colors-wrapper a').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("data-available")
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+// select
+
+if (jQuery('select[id="ProductSelect-product-template-option-0"] option').length > 0) {
+  ;[
+    jQuery('select[id="ProductSelect-product-template-option-0"] option:selected').text() != ""
+      ? jQuery('select[id="ProductSelect-product-template-option-0"] option:selected').text().trim()
+      : // .replace(/\s\s+/g, "")
+        "Select Color",
+    jQuery.makeArray(
+      jQuery('select[id="ProductSelect-product-template-option-0"] option').map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Color", ["No Color"]]
+}
+
+if (
+  jQuery('select[id="ProductSelect-product-template-option-0"] option').length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery('select[id="ProductSelect-product-template-option-0"] option').each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).trigger("change")
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery('select[id="ProductSelect-product-template-option-0"] option').length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true
+  jQuery('select[id="ProductSelect-product-template-option-0"] option').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+/////////////////////////////////////////
+// div input 
+
+
+if (jQuery('div[data-option-index="2"] input').length > 0) {
+  ;[
+    jQuery('div[data-option-index="2"] input:checked').length > 0
+      ? jQuery('div[data-option-index="2"] input:checked')
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery('div[data-option-index="2"] input').map(function (i, e) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Color", ["No Color"]]
+}
+
+////
+
+if (
+  jQuery('div[data-option-index="2"] input').length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery('div[data-option-index="2"] input').each(function () {
+    if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery('div[data-option-index="2"] input').length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true
+  jQuery('div[data-option-index="2"] input').each(function (index) {
+    if (
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr(".data-availability")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+// /////////////////////

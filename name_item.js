@@ -8,7 +8,7 @@ jQuery('h3[data-product-type="title"]:first').text().trim().replace(/\r|\n/g, 's
 jQuery('[itemprop="name"]').text().trim().replace(/\r|\n/g, 'slash').split('slash')[1]
 .replace(/\r|\n/g, ' ')
 
-jQuery('h1[data-talos="labelPdpProductTitle"]').text().trim()
+jQuery('[data-product-type="title"]').text().trim()
 jQuery('h1').text().trim()
 
 jQuery('.site-name img:first').attr('alt')

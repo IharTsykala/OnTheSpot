@@ -44,13 +44,23 @@ if (jQuery('input.addtoBasket').attr('value').toLowerCase().indexOf('out') >= 0)
 }
 
 
-if (jQuery('input[class="add"]').attr('value').toLowerCase().indexOf('out') >= 0) {
+if (jQuery('input[class="add"]').attr('value').indexOf('out') >= 0 
+|| jQuery('input[class="add"]').attr('value').indexOf('unavailable') >= 0
+) {
   $status = true
 } else {
   $status = false;
 }
 
 if (jQuery('[name="add"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('[name="add"]:first').attr('value').indexOf('out') >= 0 
+|| jQuery('[name="add"]:first').attr('value').indexOf('Unavailable') >= 0
+) {
   $status = true
 } else {
   $status = false;
@@ -67,9 +77,25 @@ if (jQuery('[name="add"]').css('display')==='none') {
 } else {
   $status = false;
 }
+if (!jQuery('[name="add"]').length) {
+  $status = true
+} else {
+  $status = false;
+}
+
 
 
 if (jQuery('[data-click="addToCart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('[name="add"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[name="add"]').text().trim().toLowerCase() == 'out of stock' )
+// ||
+// jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
+ {
   $status = true
 } else {
   $status = false;
@@ -110,6 +136,19 @@ jQuery('[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'out of stock
 // ||
 // jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
  {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('[id="AddToCart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('.shopify-payment-button__button').text().trim().toLowerCase().indexOf('sold out')>=0 
+  || jQuery('.shopify-payment-button__button').text().trim().toLowerCase().indexOf('out of stock')>=0) {
   $status = true
 } else {
   $status = false;

@@ -113,15 +113,15 @@ return $text
 //
 
 if (
-  jQuery('select[id="variant-listbox-option-0"]:first option')
+  jQuery('select[data-option="option1"]:first option')
     .length > 0
 ) {
   ;[
     jQuery(
-      'select[id="variant-listbox-option-0"]:first option:selected'
+      'select[data-option="option1"]:first option:selected'
     ).text() != ""
       ? jQuery(
-          'select[id="variant-listbox-option-0"]:first option:selected'
+          'select[data-option="option1"]:first option:selected'
         )
           .text()
           .trim()
@@ -129,7 +129,7 @@ if (
         "Select Size",
     jQuery.makeArray(
       jQuery(
-        'select[id="variant-listbox-option-0"]:first option'
+        'select[data-option="option1"]:first option'
       ).map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "")
@@ -141,12 +141,12 @@ if (
 }
 
 if (
-  jQuery('select[id="variant-listbox-option-0"]:first option')
+  jQuery('select[data-option="option1"]:first option')
     .length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery('select[id="variant-listbox-option-0"]:first option').each(
+  jQuery('select[data-option="option1"]:first option').each(
     function () {
       if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
         jQuery(this).trigger("change")
@@ -160,13 +160,13 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery('select[id="variant-listbox-option-0"]:first option')
+  jQuery('select[data-option="option1"]:first option')
     .length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true
-  jQuery('select[id="variant-listbox-option-0"]:first option').each(
+  jQuery('select[data-option="option1"]:first option').each(
     function (index) {
       if (
         jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
@@ -1112,14 +1112,14 @@ return $val
 
 //
 
-if (jQuery('select[name="properties[Bed Size]"] option').length > 0) {
+if (jQuery('select[id="ProductSelect-product-template-option-1"] option').length > 0) {
   ;[
-    jQuery('select[name="properties[Bed Size]"] option:selected').text() != ""
-      ? jQuery('select[name="properties[Bed Size]"] option:selected').text().trim()
+    jQuery('select[id="ProductSelect-product-template-option-1"] option:selected').text() != ""
+      ? jQuery('select[id="ProductSelect-product-template-option-1"] option:selected').text().trim()
       : // .replace(/\s\s+/g, "")
         "Select Size",
     jQuery.makeArray(
-      jQuery('select[name="properties[Bed Size]"] option').map(function (i, e) {
+      jQuery('select[id="ProductSelect-product-template-option-1"] option').map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "")
       })
@@ -1130,11 +1130,11 @@ if (jQuery('select[name="properties[Bed Size]"] option').length > 0) {
 }
 
 if (
-  jQuery('select[name="properties[Bed Size]"] option').length > 0 &&
+  jQuery('select[id="ProductSelect-product-template-option-1"] option').length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery('select[name="properties[Bed Size]"] option').each(function () {
+  jQuery('select[id="ProductSelect-product-template-option-1"] option').each(function () {
     if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
       jQuery(this).trigger("change")
     }
@@ -1146,12 +1146,12 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery('select[name="properties[Bed Size]"] option').length > 0 &&
+  jQuery('select[id="ProductSelect-product-template-option-1"] option').length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true
-  jQuery('select[name="properties[Bed Size]"] option').each(function (index) {
+  jQuery('select[id="ProductSelect-product-template-option-1"] option').each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr("disabled")
@@ -1851,3 +1851,124 @@ if (
   });
 }
 return $text;
+
+///////////////////////////////////////////////////////
+//////////////////
+
+//////////////////
+
+// div a text trim
+
+if (jQuery('div.colors-wrapper a').length > 0) {
+  [
+    jQuery(
+      'div.colors-wrapper a:first'
+    ).length > 0
+      ? jQuery('div.colors-wrapper a:first')
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery('div.colors-wrapper a').map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Size", ["No Size"]];
+
+
+if (
+  jQuery('div.colors-wrapper a').length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery('div.colors-wrapper a').each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+$text = false;
+if (
+  jQuery('div.colors-wrapper a').length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery('div.colors-wrapper a').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("data-available")
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+////////////////
+
+// div input 
+
+
+if (jQuery('div[data-option-index="1"] input').length > 0) {
+  ;[
+    jQuery('div[data-option-index="1"] input:checked').length > 0
+      ? jQuery('div[data-option-index="1"] input:checked')
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery('div[data-option-index="1"] input').map(function (i, e) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Size", ["No Size"]]
+}
+
+////
+
+if (
+  jQuery('div[data-option-index="1"] input').length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery('div[data-option-index="1"] input').each(function () {
+    if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery('div[data-option-index="1"] input').length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true
+  jQuery('div[data-option-index="1"] input').each(function (index) {
+    if (
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr(".data-availability")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+// /////////////////////

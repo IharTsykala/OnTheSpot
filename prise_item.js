@@ -408,10 +408,10 @@ jQuery(".price--compare:first").text().trim() ||
     || jQuery('.product-page--price-wrapper:first .product-page--price').text().trim()
 
 
-    jQuery('.modal_price:first .current_price').text().trim().replace(/\s/g,'') 
+    jQuery('.modal_price .current_price ').text().trim().replace(/\s/g,'') 
 
-    jQuery('.modal_price:first .was_price').text().trim().replace(/\s/g,'') 
-    || jQuery('.modal_price:first .current_price').text().trim().replace(/\s/g,'') 
+    jQuery('.modal_price .was_price').text().trim().replace(/\s/g,'') 
+    || jQuery('.modal_price .current_price').text().trim().replace(/\s/g,'') 
 
     jQuery('.product__price:first [data-product-price]').text().trim()
 
@@ -438,3 +438,40 @@ jQuery(".price--compare:first").text().trim() ||
     || jQuery('.pdp-hero__price-container:first').text().trim().split('From') 
 
     jQuery(".ProductMeta__PriceList .ProductMeta__Price:first").text().trim()
+
+    jQuery(".price-reviews:first .product-price").text().trim()
+
+    jQuery('.price-reviews:first .compare-price').text().trim()
+    || jQuery('.price-reviews:first .product-price').text().trim()
+
+    jQuery(".price_pro:first .price_wrapper").text().trim()
+
+    jQuery('[id="product-price"] .product-price').text().trim()
+
+    jQuery('[id="product-price"] .was').text().trim()
+    ||jQuery('[id="product-price"] .product-price').text().trim()
+
+    jQuery('[data-price-wrapper] [data-product-price]').text().trim()
+
+    jQuery('.product-single__price-product-template:first [id="ProductPrice-product-template"]').text().trim()
+
+    jQuery('.product-single__price-product-template:first [id="ComparePrice-product-template"] .money').text().trim()
+    ||jQuery('.product-single__price-product-template:first [id="ProductPrice-product-template"]').text().trim()
+
+    jQuery(".prices:first .on-sale").text().trim()
+    || jQuery(".prices:first .price").text().trim()
+
+    jQuery('.prices:first .compare-price').text().trim()
+    || jQuery('.prices:first .price').text().trim()
+
+    jQuery('[data-product-type="price"]:first').text().trim()
+
+    jQuery('.product-single__prices:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
+ jQuery('.product-single__prices:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
+ jQuery('.product-single__prices:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
+
+ jQuery(".product-price-display:first .regular-price").text().trim()
+
+ jQuery('.price:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
+ jQuery('.price:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
+ jQuery('.price:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
