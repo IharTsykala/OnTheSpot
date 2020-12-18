@@ -1687,28 +1687,28 @@ return $text
 /////////////////
 
 
-if (jQuery("div.product-info__variants_items:contains(size) input").length > 0) {
+if (jQuery("div.product-info__variants_items:contains(Size) input").length > 0) {
   ;[
-    jQuery("div.product-info__variants_items:contains(size) input:checked").length > 0
-      ? jQuery("div.product-info__variants_items:contains(size) input:checked")
+    jQuery("div.product-info__variants_items:contains(Size) input:checked").length > 0
+      ? jQuery("div.product-info__variants_items:contains(Size) input:checked")
       .attr("value")
       .replace(/\s\s+/g, "")
   : "Select item",
 jQuery.makeArray(
-  jQuery("div.product-info__variants_items:contains(size) input").map(function (i, e) {
+  jQuery("div.product-info__variants_items:contains(Size) input").map(function (i, e) {
     if (jQuery(e).attr("value") != "")
       return jQuery(e).attr("value").replace(/\s\s+/g, "")
   })
 ),
 ]
 } else {
-;["No size", ["No size"]]
+;["No Size", ["No Size"]]
 }
 
-if (jQuery("div.product-info__variants_items:contains(size) input").length > 0  &&
-$sarg != "Select size" &&
-$sarg != "No size") {
-jQuery("div.product-info__variants_items:contains(size) input").each(function () {
+if (jQuery("div.product-info__variants_items:contains(Size) input").length > 0  &&
+$sarg != "Select Size" &&
+$sarg != "No Size") {
+jQuery("div.product-info__variants_items:contains(Size) input").each(function () {
 if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
   jQuery(this).next()[0].click()
 }
@@ -1720,12 +1720,12 @@ return true
 
 $text = false;
 if (
-  jQuery("div.product-info__variants_items:contains(size) input").length > 0 &&
-  $sarg != "No size" &&
-  $sarg != "Select size"
+  jQuery("div.product-info__variants_items:contains(Size) input").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
 ) {
   $text = true;
-  jQuery("div.product-info__variants_items:contains(size) input").each(function (index) {
+  jQuery("div.product-info__variants_items:contains(Size) input").each(function (index) {
     if (
       jQuery(this).attr("value") == $sarg &&
       !jQuery(this).attr('.data-availability')

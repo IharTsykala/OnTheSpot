@@ -194,3 +194,8 @@ if(jQuery('input[name="redeemableCode"]:last').length > 0){
 } else if (jQuery('.coupon-code-add:first')[0]) {
   jQuery('.coupon-code-add:first')[0].click()
 }
+
+// jQuery('#reduction button:first').click()
+jQuery('input[name="coupon_code"]:first')
+jQuery('button.coupon__apply-btn:first')
+jQuery('.checkout__prices-table-value:last')

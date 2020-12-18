@@ -228,6 +228,13 @@ jQuery(".price--compare-at:first").text().trim() ||
     jQuery(".ProductMeta__Price.Price--highlight:first").text().trim()
     || jQuery(".ProductMeta__Price:first").text().trim()
 
+   'EGP' + ' ' + (jQuery(".ProductMeta__Price.Price--highlight:first").text().trim() 
+    || jQuery(".ProductMeta__Price:first").text().trim()).split('LE')[1]
+    'EGP' + ' ' +(jQuery(".ProductMeta__Price.Price--compareAt:first").text().trim() ||
+      jQuery(".ProductMeta__Price.Price--highlight:first").text().trim()
+      || jQuery(".ProductMeta__Price:first").text().trim()).split('LE')[1]
+    
+
     "£" + ' ' + jQuery(".product-info .oe_currency_value:last").text().trim()
     "£" + ' ' +jQuery(".product-info .oe_currency_value:first").text().trim() ||
       jQuery(".new-price .price-update:first").text().trim()
@@ -343,7 +350,10 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('[id="productPrice"]:last strike').text().trim().replace(/\s/g,'') ||
  jQuery('[id="productPrice"]:first').text().trim().replace(/\s/g,'').slice(0,-2) 
 
- jQuery('.woocommerce-Price-currencySymbol:first').parent().text().trim()
+ jQuery('.price:first .woocommerce-Price-currencySymbol:first').parent().text().trim()
+
+ jQuery('.price:first .woocommerce-Price-currencySymbol:last').parent().text().trim()
+ || jQuery('.price:first .woocommerce-Price-currencySymbol:first').parent().text().trim()
   
 
  jQuery('.product-price:first [data-product-price]').text().trim().replace(/\s/g,'') 
@@ -358,6 +368,10 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.price-wrapper:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
  jQuery('.price-wrapper:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
  jQuery('.price-wrapper:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
+
+ jQuery('.price-container:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
+ jQuery('.price-container:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
+ jQuery('.price-container:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
 
  jQuery('.price:first[id="price-preview"]').text().trim().replace(/\s/g,'')
 
@@ -390,6 +404,8 @@ jQuery(".price--compare:first").text().trim() ||
  '$'+jQuery('.product-price:first .sqs-money-native').text().trim().replace(/\s/g,'') 
 
  jQuery('.product-info__header_price-wrapper:first .product-info__header_price').text().trim().replace(/\s/g,'') 
+ jQuery('.product-info__header_price-wrapper:first .product-info__header_compare-at-price').text().trim().replace(/\s/g,'') 
+ || jQuery('.product-info__header_price-wrapper:first .product-info__header_price').text().trim().replace(/\s/g,'') 
 
  jQuery(".product-price .current-price").text().trim()
 
@@ -412,6 +428,11 @@ jQuery(".price--compare:first").text().trim() ||
 
     jQuery('.modal_price .was_price').text().trim().replace(/\s/g,'') 
     || jQuery('.modal_price .current_price').text().trim().replace(/\s/g,'') 
+
+    jQuery('.product__information:first .current_price ').text().trim().replace(/\s/g,'') 
+
+    jQuery('.product__information:first .was-price').text().trim().replace(/\s/g,'') 
+    || jQuery('.product__information:first .current_price').text().trim().replace(/\s/g,'') 
 
     jQuery('.product__price:first [data-product-price]').text().trim()
 
@@ -475,3 +496,48 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.price:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
  jQuery('.price:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
  jQuery('.price:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
+
+ jQuery("#ProductPrice:first .money").text().trim()
+ jQuery('.product--option:first [id="ProductPrice"] .money').text().trim().replace(/\s/g,'') 
+ jQuery('.product--option:first [id="ComparePrice"] .money').text().trim().replace(/\s/g,'') ||
+ jQuery('.product--option:first [id="ProductPrice"] .money').text().trim().replace(/\s/g,'')
+
+ "NZD" + ' ' + jQuery('.price-product .price__original:first').text().trim().split("NZ$")[1] 
+ "NZD" + ' ' + jQuery('.price-product .price__discount:first').text().trim().split("NZ$")[1] ||
+ "NZD" + ' ' + jQuery('.price-product .price__original:first').text().trim().split("NZ$")[1]
+
+ jQuery('.product-single__meta-list:first [id="ProductPrice-product-template"] .money').text().trim().replace(/\s/g,'') 
+ jQuery('.product-single__meta-list:first [id="ComparePrice-product-template"] .money').text().trim().replace(/\s/g,'') ||
+ jQuery('.product-single__meta-list:first [id="ProductPrice-product-template"] .money').text().trim().replace(/\s/g,'')
+
+ jQuery(".price ins:first").text().trim()
+ ||  jQuery(".price:first .woocommerce-Price-amount").text().trim()
+
+ jQuery(".price del:first").text().trim()
+ ||  jQuery(".price:first .woocommerce-Price-amount").text().trim()
+
+ jQuery(".product-single__meta:first .product__price.sale-price:first").text().trim()
+ ||  jQuery(".product-single__meta:first .product__price:first").text().trim()
+
+ jQuery(".product-single__meta:first .product__price--compare:first").text().trim()
+ ||  jQuery(".product-single__meta:first .product__price.product__price:first").text().trim()
+
+ jQuery(".product-price-display:first .regular-price").text().trim()
+
+ jQuery('.product-price:first .price .money:first').text().trim().replace(/\s/g,'')
+
+ jQuery('.product-price:first .price .product-price-compare .money:first').text().trim().replace(/\s/g,'')
+ || jQuery('.product-price:first .price .money:first').text().trim().replace(/\s/g,'')
+
+ jQuery('.PD-priceInfo:first .PD-price').text().trim().replace(/\s/g,'').slice(0,-2)
+
+ jQuery(".summary .price ins:first").text().trim()
+ ||  jQuery(".summary .price:first .woocommerce-Price-amount").text().trim()
+
+ jQuery(".summary .price del:first").text().trim()
+ ||  jQuery(".summary .price:first .woocommerce-Price-amount").text().trim()
+
+ jQuery('[id="productPrice"]:first').text().trim().replace(/\s/g,'').slice(0,-2)+'.'+jQuery('[id="productPrice"]:first sup').text().trim().replace(/\s/g,'')
+
+ jQuery('[id="productPrice"]:last strike').text().trim().replace(/\s/g,'') 
+ || jQuery('[id="productPrice"]:first').text().trim().replace(/\s/g,'').slice(0,-2)+'.'+jQuery('[id="productPrice"]:first sup').text().trim().replace(/\s/g,'')

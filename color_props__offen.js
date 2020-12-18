@@ -164,28 +164,28 @@ return $text;
 
 
 
-if (jQuery("div.product-info__variants_items:contains(color) input").length > 0) {
+if (jQuery("div.product-info__variants_items:contains(Color) input").length > 0) {
   ;[
-    jQuery("div.product-info__variants_items:contains(color) input:checked").length > 0
-      ? jQuery("div.product-info__variants_items:contains(color) input:checked")
+    jQuery("div.product-info__variants_items:contains(Color) input:checked").length > 0
+      ? jQuery("div.product-info__variants_items:contains(Color) input:checked")
       .attr("value")
       .replace(/\s\s+/g, "")
   : "Select item",
 jQuery.makeArray(
-  jQuery("div.product-info__variants_items:contains(color) input").map(function (i, e) {
+  jQuery("div.product-info__variants_items:contains(Color) input").map(function (i, e) {
     if (jQuery(e).attr("value") != "")
       return jQuery(e).attr("value").replace(/\s\s+/g, "")
   })
 ),
 ]
 } else {
-;["No color", ["No color"]]
+;["No Color", ["No Color"]]
 }
 
-if (jQuery("div.product-info__variants_items:contains(color) input").length > 0  &&
-$sarg != "Select color" &&
-$sarg != "No color") {
-jQuery("div.product-info__variants_items:contains(color) input").each(function () {
+if (jQuery("div.product-info__variants_items:contains(Color) input").length > 0  &&
+$sarg != "Select Color" &&
+$sarg != "No Color") {
+jQuery("div.product-info__variants_items:contains(Color) input").each(function () {
 if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
   jQuery(this).next()[0].click()
 }
@@ -197,12 +197,12 @@ return true
 
 $text = false;
 if (
-  jQuery("div.product-info__variants_items:contains(color) input").length > 0 &&
-  $sarg != "No color" &&
-  $sarg != "Select color"
+  jQuery("div.product-info__variants_items:contains(Color) input").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
 ) {
   $text = true;
-  jQuery("div.product-info__variants_items:contains(color) input").each(function (index) {
+  jQuery("div.product-info__variants_items:contains(Color) input").each(function (index) {
     if (
       jQuery(this).attr("value") == $sarg &&
       !jQuery(this).attr('.data-availability')
@@ -1265,3 +1265,56 @@ if (
 return $text
 
 // /////////////////////
+// select
+
+if (jQuery('select[data-index="option1"] option').length > 0) {
+  ;[
+    jQuery('select[data-index="option1"] option:selected').text() != ""
+      ? jQuery('select[data-index="option1"] option:selected').text().trim()
+      : // .replace(/\s\s+/g, "")
+        "Select Color",
+    jQuery.makeArray(
+      jQuery('select[data-index="option1"] option').map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Color", ["No Color"]]
+}
+
+if (
+  jQuery('select[data-index="option1"] option').length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery('select[data-index="option1"] option').each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).trigger("change")
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery('select[data-index="option1"] option').length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true
+  jQuery('select[data-index="option1"] option').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+/////////////////////////////////////////

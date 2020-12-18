@@ -1677,7 +1677,82 @@ if (jQuery('.image__container img:first').length > 0)
     $arr
   }
 
+  if (
+    jQuery(".collection-listing--collection .collection-listing--product").length > 0 &&
+    jQuery(".swiper-wrapper img:first").length === 0
+    // &&  jQuery(".product-single").length === 0
+  ) {
+    $arr = []
+  
+    jQuery(".collection-listing--collection .collection-listing--product").each(function () {
+      $title = jQuery(this).find(".product--title").text().trim()
+  
+      if (jQuery(this).find("noscript").text().trim())
+        $img =
+          // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
+          // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+          "https:" +
+          jQuery(this)
+            .find("noscript")
+            .text()
+            .trim()
+            .split('src="')[1]
+            // .split("url('")[1]
+            .split(" ")[0]
+            .trim()
+            .slice(0, -1)
+      // .replace('gif', 'jpg')
+      else $img = ""
+  
+      $link =
+        "https://tenshundredsthousands.com" + 
+        jQuery(this).find("a:first").attr("href")
+  
+      $price = jQuery(this).find(".product--price-wrapper .product--price:first").text().trim().replace(/\s/g, "")
+      // .split('$')[1]
+  
+      if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+    })
+    $arr
+  }
 
-  if (jQuery('.shop-panel__image-wrapper  img:first').length > 0) {
-    jQuery('meta[name="description"]').attr('content')
+  if (
+    jQuery(".collection--products .collection--product").length > 0 &&
+    jQuery(".swiper-wrapper img:first").length === 0
+    // &&  jQuery(".product-single").length === 0
+  ) {
+    $arr = []
+  
+    jQuery(".collection--products .collection--product").each(function () {
+      $title = jQuery(this).find(".product--title").text().trim()
+  
+      if (jQuery(this).find("noscript").text().trim())
+        $img =
+          // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
+          // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+          "https:" +
+          jQuery(this)
+            .find("noscript")
+            .text()
+            .trim()
+            .split('src="')[1]
+            // .split("url('")[1]
+            .split(" ")[0]
+            .trim()
+            .slice(0, -1)
+      // .replace('gif', 'jpg')
+      else $img = ""
+  
+      $link =
+        "https://tenshundredsthousands.com" + 
+        jQuery(this).find("a:first").attr("href")
+  
+      $price = jQuery(this).find(".product--price-wrapper .product--price:first").text().trim().replace(/\s/g, "")
+      // .split('$')[1]
+  
+      if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+    })
+    $arr
   }

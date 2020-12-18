@@ -318,3 +318,15 @@ if (jQuery('[itemprop="availability"]').attr('href').toLowerCase().indexOf('out'
 } else {
   $status = false;
 }
+
+if (jQuery('.product-details__label-container').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('.product-unavailable').css('display') !== 'none') {
+  $status = true
+} else {
+  $status = false;
+}

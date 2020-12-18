@@ -172,3 +172,8 @@ jQuery('[data-price-wrapper] [data-product-price]').text().trim() ||
   || jQuery('.product-form__info-content .price:first').text().trim().split("$")[1] )
   "$"+(jQuery(".product-form__info-content .price--compare:first").text().trim().split("$")[1]    
     || jQuery('.product-form__info-content .price:first').text().trim().split("$")[1] )
+
+    jQuery('.prices:first .actual-price').text().trim()
+
+    jQuery('.prices:first .compare-price .money').text().trim()
+    ||  jQuery('.prices:first .actual-price').text().trim()

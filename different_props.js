@@ -904,3 +904,54 @@ if (
 return $text
 
 ////////////////////////////////////////////////////
+// select
+
+if (jQuery('select[data-index="option2"] option').length > 0) {
+  ;[
+    jQuery('select[data-index="option2"] option:selected').text() != ""
+      ? jQuery('select[data-index="option2"] option:selected').text().trim()
+      : // .replace(/\s\s+/g, "")
+        "Select Color",
+    jQuery.makeArray(
+      jQuery('select[data-index="option2"] option').map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Color", ["No Color"]]
+}
+
+if (
+  jQuery('select[data-index="option2"] option').length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery('select[data-index="option2"] option').each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).trigger("change")
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery('select[data-index="option2"] option').length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true
+  jQuery('select[data-index="option2"] option').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
