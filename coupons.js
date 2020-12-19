@@ -200,6 +200,8 @@ jQuery('input[name="coupon_code"]:first')
 jQuery('button.coupon__apply-btn:first')
 jQuery('.checkout__prices-table-value:last')
 
+
+
 // jQuery('#reduction button:first').click()
 jQuery('.order-coupon-input input[placeholder="Discount code"]:last')
 jQuery('.order-coupon-input button:last')
