@@ -331,9 +331,9 @@ jQuery(".price--compare:first").text().trim() ||
   jQuery(".price--highlight:first").text().trim() ||
  jQuery(".price:first").text().trim()
 
- jQuery('.pay-price:first').text().trim().replace(/\s/g,'') 
- jQuery('.orig-price:first').text().trim().replace(/\s/g,'') ||
- jQuery('.pay-price:first').text().trim().replace(/\s/g,'')
+ jQuery('.price .pay-price:first').text().trim().replace(/\s/g,'') 
+ jQuery('.price .orig-price:first').text().trim().replace(/\s/g,'') ||
+ jQuery('.price .pay-price:first').text().trim().replace(/\s/g,'')
 
 
  jQuery('[id="productPrice-product-template"] [aria-hidden="true"]:first').text().trim().replace(/\s/g,'').slice(0, -2)
@@ -372,6 +372,14 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.price-container:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
  jQuery('.price-container:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
  jQuery('.price-container:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
+
+ jQuery('[data-price-container]:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
+ jQuery('[data-price-container]:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
+ jQuery('[data-price-container]:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
+
+ jQuery('[id="ProductPrice"]').text().trim().replace(/\s/g,'') 
+ jQuery('[id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
+ jQuery('[id="ProductPrice"]').text().trim().replace(/\s/g,'')
 
  jQuery('.price:first[id="price-preview"]').text().trim().replace(/\s/g,'')
 
@@ -541,3 +549,9 @@ jQuery(".price--compare:first").text().trim() ||
 
  jQuery('[id="productPrice"]:last strike').text().trim().replace(/\s/g,'') 
  || jQuery('[id="productPrice"]:first').text().trim().replace(/\s/g,'').slice(0,-2)+'.'+jQuery('[id="productPrice"]:first sup').text().trim().replace(/\s/g,'')
+
+ jQuery('.product_header:first h3:first').text().trim().replace(/\s/g,'')
+
+ jQuery('.ec3iic91:first .ec3iic90:first').text().trim().replace(/\s/g,'') 
+ jQuery('.ec3iic91:first .ec3iic90:last').text().trim().replace(/\s/g,'') ||
+ jQuery('.ec3iic91:first .ec3iic90:first').text().trim().replace(/\s/g,'')

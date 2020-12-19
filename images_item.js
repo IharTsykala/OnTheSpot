@@ -409,7 +409,7 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
 
   if (jQuery('[class="swiper-slide swiper-slide-active"] img:first').length > 0) 
   $img = jQuery('[class="swiper-slide swiper-slide-active"] img:first')  
-  .attr('srcset') 
+  .attr('src') 
   .split(' ')[0]
   .replace('_180', '_1080')
   else
@@ -418,16 +418,13 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   if ($img.indexOf("http") == -1)
   'https:'+$img
   else
-  $img
-
-
-  
+  $img  
   
   if (jQuery('[class="swiper-slide swiper-slide-active"] img').length > 0){
     $arr = [];
     jQuery('[class="swiper-slide swiper-slide-active"] img').each(function(index){
         if (index < 4) 
-        $arr.push('https:'+jQuery(this).attr("srcset"))
+        $arr.push('https:'+jQuery(this).attr("src"))
     })
     $arr
     }
@@ -665,7 +662,33 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
                         /////////////////////////////////////////////
 
   if (jQuery('.product-image-main img:first').length > 0) 
-  $img = jQuery('.product-image-main img:first').attr('srcset')  
+  $img = jQuery('.product-image-main img:first').attr('data-photoswipe-src')  
+  .split(' ')[0]
+  .replace('_360', '_1100')
+  else
+  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+  
+  if ($img.indexOf("http") == -1)
+  'https:'+$img
+  else
+  $img
+
+  if (jQuery('.product-image-main img').length > 0){
+    $arr = [];
+    jQuery('.product-image-main img').each(function(index){
+        if (index < 4) 
+        $arr.push('https:'+jQuery(this).attr('data-photoswipe-src')  
+        .split(' ')[0])
+    })
+    $arr
+    }
+
+    //////////////////////////////////////////////////
+
+                            /////////////////////////////////////////////
+
+  if (jQuery('.product-single-slide').length > 0) 
+  $img = jQuery('.product-single-slide:first').next().find('img:first').attr('srcset')  
   .split(' ')[0]
   .replace('_360', '_1100')
   else
@@ -1034,7 +1057,7 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
 
     if (jQuery('[class="swiper-slide slick-slide slick-current slick-active"] img:first').length > 0) 
     $img = jQuery('[class="swiper-slide slick-slide slick-current slick-active"] img:first')  
-    .attr('srcset') 
+    .attr('src') 
     .split(' ')[0]
     .replace('_180', '_1080')
     else
@@ -1050,7 +1073,7 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
       $arr = [];
       jQuery('[class="swiper-slide slick-slide slick-current slick-active"] img').each(function(index){
           if (index < 4) 
-          $arr.push('https:'+jQuery(this).attr("srcset"))
+          $arr.push('https:'+jQuery(this).attr("src"))
       })
       $arr
       }  
@@ -1771,4 +1794,76 @@ if (jQuery('.product-single__thumbnail-item img').length > 0){
             $arr
             }
         
+            //////////////////////////////////////////////////
+             //////////////////////////////////////////////////
+
+       if (jQuery('[id="product_images"]  img:first').length > 0) 
+       $img = jQuery('[id="product_images"]  img:first').attr('src')  
+       .split(' ')[0]
+       .replace('_60', '_1100')
+       else
+       $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+       
+       if ($img.indexOf("http") == -1)
+       'https:'+$img
+       else
+       $img
+     
+       if (jQuery('[id="product_images"]  img').length > 0){
+         $arr = [];
+         jQuery('[id="product_images"] img').each(function(index){
+             if (index < 4) 
+             $arr.push('https:'+jQuery(this).attr('src')  
+             .split(' ')[0])
+         })
+         $arr
+         }
+     
+         //////////////////////////////////////////////////
+            /////////////////////////////////////////////
+            if (jQuery('.css-1b25yh7 img:first').length > 0) 
+            $img = jQuery('.css-1b25yh7 img:first').attr('src')  
+            .split(' ')[0]
+            .replace('_150x150', '_1080x1080')
+            else
+            $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+            
+            if ($img.indexOf("http") == -1)
+            'https:'+$img
+            else
+            $img
+          
+            if (jQuery('.css-1b25yh7 img').length > 0){
+              $arr = [];
+              jQuery('.css-1b25yh7 img').each(function(index){
+                  if (index < 4) 
+                  $arr.push('https:'+jQuery(this).attr('src')  
+                  .split(' ')[0])
+              })
+              $arr
+              }          
+              //////////////////////////////////////////////////
+                  //////////////////////////////////////////////////
+   
+          if (jQuery('.MagicToolboxContainer img:first').length > 0) 
+          $img = jQuery('.MagicToolboxContainer img:first').attr('src')  
+          .split(' ')[0]
+          .replace('_300x300', '_1080x1080')
+          else
+          $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+          
+          if ($img.indexOf("http") == -1)
+          'https:'+$img
+          else
+          $img
+        
+          if (jQuery('.MagicToolboxContainer img:first').length > 0){
+            $arr = [];
+            jQuery('.MagicToolboxContainer img:first').each(function(index){
+                if (index < 4) 
+                $arr.push('https:'+jQuery(this).attr('src')  
+                .split(' ')[0])
+            })
+            $arr
+            }        
             //////////////////////////////////////////////////

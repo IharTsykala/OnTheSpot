@@ -153,3 +153,9 @@ if (jQuery('.shopify-payment-button__button').text().trim().toLowerCase().indexO
 } else {
   $status = false;
 }
+
+if (jQuery('[title="Add To Cart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

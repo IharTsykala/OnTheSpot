@@ -330,3 +330,15 @@ if (jQuery('.product-unavailable').css('display') !== 'none') {
 } else {
   $status = false;
 }
+
+if (jQuery('[id="product_page"] [id="content"] h4').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('button:contains(Out)').length) {
+  $status = true
+} else {
+  $status = false;
+}

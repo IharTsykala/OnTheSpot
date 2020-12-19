@@ -937,6 +937,61 @@ return $val
 
 ////////////////////////////////////////////
 
+////////////////////////////////////////
+
+// for ul li ****
+
+if (jQuery(".product-form__item:contains(Couleurs) li").length > 0) {
+  ;[
+    jQuery(".product-form__item:contains(Couleurs) li a.selected").length > 0
+      ? jQuery(".product-form__item:contains(Couleurs) li a.selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".product-form__item:contains(Couleurs) li").map(function (i, e) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else ["No Color", ["No Color"]]
+
+if (
+  jQuery(".product-form__item:contains(Couleurs) li").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery(".product-form__item:contains(Couleurs) li").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg)
+      jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$val = false
+if (
+  jQuery(".product-form__item:contains(Couleurs) li").length > 0 &&
+  $sarg != "No size" &&
+  $sarg != "Select size"
+) {
+  $val = true
+  jQuery(".product-form__item:contains(Couleurs) li").each(function () {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass("unavailable")
+    ) {
+      $val = false
+    }
+  })
+}
+return $val
+
+////////////////////////////////////////////
+
 //////////////////////
 
 if (jQuery(".PD-variantsList:first input").length > 0) {
@@ -1318,3 +1373,114 @@ if (
 return $text
 
 /////////////////////////////////////////
+if (jQuery("div.radio-wrapper:contains(Color) input").length > 0) {
+  ;[
+    jQuery("div.radio-wrapper:contains(Color) input:checked").length > 0
+      ? jQuery("div.radio-wrapper:contains(Color) input:checked")
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery("div.radio-wrapper:contains(Color) input").map(function (i, e) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Color", ["No Color"]]
+}
+
+////////////
+
+if (
+  jQuery("div.radio-wrapper:contains(Color) input").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery("div.radio-wrapper:contains(Color) input").each(function () {
+    if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+// /////////////////////
+
+$text = false
+if (
+  jQuery("div.radio-wrapper:contains(Color) input").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true
+  jQuery("div.radio-wrapper:contains(Color) input").each(function (index) {
+    if (
+      jQuery(this).val().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).parent().hasClass("soldout")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+/////////////////////////////////////
+// Select
+if (jQuery(".types-item:contains(Color) option").length > 0) {
+  [
+    jQuery(".types-item:contains(Color) option:selected").text() != ""
+      ? jQuery(".types-item:contains(Color) option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".types-item:contains(Color) option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Color", ["No Color"]];
+}
+
+//pa_Colors clicker
+if (
+jQuery(".types-item:contains(Color) option").length > 0 &&
+$sarg != "Select Color" &&
+$sarg != "No Color"
+) {
+jQuery(".types-item:contains(Color) option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+
+$text = false;
+if (
+  jQuery(".types-item:contains(Color) option").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery(".types-item:contains(Color) option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+////////////////////////////////////
