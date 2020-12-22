@@ -52,7 +52,7 @@ if (jQuery('a[id="BIS_trigger"]:not(.h-tp-hidden)').text().trim() == 'Notify me 
   $status = false;
 }
 
-if (jQuery('.ProductItem-details .sold-out').text().trim() == 'sold out' ) {
+if (jQuery('.product-details .sold-out').text().trim() == 'This product is sold out' ) {
   $status = true
 } else {
   $status = false;

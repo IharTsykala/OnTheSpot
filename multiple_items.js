@@ -1679,7 +1679,7 @@ if (jQuery('.image__container img:first').length > 0)
 
   if (
     jQuery(".collection-listing--collection .collection-listing--product").length > 0 &&
-    jQuery(".swiper-wrapper img:first").length === 0
+    jQuery(".product-single__photo-wrapper img:first").length === 0
     // &&  jQuery(".product-single").length === 0
   ) {
     $arr = []
@@ -1718,38 +1718,38 @@ if (jQuery('.image__container img:first').length > 0)
   }
 
   if (
-    jQuery(".collection--products .collection--product").length > 0 &&
-    jQuery(".swiper-wrapper img:first").length === 0
+    jQuery(".grid--uniform .grid__item").length > 0 &&
+    jQuery('.product-single__photo.slick-active img:first')
+      .length === 0
     // &&  jQuery(".product-single").length === 0
   ) {
     $arr = []
   
-    jQuery(".collection--products .collection--product").each(function () {
-      $title = jQuery(this).find(".product--title").text().trim()
+    jQuery(".grid--uniform .grid__item").each(function () {
+      $title = jQuery(this).find(".grid-view-item__title").text().trim()
   
-      if (jQuery(this).find("noscript").text().trim())
-        $img =
-          // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
-          // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
-          "https:" +
-          jQuery(this)
-            .find("noscript")
-            .text()
-            .trim()
-            .split('src="')[1]
-            // .split("url('")[1]
-            .split(" ")[0]
-            .trim()
-            .slice(0, -1)
-      // .replace('gif', 'jpg')
-      else $img = ""
+      $img =
+        "https:" +
+        (
+          jQuery(this).find("img:first").attr("src") ||
+          jQuery(this).find("img:first").attr("data-srcset") ||
+          jQuery(this).find("img:first").attr("srcset") ||
+          // jQuery(this).find("img:last").attr("src") ||
+          ""
+        )
+          // .replace(/\s/g, "%20")
+          .split(" ")[0]
   
-      $link =
-        "https://tenshundredsthousands.com" + 
-        jQuery(this).find("a:first").attr("href")
+      $link = "https://shwainc.com" + jQuery(this).find("a:first").attr("href")
   
-      $price = jQuery(this).find(".product--price-wrapper .product--price:first").text().trim().replace(/\s/g, "")
-      // .split('$')[1]
+      $price =
+      
+      jQuery(this)
+        .find(".product-price__price")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+      // .split('$')[1] || ''
   
       if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])

@@ -276,6 +276,12 @@ jQuery('.price__sale .price-item--regular:first').text().trim()
 || jQuery('.price__sale .price-item--sale:first').text().trim() 
 ||  jQuery('.price__regular .price-item--regular:first').text().trim()
 
+jQuery('.product__price .price__sale .price-item--sale:first').text().trim() 
+|| jQuery('.product__price .price__regular .price-item--regular:first').text().trim() 
+jQuery('.product__price .price__sale .price-item--regular:first').text().trim() 
+|| jQuery('.product__price .price__sale .price-item--sale:first').text().trim() 
+||  jQuery('.product__price .price__regular .price-item--regular:first').text().trim()
+
 
 jQuery('[id="productPrice-product-template"] span:first').text().trim().slice(0,-2)
 jQuery('[id="productPrice-product-template"] small').text().trim().slice(0,-2) ||
@@ -341,7 +347,7 @@ jQuery(".price--compare:first").text().trim() ||
 
  'CAD'+jQuery('.product-single__prices [id="ProductPrice"]:first').text().trim().replace(/\s/g,'').split('CAD')[0]
 
- jQuery('.product__price:first').text().trim().replace(/\s/g,'')
+ 'CHF' + ' ' + jQuery('.product__price:first').text().trim().replace(/\s/g,'').split('SFr.')[1]
  
 
  ||jQuery('.product__price:first').text().trim().replace(/\s/g,'')
@@ -376,6 +382,14 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('[data-price-container]:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
  jQuery('[data-price-container]:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
  jQuery('[data-price-container]:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
+
+ jQuery('.product_prices:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
+ jQuery('.product_prices:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
+ jQuery('.product_prices:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
+
+ jQuery('.product-single__prices:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
+ jQuery('.product-single__prices:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
+ jQuery('.product-single__prices:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
 
  jQuery('[id="ProductPrice"]').text().trim().replace(/\s/g,'') 
  jQuery('[id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
@@ -422,7 +436,7 @@ jQuery(".price--compare:first").text().trim() ||
 
     jQuery('[id="ProductPrice-product-template"]:first').text().trim()
 
-    jQuery('[id="ComparePrice-product-template"] .money:first').text().trim()
+    jQuery('[id="ComparePrice-product-template"]').text().trim()
     || jQuery('[id="ProductPrice-product-template"]:first').text().trim()
   
 
@@ -555,3 +569,32 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.ec3iic91:first .ec3iic90:first').text().trim().replace(/\s/g,'') 
  jQuery('.ec3iic91:first .ec3iic90:last').text().trim().replace(/\s/g,'') ||
  jQuery('.ec3iic91:first .ec3iic90:first').text().trim().replace(/\s/g,'')
+
+ jQuery('.product-price-wrap:first').text().trim().replace(/\s/g,'')
+
+ jQuery('.tt-product-single-info:first .sale-price').text().trim().replace(/\s/g,'') 
+ jQuery('.tt-product-single-info:first .old-price').text().trim().replace(/\s/g,'') ||
+ jQuery('.tt-product-single-info:first .sale-price').text().trim().replace(/\s/g,'')
+
+ jQuery('.product__price:first .js-price').text().trim().replace(/\s/g,'') 
+ || jQuery('.product__price:first .js-price').text().trim().replace(/\s/g,'') 
+ jQuery('.product__price:first .on-sale').text().trim().replace(/\s/g,'') 
+ || jQuery('.product__price:first .js-price').text().trim().replace(/\s/g,'')
+
+
+  jQuery('[data-add-to-cart-component]:first [data-add-to-cart-price]').text().trim().replace(/\s/g,'')
+ || jQuery('.pdp-add-to-cart:first [data-price-label]').text().trim().replace(/\s/g,'')
+
+ jQuery('[data-add-to-cart-component]:first [data-add-to-cart-previous-price]').text().trim().replace(/\s/g,'')
+ || jQuery('.pdp-add-to-cart:first [data-price-label]').text().trim().replace(/\s/g,'')
+
+ jQuery('.product__price:first .price-item--regular:first').text().trim().replace(/\s/g,'')
+
+ jQuery('.product-price:first .product-price-minimum').text().trim()
+
+ jQuery('.product-price:first .product-price-compare').text().trim()
+ ||  jQuery('.product-price:first .product-price-minimum').text().trim()
+
+ jQuery('.product-single__prices:first .product__price').text().trim()
+
+ jQuery('[data-price-wrapper]:first [data-product-price]').text().trim().replace(/\s/g,'')

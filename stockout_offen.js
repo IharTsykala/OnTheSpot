@@ -82,7 +82,11 @@ if (!jQuery('[name="add"]').length) {
 } else {
   $status = false;
 }
-
+if (!jQuery('input[value="Add to Bag"]').length) {
+  $status = true
+} else {
+  $status = false;
+}
 
 
 if (jQuery('[data-click="addToCart"]').text().trim().toLowerCase().indexOf('out') >= 0) {

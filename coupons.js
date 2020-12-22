@@ -205,3 +205,8 @@ jQuery('.checkout__prices-table-value:last')
 jQuery('.order-coupon-input input[placeholder="Discount code"]:last')
 jQuery('.order-coupon-input button:last')
 jQuery('[class="order-item order-total"] strong:last')
+
+// jQuery(".showcoupon")[0].click()
+jQuery('input[name="coupon_code"]')
+jQuery('button[name="apply_coupon"]')
+jQuery('td[data-title="Total"]:last')

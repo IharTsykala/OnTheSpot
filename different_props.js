@@ -170,32 +170,32 @@ if (
 return $text;
 
 
-if (jQuery(".selector-wrapper:contains(Capacity) option").length > 0) {
+if (jQuery(".selector-wrapper:contains(Style) option").length > 0) {
   [
-    jQuery(".selector-wrapper:contains(Capacity) option:selected").text() != ""
-      ? jQuery(".selector-wrapper:contains(Capacity) option:selected")
+    jQuery(".selector-wrapper:contains(Style) option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Style) option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
-      : "Select Capacity",
+      : "Select Style",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(Capacity) option").map(function (i, e) {
+      jQuery(".selector-wrapper:contains(Style) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
     ),
   ];
 } else {
-  ["No Capacity", ["No Capacity"]];
+  ["No Style", ["No Style"]];
 }
 
-//pa_Capacitys clicker
+//pa_Styles clicker
 if (
-jQuery(".selector-wrapper:contains(Capacity) option").length > 0 &&
-$sarg != "Select Capacity" &&
-$sarg != "No Capacity"
+jQuery(".selector-wrapper:contains(Style) option").length > 0 &&
+$sarg != "Select Style" &&
+$sarg != "No Style"
 ) {
-jQuery(".selector-wrapper:contains(Capacity) option").each(function () {
+jQuery(".selector-wrapper:contains(Style) option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
     jQuery(this).trigger("change");
   }
@@ -207,12 +207,12 @@ return true;
 
 $text = false;
 if (
-  jQuery(".selector-wrapper:contains(Capacity) option").length > 0 &&
-  $sarg != "No Capacity" &&
-  $sarg != "Select Capacity"
+  jQuery(".selector-wrapper:contains(Style) option").length > 0 &&
+  $sarg != "No Style" &&
+  $sarg != "Select Style"
 ) {
   $text = true;
-  jQuery(".selector-wrapper:contains(Capacity) option").each(function (index) {
+  jQuery(".selector-wrapper:contains(Style) option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')
@@ -948,6 +948,130 @@ if (
   jQuery('select[data-index="option2"] option').each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+
+//////////////////////////////////////
+/////////////
+
+// radio-wrapper input 
+
+if (jQuery("div.radio-wrapper:contains(Type) input").length > 0) {
+  ;[
+    jQuery("div.radio-wrapper:contains(Type) input:checked").length > 0
+      ? jQuery("div.radio-wrapper:contains(Type) input:checked")
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery("div.radio-wrapper:contains(Type) input").map(function (i, e) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Type", ["No Type"]]
+}
+
+////////////
+
+
+if (
+  jQuery("div.radio-wrapper:contains(Type) input").length > 0 &&
+  $sarg != "Select Type" &&
+  $sarg != "No Type"
+) {
+  jQuery("div.radio-wrapper:contains(Type) input").each(function () {
+    if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+// /////////////////////
+
+$text = false
+if (
+  jQuery("div.radio-wrapper:contains(Type) input").length > 0 &&
+  $sarg != "No Type" &&
+  $sarg != "Select Type"
+) {
+  $text = true
+  jQuery("div.radio-wrapper:contains(Type) input").each(function (index) {
+    if (
+      jQuery(this).val().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).parent().hasClass("soldout")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+/////////////////////////////////////
+
+/////////////////////////////////////////////////////
+// selector-wrapper input 
+
+if (jQuery(".selector-wrapper:contains(Taille) input").length > 0) {
+  ;[
+    jQuery(".selector-wrapper:contains(Taille) input:checked").length > 0
+      ? jQuery(".selector-wrapper:contains(Taille) input:checked")
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery(".selector-wrapper:contains(Taille) input").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Taille", ["No Taille"]]
+}
+
+$text = false
+if (
+  jQuery(".selector-wrapper:contains(Taille) input").length > 0 &&
+  $sarg != "No Taille" &&
+  $sarg != "Select Taille"
+) {
+  $text = true
+  jQuery(".selector-wrapper:contains(Taille) input").each(function (index) {
+    if (
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+$text = false
+if (
+  jQuery(".selector-wrapper:contains(Taille) input").length > 0 &&
+  $sarg != "No Taille" &&
+  $sarg != "Select Taille"
+) {
+  $text = true
+  jQuery(".selector-wrapper:contains(Taille) input").each(function (index) {
+    if (
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr("disabled")
     ) {
       $text = false

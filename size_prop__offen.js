@@ -2227,3 +2227,61 @@ if (
 return $text;
 
 ////////////////////////////////////
+////////////////////////////
+// Div div input
+
+if (jQuery('[data-option="size"]:first input').length > 0) {
+  ;[
+    jQuery('[data-option="size"]:first input:checked').length > 0
+      ? jQuery('[data-option="size"]:first input:checked')
+          // .next()
+          // .text().trim()
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery('[data-option="size"]:first input').map(function (i, e) {
+        if (jQuery(e).attr("value") != "") return jQuery(e).attr("value")
+      })
+    ),
+  ]
+} else {
+  ;["No Color", ["No Color"]]
+}
+
+if (
+  jQuery('[data-option="size"]:first input').length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery('[data-option="size"]:first input').each(function () {
+    if (jQuery(this).attr("value") == $sarg) {
+      jQuery(this)[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery('[data-option="size"]:first input').length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true
+  jQuery('[data-option="size"]:first input').each(function (
+    index
+  ) {
+    if (
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr(".data-availability")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+///////////////////////////////////////////////////////////////////////////

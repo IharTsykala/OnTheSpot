@@ -30,7 +30,7 @@ if (
 
 if (
   jQuery("#CollectionSection .grid__item").length > 0 &&
-  jQuery('.product-single__media-wrapper img:first').length === 0
+  jQuery(".product-single__media-wrapper img:first").length === 0
 ) {
   $arr = []
 
@@ -38,7 +38,7 @@ if (
     $title = jQuery(this).find(".grid-product__title").text().trim()
 
     // $img =
-      // "https:" +
+    // "https:" +
     //   (
     //     (
     //       jQuery(this)
@@ -54,21 +54,21 @@ if (
     // .slice(0, -1)
 
     if (jQuery(this).find("noscript").text().trim())
-    $img =
-      // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
-      // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
-      "https:" +
-      jQuery(this)
-        .find("noscript")
-        .text()
-        .trim()
-        .split('src="')[1]
-        // .split("url('")[1]
-        .split(" ")[0]
-        .trim()
-        .slice(0, -1)
-  // .replace('gif', 'jpg')
-  else $img = ""
+      $img =
+        // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
+        // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+        "https:" +
+        jQuery(this)
+          .find("noscript")
+          .text()
+          .trim()
+          .split('src="')[1]
+          // .split("url('")[1]
+          .split(" ")[0]
+          .trim()
+          .slice(0, -1)
+    // .replace('gif', 'jpg')
+    else $img = ""
 
     $link = "https://beauut.com" + jQuery(this).find("a:first").attr("href")
 
@@ -419,14 +419,14 @@ if (
 // div div noscript
 
 if (
-  jQuery(".grid_wrapper .product-index").length > 0 &&
-  jQuery(".product-media-container img:first").length === 0
-  // &&  jQuery(".product-single").length === 0
+  jQuery(".product-grid .product-item").length > 0 &&
+  // jQuery(".data-zoom-wrapper img:first").length === 0
+   jQuery('button[name="add"]').length === 0
 ) {
   $arr = []
 
-  jQuery(".grid_wrapper .product-index").each(function () {
-    $title = jQuery(this).find("h3").text().trim()
+  jQuery(".product-grid .product-item").each(function () {
+    $title = jQuery(this).find(".product__grid__title").text().trim()
 
     if (jQuery(this).find("noscript").text().trim())
       $img =
@@ -437,28 +437,28 @@ if (
           .find("noscript")
           .text()
           .trim()
-          .split('src="')[1]
-          .split(" ")[0]
-          // .split("url(")[1]
-          // .split(")")[0]
+          // .split('src="')[1]
+          // .split(" ")[0]
+          .split("url('")[1]
+          .split(")")[0]
           .trim()
           .slice(0, -1)
     // .replace('gif', 'jpg')
     else $img = ""
 
     $link =
-      "https://labikineriaoficial.com" +
+      "https://wasted.paris" +
       jQuery(this).find("a:first").attr("href")
 
     $price = jQuery(this)
-      .find(".price:first .prod-price")
+      .find(".price:first")
       .text()
       .trim()
       .replace(/\s/g, "")
     // .split('$')[1]
 
     if ($title && $img && $link && $price)
-      $arr.push([$title, $img, $link, $price])
+    $arr.push([$title, $img, $link, $price])
   })
   $arr
 }
@@ -466,40 +466,50 @@ if (
 // div div img one src
 
 if (
-  jQuery('.collection-product__wrapper .common__product-gap').length > 0 &&
-  jQuery('.product-image img:first')
-    .length === 0
+  jQuery(".boost-pfs-filter-products .boost-pfs-filter-product-item").length >
+    0 &&
+  jQuery(".zoomWindowContainer img:first").length === 0
   // &&  jQuery('.product-details__desc-col').length === 0
 ) {
   $arr = []
 
-  jQuery('.collection-product__wrapper .common__product-gap').each(function () {
-    $title = jQuery(this).find(".product-snippet__title-normal:first").text().trim()
-
-    $img =
-      "https:" +
-      (
-      // jQuery(this).find("img:first").attr("data-src") ||
-      jQuery(this).find("img:first").attr("data-srcset") ||
-       jQuery(this).find("img:first").attr("srcset") ||
-      jQuery(this).find("img:first").attr("src") || "")
-        // .replace(/\s/g, "%20")
-        .split(" ")[0]
-
-    $link = "https://www.zonance.com" + jQuery(this).find("a:first").attr("href")
-
-    $price =
-      //  '$' +
-      jQuery(this)
-        .find(".product-snippet__price-wrapper:first .dj_skin_product_price")
+  jQuery(".boost-pfs-filter-products .boost-pfs-filter-product-item").each(
+    function () {
+      $title = jQuery(this)
+        .find(".boost-pfs-filter-product-item-title:first")
         .text()
         .trim()
-        .replace(/\s/g, "")
-    // .split('$')[1]
 
-    if ($title && $img && $link && $price)
-      $arr.push([$title, $img, $link, $price])
-  })
+      $img =
+        // "https:" +
+        // jQuery(this).find("img:first").attr("data-src") ||
+        (
+          jQuery(this).find("img:first").attr("data-srcset") ||
+          jQuery(this).find("img:first").attr("srcset") ||
+          jQuery(this).find("img:first").attr("src") ||
+          ""
+        )
+          // .replace(/\s/g, "%20")
+          .split(" ")[0]
+
+      $link =
+        "https://watchroom.co.uk" + jQuery(this).find("a:first").attr("href")
+
+      $price =
+        //  '$' +
+        jQuery(this)
+          .find(
+            ".boost-pfs-filter-product-item-price:first .boost-pfs-filter-product-item-sale-price"
+          )
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+      // .split('$')[1]
+
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    }
+  )
   $arr
 }
 
@@ -570,15 +580,12 @@ if (
     $price =
       // "$" +
       // " " +
-      jQuery(this)
-        .find(".price:first .pay-price")
-        .text()
-        .trim()
-        // .split("USD")[0]
-        // .trim()
+      jQuery(this).find(".price:first .pay-price").text().trim()
+    // .split("USD")[0]
+    // .trim()
 
     if ($title && $img && $link && $price)
-    $arr.push([$title, $img, $link, $price])
+      $arr.push([$title, $img, $link, $price])
   })
   $arr
 }
@@ -590,7 +597,7 @@ if (
 
 if (
   jQuery("ul.grid--uniform li").length > 0 &&
-  jQuery(".product-single__media-wrapper img:first").length === 0
+  jQuery(".product-single__photos img:first").length === 0
 ) {
   $arr = []
 
@@ -611,7 +618,9 @@ if (
         // .split(" class")[0]
         .slice(0, -2)
 
-    $link = "https://theporevacuumco.com" + jQuery(this).find("a:first").attr("href")
+    $link =
+      "https://viewsandco.co" +
+      jQuery(this).find("a:first").attr("href")
 
     $price =
       // "$" +
@@ -620,12 +629,11 @@ if (
     // .split("$")[1]
     // .trim()
 
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr
 }
-
 
 ////////////////////////////////////////////////////////////////
 
@@ -862,7 +870,7 @@ if (
     // .split('$')[2]
 
     // if ($title && $img && $link && $price)
-      $arr.push([$title, $img, $link, $price])
+    $arr.push([$title, $img, $link, $price])
   })
   $arr
 }
@@ -961,13 +969,13 @@ if (
 
 if (
   jQuery(".grid--uniform .grid__item").length > 0 &&
-  jQuery(".product-image-main img:first").length === 0
+  jQuery(".product-single__photo-wrapper img:first").length === 0
   // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
 
   jQuery(".grid--uniform .grid__item").each(function () {
-    $title = jQuery(this).find(".grid-view-item__title:first").text().trim()
+    $title = jQuery(this).find(".grid-product__title:first").text().trim()
 
     if (jQuery(this).find("noscript").text().trim())
       $img =
@@ -985,20 +993,19 @@ if (
     // .replace('gif', 'jpg')
     else $img = ""
 
-    $link =
-      "https://www.canal-saint-martin.fr" + jQuery(this).find("a:first").attr("href")
+    $link = "https://blesses.shop" + jQuery(this).find("a:first").attr("href")
 
     $price =
       // "$" +
       jQuery(this)
-        .find(".grid-view-item__meta:first .product-price__price")
+        .find(".price:first .price__regular .price-item--regular")
         .text()
         .trim()
         .replace(/\s/g, "")
-        // .split("$")[1]        
+    // .split("$")[1]
 
-    if ($title && $img && $link && $price)
-      $arr.push([$title, $img, $link, $price])
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
   })
   $arr
 }
@@ -1007,13 +1014,13 @@ if (
 
 if (
   jQuery(".grid-uniform .grid__item").length > 0 &&
-  jQuery(".product-single__photo--container-thumb img:first").length === 0
+  jQuery(".product-single__image-wrapper img:first").length === 0
   // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
 
   jQuery(".grid-uniform .grid__item").each(function () {
-    $title = jQuery(this).find(".grid-product__title").text().trim()
+    $title = jQuery(this).find(".grid-link__title").text().trim()
 
     if (jQuery(this).find("noscript").text().trim())
       $img =
@@ -1031,23 +1038,16 @@ if (
     // .replace('gif', 'jpg')
     else $img = ""
 
-    $link =
-      "https://beeclo.com" + jQuery(this).find("a:first").attr("href")
+    $link = "https://opulenceclothing.co" + jQuery(this).find("a:first").attr("href")
 
     $price =
-      "£" +
-      (jQuery(this)
-        .find(".grid-product__price-wrap:first .on-sale")
+      // "£" +
+      jQuery(this)
+        .find(".grid-link__meta:first span:last")
         .text()
         .trim()
         .replace(/\s/g, "")
-        .split("£")[1] ||
-        jQuery(this)
-          .find(".grid-product__price-wrap:first .grid-product__price")
-          .text()
-          .trim()
-          .replace(/\s/g, "")
-          .split("£")[1])
+    // .split("£")[1]
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -1157,13 +1157,13 @@ if (
 
 if (
   jQuery(".grid-uniform .grid__item").length > 0 &&
-  jQuery(".product-single img:first").length === 0
+  jQuery('.image-zoom img:first').length === 0
   // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
 
   jQuery(".grid-uniform .grid__item").each(function () {
-    $title = jQuery(this).find(".name_wrapper").text().trim()
+    $title = jQuery(this).find(".product_title").text().trim()
 
     $img =
       "https:" +
@@ -1178,16 +1178,23 @@ if (
         .split(" ")[0]
 
     $link =
-      "https://us-ca.bombol.com" + jQuery(this).find("a:first").attr("href")
+      "https://nestinteriordesign.net" + jQuery(this).find("a:first").attr("href")
 
     $price =
-      // 'CAD' +
-      jQuery(this)
-        .find(".price_wrapper:first .money")
+      '$' +
+      (jQuery(this)
+        .find(".product_prices:first .sale_price")
         .text()
         .trim()
         .replace(/\s/g, "")
-    // .split('CAD')[0]
+        .split('$')[1]
+        ||        
+      jQuery(this)
+        .find(".product_prices:first")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+        .split('$')[1])
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -1262,8 +1269,7 @@ if (
         ).split("url(")[1] || ""
       ).slice(1, -2)
 
-    $link =
-      "https://parkhurst.ca" + jQuery(this).find("a:first").attr("href")
+    $link = "https://parkhurst.ca" + jQuery(this).find("a:first").attr("href")
 
     $price =
       // '$'+
@@ -1272,10 +1278,9 @@ if (
         .next()
         .text()
         .trim()
-        .replace(/\s/g, "")
-    // .split('from')[1]
-    ||
-    jQuery(this)
+        .replace(/\s/g, "") ||
+      // .split('from')[1]
+      jQuery(this)
         .find(".grid-product__price:first")
         // .next()
         .text()
@@ -1461,8 +1466,8 @@ if (
 
 if (
   jQuery("ul#products li").length > 0 &&
-  jQuery(".woocommerce-product-gallery__image img:first").length === 0
-  && jQuery('[id="product_description"]').length === 0
+  jQuery(".woocommerce-product-gallery__image img:first").length === 0 &&
+  jQuery('[id="product_description"]').length === 0
 ) {
   $arr = []
 
@@ -1481,7 +1486,7 @@ if (
     // .replace(/\s/g, "%20")
 
     $link =
-       "https://www.houseofneed.co.uk" +
+      "https://www.houseofneed.co.uk" +
       jQuery(this).find("a:first").attr("href")
 
     $price =
@@ -1867,9 +1872,7 @@ if (
         // .replace(/\s/g, "%20")
         .split(" ")[0]
 
-    $link = 
-    "https://shwainc.com" +
-     jQuery(this).find("a:first").attr("href")
+    $link = "https://shwainc.com" + jQuery(this).find("a:first").attr("href")
 
     $price =
       jQuery(this)
@@ -1878,6 +1881,52 @@ if (
         .trim()
         .replace(/\s/g, "")
         .split("$")[1] || ""
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+///////////////////////////////////
+///////////////////////////
+
+// div div div attr
+
+if (
+  jQuery(".product-grid .product-item").length > 0 &&
+  jQuery("[data-zoom-wrapper] img:first").length === 0
+  // jQuery('button[name="add"]').length === 0
+) {
+  $arr = []
+
+  jQuery(".product-grid .product-item").each(function () {
+    $title = jQuery(this).find(".product__grid__title").text().trim()
+
+    $img =
+      "https:" +
+  (
+      jQuery(this).find('.product-item__image:first div:first').attr("data-bgset") ||
+      jQuery(this).find('.product-item__image:last div:last').attr("data-bgset") ||
+      
+        // jQuery(this)
+        //   .find(".product-item__image:first source:first")
+        //   .attr("srcset") ||
+        // jQuery(this)
+        //   .find(".product-item__image:first source:first")
+        //   .attr("data-srcset") ||
+        ""
+      )
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]   
+
+    $link = "https://wasted.paris/" + jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this)
+      .find(".price:first")
+      .text()
+      .trim()
+      .replace(/\s/g, "")
+    // .split("$")[1] || ""
 
     // if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -2009,6 +2058,46 @@ if (
   $arr
 }
 
+// div article one src
+
+if (
+  jQuery(".collection-products article").length > 0 &&
+  jQuery(".product-page--images-container img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".collection-products article").each(function () {
+    $title = jQuery(this).find(".product-list-item-title").text().trim()
+
+    $img =
+      "https:" +
+      // jQuery(this).find("source:first").attr("src") ||
+      // jQuery(this).find("source:first").attr("data-srcset") ||
+      // jQuery(this).find("source:first").attr("srcset") ||
+      (jQuery(this).find("img:first").attr("src") || "")
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://www.thelovelykeepsakecompany.co.uk" +
+      jQuery(this).find("a:first").attr("href")
+
+    $price =
+      "£" +
+      jQuery(this)
+        .find(".product-list-item-price:first")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+        .split("£")[1]
+
+    if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
 // div div img one src
 
 if (
@@ -2048,6 +2137,52 @@ if (
         .replace(/\s/g, "")
         .split("-")[1] ||
       jQuery(this).find(".price:first").text().trim().replace(/\s/g, "")
+
+    if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+///////////////////////////////////////////////
+
+// div div source img one src
+
+if (
+  jQuery(".collection-grid .product").length > 0 &&
+  jQuery(".cloud-zoom img:first").length === 0
+  // &&  jQuery('.product-details__desc-col').length === 0
+) {
+  $arr = []
+
+  jQuery(".collection-grid .product").each(function () {
+    $title = jQuery(this).find(".prod-title").text().trim()
+
+    $img =
+      "https:" +
+      // jQuery(this).find("source:first").attr("src") ||
+      (
+        jQuery(this).find(".prod-image:first").attr("data-bgset") ||
+        // jQuery(this).find(".prod-image:first").attr("srcset") ||
+        // jQuery(this).find(".prod-image:first").attr("src") ||
+        ""
+      )
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://gbweareurope.com" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // "NZD" +
+      // " " +
+      jQuery(this)
+        .find(".product-price__price:last")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+    // .split("-")[1]
+    //   ||
+    // jQuery(this).find(".price:first").text().trim().replace(/\s/g, "")
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -2106,14 +2241,16 @@ if (
 // div div img one src
 
 if (
-  jQuery('[class="product-list collection-matrix clearfix"] .product-wrap').length > 0 &&
-  jQuery('.product_gallery img:first')
-    .length === 0
+  jQuery('[class="product-list collection-matrix clearfix"] .product-wrap')
+    .length > 0 &&
+  jQuery(".product_gallery img:first").length === 0
   // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
 
-  jQuery('[class="product-list collection-matrix clearfix"] .product-wrap').each(function () {
+  jQuery(
+    '[class="product-list collection-matrix clearfix"] .product-wrap'
+  ).each(function () {
     $title = jQuery(this).find(".title").text().trim()
 
     $img =
@@ -2138,7 +2275,11 @@ if (
         .trim()
         .replace(/\s/g, "") ||
       // .split('$')[1]
-      jQuery(this).find(".product-info__caption:first .modal_price:first").text().trim().replace(/\s/g, "")
+      jQuery(this)
+        .find(".product-info__caption:first .modal_price:first")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
 
     // if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])
@@ -2149,27 +2290,32 @@ if (
 // div div img one src
 
 if (
-  jQuery('.collection-product__wrapper .common__product-gap').length > 0 &&
-  jQuery('.product-image img:first')
-    .length === 0
+  jQuery(".collection-product__wrapper .common__product-gap").length > 0 &&
+  jQuery(".sep-loaded-slider img:first").length === 0
   // &&  jQuery('.product-details__desc-col').length === 0
 ) {
   $arr = []
 
-  jQuery('.collection-product__wrapper .common__product-gap').each(function () {
-    $title = jQuery(this).find(".product-snippet__title-normal:first").text().trim()
+  jQuery(".collection-product__wrapper .common__product-gap").each(function () {
+    $title = jQuery(this)
+      .find(".product-snippet__title-normal:first")
+      .text()
+      .trim()
 
     $img =
       "https:" +
-      (
       // jQuery(this).find("img:first").attr("data-src") ||
-      jQuery(this).find("img:first").attr("data-srcset") ||
-       jQuery(this).find("img:first").attr("srcset") ||
-      jQuery(this).find("img:first").attr("src") || "")
+      (
+        jQuery(this).find("img:first").attr("data-srcset") ||
+        jQuery(this).find("img:first").attr("srcset") ||
+        jQuery(this).find("img:first").attr("src") ||
+        ""
+      )
         // .replace(/\s/g, "%20")
         .split(" ")[0]
 
-    $link = "https://www.prettyrosy.com" + jQuery(this).find("a:first").attr("href")
+    $link =
+      "https://www.prettyrosy.com" + jQuery(this).find("a:first").attr("href")
 
     $price =
       //  '$' +
@@ -2191,39 +2337,47 @@ if (
 
 if (
   jQuery('[id="products_container"] [id="product_container"]').length > 0 &&
-  jQuery('[id="main_photo_slider"] img:first')
-    .length === 0
+  jQuery('[id="main_photo_slider"] img:first').length === 0
   // &&  jQuery('.product-details__desc-col').length === 0
 ) {
   $arr = []
 
-  jQuery('[id="products_container"] [id="product_container"]').each(function () {
-    $title = jQuery(this).find('[id="content"]:first [id="product_item"]').next().text().trim()
-
-    $img =
-      "https:" +
-      (
-      // jQuery(this).find("img:first").attr("data-src") ||
-      jQuery(this).find("img:first").attr("data-srcset") ||
-       jQuery(this).find("img:first").attr("srcset") ||
-      jQuery(this).find("img:first").attr("src") || "")
-        // .replace(/\s/g, "%20")
-        .split(" ")[0]
-
-    $link = "https://usa.beonebreed.com" + jQuery(this).find("a:first").attr("href")
-
-    $price =
-      //  '$' +
-      jQuery(this)
-        .find('[id="price"]:first .money')
+  jQuery('[id="products_container"] [id="product_container"]').each(
+    function () {
+      $title = jQuery(this)
+        .find('[id="content"]:first [id="product_item"]')
+        .next()
         .text()
         .trim()
-        .replace(/\s/g, "")
-    // .split('$')[1]
 
-    if ($title && $img && $link && $price)
-      $arr.push([$title, $img, $link, $price])
-  })
+      $img =
+        "https:" +
+        // jQuery(this).find("img:first").attr("data-src") ||
+        (
+          jQuery(this).find("img:first").attr("data-srcset") ||
+          jQuery(this).find("img:first").attr("srcset") ||
+          jQuery(this).find("img:first").attr("src") ||
+          ""
+        )
+          // .replace(/\s/g, "%20")
+          .split(" ")[0]
+
+      $link =
+        "https://usa.beonebreed.com" + jQuery(this).find("a:first").attr("href")
+
+      $price =
+        //  '$' +
+        jQuery(this)
+          .find('[id="price"]:first .money')
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+      // .split('$')[1]
+
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    }
+  )
   $arr
 }
 
@@ -2233,22 +2387,24 @@ if (
 
 if (
   jQuery(".container .product-wrap").length > 0 &&
-  jQuery('.product-gallery__image img').length === 0
+  jQuery(".product-gallery__image img").length === 0
 ) {
   $arr = []
 
   jQuery(".container .product-wrap").each(function () {
     $title = jQuery(this).find(".product-thumbnail__title-line").text().trim()
 
-    $img = 
-    // "https:" + 
-    jQuery(this).find("img:first").attr("src")
+    $img =
+      // "https:" +
+      jQuery(this).find("img:first").attr("src")
 
     $link =
-      "https://roxiecosmetics.co.uk" +
-      jQuery(this).find("a:first").attr("href")
+      "https://roxiecosmetics.co.uk" + jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this).find(".product-thumbnail__price:first .money:first").text().trim()
+    $price = jQuery(this)
+      .find(".product-thumbnail__price:first .money:first")
+      .text()
+      .trim()
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -2259,39 +2415,42 @@ if (
 //////////////////////////////////////////
 ///////////////////
 
-// div div noscript 
+// div div noscript
 if (
-  jQuery("#CollectionSection .grid__item .grid-product__wrapper").length > 0 &&
-  jQuery('.product-single__media-wrapper img:first').length === 0
+  jQuery("#CollectionSection .grid__item").length > 0 &&
+  jQuery(".product-single__media-wrapper img:first").length === 0
 ) {
   $arr = []
 
-  jQuery("#CollectionSection .grid__item .grid-product__wrapper").each(function () {
+  jQuery("#CollectionSection .grid__item").each(function () {
     $title = jQuery(this).find(".grid-product__title").text().trim()
 
     if (jQuery(this).find("noscript").text().trim())
-    $img =     
-      "https:" +
+      $img =
+        "https:" +
+        jQuery(this)
+          .find("noscript")
+          .text()
+          .trim()
+          .split('src="')[1]
+          // .split("url('")[1]
+          .split(" ")[0]
+          .trim()
+          .slice(0, -1)
+    // .replace('gif', 'jpg')
+    else $img = ""
+
+    $link =
+      "https://shoppywise.com/" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      "$" +
       jQuery(this)
-        .find("noscript")
+        .find(".grid-product__price:first")
         .text()
         .trim()
-        .split('src="')[1]
-        // .split("url('")[1]
-        .split(" ")[0]
-        .trim()
-        .slice(0, -1)
-  // .replace('gif', 'jpg')
-  else $img = ""
+        .split("$")[1]
 
-    $link = "https://goldseaswimwear.com" + jQuery(this).find("a:first").attr("href")
-
-    $price = jQuery(this)
-      .find(".grid-product__price:first")
-      .text()
-      .trim()
-    .split('Precio habitual')[1]
-    
     // if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])
   })
@@ -2310,7 +2469,7 @@ if (
   $arr = []
 
   jQuery('.css-1aaeukn a[as="[object Object]"]').each(function () {
-    $title = jQuery(this).attr('title')
+    $title = jQuery(this).attr("title")
 
     if (jQuery(this).find("noscript").text().trim())
       $img =
@@ -2331,11 +2490,17 @@ if (
 
     $link = "https://www.mitchellandness.com.au" + jQuery(this).attr("href")
 
-    $price = jQuery(this).next().next().find('.ec3iic90:first').text().trim().replace(/\s/g, "")
+    $price = jQuery(this)
+      .next()
+      .next()
+      .find(".ec3iic90:first")
+      .text()
+      .trim()
+      .replace(/\s/g, "")
     // .split('$')[1]
 
     // if ($title && $img && $link && $price)
-      $arr.push([$title, $img, $link, $price])
+    $arr.push([$title, $img, $link, $price])
   })
   $arr
 }
@@ -2371,8 +2536,7 @@ if (
     // .replace('gif', 'jpg')
     else $img = ""
 
-    $link =
-      "https://parkhurst.ca" + jQuery(this).find("a:first").attr("href")
+    $link = "https://parkhurst.ca" + jQuery(this).find("a:first").attr("href")
 
     $price =
       // '$'+
@@ -2381,10 +2545,9 @@ if (
         .next()
         .text()
         .trim()
-        .replace(/\s/g, "")
-    // .split('from')[1]
-    ||
-    jQuery(this)
+        .replace(/\s/g, "") ||
+      // .split('from')[1]
+      jQuery(this)
         .find(".grid-product__price:first")
         // .next()
         .text()
@@ -2393,7 +2556,7 @@ if (
     // .split('from')[1]
 
     if ($title && $img && $link && $price)
-    $arr.push([$title, $img, $link, $price])
+      $arr.push([$title, $img, $link, $price])
   })
   $arr
 }
