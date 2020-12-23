@@ -180,10 +180,10 @@ if (
         .trim()
         .split('src="')[2]
         .split(" ")[0]
-        .slice(0, -1)
+        .slice(0, -3)
 
     $link =
-      "https://avonegyptshop.com" +
+      "https://www.dennisdaniel.de" +
       jQuery(this).find("a.ProductItem__ImageWrapper").attr("href")
 
     $price =
@@ -421,7 +421,7 @@ if (
 if (
   jQuery(".product-grid .product-item").length > 0 &&
   // jQuery(".data-zoom-wrapper img:first").length === 0
-   jQuery('button[name="add"]').length === 0
+  jQuery('button[name="add"]').length === 0
 ) {
   $arr = []
 
@@ -446,19 +446,13 @@ if (
     // .replace('gif', 'jpg')
     else $img = ""
 
-    $link =
-      "https://wasted.paris" +
-      jQuery(this).find("a:first").attr("href")
+    $link = "https://wasted.paris" + jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this)
-      .find(".price:first")
-      .text()
-      .trim()
-      .replace(/\s/g, "")
+    $price = jQuery(this).find(".price:first").text().trim().replace(/\s/g, "")
     // .split('$')[1]
 
     if ($title && $img && $link && $price)
-    $arr.push([$title, $img, $link, $price])
+      $arr.push([$title, $img, $link, $price])
   })
   $arr
 }
@@ -618,9 +612,7 @@ if (
         // .split(" class")[0]
         .slice(0, -2)
 
-    $link =
-      "https://viewsandco.co" +
-      jQuery(this).find("a:first").attr("href")
+    $link = "https://viewsandco.co" + jQuery(this).find("a:first").attr("href")
 
     $price =
       // "$" +
@@ -1038,7 +1030,8 @@ if (
     // .replace('gif', 'jpg')
     else $img = ""
 
-    $link = "https://opulenceclothing.co" + jQuery(this).find("a:first").attr("href")
+    $link =
+      "https://opulenceclothing.co" + jQuery(this).find("a:first").attr("href")
 
     $price =
       // "£" +
@@ -1157,7 +1150,7 @@ if (
 
 if (
   jQuery(".grid-uniform .grid__item").length > 0 &&
-  jQuery('.image-zoom img:first').length === 0
+  jQuery(".image-zoom img:first").length === 0
   // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
@@ -1178,23 +1171,23 @@ if (
         .split(" ")[0]
 
     $link =
-      "https://nestinteriordesign.net" + jQuery(this).find("a:first").attr("href")
+      "https://nestinteriordesign.net" +
+      jQuery(this).find("a:first").attr("href")
 
     $price =
-      '$' +
+      "$" +
       (jQuery(this)
         .find(".product_prices:first .sale_price")
         .text()
         .trim()
         .replace(/\s/g, "")
-        .split('$')[1]
-        ||        
-      jQuery(this)
-        .find(".product_prices:first")
-        .text()
-        .trim()
-        .replace(/\s/g, "")
-        .split('$')[1])
+        .split("$")[1] ||
+        jQuery(this)
+          .find(".product_prices:first")
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+          .split("$")[1])
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -1904,10 +1897,13 @@ if (
 
     $img =
       "https:" +
-  (
-      jQuery(this).find('.product-item__image:first div:first').attr("data-bgset") ||
-      jQuery(this).find('.product-item__image:last div:last').attr("data-bgset") ||
-      
+      (
+        jQuery(this)
+          .find(".product-item__image:first div:first")
+          .attr("data-bgset") ||
+        jQuery(this)
+          .find(".product-item__image:last div:last")
+          .attr("data-bgset") ||
         // jQuery(this)
         //   .find(".product-item__image:first source:first")
         //   .attr("srcset") ||
@@ -1917,23 +1913,77 @@ if (
         ""
       )
         // .replace(/\s/g, "%20")
-        .split(" ")[0]   
+        .split(" ")[0]
 
     $link = "https://wasted.paris/" + jQuery(this).find("a:first").attr("href")
 
-    $price = jQuery(this)
-      .find(".price:first")
-      .text()
-      .trim()
-      .replace(/\s/g, "")
+    $price = jQuery(this).find(".price:first").text().trim().replace(/\s/g, "")
     // .split("$")[1] || ""
 
     // if ($title && $img && $link && $price)
-      $arr.push([$title, $img, $link, $price])
+    $arr.push([$title, $img, $link, $price])
   })
   $arr
 }
 
+// div div div attr
+
+if (
+  jQuery(".grid--uniform .grid__item").length > 0 &&
+  jQuery(".product-image-main img:first").length === 0
+  // jQuery('button[name="add"]').length === 0
+) {
+  $arr = []
+
+  jQuery(".grid--uniform .grid__item").each(function () {
+    $title = jQuery(this).find(".grid-product__title").text().trim()
+
+    $img =
+      "https:" +
+      (
+        jQuery(this)
+          .find(".grid-product__image-mask:first div:first")
+          .attr("data-bgset") ||
+        jQuery(this)
+          .find(".grid-product__image-mask:last div:last")
+          .attr("data-bgset") ||
+        jQuery(this)
+          .find(".grid-product__image-mask:first source:first")
+          .attr("srcset") ||
+        jQuery(this)
+          .find(".grid-product__image-mask:first source:first")
+          .attr("data-srcset") ||
+        ""
+      )
+        // .replace(/\s/g, "%20")
+        .trim()
+        .split(" ")[0]
+
+    $link =
+      "https://zeferino.com.br" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      "BRL" +
+      ((
+        jQuery(this)
+          .find(".grid-product__price:first")
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+          .split("$")[2] || ""
+      ).split("Economize")[0] ||
+        jQuery(this)
+          .find(".grid-product__price:first")
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+          .split("$")[1])
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
 // div div img one src
 
 if (
@@ -2408,6 +2458,47 @@ if (
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+//////////////////////////////////////////
+
+///////////////////////////////////////
+/////
+// div div img noscript container
+
+if (
+  jQuery(".container .product-wrap").length > 0 &&
+  jQuery('[class="gallery-cell is-selected"] img').length === 0
+) {
+  $arr = []
+
+  jQuery(".container .product-wrap").each(function () {
+    $title = jQuery(this).find(".title").text().trim()
+
+    if (jQuery(this).find("noscript").text().trim())
+      $img =
+        "https:" +
+        jQuery(this)
+          .find("noscript")
+          .text()
+          .trim()
+          .split('src="')[1]
+          // .split("url('")[1]
+          .split(" ")[0]
+          .trim()
+          .slice(0, -1)
+    // .replace('gif', 'jpg')
+    else $img = ""
+
+    $link =
+      "https://www.masontops.com" + jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this).find(".price:first .money:first").text().trim()
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
   })
   $arr
 }

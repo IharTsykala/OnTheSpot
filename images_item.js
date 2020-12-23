@@ -733,7 +733,7 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
                             /////////////////////////////////////////////
 
   if (jQuery('.single-image img:first').length > 0) 
-  $img = jQuery('.single-image img:first').attr('src')  
+  $img = jQuery('.single-image img:first').attr('srcset')  
   .split(' ')[0]
   .replace('_60', '_1100')
   else
@@ -744,11 +744,11 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   else
   $img
 
-  if (jQuery('.single-image img').length > 0){
+  if (jQuery('.single-image img:first').length > 0){
     $arr = [];
-    jQuery('.single-image img').each(function(index){
+    jQuery('.single-image img:first').each(function(index){
         if (index < 4) 
-        $arr.push('https:'+jQuery(this).attr('src')  
+        $arr.push('https:'+jQuery(this).attr('srcset')  
         .split(' ')[0])
     })
     $arr
@@ -1774,10 +1774,7 @@ if (jQuery('.product-single__thumbnail-item img').length > 0){
   if ($img.indexOf("http") == -1)
   'https:'+$img
   else
-  $img
-
-
-  
+  $img  
   
   if (jQuery('[class="starting-slide slick-slide slick-current slick-active"] img').length > 0){
     $arr = [];
@@ -2089,3 +2086,28 @@ if (jQuery('.sep-loaded-slider img').length > 0){
                }
              
              //////////////////////
+                  ////////////////////////////////
+
+  if (jQuery('[class="gallery-cell is-selected"] img:first').length > 0) 
+  $img = jQuery('[class="gallery-cell is-selected"] img:first')  
+  .attr('src') 
+  .split(' ')[0]
+  .replace('_180', '_1080')
+  else
+  $img = jQuery('.meta[property="og:image"]:eq(0)').attr('content')
+  
+  if ($img.indexOf("http") == -1)
+  'https:'+$img
+  else
+  $img  
+  
+  if (jQuery('[class="gallery-cell is-selected"] img').length > 0){
+    $arr = [];
+    jQuery('[class="gallery-cell is-selected"] img').each(function(index){
+        if (index < 4) 
+        $arr.push('https:'+jQuery(this).attr("src"))
+    })
+    $arr
+    }
+
+  //////////////////////////////////////

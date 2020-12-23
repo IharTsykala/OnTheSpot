@@ -342,3 +342,9 @@ if (jQuery('button:contains(Out)').length) {
 } else {
   $status = false;
 }
+
+if (jQuery('[class="productlabel soldout"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

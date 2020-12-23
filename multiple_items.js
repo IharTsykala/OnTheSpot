@@ -1756,3 +1756,49 @@ if (jQuery('.image__container img:first').length > 0)
     })
     $arr
   }
+
+
+  if (
+    jQuery(".grid--uniform .grid__item").length > 0 &&
+    jQuery(".product__main-photos img:first").length === 0
+    // &&  jQuery(".product-single").length === 0
+  ) {
+    $arr = []
+  
+    jQuery(".grid--uniform .grid__item").each(function () {
+      $title = jQuery(this).find(".grid-product__title:first").text().trim()
+  
+      if (jQuery(this).find("noscript").text().trim())
+        $img =
+          // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
+          // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+          "https:" +
+          jQuery(this)
+            .find("noscript")
+            .text()
+            .trim()
+            .split('src="')[1]
+            .split(" ")[0]
+            .trim()
+            .slice(0, -1)
+      // .replace('gif', 'jpg')
+      else $img = ""
+  
+      $link =
+        "https://blesses.shop" + jQuery(this).find("a:first").attr("href")
+  
+      $price =
+        // "$" +
+       jQuery(this)
+          .find(".price:first .price__regular .price-item--regular")
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+          // .split("$")[1] 
+         
+  
+      // if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    })
+    $arr
+  }

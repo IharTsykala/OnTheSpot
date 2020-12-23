@@ -482,6 +482,9 @@ jQuery(".price--compare:first").text().trim() ||
 
     jQuery(".ProductMeta__PriceList .ProductMeta__Price:first").text().trim()
 
+    jQuery(".ProductMeta__PriceList .ProductMeta__Price:last").text().trim()
+    ||   jQuery(".ProductMeta__PriceList .ProductMeta__Price:first").text().trim()
+
     jQuery(".price-reviews:first .product-price").text().trim()
 
     jQuery('.price-reviews:first .compare-price').text().trim()
