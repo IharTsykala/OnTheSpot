@@ -1803,6 +1803,7 @@ if (jQuery('.image__container img:first').length > 0)
     $arr
   }
 
+  
 
   if (
     jQuery(".product-list-wrapper .card--product-listing").length > 0 &&
