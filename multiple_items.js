@@ -1802,3 +1802,36 @@ if (jQuery('.image__container img:first').length > 0)
     })
     $arr
   }
+
+
+  if (
+    jQuery(".product-list-wrapper .card--product-listing").length > 0 &&
+    jQuery(".shop-panel__image-wrapper  img:first").length === 0
+  ) {
+    $arr = [];
+  
+    jQuery(".product-list-wrapper .card--product-listing").each(function () {
+      $title = jQuery(this)
+        .find(".collection__card-product-title:first")
+        .text()
+        .trim();
+  
+      $img =
+        "https:" +
+        (jQuery(this).find("img:first").attr("src") || "").split(" ")[0];
+  
+      $link =
+        "https://www.raceface.com" + jQuery(this).find("a:first").attr("href");
+  
+      $price = jQuery(this)
+        .find(".collection__card-product-price:first")
+        .text()
+        .trim()
+        .replace(/\s/g, "");
+  
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price]);
+    });
+    $arr;
+  }
+  

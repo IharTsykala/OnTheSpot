@@ -7,6 +7,9 @@ wait_for(function(){return jQuery && jQuery.fn.jquery ;})
 .replace(/\r|\n/g, ' ')  .replace(/\s/g,'%20')
 .replace('_85x', '_1000x') .replace('\\','\/')
 
+multiple
+.replace(/\s/g, "");
+
 \/cart
 
 jQuery('[data-switchable-wrapper-dim-2]:not(.h-tp-hidden) .c-tp-productdimensions')
