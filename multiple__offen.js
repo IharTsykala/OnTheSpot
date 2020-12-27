@@ -183,7 +183,7 @@ if (
         .slice(0, -3)
 
     $link =
-      "https://www.dennisdaniel.de" +
+      "https://www.blomric.com" +
       jQuery(this).find("a.ProductItem__ImageWrapper").attr("href")
 
     $price =
@@ -961,7 +961,7 @@ if (
 
 if (
   jQuery(".grid--uniform .grid__item").length > 0 &&
-  jQuery(".product-single__photo-wrapper img:first").length === 0
+  jQuery(".product__main-photos img:first").length === 0
   // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
@@ -969,7 +969,7 @@ if (
   jQuery(".grid--uniform .grid__item").each(function () {
     $title = jQuery(this).find(".grid-product__title:first").text().trim()
 
-    if (jQuery(this).find("noscript").text().trim())
+    if (jQuery(this).find("noscript").text().trim().split('src="')[1])
       $img =
         // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
         // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
@@ -978,22 +978,28 @@ if (
           .find("noscript")
           .text()
           .trim()
-          .split('src="')[1]
+          .split('src="')[1]          
           .split(" ")[0]
           .trim()
           .slice(0, -1)
     // .replace('gif', 'jpg')
     else $img = ""
 
-    $link = "https://blesses.shop" + jQuery(this).find("a:first").attr("href")
+    $link = "https://www.shopbefitted.com" + jQuery(this).find("a:first").attr("href")
 
     $price =
-      // "$" +
+      // "$" +    
       jQuery(this)
-        .find(".price:first .price__regular .price-item--regular")
+        .find(".grid-product__price:first .money:first")
         .text()
         .trim()
         .replace(/\s/g, "")
+        // ||
+        // jQuery(this)
+        // .find(".grid-product__price:first .price__regular .price-item--regular")
+        // .text()
+        // .trim()
+        // .replace(/\s/g, "")
     // .split("$")[1]
 
     // if ($title && $img && $link && $price)
@@ -1844,14 +1850,14 @@ if (
 // div div img one src
 
 if (
-  jQuery(".grid--uniform .grid__item").length > 0 &&
-  jQuery(".zoomWindowContainer img:first").length === 0
-  // &&  jQuery(".product-single").length === 0
+  jQuery(".grid--uniform .grid__item").length > 0
+  //  && jQuery(".zoomWindowContainer img:first").length === 0
+  &&  jQuery(".product--description").length === 0
 ) {
   $arr = []
 
   jQuery(".grid--uniform .grid__item").each(function () {
-    $title = jQuery(this).find(".product-card__name").text().trim()
+    $title = jQuery(this).find(".grid-view-item__title").text().trim()
 
     $img =
       "https:" +
@@ -1865,17 +1871,17 @@ if (
         // .replace(/\s/g, "%20")
         .split(" ")[0]
 
-    $link = "https://shwainc.com" + jQuery(this).find("a:first").attr("href")
+    $link = "https://int.stinegoya.com" + jQuery(this).find("a:first").attr("href")
 
     $price =
       jQuery(this)
-        .find(".product-card__price:first .money")
+        .find(".grid-view-item__price:first .product-price__price:last")
         .text()
         .trim()
         .replace(/\s/g, "")
-        .split("$")[1] || ""
+        // .split("$")[1] || ""
 
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])
   })
   $arr

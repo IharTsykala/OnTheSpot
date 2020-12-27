@@ -1541,3 +1541,55 @@ if (
 return $text
 
 ///////////////////////////////////////////////////////////////////////////
+if (jQuery(".VariantSelector__ChoiceList .VariantSelector__ChoiceValue").length > 0) {
+  [
+    jQuery(".VariantSelector__ChoiceList .VariantSelector__Choice.is-selected ").text() != ""
+      ? jQuery(".VariantSelector__ChoiceList .VariantSelector__Choice.is-selected .VariantSelector__ChoiceValue")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".VariantSelector__ChoiceList .VariantSelector__ChoiceValue").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Color", ["No Color"]];
+}
+
+//pa_Colors clicker
+if (
+jQuery(".VariantSelector__ChoiceList .VariantSelector__ChoiceValue").length > 0 &&
+$sarg != "Select Color" &&
+$sarg != "No Color"
+) {
+jQuery(".VariantSelector__ChoiceList .VariantSelector__ChoiceValue").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+
+$text = false;
+if (
+  jQuery(".VariantSelector__ChoiceList .VariantSelector__ChoiceValue").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery(".VariantSelector__ChoiceList .VariantSelector__ChoiceValue").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
