@@ -27,6 +27,7 @@ jQuery('[class="grand totals"] .price:first')
 .field button.field__input-btn
 .total-line-table .payment-due__price
 
+
 jQuery('[id="cnc__promocode"]:last')
 jQuery('[ng-disabled="!pmtCtrl.code"]:last')
 jQuery('.ng-binding:last')
