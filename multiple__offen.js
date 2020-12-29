@@ -2657,3 +2657,55 @@ if (
   })
   $arr
 }
+
+
+if (
+  jQuery(".grid--uniform .grid__item").length > 0 &&
+  jQuery(".product__main-photos img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".grid--uniform .grid__item").each(function () {
+    $title = jQuery(this).find(".grid-product__title:first").text().trim()
+
+    if (jQuery(this).find("noscript").text().trim().split('src="')[1])
+      $img =
+        // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
+        // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+        "https:" +
+        jQuery(this)
+          .find("noscript")
+          .text()
+          .trim()
+          .split('src="')[1]          
+          .split(" ")[0]
+          .trim()
+          .slice(0, -1)
+    // .replace('gif', 'jpg')
+    else $img = ""
+
+    $link = "https://www.shopbefitted.com" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // "$" +    
+      jQuery(this)
+        .find(".grid-product__price--original:first")
+        .next()
+        .next()
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+        ||
+        jQuery(this)
+        .find(".grid-product__price:first .money:first")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+    // .split("$")[1]
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
