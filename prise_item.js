@@ -167,7 +167,7 @@ jQuery('[data-product-price]').text().trim().split('$')[1]
 jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price"]').text().trim().split('$')[1]
 
 jQuery('[data-hook="formatted-primary-price"]').text().trim().split('$')[1]
-jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price"]').text().trim().split('$')[1]
+"SEK"+" "+jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price"]').text().trim().split('kr')[0]
 
 'SEK' + jQuery('.product__variant-availability:not(.hide)').text().trim().split('|')[1]
 
@@ -438,7 +438,9 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.product-info__header_price-wrapper:first .product-info__header_compare-at-price').text().trim().replace(/\s/g,'') 
  || jQuery('.product-info__header_price-wrapper:first .product-info__header_price').text().trim().replace(/\s/g,'') 
 
- jQuery(".product-price .current-price").text().trim()
+ jQuery(".product-price:first .money").text().trim()
+
+ jQuery(".product-price:first .current-price").text().trim()
 
  jQuery(".prices .price").text().trim()
  
@@ -612,3 +614,12 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('[data-price-wrapper]:first [data-product-price]').text().trim().replace(/\s/g,'')
 
  jQuery('[id="ProductPrice-product-template"]:first [class="without-tax "]').text().trim().replace(/\s/g,'') 
+
+ 
+ "QAR" + 
+ (jQuery('.mrprprice:first .new-price').text().trim().split('QR')[1]
+ || jQuery('.mrprprice:first .sale-price').text().trim().split('QR')[1])
+
+ "QAR" + 
+ (jQuery('.mrprprice:first .new-price').text().trim().split('QR')[1]
+ || jQuery('.mrprprice:first .old-price').text().trim().split('QR')[1])

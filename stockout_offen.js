@@ -145,6 +145,16 @@ jQuery('[data-hook="add-to-cart"]').text().trim().toLowerCase() == 'out of stock
   $status = false;
 }
 
+if (jQuery('[data-hook="add-to-cart"]').text().trim() == 'Tillfälligt slut' || 
+jQuery('[data-hook="add-to-cart"]').text().trim() == 'Tillfälligt slut' )
+// ||
+// jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
+ {
+  $status = true
+} else {
+  $status = false;
+}
+
 if (jQuery('[id="AddToCart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {

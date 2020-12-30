@@ -913,16 +913,16 @@ if (
 return $text
 
 // button button
-if (jQuery(".Popover__ValueList:last button").length > 0) {
+if (jQuery(".OptionSelector .Popover__ValueList:first button").length > 0) {
   ;[
-    jQuery(".Popover__ValueList:last button.is-selected").length > 0
-      ? jQuery(".Popover__ValueList:last button.is-selected")
+    jQuery(".OptionSelector .Popover__ValueList:first button.is-selected").length > 0
+      ? jQuery(".OptionSelector .Popover__ValueList:first button.is-selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery(".Popover__ValueList:last button").map(function (i, e) {
+      jQuery(".OptionSelector .Popover__ValueList:first button").map(function (i, e) {
         if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
           return jQuery(e).text().trim().replace(/\s\s+/g, "")
       })
@@ -931,11 +931,11 @@ if (jQuery(".Popover__ValueList:last button").length > 0) {
 } else ["No Size", ["No Size"]]
 
 if (
-  jQuery(".Popover__ValueList:last button").length > 0 &&
+  jQuery(".OptionSelector .Popover__ValueList:first button").length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery(".Popover__ValueList:last button").each(function () {
+  jQuery(".OptionSelector .Popover__ValueList:first button").each(function () {
     if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg)
       jQuery(this).click()
   })
@@ -946,12 +946,12 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery(".Popover__ValueList:last button").length > 0 &&
+  jQuery(".OptionSelector .Popover__ValueList:first button").length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true
-  jQuery(".Popover__ValueList:last button").each(function (index) {
+  jQuery(".OptionSelector .Popover__ValueList:first button").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr("data-available")
@@ -1411,6 +1411,7 @@ return $text
 ///////////////////////////////////////////////
 ///////////////////////////////////
 
+// ul li Input 
 
 if (jQuery("ul.SizeSwatchList input").length > 0) {
   ;[
@@ -2343,3 +2344,56 @@ if (
 return $text
 
 /////////////////////////////////////
+// ul li Input 
+
+if (jQuery(".product-option--size ul input").length > 0) {
+  ;[
+    jQuery(".product-option--size ul input:checked").length > 0
+      ? jQuery(".product-option--size ul input:checked")
+      .attr("value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery(".product-option--size ul input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Size", ["No Size"]]
+}
+
+if (jQuery(".product-option--size ul input").length > 0  &&
+$sarg != "Select Size" &&
+$sarg != "No Size") {
+jQuery(".product-option--size ul input").each(function () {
+if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+  jQuery(this).next()[0].click()
+}
+})
+}
+wait_for(function () {
+return true
+})
+
+$text = false;
+if (
+  jQuery(".product-option--size ul input").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery(".product-option--size ul input").each(function (index) {
+    if (
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr('.data-availability')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+//////////////////////////////

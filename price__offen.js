@@ -177,3 +177,5 @@ jQuery('[data-price-wrapper] [data-product-price]').text().trim() ||
 
     jQuery('.prices:first .compare-price .money').text().trim()
     ||  jQuery('.prices:first .actual-price').text().trim()
+
+    jQuery('.pdp-hero__price-container:first').text().trim().split('From')[1] || jQuery('.pdp-hero__price-container:first').text().trim().split('From') 

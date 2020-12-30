@@ -114,8 +114,8 @@ if (jQuery('#collection--options--wrapper .alert-danger').text().trim().toLowerC
     $status = false;
 }
 
-if (jQuery('button.form-control__button').text().trim().toLowerCase() == 'sold out' ||
- jQuery('button.form-control__button').text().trim().toLowerCase() == 'out of stock') {
+if (jQuery('button.btn-addtocart').text().trim().toLowerCase() == 'sold out' ||
+ jQuery('button.btn-addtocart').text().trim().toLowerCase() == 'out of stock') {
   $status = true
 } else {
   $status = false;
@@ -214,6 +214,13 @@ if (jQuery('.add-to-card__inner button').text().trim()  === 'Out of stock') {
 } else {
   $status = false;
 }
+
+if (jQuery('.add-to-cart-area button').text().trim()  === 'Out of stock') {
+  $status = true
+} else {
+  $status = false;
+}
+
 
 if (!jQuery('.add-to-card__inner .btn-primary').length) {
   $status = true

@@ -1815,24 +1815,26 @@ if (jQuery('.image__container img:first').length > 0)
       $title = jQuery(this)
         .find(".collection__card-product-title:first")
         .text()
-        .trim();
+        .trim()
   
       $img =
         "https:" +
-        (jQuery(this).find("img:first").attr("src") || "").split(" ")[0];
+        (jQuery(this).find("img:first").attr("src") || "").split(" ")[0]
   
       $link =
-        "https://www.raceface.com" + jQuery(this).find("a:first").attr("href");
+        "https://www.raceface.com" + jQuery(this).find("a:first").attr("href")
   
-      $price = jQuery(this)
+      $price =
+      
+      jQuery(this)
         .find(".collection__card-product-price:first")
         .text()
         .trim()
-        .replace(/\s/g, "");
+        .replace(/\s/g, "")
   
       if ($title && $img && $link && $price)
-        $arr.push([$title, $img, $link, $price]);
-    });
-    $arr;
+        $arr.push([$title, $img, $link, $price])
+    })
+    $arr
   }
   
