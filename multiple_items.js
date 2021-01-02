@@ -1801,8 +1801,7 @@ if (jQuery('.image__container img:first').length > 0)
         $arr.push([$title, $img, $link, $price])
     })
     $arr
-  }
-  
+  }  
   
 
   if (
