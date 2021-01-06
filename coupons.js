@@ -211,3 +211,11 @@ jQuery('[class="order-item order-total"] strong:last')
 jQuery('input[name="coupon_code"]')
 jQuery('button[name="apply_coupon"]')
 jQuery('td[data-title="Total"]:last')
+
+
+jQuery('.field input[id="checkout_reduction_code"]')
+jQuery('.field button.field__input-btn')
+jQuery('.total-line .payment-due__price')
+jQuery('input[id="couponcode"]')
+jQuery('form[method="post"]').click()
+jQuery('.cart_tot_price:last')

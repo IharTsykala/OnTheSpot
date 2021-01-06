@@ -1995,15 +1995,15 @@ return $text
 // Select 
 
 if (
-  jQuery('select[id="SingleOptionSelector-0"]:first option')
+  jQuery('select[id="SingleOptionSelector-1"]:first option')
     .length > 0
 ) {
   ;[
     jQuery(
-      'select[id="SingleOptionSelector-0"]:first option:selected'
+      'select[id="SingleOptionSelector-1"]:first option:selected'
     ).text() != ""
       ? jQuery(
-          'select[id="SingleOptionSelector-0"]:first option:selected'
+          'select[id="SingleOptionSelector-1"]:first option:selected'
         )
           .text()
           .trim()
@@ -2011,7 +2011,7 @@ if (
         "Select Size",
     jQuery.makeArray(
       jQuery(
-        'select[id="SingleOptionSelector-0"]:first option'
+        'select[id="SingleOptionSelector-1"]:first option'
       ).map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "")
@@ -2023,12 +2023,12 @@ if (
 }
 
 if (
-  jQuery('select[id="SingleOptionSelector-0"]:first option')
+  jQuery('select[id="SingleOptionSelector-1"]:first option')
     .length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery('select[id="SingleOptionSelector-0"]:first option').each(
+  jQuery('select[id="SingleOptionSelector-1"]:first option').each(
     function () {
       if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
         jQuery(this).trigger("change")
@@ -2042,13 +2042,13 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery('select[id="SingleOptionSelector-0"]:first option')
+  jQuery('select[id="SingleOptionSelector-1"]:first option')
     .length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true
-  jQuery('select[id="SingleOptionSelector-0"]:first option').each(
+  jQuery('select[id="SingleOptionSelector-1"]:first option').each(
     function (index) {
       if (
         jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
@@ -2397,3 +2397,56 @@ return $text;
 
 
 //////////////////////////////
+////////////////////////////////////////////
+
+
+// for ul li
+
+if (jQuery(".swatch:contains(Size) li").length > 0) {
+  ;[
+    jQuery(".swatch:contains(Size) li.is-selected").length > 0
+      ? jQuery(".swatch:contains(Size) li.is-selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".swatch:contains(Size) li").map(function (i, e) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else ["No Size", ["No Size"]]
+
+if (
+  jQuery(".swatch:contains(Size) li").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery(".swatch:contains(Size) li").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg)
+      jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$val = false
+if (
+  jQuery(".swatch:contains(Size) li").length > 0 &&
+  $sarg != "No size" &&
+  $sarg != "Select size"
+) {
+  $val = true
+  jQuery(".swatch:contains(Size) li").each(function () {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass("unavailable")
+    ) {
+      $val = false
+    }
+  })
+}
+return $val

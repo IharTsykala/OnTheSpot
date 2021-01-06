@@ -400,6 +400,10 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.product-single__prices:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
  jQuery('.product-single__prices:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
 
+//  jQuery('.product-single__price--wrapper:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
+//  jQuery('.product-single__price--wrapper:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
+//  jQuery('.product-single__price--wrapper:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
+
  jQuery('[id="ProductPrice"]').text().trim().replace(/\s/g,'') 
  jQuery('[id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
  jQuery('[id="ProductPrice"]').text().trim().replace(/\s/g,'')
@@ -409,6 +413,11 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('[class="product__price on-sale"]:first').text().trim().replace(/\s/g,'') ||
  jQuery('[class="product__price"]:first').text().trim().replace(/\s/g,'') 
  jQuery('[class="product__price product__price--compare"]:first').text().trim().replace(/\s/g,'') ||
+ jQuery('[class="product__price"]:first').text().trim().replace(/\s/g,'') 
+
+ jQuery('[class="product__price on-sale skiptranslate notranslate"]:first').text().trim().replace(/\s/g,'') ||
+ jQuery('[class="product__price"]:first').text().trim().replace(/\s/g,'') 
+ jQuery('[class="product__price product__price--compare skiptranslate notranslate"]:first').text().trim().replace(/\s/g,'') ||
  jQuery('[class="product__price"]:first').text().trim().replace(/\s/g,'') 
 
  jQuery('[data-price-wrapper]:first [data-product-price]').text().trim().replace(/\s/g,'')
@@ -604,6 +613,8 @@ jQuery(".price--compare:first").text().trim() ||
 
  jQuery('.product__price:first .price-item--regular:first').text().trim().replace(/\s/g,'')
 
+ jQuery('.product__price:first .money:first').text().trim().replace(/\s/g,'')
+
  jQuery('.product-price:first .product-price-minimum').text().trim()
 
  jQuery('.product-price:first .product-price-compare').text().trim()
@@ -623,3 +634,5 @@ jQuery(".price--compare:first").text().trim() ||
  "QAR" + 
  (jQuery('.mrprprice:first .new-price').text().trim().split('QR')[1]
  || jQuery('.mrprprice:first .old-price').text().trim().split('QR')[1])
+
+ jQuery('.price_range:first').text().trim()

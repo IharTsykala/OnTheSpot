@@ -1,30 +1,30 @@
 // Select
-if (jQuery(".selector-wrapper:contains(Color) option").length > 0) {
+if (jQuery(".selector-wrapper:contains(Colours) option").length > 0) {
   [
-    jQuery(".selector-wrapper:contains(Color) option:selected").text() != ""
-      ? jQuery(".selector-wrapper:contains(Color) option:selected")
+    jQuery(".selector-wrapper:contains(Colours) option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Colours) option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
-      : "Select Color",
+      : "Select Colours",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(Color) option").map(function (i, e) {
+      jQuery(".selector-wrapper:contains(Colours) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
     ),
   ];
 } else {
-  ["No Color", ["No Color"]];
+  ["No Colours", ["No Colours"]];
 }
 
-//pa_Colors clicker
+//pa_Colourss clicker
 if (
-jQuery(".selector-wrapper:contains(Color) option").length > 0 &&
-$sarg != "Select Color" &&
-$sarg != "No Color"
+jQuery(".selector-wrapper:contains(Colours) option").length > 0 &&
+$sarg != "Select Colours" &&
+$sarg != "No Colours"
 ) {
-jQuery(".selector-wrapper:contains(Color) option").each(function () {
+jQuery(".selector-wrapper:contains(Colours) option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
     jQuery(this).trigger("change");
   }
@@ -36,12 +36,12 @@ return true;
 
 $text = false;
 if (
-  jQuery(".selector-wrapper:contains(Color) option").length > 0 &&
-  $sarg != "No Color" &&
-  $sarg != "Select Color"
+  jQuery(".selector-wrapper:contains(Colours) option").length > 0 &&
+  $sarg != "No Colours" &&
+  $sarg != "Select Colours"
 ) {
   $text = true;
-  jQuery(".selector-wrapper:contains(Color) option").each(function (index) {
+  jQuery(".selector-wrapper:contains(Colours) option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')
@@ -1593,3 +1593,55 @@ if (
   });
 }
 return $text;
+
+//////////////////////////////////////////////////////////
+// for ul li
+
+if (jQuery(".swatch:contains(Color) li").length > 0) {
+  ;[
+    jQuery(".swatch:contains(Color) li.is-selected").length > 0
+      ? jQuery(".swatch:contains(Color) li.is-selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".swatch:contains(Color) li").map(function (i, e) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else ["No Color", ["No Color"]]
+
+if (
+  jQuery(".swatch:contains(Color) li").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery(".swatch:contains(Color) li").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg)
+      jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$val = false
+if (
+  jQuery(".swatch:contains(Color) li").length > 0 &&
+  $sarg != "No size" &&
+  $sarg != "Select size"
+) {
+  $val = true
+  jQuery(".swatch:contains(Color) li").each(function () {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass("unavailable")
+    ) {
+      $val = false
+    }
+  })
+}
+return $val

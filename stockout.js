@@ -79,6 +79,13 @@ if (jQuery('.shopify-payment-button__button').text().trim().toLowerCase().indexO
   $status = false;
 }
 
+if (jQuery('.product-price:first').text().trim().toLowerCase().indexOf('out')>=0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+
 if (jQuery('input#variant-add').attr('value').toLowerCase() == 'sold out' || jQuery('input#variant-add').attr('value').toLowerCase() == 'out of stock'
  || jQuery('input#variant-add').attr('value').toLowerCase() == 'unavailable') {
   $status = true
