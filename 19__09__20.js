@@ -31,6 +31,7 @@ if (jQuery('#add-to-cart-form #product-add-to-cart').attr('value').toLowerCase()
     $status = false;
 }
 
+
 // $val = false;
 // if (
 //   jQuery(".swatch:contains(Size)").length > 0 &&
