@@ -362,3 +362,27 @@ if (jQuery('[class="productlabel soldout"]').text().trim().toLowerCase().indexOf
 } else {
   $status = false;
 }
+
+if (jQuery('button[id="product-addtocart-button"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('button[id="product-addtocart-button"]').text().trim().toLowerCase() == 'out of stock'
+) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('[name="add-to-cart"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[name="add-to-cart"]').text().trim().toLowerCase() == 'out of stock' )
+// ||
+// jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
+ {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('.woocommerce-variation-availability:first').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

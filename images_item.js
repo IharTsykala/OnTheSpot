@@ -618,7 +618,7 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
     $arr = [];
     jQuery('.woocommerce-product-gallery__image img').each(function(index){
         if (index < 4) 
-        $arr.push('https:'+jQuery(this).attr('src')  
+        $arr.push(jQuery(this).attr('src')  
         .split(' ')[0])
     })
     $arr
@@ -2240,3 +2240,105 @@ if (jQuery('.sep-loaded-slider img').length > 0){
             }
         
             //////////////////////////////////////////////////
+
+            if (jQuery('.product-image-zoom img:first').length > 0) 
+$img = 
+// 'https://www.deluxdeco.co.uk/' + 
+jQuery('.product-image-zoom img:first').attr('src')
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+
+if (jQuery('.product-image-zoom img').length > 0){
+  $arr = [];
+  jQuery('.product-image-zoom img').each(function(index){
+      if (index < 4) 
+      $arr.push(jQuery(this).attr('src')  
+      .split(' ')[0])
+  })
+  $arr
+  }
+
+  //////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
+
+    if (jQuery('.zoom-small-image img:first').length > 0) 
+    $img = jQuery('.zoom-small-image img:first').attr('src')
+    .split(' ')[0]
+    .replace('_180', '_1080')
+    else
+    $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+    
+    
+    if ($img.indexOf("http") == -1)
+    'https:'+$img
+    else
+    $img
+    
+    
+    if (jQuery('.zoom-small-image img').length > 0){
+      $arr = [];
+      jQuery('.zoom-small-image img').each(function(index){
+          if (index < 4) 
+          $arr.push(jQuery(this).attr("src"))
+      })
+      $arr
+      }
+    
+    //////////////////////
+
+      ////////////////////////////////////////////////////
+
+      if (jQuery('.product-page--media img:first').length > 0) 
+      $img = jQuery('.product-page--media img:first').attr('srcset')
+      .split(' ')[0]
+      .replace('_180', '_1080')
+      else
+      $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+      
+      
+      if ($img.indexOf("http") == -1)
+      'https:'+$img
+      else
+      $img
+      
+      
+      if (jQuery('.product-page--media img:first').length > 0){
+        $arr = [];
+        jQuery('.product-page--media img:first').each(function(index){
+            if (index < 4) 
+            $arr.push('https:'+jQuery(this).attr("srcset"))
+        })
+        $arr
+        }
+      
+      //////////////////////
+                 /////////////////////////////////////////////
+
+  if (jQuery('.product-image-wrap img:first').length > 0) 
+  $img = jQuery('.product-image-wrap img:first').attr('src')  
+  .split(' ')[0]
+  .replace('_60', '_1100')
+  else
+  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+  
+  if ($img.indexOf("http") == -1)
+  'https:'+$img
+  else
+  $img
+
+  if (jQuery('.product-image-wrap img').length > 0){
+    $arr = [];
+    jQuery('.product-image-wrap img').each(function(index){
+        if (index < 4) 
+        $arr.push(jQuery(this).attr('src')  
+        .split(' ')[0])
+    })
+    $arr
+    }
+
+    //////////////////////////////////////////////////

@@ -636,3 +636,17 @@ jQuery(".price--compare:first").text().trim() ||
  || jQuery('.mrprprice:first .old-price').text().trim().split('QR')[1])
 
  jQuery('.price_range:first').text().trim()
+
+ jQuery('[id="product-addons-total"]:first .amount:last').text().trim().replace(/\s/g,'')
+
+ jQuery('.price--container:first .actual-price').text().trim()
+
+ jQuery('.price--container:first .compare-price').text().trim()
+ ||  jQuery('.price--container:first .actual-price').text().trim()
+
+ jQuery('.price-container:first .isOnSale').text().trim().replace(/\s/g,'') 
+ jQuery('.price-container:first .on-sale').text().trim().replace(/\s/g,'') ||
+ jQuery('.price-container:first .isOnSale').text().trim().replace(/\s/g,'')
+
+
+ jQuery(".product-image-summary-wrap .woocommerce-Price-amount").text().trim()

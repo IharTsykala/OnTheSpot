@@ -219,3 +219,23 @@ jQuery('.total-line .payment-due__price')
 jQuery('input[id="couponcode"]')
 jQuery('form[method="post"]').click()
 jQuery('.cart_tot_price:last')
+
+//////////////////////////////
+
+jQuery('[id="coupon_code"]:last')
+jQuery('[value="Apply coupon"]:last') || jQuery('[value="Apply Coupon"]:last') 
+jQuery('.woocommerce-Price-amount:last')
+jQuery(".showcoupon")[0].click()
+// jQuery('[id="coupon_code"]:last')
+// jQuery('[name="apply_coupon"]:last')
+// jQuery('.woocommerce-Price-amount:last')
+/////////////////////////////////
+
+jQuery('input[id="discount-code"]')
+jQuery('[value="Apply Discount"]:last')
+jQuery('[data-th="Order Total"]:last')
+
+// jQuery(".link-coupon-add")[0].click()
+// jQuery('div.summary-coupon-wrap:not(display) .coupon-form input[id="cart-coupon"]')
+// jQuery('button[name="apply_coupon"]')
+// jQuery('td[data-title="Total"]:last')

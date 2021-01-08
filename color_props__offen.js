@@ -1645,3 +1645,58 @@ if (
   })
 }
 return $val
+//////////////////////////////////////
+
+// select
+
+if (jQuery('select[id="pa_colour"] option').length > 0) {
+  ;[
+    jQuery('select[id="pa_colour"] option:selected').text() != ""
+      ? jQuery('select[id="pa_colour"] option:selected').text().trim()
+      : // .replace(/\s\s+/g, "")
+        "Select Color",
+    jQuery.makeArray(
+      jQuery('select[id="pa_colour"] option').map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Color", ["No Color"]]
+}
+
+if (
+  jQuery('select[id="pa_colour"] option').length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery('select[id="pa_colour"] option').each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).trigger("change")
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery('select[id="pa_colour"] option').length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true
+  jQuery('select[id="pa_colour"] option').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+/////////////////////////////////////////

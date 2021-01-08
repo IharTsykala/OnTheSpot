@@ -173,3 +173,17 @@ if (jQuery('[title="Add To Cart"]').text().trim().toLowerCase().indexOf('out') >
 } else {
   $status = false;
 }
+
+if (jQuery('button[id="product-addtocart-button"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('button[id="product-addtocart-button"]').text().trim().toLowerCase() == 'out of stock'
+) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('[class="btn-add-to-cart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

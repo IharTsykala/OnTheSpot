@@ -184,7 +184,7 @@ if (
         .slice(0, -3)
 
     $link =
-      "https://luxxinails.com" +
+      "https://kokabzia.com" +
       jQuery(this).find("a.ProductItem__ImageWrapper").attr("href")
 
     $price =
@@ -504,22 +504,22 @@ if (
 // div div img one src
 
 if (
-  jQuery('[id="content"] .product-index').length >
+  jQuery('.products .product-grid-item').length >
     0 &&
-  jQuery(".slides img:first").length === 0
+  jQuery(".woocommerce-product-gallery img:first").length === 0
   // &&  jQuery('.product-details__desc-col').length === 0
 ) {
   $arr = []
 
-  jQuery('[id="content"] .product-index').each(
+  jQuery('.products .product-grid-item').each(
     function () {
       $title = jQuery(this)
-        .find(".product-info h3:first")
+        .find(".product-title")
         .text()
         .trim()
 
       $img =
-        "https:" +
+        // "https:" +
         // jQuery(this).find("img:first").attr("data-src") ||
         (
           jQuery(this).find("img:first").attr("data-srcset") ||
@@ -531,7 +531,8 @@ if (
           .split(" ")[0]
 
       $link =
-        "https://www.tpro.com" + jQuery(this).find("a:first").attr("href")
+        // "https://www.tpro.com" + 
+        jQuery(this).find("a:first").attr("href")
 
       $price =
          '$' +
@@ -1506,14 +1507,14 @@ if (
 // ul li only src
 
 if (
-  jQuery("ul#products li").length > 0 &&
-  jQuery(".woocommerce-product-gallery__image img:first").length === 0 &&
-  jQuery('[id="product_description"]').length === 0
+  jQuery("ul.products li.product").length > 0 &&
+  // jQuery(".woocommerce-product-gallery__image  img:first").length === 0
+  jQuery('.product-content').length === 0
 ) {
   $arr = []
 
-  jQuery("ul#products li").each(function () {
-    $title = jQuery(this).find("h2").text().trim()
+  jQuery("ul.products li.product").each(function () {
+    $title = jQuery(this).find(".woocommerce-loop-product__title").text().trim()
 
     $img =
       // 'https:' +
@@ -1527,12 +1528,13 @@ if (
     // .replace(/\s/g, "%20")
 
     $link =
-      "https://www.houseofneed.co.uk" +
-      jQuery(this).find("a:first").attr("href")
+      // "https://www.frontierraas.com/" +
+      jQuery(this).find("a:last")
+      .attr("href")
 
     $price =
       // "$" + ' ' +
-      jQuery(this).find("h3:last").text().trim()
+      jQuery(this).find(".woocommerce-Price-amount:first bdi").text().trim()
     // .split("$")[1]
     // .trim()
 
@@ -2200,6 +2202,8 @@ if (
   $arr
 }
 
+
+
 // div div img one src
 
 if (
@@ -2799,3 +2803,187 @@ if (
 }
 
 ////////////////////////////////////////////////////////////////
+
+// ul li only src
+
+if (
+  jQuery(".products-grid li").length > 0 &&
+  jQuery('.product-image-zoom img:first').length === 0
+) {
+  $arr = []
+
+  jQuery(".products-grid li").each(function () {
+    $title = jQuery(this).find(".product-name").text().trim()
+
+    $img =
+      // "https:" +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+        // jQuery(this).find("img:last").attr("src") ||
+        ""
+      ).split(", ")[0]
+    // .replace(/\s/g, "%20")
+
+    $link =
+      // "https://www.baskick.com"  + 
+      jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // "$" +
+      // " " +
+      jQuery(this).find(".regular-price:first .price").text().trim()
+    // .split("USD")[0]
+    // .trim()
+
+    if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+////////////////////////////////////////////////////////////////
+// div div noscript
+
+if (
+  jQuery(".product-grid--root .product--root").length > 0 &&
+  jQuery(".product-page--images-container img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".product-grid--root .product--root").each(function () {
+    $title = jQuery(this).find(".product--title").text().trim()
+
+    if (jQuery(this).find("noscript").text().trim())
+      $img =
+        // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
+        // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+        "https:" +
+        jQuery(this)
+          .find("noscript")
+          .text()
+          .trim()
+          .split('src="')[1]
+          // .split("url('")[1]
+          .split(" ")[0]
+          .trim()
+          .slice(0, -1)
+    // .replace('gif', 'jpg')
+    else $img = ""
+
+    $link = "https://ku-mi.com" + jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this)
+      .find(".product--price-wrapper .product--price:first")
+      .text()
+      .trim()
+      .replace(/\s/g, "")
+    // .split('$')[1]
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+
+// div article one src
+
+if (
+  jQuery(".collection-grid article").length > 0 &&
+  jQuery(".product-images img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".collection-grid article").each(function () {
+    $title = jQuery(this).find(".product-card-title").text().trim()
+
+    $img =
+      "https:" +
+      // jQuery(this).find("source:first").attr("src") ||
+      // jQuery(this).find("source:first").attr("data-srcset") ||
+      // jQuery(this).find("source:first").attr("srcset") ||
+      (jQuery(this).find("img:first").attr("src") || "")
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://alphalete.uk" +
+      jQuery(this).find("a:first").attr("href")
+
+    $price =
+      "£" +
+      (jQuery(this)
+        .find('.product-card-price:first [class=" isOnSale "]')
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+        .split("£")[1]
+        ||
+        jQuery(this)
+        .find('.product-card-price:first')
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+        .split("£")[1])
+
+    if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+// div div .products .product-grid-item 
+
+if (
+  jQuery('.products .product-grid-item').length >
+    0 &&
+  jQuery(".product-image-wrap img:first").length === 0
+  // &&  jQuery('.product-details__desc-col').length === 0
+) {
+  $arr = []
+
+  jQuery('.products .product-grid-item').each(
+    function () {
+      $title = jQuery(this)
+        .find(".product-title")
+        .text()
+        .trim()
+
+      $img =
+        // "https:" +
+        // jQuery(this).find("img:first").attr("data-src") ||
+        (
+          jQuery(this).find("img:first").attr("data-srcset") ||
+          jQuery(this).find("img:first").attr("srcset") ||
+          jQuery(this).find("img:first").attr("src") ||
+          ""
+        )
+          // .replace(/\s/g, "%20")
+          .split(" ")[0]
+
+      $link =
+        // "https://www.tpro.com" + 
+        jQuery(this).find("a:first").attr("href")
+
+      $price =
+        //  '$' +
+        jQuery(this)
+          .find(
+            ".woocommerce-Price-amount:first bdi"
+          )
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+      // .split('$')[1]
+      // .split(' ')[0]
+
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    }
+  )
+  $arr
+}

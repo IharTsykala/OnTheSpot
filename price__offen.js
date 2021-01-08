@@ -184,3 +184,8 @@ jQuery('[data-price-wrapper] [data-product-price]').text().trim() ||
     jQuery('[class="product__price"]:first').text().trim().replace(/\s/g,'') 
     jQuery('[class="product__price product__price--compare"]:first').text().trim().replace(/\s/g,'') ||
     jQuery('[class="product__price"]:first').text().trim().replace(/\s/g,'') 
+
+    jQuery('.product-shop .price ins:first').text().trim() || jQuery('.product-shop .special-price .price:first').text().trim()
+ || jQuery('.product-shop .regular-price:first').text().trim()
+jQuery('.product-shop .price del:first').text().trim() || jQuery('.product-shop .old-price .price:first').text().trim()
+ || jQuery('.product-shop .price ins:first').text().trim() || jQuery('.product-shop .regular-price:first').text().trim()

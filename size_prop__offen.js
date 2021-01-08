@@ -2450,3 +2450,118 @@ if (
   })
 }
 return $val
+
+///////////////////////////////////////////////////////////////////////
+
+// Select
+if (jQuery('[id="product-options-wrapper"]:contains(SIZE) option').length > 0) {
+  ;[
+    jQuery('[id="product-options-wrapper"]:contains(SIZE) option:selected').text() != ""
+      ? jQuery('[id="product-options-wrapper"]:contains(SIZE) option:selected')
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select SIZE",
+    jQuery.makeArray(
+      jQuery('[id="product-options-wrapper"]:contains(SIZE) option').map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No SIZE", ["No SIZE"]]
+}
+
+//pa_SIZEs clicker
+if (
+  jQuery('[id="product-options-wrapper"]:contains(SIZE) option').length > 0 &&
+  $sarg != "Select SIZE" &&
+  $sarg != "No SIZE"
+) {
+  jQuery('[id="product-options-wrapper"]:contains(SIZE) option').each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).trigger("change")
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery('[id="product-options-wrapper"]:contains(SIZE) option').length > 0 &&
+  $sarg != "No SIZE" &&
+  $sarg != "Select SIZE"
+) {
+  $text = true
+  jQuery('[id="product-options-wrapper"]:contains(SIZE) option').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+/////////////////////////////////////
+
+/////////////////////////////
+
+// div button
+if (jQuery(".size-button-container button").length > 0) {
+  [
+    jQuery(
+      ".size-button-container button.toggle-size-button"
+    ).length > 0
+      ? jQuery(".size-button-container button.toggle-size-button")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".size-button-container button").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Size", ["No Size"]];
+
+
+if (
+  jQuery(".size-button-container button").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery(".size-button-container button").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+$text = false;
+if (
+  jQuery(".size-button-container button").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery(".size-button-container button").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("data-available")
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
