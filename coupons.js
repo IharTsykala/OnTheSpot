@@ -75,7 +75,6 @@ document.querySelector('input[id="checkout_reduction_code"]')
 document.querySelector('button.field__input-btn')
 document.querySelector('.total-line-table__footer  .payment-due__price')
 
-
 slick-active
 
 
