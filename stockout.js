@@ -386,3 +386,9 @@ if (jQuery('.woocommerce-variation-availability:first').text().trim().toLowerCas
 } else {
   $status = false;
 }
+
+if (jQuery('[data-product-atc]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

@@ -1803,38 +1803,111 @@ if (jQuery('.image__container img:first').length > 0)
     $arr
   }  
   
-  
+  jQuery('.pdp-hero__price-container:first').text().trim().split('From')[1] || jQuery('.pdp-hero__price-container:first').text().trim().split('From') 
 
   if (
-    jQuery(".product-list-wrapper .card--product-listing").length > 0 &&
-    jQuery(".shop-panel__image-wrapper  img:first").length === 0
+    jQuery(".product-grid .product-item").length > 0 &&
+    jQuery('[class="lazy-image product__photo slick-slide slick-current slick-active"] img:first').length === 0
+    // jQuery('.product-description').length === 0
   ) {
-    $arr = [];
+    $arr = []
   
-    jQuery(".product-list-wrapper .card--product-listing").each(function () {
-      $title = jQuery(this)
-        .find(".collection__card-product-title:first")
-        .text()
-        .trim()
+    jQuery(".product-grid .product-item").each(function () {
+      $title = jQuery(this).find(".title").text().trim()
   
       $img =
-        "https:" +
-        (jQuery(this).find("img:first").attr("src") || "").split(" ")[0]
+        // "https:" +
+        
+         ( jQuery(this)
+            .find('[data-aos="img-in"]:first')
+            .attr("data-bgset") ||
+          jQuery(this)
+            .find('[data-aos="img-in"]:first')
+            .attr("data-bgset") ||
+          // jQuery(this)
+          //   .find(".product-item__image:first source:first")
+          //   .attr("srcset") ||
+          // jQuery(this)
+          //   .find(".product-item__image:first source:first")
+          //   .attr("data-srcset") ||
+          jQuery(this).find('a:first div div')
+          .css("background-image")
+        // .split('url"')[1]
+        // .split('"')[0]
+        // .slice(-8) 
+        ||
+          ""
+         )
+          // .replace(/\s/g, "%20")
+          .split(" ")[1]
   
-      $link =
-        "https://www.raceface.com" + jQuery(this).find("a:first").attr("href")
+      $link = "https://flutecenter.com" + jQuery(this).find("a:first").attr("href")
   
-      $price =
-      
-      jQuery(this)
-        .find(".collection__card-product-price:first")
-        .text()
-        .trim()
-        .replace(/\s/g, "")
+      $price = jQuery(this).find(".price:first .money").text().trim().replace(/\s/g, "")
+      // .split("$")[1] || ""
   
       if ($title && $img && $link && $price)
-        $arr.push([$title, $img, $link, $price])
+      $arr.push([$title, $img, $link, $price])
     })
+    $arr
+  }
+
+  if (
+    jQuery('.products .product-grid-item').length >
+      0 &&
+    jQuery(".woocommerce-product-gallery img:first").length === 0
+    // &&  jQuery('.product-details__desc-col').length === 0
+  ) {
+    $arr = []
+  
+    jQuery('.products .product-grid-item').each(
+      function () {
+        $title = jQuery(this)
+          .find(".product-title")
+          .text()
+          .trim()
+  
+        $img =
+          // "https:" +
+          // jQuery(this).find("img:first").attr("data-src") ||
+          (
+            jQuery(this).find("img:first").attr("data-srcset") ||
+            jQuery(this).find("img:first").attr("srcset") ||
+            jQuery(this).find("img:first").attr("src") ||
+            ""
+          )
+            // .replace(/\s/g, "%20")
+            .split(" ")[0]
+  
+        $link =
+          // "https://www.tpro.com" + 
+          jQuery(this).find("a:first").attr("href")
+  
+        $price =
+           '$' +
+          (jQuery(this)
+            .find(
+              ".price:first .prod-price"
+            )
+            .text()
+            .trim()
+            .replace(/\s/g, "")
+        .split('$')[1]
+        // .split(' ')[0]
+        || 
+        jQuery(this)
+            .find(
+              ".price:first .woocommerce-Price-amount:last"
+            )
+            .text()
+            .trim()
+            .replace(/\s/g, "")
+        .split('$')[1])
+  
+        if ($title && $img && $link && $price)
+          $arr.push([$title, $img, $link, $price])
+      }
+    )
     $arr
   }
   

@@ -403,30 +403,30 @@ if (
 
   ////////////////////////////////////////////
 
-if (jQuery("div.swatch:contains(Maat) input").length > 0) {
+if (jQuery("div.swatch:contains(style) input").length > 0) {
   ;[
-    jQuery("div.swatch:contains(Maat) input:checked").length > 0
-      ? jQuery("div.swatch:contains(Maat) input:checked")
+    jQuery("div.swatch:contains(style) input:checked").length > 0
+      ? jQuery("div.swatch:contains(style) input:checked")
           .attr("value")
           .replace(/\s\s+/g, "")
       : "Select item",
     jQuery.makeArray(
-      jQuery("div.swatch:contains(Maat) input").map(function (i, e) {
+      jQuery("div.swatch:contains(style) input").map(function (i, e) {
         if (jQuery(e).attr("value") != "")
           return jQuery(e).attr("value").replace(/\s\s+/g, "")
       })
     ),
   ]
 } else {
-  ;["No Maat", ["No Maat"]]
+  ;["No style", ["No style"]]
 }
 
 if (
-  jQuery("div.swatch:contains(Maat) input").length > 0 &&
-  $sarg != "Select Maat" &&
-  $sarg != "No Maat"
+  jQuery("div.swatch:contains(style) input").length > 0 &&
+  $sarg != "Select style" &&
+  $sarg != "No style"
 ) {
-  jQuery("div.swatch:contains(Maat) input").each(function () {
+  jQuery("div.swatch:contains(style) input").each(function () {
     if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
       jQuery(this).next()[0].click()
     }
@@ -438,12 +438,12 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery("div.swatch:contains(Maat) input").length > 0 &&
-  $sarg != "No Maat" &&
-  $sarg != "Select Maat"
+  jQuery("div.swatch:contains(style) input").length > 0 &&
+  $sarg != "No style" &&
+  $sarg != "Select style"
 ) {
   $text = true
-  jQuery("div.swatch:contains(Maat) input").each(function (index) {
+  jQuery("div.swatch:contains(style) input").each(function (index) {
     if (
       jQuery(this).attr("value") == $sarg &&
       !jQuery(this).attr(".data-availability")
@@ -1192,3 +1192,168 @@ if (
   })
 }
 return $val
+
+////////////////////////////////////////////////////
+
+if (jQuery('select[name="id"] option').length > 0) {
+  [
+    jQuery('select[name="id"] option:selected').text() != ""
+      ? jQuery('select[name="id"] option:selected')
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Metal Color",
+    jQuery.makeArray(
+      jQuery('select[name="id"] option').map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Metal Color", ["No Metal Color"]];
+}
+
+//pa_Metal Colors clicker
+if (
+jQuery('select[name="id"] option').length > 0 &&
+$sarg != "Select Metal Color" &&
+$sarg != "No Metal Color"
+) {
+jQuery('select[name="id"] option').each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+
+$text = false;
+if (
+  jQuery('select[name="id"] option').length > 0 &&
+  $sarg != "No Metal Color" &&
+  $sarg != "Select Metal Color"
+) {
+  $text = true;
+  jQuery('select[name="id"] option').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+////////////////////////////////////////////////////
+
+if (jQuery('select[id="productSelect-product-template-option-0"] option').length > 0) {
+  [
+    jQuery('select[id="productSelect-product-template-option-0"] option:selected').text() != ""
+      ? jQuery('select[id="productSelect-product-template-option-0"] option:selected')
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Metal Color",
+    jQuery.makeArray(
+      jQuery('select[id="productSelect-product-template-option-0"] option').map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Metal Color", ["No Metal Color"]];
+}
+
+//pa_Metal Colors clicker
+if (
+jQuery('select[id="productSelect-product-template-option-0"] option').length > 0 &&
+$sarg != "Select Metal Color" &&
+$sarg != "No Metal Color"
+) {
+jQuery('select[id="productSelect-product-template-option-0"] option').each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+
+$text = false;
+if (
+  jQuery('select[id="productSelect-product-template-option-0"] option').length > 0 &&
+  $sarg != "No Metal Color" &&
+  $sarg != "Select Metal Color"
+) {
+  $text = true;
+  jQuery('select[id="productSelect-product-template-option-0"] option').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+////////////////////////////////////////////////////
+
+if (jQuery('select[id="productSelect-product-template-option-1"] option').length > 0) {
+  [
+    jQuery('select[id="productSelect-product-template-option-1"] option:selected').text() != ""
+      ? jQuery('select[id="productSelect-product-template-option-1"] option:selected')
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Metal Color",
+    jQuery.makeArray(
+      jQuery('select[id="productSelect-product-template-option-1"] option').map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No Metal Color", ["No Metal Color"]];
+}
+
+//pa_Metal Colors clicker
+if (
+jQuery('select[id="productSelect-product-template-option-1"] option').length > 0 &&
+$sarg != "Select Metal Color" &&
+$sarg != "No Metal Color"
+) {
+jQuery('select[id="productSelect-product-template-option-1"] option').each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+
+$text = false;
+if (
+  jQuery('select[id="productSelect-product-template-option-1"] option').length > 0 &&
+  $sarg != "No Metal Color" &&
+  $sarg != "Select Metal Color"
+) {
+  $text = true;
+  jQuery('select[id="productSelect-product-template-option-1"] option').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;

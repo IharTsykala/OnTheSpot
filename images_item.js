@@ -332,7 +332,7 @@ else
   if (jQuery('.product-single__photos img:first').length > 0) 
   $img = jQuery('.product-single__photos img:first').attr('src')  
   .split(' ')[0]
-  .replace('200x', '1080x')
+  .replace('_300x300', '_1080x1080')
   else
   $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
   
@@ -588,9 +588,9 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
   else
   $img
 
-  if (jQuery('.product-photo-container img').length > 0){
+  if (jQuery('.product-photo-container img:first').length > 0){
     $arr = [];
-    jQuery('.product-photo-container img').each(function(index){
+    jQuery('.product-photo-container img:first').each(function(index){
         if (index < 4) 
         $arr.push('https:'+jQuery(this).attr('src')  
         .split(' ')[0])
@@ -600,7 +600,7 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
 
     //////////////////////////////////////////////////
 
-            /////////////////////////////////////////////
+            /////////////////////////////////////////////product-gallery__image is-selected
 
   if (jQuery('.woocommerce-product-gallery__image img:first').length > 0) 
   $img = jQuery('.woocommerce-product-gallery__image img:first').attr('src')  
@@ -1124,8 +1124,8 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
             //////////////////////////////////////////////////
              //////////////////////////////////////////////////
    
-          if (jQuery('.product-media--image img:last').length > 0) 
-          $img = jQuery('.product-media--image img:last').attr('srcset')  
+          if (jQuery('.product-media--image img:first').length > 0) 
+          $img = jQuery('.product-media--image img:first').attr('srcset')  
           .split(' ')[0]
           .replace('_180', '_1080')
           else
@@ -1136,9 +1136,9 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
           else
           $img
         
-          if (jQuery('.product-media--image img:last').length > 0){
+          if (jQuery('.product-media--image img:first').length > 0){
             $arr = [];
-            jQuery('.product-media--image img:last').each(function(index){
+            jQuery('.product-media--image img:first').each(function(index){
                 if (index < 4) 
                 $arr.push('https:'+jQuery(this).attr('srcset')  
                 .split(' ')[0])
@@ -1949,7 +1949,7 @@ if (jQuery('.product-single__thumbnail-item img').length > 0){
             $arr = [];
             jQuery('.product-main-image img').each(function(index){
                 if (index < 4) 
-                $arr.push('https:'+jQuery(this).attr('src')  
+                $arr.push(jQuery(this).attr('src')  
                 .split(' ')[0])
             })
             $arr
@@ -2342,3 +2342,106 @@ if (jQuery('.product-image-zoom img').length > 0){
     }
 
     //////////////////////////////////////////////////
+
+       ////////////////////////////////
+
+  if (jQuery('[data-pf-type="ProductImage2"] img:first').length > 0) 
+  $img = jQuery('[data-pf-type="ProductImage2"] img:first')  
+  .attr('src') 
+  .split(' ')[0]
+  .replace('_180', '_1080')
+  else
+  $img = jQuery('.meta[property="og:image"]:eq(0)').attr('content')
+  
+  if ($img.indexOf("http") == -1)
+  'https:'+$img
+  else
+  $img  
+  
+  if (jQuery('[data-pf-type="ProductImage2"] img').length > 0){
+    $arr = [];
+    jQuery('[data-pf-type="ProductImage2"] img').each(function(index){
+        if (index < 4) 
+        $arr.push('https:'+jQuery(this).attr("src"))
+    })
+    $arr
+    }
+
+  //////////////////////////////////////
+
+          ////////////////////////////////
+
+  if (jQuery('[id="shopify-section-Product-Video-Gallery"] img:first').length > 0) 
+  $img = jQuery('[id="shopify-section-Product-Video-Gallery"] img:first')  
+  .attr('src') 
+  .split(' ')[0]
+  .replace('_180', '_1080')
+  else
+  $img = jQuery('.meta[property="og:image"]:eq(0)').attr('content')
+  
+  if ($img.indexOf("http") == -1)
+  'https:'+$img
+  else
+  $img  
+  
+  if (jQuery('[id="shopify-section-Product-Video-Gallery"] img').length > 0){
+    $arr = [];
+    jQuery('[id="shopify-section-Product-Video-Gallery"] img').each(function(index){
+        if (index < 4) 
+        $arr.push('https:'+jQuery(this).attr("src"))
+    })
+    $arr
+    }
+
+  //////////////////////////////////////
+              /////////////////////////////////////////////product-gallery__image is-selected
+
+              if (jQuery('.product-gallery__image img:first').length > 0) 
+              $img = jQuery('.product-gallery__image img:first').attr('src')  
+              .split(' ')[0]
+              .replace('_60', '_1100')
+              else
+              $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+              
+              if ($img.indexOf("http") == -1)
+              'https:'+$img
+              else
+              $img
+            
+              if (jQuery('.product-gallery__image img').length > 0){
+                $arr = [];
+                jQuery('.product-gallery__image img').each(function(index){
+                    if (index < 4) 
+                    $arr.push("http"+jQuery(this).attr('src')  
+                    .split(' ')[0])
+                })
+                $arr
+                }
+            
+                //////////////////////////////////////////////////
+
+                              /////////////////////////////////////////////product-gallery__image is-selected
+
+              if (jQuery('.product-gallery--image img:first').length > 0) 
+              $img = jQuery('.product-gallery--image img:first').attr('src')  
+              .split(' ')[0]
+              .replace('_60', '_1100')
+              else
+              $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+              
+              if ($img.indexOf("http") == -1)
+              'https:'+$img
+              else
+              $img
+            
+              if (jQuery('.product-gallery--image img').length > 0){
+                $arr = [];
+                jQuery('.product-gallery--image img').each(function(index){
+                    if (index < 4) 
+                    $arr.push("http"+jQuery(this).attr('src')  
+                    .split(' ')[0])
+                })
+                $arr
+                }
+            
+                //////////////////////////////////////////////////

@@ -556,7 +556,7 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.product-single__meta-list:first [id="ProductPrice-product-template"] .money').text().trim().replace(/\s/g,'')
 
  jQuery(".price ins:first").text().trim()
- ||  jQuery(".price:first .woocommerce-Price-amount").text().trim()
+ ||  jQuery(".product-image-summary:first .price .woocommerce-Price-amount:last").text().trim()
 
  jQuery(".price del:first").text().trim()
  ||  jQuery(".price:first .woocommerce-Price-amount").text().trim()
@@ -650,3 +650,8 @@ jQuery(".price--compare:first").text().trim() ||
 
 
  jQuery(".product-image-summary-wrap .woocommerce-Price-amount").text().trim()
+
+ jQuery('#product-price:first .money:first').text().trim()
+ jQuery('#product-price:first .money:last').text().trim()
+
+ jQuery('.price-area:first .price:first').text().trim()

@@ -71,7 +71,7 @@ jQuery("#product-price .money:last").text().trim()
 
 jQuery(".price .price-item--sale:first").text().trim()
 jQuery(".price .price-item--sale").text().trim() ||
-  jQuery(".product__price .price-item--regular:first").text().trim()
+  jQuery(".product__price:first .price-item--regular:first").text().trim()
 
 "$" +
   jQuery(".featured-products__price #ProductPrice").text().trim().split("$")[1]
@@ -94,9 +94,13 @@ jQuery(".price .price-item--sale").text().trim() ||
   "HUF" + jQuery(".product-new-price:first").text().trim().split("Ft")[0]
 // .split('$')[1]
 
-jQuery(".product__price:first").text().trim()
+jQuery(".product--container:first .product__price:first").text().trim()
 jQuery(".product--price .price--compare-at").text().trim() ||
-  jQuery(".product__price:first").text().trim()
+  jQuery("..product__price:first").text().trim()
+
+  jQuery(".product--price:first .price--main .money:first").text().trim()
+  jQuery(".product--price .price--compare-at").text().trim() ||
+    jQuery(".product--price:first .price--main .money:first").text().trim()
 
 "€" + jQuery(".price-wrapper .price:first").text().trim().split("€")[0]
 "€" + jQuery(".old-price .price").text().trim().split("€")[0] ||
@@ -189,3 +193,18 @@ jQuery('[data-price-wrapper] [data-product-price]').text().trim() ||
  || jQuery('.product-shop .regular-price:first').text().trim()
 jQuery('.product-shop .price del:first').text().trim() || jQuery('.product-shop .old-price .price:first').text().trim()
  || jQuery('.product-shop .price ins:first').text().trim() || jQuery('.product-shop .regular-price:first').text().trim()
+
+ jQuery('#product-price:first .money:first').text().trim()
+ jQuery('#product-price:first .money:last').text().trim()
+
+
+ jQuery('.product__price .price__sale .price-item--sale:first').text().trim() 
+|| jQuery('.product__price .price__regular .price-item--regular:first').text().trim() 
+jQuery('.product__price .price__sale .price-item--regular:first').text().trim() 
+|| jQuery('.product__price .price__sale .price-item--sale:first').text().trim() 
+||  jQuery('.product__price .price__regular .price-item--regular:first').text().trim()
+
+jQuery('.modal_price .current_price ').text().trim().replace(/\s/g,'') 
+
+jQuery('.modal_price .was_price').text().trim().replace(/\s/g,'') 
+|| jQuery('.modal_price .current_price').text().trim().replace(/\s/g,'') 
