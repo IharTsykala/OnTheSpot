@@ -392,3 +392,15 @@ if (jQuery('[data-product-atc]').text().trim().toLowerCase().indexOf('out') >= 0
 } else {
   $status = false;
 }
+
+if (jQuery('[class="btn-cart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('.product_information .product-detail__form:first').text().trim().toLowerCase().indexOf('unavailable') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

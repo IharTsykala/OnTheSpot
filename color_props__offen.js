@@ -767,6 +767,63 @@ if (
 return $text
 
 //////////////////////////////////////////////////////
+////////////////////////////////////////////////
+
+if (jQuery(".variant-wrapper:contains(Colour) input").length > 0) {
+  ;[
+    jQuery(".variant-wrapper:contains(Colour) input:checked").length > 0
+      ? jQuery(".variant-wrapper:contains(Colour) input:checked")
+          // .next()
+          // .text().trim()
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery(".variant-wrapper:contains(Colour) input").map(function (i, e) {
+        if (jQuery(e).attr("value") != "") return jQuery(e).next().text().trim()
+      })
+    ),
+  ]
+} else {
+  ;["No Colour", ["No Colour"]]
+}
+
+if (
+  jQuery(".variant-wrapper:contains(Colour) input").length > 0 &&
+  $sarg != "Select Colour" &&
+  $sarg != "No Colour"
+) {
+  jQuery(".variant-wrapper:contains(Colour) input").each(function () {
+    if (jQuery(this).attr("value") == $sarg) {
+      jQuery(this)[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery(".variant-wrapper:contains(Colour) input").length > 0 &&
+  $sarg != "No Colour" &&
+  $sarg != "Select Colour"
+) {
+  $text = true
+  jQuery(".variant-wrapper:contains(Colour) input").each(function (
+    index
+  ) {
+    if (
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr(".data-availability")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+//////////////////////////////////////////////////////
 ///////////////////////////////////////////////////
 
 // Select

@@ -170,16 +170,16 @@ if (
 return $text;
 
 
-if (jQuery(".selector-wrapper:contains(Denominations) option").length > 0) {
+if (jQuery(".selector-wrapper:contains(ADD A LASH) option").length > 0) {
   [
-    jQuery(".selector-wrapper:contains(Denominations) option:selected").text() != ""
-      ? jQuery(".selector-wrapper:contains(Denominations) option:selected")
+    jQuery(".selector-wrapper:contains(ADD A LASH) option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(ADD A LASH) option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Style",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(Denominations) option").map(function (i, e) {
+      jQuery(".selector-wrapper:contains(ADD A LASH) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -191,11 +191,11 @@ if (jQuery(".selector-wrapper:contains(Denominations) option").length > 0) {
 
 //pa_Styles clicker
 if (
-jQuery(".selector-wrapper:contains(Denominations) option").length > 0 &&
+jQuery(".selector-wrapper:contains(ADD A LASH) option").length > 0 &&
 $sarg != "Select Style" &&
 $sarg != "No Style"
 ) {
-jQuery(".selector-wrapper:contains(Denominations) option").each(function () {
+jQuery(".selector-wrapper:contains(ADD A LASH) option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
     jQuery(this).trigger("change");
   }
@@ -207,12 +207,12 @@ return true;
 
 $text = false;
 if (
-  jQuery(".selector-wrapper:contains(Denominations) option").length > 0 &&
+  jQuery(".selector-wrapper:contains(ADD A LASH) option").length > 0 &&
   $sarg != "No Style" &&
   $sarg != "Select Style"
 ) {
   $text = true;
-  jQuery(".selector-wrapper:contains(Denominations) option").each(function (index) {
+  jQuery(".selector-wrapper:contains(ADD A LASH) option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')

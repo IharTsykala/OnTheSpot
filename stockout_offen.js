@@ -127,8 +127,6 @@ jQuery('[name="add"]').text().trim().toLowerCase() == 'out of stock' )
 
 if (jQuery('[data-action="add-to-cart"]').text().trim().toLowerCase() == 'sold out' || 
 jQuery('[data-action="add-to-cart"]').text().trim().toLowerCase() == 'out of stock' )
-// ||
-// jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
  {
   $status = true
 } else {
@@ -183,6 +181,11 @@ jQuery('button[id="product-addtocart-button"]').text().trim().toLowerCase() == '
 }
 
 if (jQuery('[class="btn-add-to-cart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+if (jQuery('.add-to-cart').text().trim().toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {
   $status = false;

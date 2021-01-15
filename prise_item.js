@@ -127,7 +127,7 @@ jQuery('.price-area .base_price').text().trim() ||
 
 
   jQuery(".woocommerce-variation-price .woocommerce-Price-amount bdi:first").text().trim()
-  jQuery(".price-list .price:last").text().trim()
+  '£'+jQuery(".price-list .price:last").text().trim().split('£')[1]
   jQuery(".product-single__price .product-price:first").text().trim()
 
   jQuery('h1:first').text().trim().split(' / ')[0]
@@ -257,6 +257,11 @@ jQuery(".price--compare-at:first").text().trim() ||
   jQuery('.current_price:first').text().trim().replace(/\s/g,'') ||
   jQuery('.snize-price:first').text().trim().replace(/\s/g,'')
 
+
+  jQuery('.price-area:first .product-price').text().trim().replace(/\s/g,'') 
+
+  jQuery('.was-price:first').text().trim().replace(/\s/g,'') ||
+  jQuery('.price-area:first .product-price').text().trim().replace(/\s/g,'') 
 
   jQuery('.was-price:first').text().trim().replace(/\s/g,'') ||
 jQuery('.current_price:first').text().trim().replace(/\s/g,'') ||
@@ -655,3 +660,9 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('#product-price:first .money:last').text().trim()
 
  jQuery('.price-area:first .price:first').text().trim()
+
+ jQuery('.product__price:first').text().trim()
+
+ jQuery('.product-single__price-number:first .money').text().trim()
+
+ jQuery('.pricearea:first').text().trim().replace(/\s/g,'').split('-')[0]
