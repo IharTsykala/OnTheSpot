@@ -546,23 +546,23 @@ if (
 // div div img one src
 
 if (
-  jQuery('.boost-pfs-filter-products .boost-pfs-filter-product-item').length >
+  jQuery('.proList .product_item_style1').length >
     0 &&
-  jQuery(".gallery__image img:first").length === 0
+  jQuery(".qiuck_zoom  img:first").length === 0
   // &&  jQuery('.product-details__desc-col').length === 0
 ) {
   $arr = []
 
-  jQuery('.boost-pfs-filter-products .boost-pfs-filter-product-item').each(
+  jQuery('.proList .product_item_style1').each(
     function () {
       $title = jQuery(this)
-        .find(".boost-pfs-filter-product-item-title")
+        .find(".proName")
         .text()
         .trim()
 
       $img =
         "https:" +
-        jQuery(this).find("img:first").attr("data-src") ||
+        jQuery(this).find("img:first").attr("src") ||
         (
           jQuery(this).find("img:first").attr("data-srcset") ||
           jQuery(this).find("img:first").attr("srcset") ||
@@ -580,7 +580,7 @@ if (
         //  '$' +
         jQuery(this)
           .find(
-            ".boost-pfs-filter-product-item-regular-price:first"
+            ".proPrice:first .priceSale" 
           )
           .text()
           .trim()
@@ -700,7 +700,7 @@ if (
         // .split(" class")[0]
         .slice(0, -2)
 
-    $link = "https://amenmerch.com" + jQuery(this).find("a:first").attr("href")
+    $link = "https://shop.goheadteach.com" + jQuery(this).find("a:first").attr("href")
 
     $price =
       "$" +
@@ -939,16 +939,23 @@ if (
     else $img = ""
 
     $link = 
-    "https://www.girlygirlwigs.com/" + 
+    "https://cowgirlclutch.shop" + 
     jQuery(this).find("a:first").attr("href")
 
     $price =
       // '$' +
       jQuery(this)
-        .find(".product-item--price .visually-hidden:last")
+        .find(".product-item--price:first small")
         .text()
         .trim()
-        .replace(/\s/g, "")
+        .replace(/\s/g, "").slice(0,3)
+        + '.' +
+        jQuery(this)
+        .find(".product-item--price:first small")
+        .text()
+        .trim()
+        .replace(/\s/g, "").slice(-2)
+
     // .split('$')[2]
 
     // if ($title && $img && $link && $price)
@@ -1051,13 +1058,13 @@ if (
 
 if (
   jQuery(".grid--uniform .grid__item").length > 0 &&
-  jQuery(".product-single__photo-wrapper img:first").length === 0
+  jQuery(".product-single__photos img:first").length === 0
   // &&  jQuery(".product-single").length === 0
 ) {
   $arr = []
 
   jQuery(".grid--uniform .grid__item").each(function () {
-    $title = jQuery(this).find(".grid-view-item__title:first").text().trim()
+    $title = jQuery(this).find(".product__title:first").text().trim()
 
     if (jQuery(this).find("noscript").text().trim().split('src="')[1])
       $img =       
@@ -1072,17 +1079,23 @@ if (
           .slice(0, -1)   
     else $img = ""
 
-    $link = "https://virginiahandbags.com" + jQuery(this).find("a:first").attr("href")
+    $link = "https://fairytong.com" + jQuery(this).find("a:first").attr("href")
 
     $price =
       "$" +    
       jQuery(this)
-        .find(".product-card__description:first .product-price__price:last")
+        .find(".product__price:first")
         .text()
         .trim()
         .replace(/\s/g, "")
+        // ||
+        // jQuery(this)
+        // .find(".product-price__sold-out:first")
+        // .text()
+        // .trim()
+        // .replace(/\s/g, "")
         .split("$")[1]
-        .split("Sale")[0]     
+        // .split("Sale")[0]     
 
     if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])
@@ -1423,10 +1436,10 @@ if (
    
 
     $link =
-      "https://fragrances2go.co.uk" + jQuery(this).find("a:first").attr("href")
+      "https://www.ecr4kids.com" + jQuery(this).find("a:first").attr("href")
 
     $price =
-      "£" +
+      "$" +
       (jQuery(this)
         .find(".price--highlight")
         .text()
@@ -1438,7 +1451,7 @@ if (
           .text()
           .trim()
           .replace(/\s/g, "")
-          .split("£")[1])
+          .split("$")[1])
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -1486,7 +1499,7 @@ if (
 
 if (
   jQuery(".product-list .product-wrap").length > 0 &&
-  jQuery('[class="product-gallery__carousel-item is-selected "] img:first')
+  jQuery('.product_gallery img:first')
     .length === 0
   // &&  jQuery(".product-single").length === 0
 ) {
@@ -1508,7 +1521,7 @@ if (
         .split(" ")[0]
 
     $link =
-      "https://villainoutwear.com" + jQuery(this).find("a:first").attr("href")
+      "https://buggirl200.com/" + jQuery(this).find("a:first").attr("href")
 
     $price = jQuery(this)
       .find(".price span.money:first")
@@ -3141,7 +3154,7 @@ if (
   $arr
 }
 
-// div div style 
+// div div style grid--uniform
 if (
   jQuery(".grid--uniform .grid__item").length > 0 &&
   // jQuery('.product-image-main img:first').length === 0
@@ -3163,7 +3176,7 @@ if (
        
         .split('"')[0]
 
-    $link = "https://flutecenter.com" + jQuery(this).find("a:first").attr("href")
+    $link = "https://fairytong.com" + jQuery(this).find("a:first").attr("href")
 
     $price = jQuery(this).find(".grid-product__price:first .money:last").text().trim().replace(/\s/g, "")
     

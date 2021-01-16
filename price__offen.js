@@ -133,7 +133,7 @@ jQuery(".was_price .price-item:first").text().trim() ||
   jQuery(".price__regular .price-item:first").text().trim()
 
 jQuery(".current_price .money:first").text().trim()  
-jQuery(".was_price :first").text().trim() ||
+jQuery(".was_price:first :first").text().trim() ||
   jQuery(".current_price .money:first").text().trim()
 
 

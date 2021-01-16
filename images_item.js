@@ -332,7 +332,7 @@ else
   if (jQuery('.product-single__photos img:first').length > 0) 
   $img = jQuery('.product-single__photos img:first').attr('src')  
   .split(' ')[0]
-  .replace('_300x300', '_1080x1080')
+  .replace('_200x200', '_1080x1080')
   else
   $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
   
@@ -2619,4 +2619,30 @@ if (jQuery('.product-image-zoom img').length > 0){
                 $arr
                 }
             
+                //////////////////////////////////////////////////
+              ////////////////////////////////////////////
+
+              if (jQuery('.proBoxImage a:first').length > 0) 
+              $img = jQuery('.proBoxImage a:first').attr('href')
+              // attr('src')  
+              .split(' ')[0]
+              .replace('_180x', '_1080x')
+              else
+              $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+              
+              if ($img.indexOf("http") == -1)
+              'https:'+$img
+              else
+              $img
+            
+              if (jQuery('.proBoxImage a:first').length > 0){
+                $arr = [];
+                jQuery('.proBoxImage a:first').each(function(index){
+                    if (index < 4) 
+                    $arr.push("http"+jQuery(this).attr('href')
+                    // attr('src')  
+                    .split(' ')[0])
+                })
+                $arr
+                }
                 //////////////////////////////////////////////////

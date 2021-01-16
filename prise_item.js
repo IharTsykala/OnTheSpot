@@ -127,7 +127,7 @@ jQuery('.price-area .base_price').text().trim() ||
 
 
   jQuery(".woocommerce-variation-price .woocommerce-Price-amount bdi:first").text().trim()
-  '£'+jQuery(".price-list .price:last").text().trim().split('£')[1]
+  '$'+jQuery(".price-list .price:last").text().trim().split('$')[1]
   jQuery(".product-single__price .product-price:first").text().trim()
 
   jQuery('h1:first').text().trim().split(' / ')[0]
@@ -300,6 +300,14 @@ jQuery('.price__regular .price-item--regular:first').text().trim()
 jQuery('[id="productPrice-product-template"] span:first').text().trim().slice(0,-2)
 jQuery('[id="productPrice-product-template"] small').text().trim().slice(0,-2) ||
   jQuery('[id="productPrice-product-template"] span').text().trim().slice(0,-2)
+
+  jQuery('[id="productPrice-product-template"] span:first').text().trim().slice(0,-2)
+  + '.' + jQuery('[id="productPrice-product-template"] span:first').text().trim().slice(-2)
+jQuery('[id="productPrice-product-template"] small').text().trim().slice(0,-2)
++ '.' + jQuery('[id="productPrice-product-template"] small').text().trim().slice(-2)
+||
+  jQuery('[id="productPrice-product-template"] span').text().trim().slice(0,-2)
+  + '.' + jQuery('[id="productPrice-product-template"] span:first').text().trim().slice(-2)
 
   jQuery('[id="ProductPrice-product"]:first').text().trim().slice(0,-2)
 

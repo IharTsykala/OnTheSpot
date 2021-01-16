@@ -1910,4 +1910,4 @@ if (jQuery('.image__container img:first').length > 0)
     )
     $arr
   }
-  
+  '£'+jQuery(".price-list:first .price:last").text().trim().split('£')[1]
