@@ -404,3 +404,9 @@ if (jQuery('.product_information .product-detail__form:first').text().trim().toL
 } else {
   $status = false;
 }
+
+if (jQuery('.add-to-cart-btn-style:first').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

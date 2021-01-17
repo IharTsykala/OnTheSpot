@@ -962,33 +962,33 @@ return $text
 
 // radio-wrapper input 
 
-if (jQuery("div.radio-wrapper:contains(Type) input").length > 0) {
+if (jQuery("div.radio-wrapper:contains(Length) input").length > 0) {
   ;[
-    jQuery("div.radio-wrapper:contains(Type) input:checked").length > 0
-      ? jQuery("div.radio-wrapper:contains(Type) input:checked")
+    jQuery("div.radio-wrapper:contains(Length) input:checked").length > 0
+      ? jQuery("div.radio-wrapper:contains(Length) input:checked")
           .attr("value")
           .replace(/\s\s+/g, "")
       : "Select item",
     jQuery.makeArray(
-      jQuery("div.radio-wrapper:contains(Type) input").map(function (i, e) {
+      jQuery("div.radio-wrapper:contains(Length) input").map(function (i, e) {
         if (jQuery(e).attr("value") != "")
           return jQuery(e).attr("value").replace(/\s\s+/g, "")
       })
     ),
   ]
 } else {
-  ;["No Type", ["No Type"]]
+  ;["No Length", ["No Length"]]
 }
 
 ////////////
 
 
 if (
-  jQuery("div.radio-wrapper:contains(Type) input").length > 0 &&
-  $sarg != "Select Type" &&
-  $sarg != "No Type"
+  jQuery("div.radio-wrapper:contains(Length) input").length > 0 &&
+  $sarg != "Select Length" &&
+  $sarg != "No Length"
 ) {
-  jQuery("div.radio-wrapper:contains(Type) input").each(function () {
+  jQuery("div.radio-wrapper:contains(Length) input").each(function () {
     if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
       jQuery(this).next()[0].click()
     }
@@ -1002,12 +1002,12 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery("div.radio-wrapper:contains(Type) input").length > 0 &&
-  $sarg != "No Type" &&
-  $sarg != "Select Type"
+  jQuery("div.radio-wrapper:contains(Length) input").length > 0 &&
+  $sarg != "No Length" &&
+  $sarg != "Select Length"
 ) {
   $text = true
-  jQuery("div.radio-wrapper:contains(Type) input").each(function (index) {
+  jQuery("div.radio-wrapper:contains(Length) input").each(function (index) {
     if (
       jQuery(this).val().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).parent().hasClass("soldout")

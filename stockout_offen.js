@@ -185,6 +185,7 @@ if (jQuery('[class="btn-add-to-cart"]').text().trim().toLowerCase().indexOf('out
 } else {
   $status = false;
 }
+
 if (jQuery('.add-to-cart').text().trim().toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {

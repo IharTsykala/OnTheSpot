@@ -674,3 +674,15 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.product-single__price-number:first .money').text().trim()
 
  jQuery('.pricearea:first').text().trim().replace(/\s/g,'').split('-')[0]
+
+ jQuery(".price-list:first .price").text().trim()
+
+ jQuery('.product-price:first .product-price-minimum').text().trim()
+
+ jQuery('.product-price:first .product-price-compare').text().trim()
+ ||  jQuery('.product-price:first .product-price-minimum').text().trim()
+
+ jQuery('.tt-price .sale-price').text().trim()
+
+ jQuery('.tt-price .old-price').text().trim()
+ ||  jQuery('.tt-price .sale-price').text().trim()

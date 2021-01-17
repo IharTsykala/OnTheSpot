@@ -208,3 +208,18 @@ jQuery('.modal_price .current_price ').text().trim().replace(/\s/g,'')
 
 jQuery('.modal_price .was_price').text().trim().replace(/\s/g,'') 
 || jQuery('.modal_price .current_price').text().trim().replace(/\s/g,'') 
+
+jQuery('[id="ProductPrice-product-template"]:first').text().trim()
+
+    jQuery('[id="ComparePrice-product-template"]').text().trim()
+    || jQuery('[id="ProductPrice-product-template"]:first').text().trim()
+
+    jQuery('.product-single__price-product-template:first [id="ProductPrice-product-template"]').text().trim()
+
+    jQuery('.product-single__price-product-template:first [id="ComparePrice-product-template"] .money').text().trim()
+    ||jQuery('.product-single__price-product-template:first [id="ProductPrice-product-template"]').text().trim()
+
+    jQuery('.product-price:first .product-price-minimum').text().trim()
+
+    jQuery('.product-price:first .product-price-compare').text().trim()
+    ||  jQuery('.product-price:first .product-price-minimum').text().trim()
