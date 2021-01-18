@@ -686,3 +686,10 @@ jQuery(".price--compare:first").text().trim() ||
 
  jQuery('.tt-price .old-price').text().trim()
  ||  jQuery('.tt-price .sale-price').text().trim()
+
+ jQuery('.price-area:first').text().trim().replace(/\s/g,'')
+
+ jQuery('.product__price .money:last').text().trim()
+
+ jQuery('.product__price .money:first').text().trim()
+ ||  jQuery('.product__price .money:last').text().trim()
