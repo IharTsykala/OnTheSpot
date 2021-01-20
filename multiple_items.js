@@ -1911,3 +1911,50 @@ if (jQuery('.image__container img:first').length > 0)
     $arr
   }
   '£'+jQuery(".price-list:first .price:last").text().trim().split('£')[1]
+
+  if (
+    jQuery(".collection .product-list .product-item").length > 0 &&
+    jQuery(".product-gallery__carousel-wrapper img:first").length === 0
+    // &&  jQuery('.product-details__desc-col').length === 0
+  ) {
+    $arr = []
+  
+    jQuery(".collection .product-list .product-item").each(function () {
+      $title = jQuery(this).find(".product-item__title").text().trim()
+  
+      $img =
+        // "https:" +
+        (
+          jQuery(this).find("img:first").attr("srcset") ||
+          jQuery(this).find("img:first").attr("data-srcset") ||
+          //  jQuery(this).find("img:first").attr("srcset") ||
+          // jQuery(this).find("img:last").attr("src") ||
+          ""
+        )
+          // .replace(/\s/g, "%20")
+          .split(" ")[0]
+     
+  
+      $link =
+        "https://www.ecr4kids.com" + jQuery(this).find("a:first").attr("href")
+  
+      $price =
+        "$" +
+        (jQuery(this)
+          .find(".price--highlight")
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+          .split("£")[1] ||
+          jQuery(this)
+            .find(".price")
+            .text()
+            .trim()
+            .replace(/\s/g, "")
+            .split("$")[1])
+  
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    })
+    $arr
+  }

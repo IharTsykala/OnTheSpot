@@ -1920,3 +1920,57 @@ if (
 return $text
 
 /////////////////////////////////////////
+///////////////////////
+// swatches__container
+
+if (jQuery(".swatches__container:contains(Color) input").length > 0) {
+  ;[
+    jQuery(".swatches__container:contains(Color) input:checked").length > 0
+      ? jQuery(".swatches__container:contains(Color) input:checked")
+      .attr("value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery(".swatches__container:contains(Color) input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Color", ["No Color"]]
+}
+
+if (jQuery(".swatches__container:contains(Color) input").length > 0  &&
+$sarg != "Select Color" &&
+$sarg != "No Color") {
+jQuery(".swatches__container:contains(Color) input").each(function () {
+if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+  jQuery(this).next()[0].click()
+}
+})
+}
+wait_for(function () {
+return true
+})
+
+$text = false;
+if (
+  jQuery(".swatches__container:contains(Color) input").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery(".swatches__container:contains(Color) input").each(function (index) {
+    if (
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr('.data-availability')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+///////////////////////////

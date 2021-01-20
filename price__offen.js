@@ -172,6 +172,10 @@ jQuery('[data-price-wrapper] [data-product-price]').text().trim() ||
   '$'+(jQuery(".price-list  .price--compare").text().trim().split('$')[1] ||
   jQuery(".price-list  .price--highlight:first").text().trim().split('$')[1])
 
+  '£'+jQuery(".price-list  .price--highlight:first").text().trim().split('£')[1]
+  '£'+(jQuery(".price-list  .price--compare").text().trim().split('£')[1] ||
+  jQuery(".price-list  .price--highlight:first").text().trim().split('£')[1])
+
   "$"+(jQuery('.product-form__info-content .price--highlight:first').text().trim().split("$")[1]
   || jQuery('.product-form__info-content .price:first').text().trim().split("$")[1] )
   "$"+(jQuery(".product-form__info-content .price--compare:first").text().trim().split("$")[1]    
@@ -223,3 +227,18 @@ jQuery('[id="ProductPrice-product-template"]:first').text().trim()
 
     jQuery('.product-price:first .product-price-compare').text().trim()
     ||  jQuery('.product-price:first .product-price-minimum').text().trim()
+
+    jQuery('.product-info__header_price-wrapper:first .product-info__header_price').text().trim().replace(/\s/g,'') 
+    jQuery('.product-info__header_price-wrapper:first .product-info__header_compare-at-price').text().trim().replace(/\s/g,'') 
+    || jQuery('.product-info__header_price-wrapper:first .product-info__header_price').text().trim().replace(/\s/g,'') 
+
+    jQuery('.product__price .money:last').text().trim()
+
+ jQuery('.product__price .money:first').text().trim()
+ ||  jQuery('.product__price .money:last').text().trim()
+
+jQuery('.price__sale .price-item--sale:first').text().trim() 
+|| jQuery('.price__regular .price-item--regular:first').text().trim() 
+
+jQuery('.price__regular .price-item--regular:first').text().trim() 
+|| jQuery('.price__sale .price-item--sale:first').text().trim() 

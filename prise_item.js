@@ -693,3 +693,11 @@ jQuery(".price--compare:first").text().trim() ||
 
  jQuery('.product__price .money:first').text().trim()
  ||  jQuery('.product__price .money:last').text().trim()
+
+ jQuery('.product-price-wrapper .product-price:last').text().trim()
+
+ jQuery('.product__price:first').text().trim()
+
+ jQuery('.product-price:first .theme-money').text().trim()
+
+ jQuery('.prices [itemprop="price"]').text().trim()

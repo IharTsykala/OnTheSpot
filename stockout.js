@@ -410,3 +410,10 @@ if (jQuery('.add-to-cart-btn-style:first').text().trim().toLowerCase().indexOf('
 } else {
   $status = false;
 }
+
+if (jQuery('button.btn--add-to-cart').text().trim().toLowerCase() == 'sold out' ||
+ jQuery('button.btn--add-to-cart').text().trim().toLowerCase() == 'out of stock') {
+  $status = true
+} else {
+  $status = false;
+}

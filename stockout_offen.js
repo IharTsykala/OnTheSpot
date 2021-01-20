@@ -30,6 +30,13 @@ jQuery('button.product-form__add-button').text().trim().toLowerCase() == 'out of
   $status = false;
 }
 
+if (jQuery('button.product-form__add-button').text().trim().toLowerCase().indexOf('out')  >= 0
+) {
+  $status = true
+} else {
+  $status = false;
+}
+
 if (jQuery('button.AddtoCart').text().trim().toLowerCase().indexOf('out')  >= 0
 ) {
   $status = true
@@ -52,7 +59,9 @@ if (jQuery('input[class="add"]').attr('value').indexOf('out') >= 0
   $status = false;
 }
 
-if (jQuery('[name="add"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+if (jQuery('[name="add"]').text().trim().toLowerCase().indexOf('out') >= 0 ||
+jQuery('[name="add"]').text().trim().toLowerCase().indexOf('sold') >= 0
+) {
   $status = true
 } else {
   $status = false;

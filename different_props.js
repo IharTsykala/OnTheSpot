@@ -170,16 +170,16 @@ if (
 return $text;
 
 
-if (jQuery(".selector-wrapper:contains(ADD A LASH) option").length > 0) {
+if (jQuery(".selector-wrapper:contains(Material) option").length > 0) {
   [
-    jQuery(".selector-wrapper:contains(ADD A LASH) option:selected").text() != ""
-      ? jQuery(".selector-wrapper:contains(ADD A LASH) option:selected")
+    jQuery(".selector-wrapper:contains(Material) option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Material) option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Style",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(ADD A LASH) option").map(function (i, e) {
+      jQuery(".selector-wrapper:contains(Material) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -191,11 +191,11 @@ if (jQuery(".selector-wrapper:contains(ADD A LASH) option").length > 0) {
 
 //pa_Styles clicker
 if (
-jQuery(".selector-wrapper:contains(ADD A LASH) option").length > 0 &&
+jQuery(".selector-wrapper:contains(Material) option").length > 0 &&
 $sarg != "Select Style" &&
 $sarg != "No Style"
 ) {
-jQuery(".selector-wrapper:contains(ADD A LASH) option").each(function () {
+jQuery(".selector-wrapper:contains(Material) option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
     jQuery(this).trigger("change");
   }
@@ -207,12 +207,12 @@ return true;
 
 $text = false;
 if (
-  jQuery(".selector-wrapper:contains(ADD A LASH) option").length > 0 &&
+  jQuery(".selector-wrapper:contains(Material) option").length > 0 &&
   $sarg != "No Style" &&
   $sarg != "Select Style"
 ) {
   $text = true;
-  jQuery(".selector-wrapper:contains(ADD A LASH) option").each(function (index) {
+  jQuery(".selector-wrapper:contains(Material) option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')
@@ -461,31 +461,31 @@ return $text
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////
 
-if (jQuery(".variant-wrapper:contains(Tamanho) input").length > 0) {
+if (jQuery(".variant-wrapper:contains(Top Option) input").length > 0) {
   ;[
-    jQuery(".variant-wrapper:contains(Tamanho) input:checked").length > 0
-      ? jQuery(".variant-wrapper:contains(Tamanho) input:checked")
+    jQuery(".variant-wrapper:contains(Top Option) input:checked").length > 0
+      ? jQuery(".variant-wrapper:contains(Top Option) input:checked")
           // .next()
           // .text().trim()
           .attr("value")
           .replace(/\s\s+/g, "")
       : "Select item",
     jQuery.makeArray(
-      jQuery(".variant-wrapper:contains(Tamanho) input").map(function (i, e) {
+      jQuery(".variant-wrapper:contains(Top Option) input").map(function (i, e) {
         if (jQuery(e).attr("value") != "") return jQuery(e).next().text().trim()
       })
     ),
   ]
 } else {
-  ;["No Tamanho", ["No Tamanho"]]
+  ;["No Top Option", ["No Top Option"]]
 }
 
 if (
-  jQuery("div.product-form__option:contains(Tamanho) input").length > 0 &&
-  $sarg != "Select Tamanho" &&
-  $sarg != "No Tamanho"
+  jQuery("div.product-form__option:contains(Top Option) input").length > 0 &&
+  $sarg != "Select Top Option" &&
+  $sarg != "No Top Option"
 ) {
-  jQuery("div.product-form__option:contains(Tamanho) input").each(function () {
+  jQuery("div.product-form__option:contains(Top Option) input").each(function () {
     if (jQuery(this).attr("value") == $sarg) {
       jQuery(this)[0].click()
     }
@@ -497,12 +497,12 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery("div.product-form__option:contains(Tamanho) input").length > 0 &&
-  $sarg != "No Tamanho" &&
-  $sarg != "Select Tamanho"
+  jQuery("div.product-form__option:contains(Top Option) input").length > 0 &&
+  $sarg != "No Top Option" &&
+  $sarg != "Select Top Option"
 ) {
   $text = true
-  jQuery("div.product-form__option:contains(Tamanho) input").each(function (
+  jQuery("div.product-form__option:contains(Top Option) input").each(function (
     index
   ) {
     if (
@@ -1357,3 +1357,61 @@ if (
   });
 }
 return $text;
+///////////////////////////////////////////////////////////////////////
+// product-option-item input 
+
+if (jQuery("div.product-option-item:contains(Beden) input").length > 0) {
+  ;[
+    jQuery("div.product-option-item:contains(Beden) input:checked").length > 0
+      ? jQuery("div.product-option-item:contains(Beden) input:checked")
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery("div.product-option-item:contains(Beden) input").map(function (i, e) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Length", ["No Length"]]
+}
+
+////////////
+
+
+if (
+  jQuery("div.product-option-item:contains(Beden) input").length > 0 &&
+  $sarg != "Select Length" &&
+  $sarg != "No Length"
+) {
+  jQuery("div.product-option-item:contains(Beden) input").each(function () {
+    if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+// /////////////////////
+
+$text = false
+if (
+  jQuery("div.product-option-item:contains(Beden) input").length > 0 &&
+  $sarg != "No Length" &&
+  $sarg != "Select Length"
+) {
+  $text = true
+  jQuery("div.product-option-item:contains(Beden) input").each(function (index) {
+    if (
+      jQuery(this).val().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).parent().hasClass("soldout")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text

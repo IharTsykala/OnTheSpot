@@ -1,4 +1,61 @@
 // Select
+if (jQuery(".selector-wrapper:contains(SIZE):first option").length > 0) {
+  ;[
+    jQuery(".selector-wrapper:contains(SIZE):first option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(SIZE):first option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select SIZE",
+    jQuery.makeArray(
+      jQuery(".selector-wrapper:contains(SIZE):first option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No SIZE", ["No SIZE"]]
+}
+
+//pa_SIZEs clicker
+if (
+  jQuery(".selector-wrapper:contains(SIZE):first option").length > 0 &&
+  $sarg != "Select SIZE" &&
+  $sarg != "No SIZE"
+) {
+  jQuery(".selector-wrapper:contains(SIZE):first option").each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).trigger("change")
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery(".selector-wrapper:contains(SIZE):first option").length > 0 &&
+  $sarg != "No SIZE" &&
+  $sarg != "Select SIZE"
+) {
+  $text = true
+  jQuery(".selector-wrapper:contains(SIZE):first option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+/////////////////////////////////////
+
+/////////////////////////////////////////////////
+// Select
 if (jQuery(".selector-wrapper:contains(Size):first option").length > 0) {
   ;[
     jQuery(".selector-wrapper:contains(Size):first option:selected").text() != ""
@@ -2824,3 +2881,58 @@ if (
   )
 }
 return $text
+
+////////////////////////////////////////////
+
+if (jQuery("div.swatches__container:contains(Size) input").length > 0) {
+  ;[
+    jQuery("div.swatches__container:contains(Size) input:checked").length > 0
+      ? jQuery("div.swatches__container:contains(Size) input:checked")
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery("div.swatches__container:contains(Size) input").map(function (i, e) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Size", ["No Size"]]
+}
+
+if (
+  jQuery("div.swatches__container:contains(Size) input").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery("div.swatches__container:contains(Size) input").each(function () {
+    if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery("div.swatches__container:contains(Size) input").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true
+  jQuery("div.swatches__container:contains(Size) input").each(function (index) {
+    if (
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr(".data-availability")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+// ////////////////////////
