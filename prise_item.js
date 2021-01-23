@@ -698,6 +698,17 @@ jQuery(".price--compare:first").text().trim() ||
 
  jQuery('.product__price:first').text().trim()
 
- jQuery('.product-price:first .theme-money').text().trim()
+ jQuery('.product-detail__price:first .theme-money').text().trim()
 
  jQuery('.prices [itemprop="price"]').text().trim()
+
+ jQuery('.product-page-price:first ._price').text().trim()
+
+ jQuery('.price-area:first .current-price').text().trim().replace(/\s/g,'')
+
+ jQuery('.price-area:first .was-price').text().trim().replace(/\s/g,'') ||
+ jQuery('.price-area:first .current-price').text().trim().replace(/\s/g,'')
+
+ jQuery('[id="ProductPrice-"]').text().trim().replace(/\s/g,'')
+
+ '$'+jQuery('[class="price total"]').next().next().text().trim().replace(/\s/g,'')

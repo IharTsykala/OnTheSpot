@@ -2462,15 +2462,15 @@ return $text
 ///////////////////////////////////////////////////////////////////////////
 // selector-wrapper input 
 
-if (jQuery("div.selector-wrapper:contains(Size) input").length > 0) {
+if (jQuery("div.selector-wrapper:contains(Size):first input").length > 0) {
   ;[
-    jQuery("div.selector-wrapper:contains(Size) input:checked").length > 0
-      ? jQuery("div.selector-wrapper:contains(Size) input:checked")
+    jQuery("div.selector-wrapper:contains(Size):first input:checked").length > 0
+      ? jQuery("div.selector-wrapper:contains(Size):first input:checked")
           .attr("value")
           .replace(/\s\s+/g, "")
       : "Select item",
     jQuery.makeArray(
-      jQuery("div.selector-wrapper:contains(Size) input").map(function (i, e) {
+      jQuery("div.selector-wrapper:contains(Size):first input").map(function (i, e) {
         if (jQuery(e).attr("value") != "")
           return jQuery(e).attr("value").replace(/\s\s+/g, "")
       })
@@ -2483,11 +2483,11 @@ if (jQuery("div.selector-wrapper:contains(Size) input").length > 0) {
 ////////////
 
 if (
-  jQuery("div.selector-wrapper:contains(Size) input").length > 0 &&
+  jQuery("div.selector-wrapper:contains(Size):first input").length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery("div.selector-wrapper:contains(Size) input").each(function () {
+  jQuery("div.selector-wrapper:contains(Size):first input").each(function () {
     if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
       jQuery(this).next()[0].click()
     }
@@ -2501,12 +2501,12 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery("div.selector-wrapper:contains(Size) input").length > 0 &&
+  jQuery("div.selector-wrapper:contains(Size):first input").length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true
-  jQuery("div.selector-wrapper:contains(Size) input").each(function (index) {
+  jQuery("div.selector-wrapper:contains(Size):first input").each(function (index) {
     if (
       jQuery(this).val().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).parent().hasClass("soldout")
@@ -2936,3 +2936,56 @@ if (
 return $text
 
 // ////////////////////////
+///////////////////////
+
+if (jQuery(".swatch-sizes input").length > 0) {
+  ;[
+    jQuery(".swatch-sizes input:checked").length > 0
+      ? jQuery(".swatch-sizes input:checked")
+      .attr("value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery(".swatch-sizes input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Color", ["No Color"]]
+}
+
+if (jQuery(".swatch-sizes input").length > 0  &&
+$sarg != "Select Color" &&
+$sarg != "No Color") {
+jQuery(".swatch-sizes input").each(function () {
+if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+  jQuery(this).next()[0].click()
+}
+})
+}
+wait_for(function () {
+return true
+})
+
+$text = false;
+if (
+  jQuery(".swatch-sizes input").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery(".swatch-sizes input").each(function (index) {
+    if (
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr('.data-availability')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+///////////////////////////

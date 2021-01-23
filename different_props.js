@@ -962,15 +962,15 @@ return $text
 
 // radio-wrapper input 
 
-if (jQuery("div.radio-wrapper:contains(Length) input").length > 0) {
+if (jQuery("div.radio-wrapper:contains(Specification) input").length > 0) {
   ;[
-    jQuery("div.radio-wrapper:contains(Length) input:checked").length > 0
-      ? jQuery("div.radio-wrapper:contains(Length) input:checked")
+    jQuery("div.radio-wrapper:contains(Specification) input:checked").length > 0
+      ? jQuery("div.radio-wrapper:contains(Specification) input:checked")
           .attr("value")
           .replace(/\s\s+/g, "")
       : "Select item",
     jQuery.makeArray(
-      jQuery("div.radio-wrapper:contains(Length) input").map(function (i, e) {
+      jQuery("div.radio-wrapper:contains(Specification) input").map(function (i, e) {
         if (jQuery(e).attr("value") != "")
           return jQuery(e).attr("value").replace(/\s\s+/g, "")
       })
@@ -984,11 +984,11 @@ if (jQuery("div.radio-wrapper:contains(Length) input").length > 0) {
 
 
 if (
-  jQuery("div.radio-wrapper:contains(Length) input").length > 0 &&
+  jQuery("div.radio-wrapper:contains(Specification) input").length > 0 &&
   $sarg != "Select Length" &&
   $sarg != "No Length"
 ) {
-  jQuery("div.radio-wrapper:contains(Length) input").each(function () {
+  jQuery("div.radio-wrapper:contains(Specification) input").each(function () {
     if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
       jQuery(this).next()[0].click()
     }
@@ -1002,12 +1002,12 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery("div.radio-wrapper:contains(Length) input").length > 0 &&
+  jQuery("div.radio-wrapper:contains(Specification) input").length > 0 &&
   $sarg != "No Length" &&
   $sarg != "Select Length"
 ) {
   $text = true
-  jQuery("div.radio-wrapper:contains(Length) input").each(function (index) {
+  jQuery("div.radio-wrapper:contains(Specification) input").each(function (index) {
     if (
       jQuery(this).val().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).parent().hasClass("soldout")
@@ -1406,6 +1406,65 @@ if (
 ) {
   $text = true
   jQuery("div.product-option-item:contains(Beden) input").each(function (index) {
+    if (
+      jQuery(this).val().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).parent().hasClass("soldout")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+///////////////////////////////////////////////////////////////////////
+// product-option-item input 
+
+if (jQuery("div.option-values input").length > 0) {
+  ;[
+    jQuery("div.option-values input:checked").length > 0
+      ? jQuery("div.option-values input:checked")
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery("div.option-values input").map(function (i, e) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Length", ["No Length"]]
+}
+
+////////////
+
+
+if (
+  jQuery("div.option-values input").length > 0 &&
+  $sarg != "Select Length" &&
+  $sarg != "No Length"
+) {
+  jQuery("div.option-values input").each(function () {
+    if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+// /////////////////////
+
+$text = false
+if (
+  jQuery("div.option-values input").length > 0 &&
+  $sarg != "No Length" &&
+  $sarg != "Select Length"
+) {
+  $text = true
+  jQuery("div.option-values input").each(function (index) {
     if (
       jQuery(this).val().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).parent().hasClass("soldout")

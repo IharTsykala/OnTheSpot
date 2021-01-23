@@ -208,15 +208,15 @@ jQuery('.product__price .price__sale .price-item--regular:first').text().trim()
 || jQuery('.product__price .price__sale .price-item--sale:first').text().trim() 
 ||  jQuery('.product__price .price__regular .price-item--regular:first').text().trim()
 
-jQuery('.modal_price .current_price ').text().trim().replace(/\s/g,'') 
+jQuery('.modal_price:first .current_price ').text().trim().replace(/\s/g,'') 
 
-jQuery('.modal_price .was_price').text().trim().replace(/\s/g,'') 
-|| jQuery('.modal_price .current_price').text().trim().replace(/\s/g,'') 
+jQuery('.modal_price:first .was_price').text().trim().replace(/\s/g,'') 
+|| jQuery('.modal_price:first .current_price').text().trim().replace(/\s/g,'') 
 
 jQuery('[id="ProductPrice-product-template"]:first').text().trim()
 
-    jQuery('[id="ComparePrice-product-template"]').text().trim()
-    || jQuery('[id="ProductPrice-product-template"]:first').text().trim()
+jQuery('[id="ComparePrice-product-template"]').text().trim()
+|| jQuery('[id="ProductPrice-product-template"]:first').text().trim()
 
     jQuery('.product-single__price-product-template:first [id="ProductPrice-product-template"]').text().trim()
 
@@ -232,10 +232,10 @@ jQuery('[id="ProductPrice-product-template"]:first').text().trim()
     jQuery('.product-info__header_price-wrapper:first .product-info__header_compare-at-price').text().trim().replace(/\s/g,'') 
     || jQuery('.product-info__header_price-wrapper:first .product-info__header_price').text().trim().replace(/\s/g,'') 
 
-    jQuery('.product__price .money:last').text().trim()
+    jQuery('.product__price:first .money:last').text().trim()
 
- jQuery('.product__price .money:first').text().trim()
- ||  jQuery('.product__price .money:last').text().trim()
+ jQuery('.product__price:first .money:first').text().trim()
+ ||  jQuery('.product__price:first .money:last').text().trim()
 
 jQuery('.price__sale .price-item--sale:first').text().trim() 
 || jQuery('.price__regular .price-item--regular:first').text().trim() 

@@ -59,6 +59,14 @@ if (jQuery('input[class="add"]').attr('value').indexOf('out') >= 0
   $status = false;
 }
 
+if (jQuery('[name="add"]').text().trim().toLowerCase().indexOf('sold out') >= 0 ||
+jQuery('[name="add"]').text().trim().toLowerCase().indexOf('out of stock') >= 0
+) {
+  $status = true
+} else {
+  $status = false;
+}
+
 if (jQuery('[name="add"]').text().trim().toLowerCase().indexOf('out') >= 0 ||
 jQuery('[name="add"]').text().trim().toLowerCase().indexOf('sold') >= 0
 ) {

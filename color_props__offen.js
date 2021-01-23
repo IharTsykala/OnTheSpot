@@ -1,14 +1,14 @@
 // Select
-if (jQuery(".selector-wrapper:contains(Color) option").length > 0) {
+if (jQuery(".selector-wrapper:contains(Color):first option").length > 0) {
   [
-    jQuery(".selector-wrapper:contains(Color) option:selected").text() != ""
-      ? jQuery(".selector-wrapper:contains(Color) option:selected")
+    jQuery(".selector-wrapper:contains(Color):first option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Color):first option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Color",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(Color) option").map(function (i, e) {
+      jQuery(".selector-wrapper:contains(Color):first option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -20,11 +20,11 @@ if (jQuery(".selector-wrapper:contains(Color) option").length > 0) {
 
 //pa_Colors clicker
 if (
-jQuery(".selector-wrapper:contains(Color) option").length > 0 &&
+jQuery(".selector-wrapper:contains(Color):first option").length > 0 &&
 $sarg != "Select Color" &&
 $sarg != "No Color"
 ) {
-jQuery(".selector-wrapper:contains(Color) option").each(function () {
+jQuery(".selector-wrapper:contains(Color):first option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
     jQuery(this).trigger("change");
   }
@@ -36,12 +36,12 @@ return true;
 
 $text = false;
 if (
-  jQuery(".selector-wrapper:contains(Color) option").length > 0 &&
+  jQuery(".selector-wrapper:contains(Color):first option").length > 0 &&
   $sarg != "No Color" &&
   $sarg != "Select Color"
 ) {
   $text = true;
-  jQuery(".selector-wrapper:contains(Color) option").each(function (index) {
+  jQuery(".selector-wrapper:contains(Color):first option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')
@@ -1974,3 +1974,115 @@ return $text;
 
 
 ///////////////////////////
+///////////////////////
+
+if (jQuery(".swatch-colors input").length > 0) {
+  ;[
+    jQuery(".swatch-colors input:checked").length > 0
+      ? jQuery(".swatch-colors input:checked")
+      .attr("value")
+      .replace(/\s\s+/g, "")
+  : "Select item",
+jQuery.makeArray(
+  jQuery(".swatch-colors input").map(function (i, e) {
+    if (jQuery(e).attr("value") != "")
+      return jQuery(e).attr("value").replace(/\s\s+/g, "")
+  })
+),
+]
+} else {
+;["No Color", ["No Color"]]
+}
+
+if (jQuery(".swatch-colors input").length > 0  &&
+$sarg != "Select Color" &&
+$sarg != "No Color") {
+jQuery(".swatch-colors input").each(function () {
+if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+  jQuery(this).next()[0].click()
+}
+})
+}
+wait_for(function () {
+return true
+})
+
+$text = false;
+if (
+  jQuery(".swatch-colors input").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery(".swatch-colors input").each(function (index) {
+    if (
+      jQuery(this).attr("value") == $sarg &&
+      !jQuery(this).attr('.data-availability')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+///////////////////////////
+
+// selector-wrapper input 
+
+if (jQuery("div.selector-wrapper:contains(Color):first input").length > 0) {
+  ;[
+    jQuery("div.selector-wrapper:contains(Color):first input:checked").length > 0
+      ? jQuery("div.selector-wrapper:contains(Color):first input:checked")
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery("div.selector-wrapper:contains(Color):first input").map(function (i, e) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Color", ["No Color"]]
+}
+
+////////////
+
+if (
+  jQuery("div.selector-wrapper:contains(Color):first input").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery("div.selector-wrapper:contains(Color):first input").each(function () {
+    if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+// /////////////////////
+
+$text = false
+if (
+  jQuery("div.selector-wrapper:contains(Color):first input").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true
+  jQuery("div.selector-wrapper:contains(Color):first input").each(function (index) {
+    if (
+      jQuery(this).val().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).parent().hasClass("soldout")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+/////////////////////////////////////
