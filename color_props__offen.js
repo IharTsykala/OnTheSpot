@@ -2086,3 +2086,59 @@ if (
 return $text
 
 /////////////////////////////////////
+// ul li input
+
+if (jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) ul input').length > 0) {
+  ;[
+    jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) ul input:checked').length > 0
+      ? jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) ul input:checked')
+          .attr("value")
+          // .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) ul input').map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value")
+          // .replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Colour", ["No Colour"]]
+}
+
+if (
+  jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) ul input').length > 0 &&
+  $sarg != "Select Colour" &&
+  $sarg != "No Colour"
+) {
+  jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) ul input').each(function () {
+    if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) ul input').length > 0 &&
+  $sarg != "No Colour" &&
+  $sarg != "Select Colour"
+) {
+  $text = true
+  jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) ul input').each(function (index) {
+    if (
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr(".data-availability")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text

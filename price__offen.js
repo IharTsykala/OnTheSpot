@@ -106,6 +106,10 @@ jQuery(".product--price .price--compare-at").text().trim() ||
 "€" + jQuery(".old-price .price").text().trim().split("€")[0] ||
   "€" + jQuery(".price-wrapper .price:first").text().trim().split("€")[0]
 
+  "£" + jQuery(".product-info-main .price-wrapper:first .price:first").text().trim().split("£")[1]
+"£" +(jQuery(".old-price .price").text().trim().split("£")[1] ||
+jQuery(".product-info-main .price-wrapper:first .price:first").text().trim().split("£")[1])
+
 "HUF" + jQuery(".price_withVat:first").text().trim().split("Ft")[0]
 "HUF" + jQuery(".origPrice:first").next().text().trim().split("Ft")[0] ||
   "HUF" + jQuery(".price_withVat:first").text().trim().split("Ft")[0]
@@ -242,3 +246,6 @@ jQuery('.price__sale .price-item--sale:first').text().trim()
 
 jQuery('.price__regular .price-item--regular:first').text().trim() 
 || jQuery('.price__sale .price-item--sale:first').text().trim() 
+
+jQuery('[data-product-price]').text().trim().split('$')[1]
+jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price"]').text().trim().split('$')[1]

@@ -169,6 +169,9 @@ jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price
 jQuery('[data-hook="formatted-primary-price"]').text().trim().split('$')[1]
 "SEK"+" "+jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price"]').text().trim().split('kr')[0]
 
+'₹'+jQuery('[data-product-price]').text().trim().split('₹')[1]
+'₹'+jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price"]').text().trim().split('₹')[1]
+
 'SEK' + jQuery('.product__variant-availability:not(.hide)').text().trim().split('|')[1]
 
 '$' + jQuery('.js-price-wrapper .product__price--current:first').text().trim()

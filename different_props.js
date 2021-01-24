@@ -847,7 +847,7 @@ return $text;
 
 /////////////////////////////////////////////////////
 
-// ul li
+// ul li input
 
 if (jQuery("div.ProductForm__Option:contains(Taille) input").length > 0) {
   ;[
@@ -1468,6 +1468,173 @@ if (
     if (
       jQuery(this).val().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).parent().hasClass("soldout")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+// button button
+if (jQuery(".OptionSelector .Popover__ValueList:first button").length > 0) {
+  [
+    jQuery(
+      ".OptionSelector .Popover__ValueList:first button.is-selected"
+    ).length > 0
+      ? jQuery(".OptionSelector .Popover__ValueList:first button.is-selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".OptionSelector .Popover__ValueList:first button").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Color", ["No Color"]];
+
+
+if (
+  jQuery(".OptionSelector .Popover__ValueList:first button").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery(".OptionSelector .Popover__ValueList:first button").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+$text = false;
+if (
+  jQuery(".OptionSelector .Popover__ValueList:first button").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery(".OptionSelector .Popover__ValueList:first button").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("data-available")
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+if (jQuery(".OptionSelector .Popover__ValueList:last button").length > 0) {
+  [
+    jQuery(
+      ".OptionSelector .Popover__ValueList:last button.is-selected"
+    ).length > 0
+      ? jQuery(".OptionSelector .Popover__ValueList:last button.is-selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".OptionSelector .Popover__ValueList:last button").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Color", ["No Color"]];
+
+
+if (
+  jQuery(".OptionSelector .Popover__ValueList:last button").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery(".OptionSelector .Popover__ValueList:last button").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+$text = false;
+if (
+  jQuery(".OptionSelector .Popover__ValueList:last button").length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $text = true;
+  jQuery(".OptionSelector .Popover__ValueList:last button").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("data-available")
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+//////////////////////////////////////////////////////////
+
+// ul li input
+
+if (jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) input').length > 0) {
+  ;[
+    jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) input:checked').length > 0
+      ? jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) input:checked')
+          .attr("value")
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) input').map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).attr("value") != "")
+          return jQuery(e).attr("value").replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Colour", ["No Colour"]]
+}
+
+if (
+  jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) input').length > 0 &&
+  $sarg != "Select Colour" &&
+  $sarg != "No Colour"
+) {
+  jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) input').each(function () {
+    if (jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).next()[0].click()
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) input').length > 0 &&
+  $sarg != "No Colour" &&
+  $sarg != "Select Colour"
+) {
+  $text = true
+  jQuery('section[data-hook="product-colors-title-section"]:contains(Colour) input').each(function (index) {
+    if (
+      jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr(".data-availability")
     ) {
       $text = false
     }

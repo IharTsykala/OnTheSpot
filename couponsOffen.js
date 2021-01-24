@@ -55,3 +55,23 @@ jQuery('[value="Apply Discount"]')
 jQuery('.table-totals .price:last')
 ////////////////////////////////////////////////
 
+jQuery('[id="block-discount-heading"] span:first')[0].click()
+jQuery('#payment[style="display: list-item;"] input[id="discount-code"]')
+jQuery('[value="Apply Discount"]')
+jQuery('.table-totals .price:last')
+jQuery('[id="block-discount-heading"]:first')[0].click()
+jQuery('input[name="coupon_code"]:first')
+jQuery('[value="Apply Discount"]')
+jQuery('.totals .price:last')
+
+////////////////////////////////////////////////
+
+jQuery('[data-hook="add-coupon-button"]')[0].click()
+jQuery('#payment[style="display: list-item;"] input[id="discount-code"]')
+jQuery('[value="Apply Discount"]')
+jQuery('.table-totals .price:last')
+jQuery('[id="block-discount-heading"]:first')[0].click()
+jQuery('input[name="coupon_code"]:first')
+jQuery('[value="Apply Discount"]')
+jQuery('.totals .price:last')
+
