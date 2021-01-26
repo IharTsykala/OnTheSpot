@@ -236,7 +236,7 @@ jQuery('[id="ComparePrice-product-template"]').text().trim()
     jQuery('.product-info__header_price-wrapper:first .product-info__header_compare-at-price').text().trim().replace(/\s/g,'') 
     || jQuery('.product-info__header_price-wrapper:first .product-info__header_price').text().trim().replace(/\s/g,'') 
 
-    jQuery('.product__price:first .money:last').text().trim()
+    jQuery('.product__price .money:first').text().trim()
 
  jQuery('.product__price:first .money:first').text().trim()
  ||  jQuery('.product__price:first .money:last').text().trim()
@@ -249,3 +249,6 @@ jQuery('.price__regular .price-item--regular:first').text().trim()
 
 jQuery('[data-product-price]').text().trim().split('$')[1]
 jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price"]').text().trim().split('$')[1]
+
+jQuery('[itemprop="price"]').text().trim().replace(/\s/g,'') ||
+'$'+jQuery('[class="price total"]').next().next().text().trim().replace(/\s/g,'') 

@@ -2,16 +2,16 @@
 div.radio-wrapper:contains(iPhone)
 
 
-if (jQuery("div.radio-wrapper:contains(Design) option").length > 0) {
+if (jQuery("div.radio-wrapper:contains(Maat) option").length > 0) {
   [
-    jQuery("div.radio-wrapper:contains(Design) option:selected").text() != ""
-      ? jQuery("div.radio-wrapper:contains(Design) option:selected")
+    jQuery("div.radio-wrapper:contains(Maat) option:selected").text() != ""
+      ? jQuery("div.radio-wrapper:contains(Maat) option:selected")
           .text()
           .trim()
           // .replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery("div.radio-wrapper:contains(Design) option").map(function (i, e) {
+      jQuery("div.radio-wrapper:contains(Maat) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -22,11 +22,11 @@ if (jQuery("div.radio-wrapper:contains(Design) option").length > 0) {
 }
 
 if (
-  jQuery("div.radio-wrapper:contains(Design) option").length > 0 &&
+  jQuery("div.radio-wrapper:contains(Maat) option").length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
   ) {
-  jQuery("div.radio-wrapper:contains(Design) option").each(function () {
+  jQuery("div.radio-wrapper:contains(Maat) option").each(function () {
     if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
       jQuery(this).trigger("change");
     }
@@ -38,12 +38,12 @@ if (
   
   $text = false;
   if (
-    jQuery("div.radio-wrapper:contains(Design) option").length > 0 &&
+    jQuery("div.radio-wrapper:contains(Maat) option").length > 0 &&
     $sarg != "No Size" &&
     $sarg != "Select Size"
   ) {
     $text = true;
-    jQuery("div.radio-wrapper:contains(Design) option").each(function (index) {
+    jQuery("div.radio-wrapper:contains(Maat) option").each(function (index) {
       if (
         jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
         !jQuery(this).attr('disabled')

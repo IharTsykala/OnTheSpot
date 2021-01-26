@@ -715,3 +715,5 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('[id="ProductPrice-"]').text().trim().replace(/\s/g,'')
 
  '$'+jQuery('[class="price total"]').next().next().text().trim().replace(/\s/g,'')
+
+ jQuery('.prices [itemprop="price"]').text().trim()

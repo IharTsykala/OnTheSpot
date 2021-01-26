@@ -3041,3 +3041,15 @@ if (jQuery('.product-image-zoom img').length > 0){
      $arr
      }  
    //////////////////////////////////////  
+
+   if (jQuery('.product-gallery--image-background img:first').length > 0) 
+   $img = jQuery('.product-gallery img:first').attr('src')  
+  //  .split(' ')[0]
+  //  .replace('_60', '_1100')
+   else
+   $img = 'https' + jQuery('.product-gallery--image-background img:first').attr('src')
+   
+   if ($img.indexOf("http") == -1)
+   'https:'+$img
+   else
+   $img

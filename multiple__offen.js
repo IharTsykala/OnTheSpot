@@ -1157,7 +1157,7 @@ if (
   $arr = []
 
   jQuery(".grid-uniform .grid__item").each(function () {
-    $title = jQuery(this).find(".grid-link__title").text().trim()
+    $title = jQuery(this).find(".grid-product__title").text().trim()
 
     if (jQuery(this).find("noscript").text().trim())
       $img =        
@@ -1174,13 +1174,14 @@ if (
     else $img = ""
 
     $link =
-      "https://store.motortrend.com" + jQuery(this).find("a:first").attr("href")
+      "https://byhomegoodies.nl" + jQuery(this).find("a:first").attr("href")
 
       $price =
       // '£'+
-      '$'+
-      (jQuery(this).find(".grid-link__meta:first").text().trim().split('$')[1]
-      || jQuery(this).find(".grid-link__meta:first").text().trim().split('$')[1])
+      // '$'+
+      '€'+
+      (jQuery(this).find(".grid-product__price:first .on-sale").text().trim().split('€')[1]
+      || jQuery(this).find(".grid-product__price:first .on-sale").text().trim().split('€')[1])
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -2606,23 +2607,25 @@ if (
         .split(" ")[0]
 
     $link =
-      "https://kellikouri.com" + jQuery(this).find("a:first").attr("href")
+      "https://mialmastore.com" + jQuery(this).find("a:first").attr("href")
 
     $price =
-      //  '$' +
-      jQuery(this)
+       '$' +
+      (jQuery(this)
         .find(".price-box:first .special-price")
         .text()
         .trim()
-        .replace(/\s/g, "") ||
-      // .split('$')[1]
+        .replace(/\s/g, "")
+        .split('$')[1]
+        ||     
       jQuery(this)
         .find(".price-box:first .price-regular")
         .text()
         .trim()
         .replace(/\s/g, "")
+        .split('$')[1])
 
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -3982,5 +3985,56 @@ if (
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
+  $arr
+}
+
+
+if (
+  jQuery('.tt-product-listing .tt-product').length >
+    0 &&
+  jQuery(".qiuck_zoom  img:first").length === 0
+  // &&  jQuery('.product-details__desc-col').length === 0
+) {
+  $arr = []
+
+  jQuery('.tt-product-listing .tt-product').each(
+    function () {
+      $title = jQuery(this)
+        .find(".tt-title")
+        .text()
+        .trim()
+
+      $img =
+        "https:" +(
+        jQuery(this).find("img:first").attr("data-mainimage") ||
+        
+          jQuery(this).find("img:first").attr("data-srcset") ||
+          jQuery(this).find("img:first").attr("srcset") ||
+          jQuery(this).find("img:first").attr("src") ||
+          "")
+        
+          // .replace(/\s/g, "%20")
+          .split(" ")[0]
+
+      $link =
+        "https://www.joycenamenecklace.com/" + 
+        jQuery(this).find("a:first").attr("href")
+
+      $price =
+        //  '$' +
+        jQuery(this)
+          .find(
+            ".tt-price:first .new-price" 
+          )
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+      // .split('$')[1]
+      // .split(' ')[0]
+
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    }
+  )
   $arr
 }

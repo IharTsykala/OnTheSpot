@@ -423,3 +423,12 @@ if (jQuery('input.add-to-cart').attr('value').toLowerCase() == 'sold out' || jQu
 } else {
   $status = false;
 }
+
+if (jQuery('button[id="product-addtocart-button"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('button[id="product-addtocart-button"]').text().trim().toLowerCase() == 'out of stock' ||
+!jQuery('button[id="product-addtocart-button"]').length
+) {
+  $status = true
+} else {
+  $status = false;
+}
