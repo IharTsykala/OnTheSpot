@@ -208,3 +208,20 @@ if (jQuery('.add-to-cart').text().trim().toLowerCase().indexOf('out') >= 0) {
 } else {
   $status = false;
 }
+
+if (jQuery('button.btn-addtocart').text().trim().toLowerCase() == 'sold out' ||
+ jQuery('button.btn-addtocart').text().trim().toLowerCase() == 'out of stock') {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('[name="add-to-cart"]').text().trim().toLowerCase() == 'sold out' || 
+jQuery('[name="add-to-cart"]').text().trim().toLowerCase() == 'out of stock' )
+// ||
+// jQuery('.availability:first').text().trim().toLowerCase().indexOf('out') >= 0)
+ {
+  $status = true
+} else {
+  $status = false;
+}

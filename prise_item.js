@@ -576,6 +576,7 @@ jQuery(".price--compare:first").text().trim() ||
 
  jQuery(".price del:first").text().trim()
  ||  jQuery(".price:first .woocommerce-Price-amount").text().trim()
+ ||  '£'+jQuery("h3.fusion-responsive-typography-calculated").text().trim().split('£')[1].slice(0,5)
 
  jQuery(".product-single__meta:first .product__price.sale-price:first").text().trim()
  ||  jQuery(".product-single__meta:first .product__price:first").text().trim()
@@ -614,6 +615,10 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.tt-product-single-info:first .sale-price').text().trim().replace(/\s/g,'') 
  jQuery('.tt-product-single-info:first .old-price').text().trim().replace(/\s/g,'') ||
  jQuery('.tt-product-single-info:first .sale-price').text().trim().replace(/\s/g,'')
+
+ jQuery('.pt-product-single-info:first .sale-price').text().trim().replace(/\s/g,'') 
+ jQuery('.pt-product-single-info:first .old-price').text().trim().replace(/\s/g,'') ||
+ jQuery('.pt-product-single-info:first .sale-price').text().trim().replace(/\s/g,'')
 
  jQuery('.product__price:first .js-price').text().trim().replace(/\s/g,'') 
  || jQuery('.product__price:first .js-price').text().trim().replace(/\s/g,'') 
@@ -717,3 +722,5 @@ jQuery(".price--compare:first").text().trim() ||
  '$'+jQuery('[class="price total"]').next().next().text().trim().replace(/\s/g,'')
 
  jQuery('.prices [itemprop="price"]').text().trim()
+
+ jQuery('.top-price:first .money').text().trim().replace(/\s/g,'')

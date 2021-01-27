@@ -432,3 +432,9 @@ jQuery('button[id="product-addtocart-button"]').text().trim().toLowerCase() == '
 } else {
   $status = false;
 }
+
+if (jQuery('.mainaddtocart:first').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

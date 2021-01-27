@@ -4038,3 +4038,114 @@ if (
   )
   $arr
 }
+
+// div div img one src
+
+if (
+  jQuery('.pt-product-listing .pt-product').length >
+    0 &&
+  jQuery(".qiuck_zoom  img:first").length === 0
+  // &&  jQuery('.product-details__desc-col').length === 0
+) {
+  $arr = []
+
+  jQuery('.pt-product-listing .pt-product').each(
+    function () {
+      $title = jQuery(this)
+        .find(".pt-title")
+        .text()
+        .trim()
+
+      $img =
+        "https:" +(
+        jQuery(this).find("img:first").attr("data-mainimage") ||
+        
+          jQuery(this).find("img:first").attr("data-srcset") ||
+          jQuery(this).find("img:first").attr("srcset") ||
+          jQuery(this).find("img:first").attr("src") ||
+          "")
+        
+          // .replace(/\s/g, "%20")
+          .split(" ")[0]
+
+      $link =
+        "https://www.luxebaeshop.com" + 
+        jQuery(this).find("a:first").attr("data-value")
+
+      $price =
+        //  '$' +
+        jQuery(this)
+          .find(".pt-price:first .new-price")
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+           ||
+           jQuery(this)
+          .find(".pt-price:first")
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+
+      
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    }
+  )
+  $arr
+}
+
+///////////////////////////////////////
+//////////////////////////////////////////////////////
+// div div img one src
+
+if (
+  jQuery('.product-listings .product-box').length >
+    0 &&
+  jQuery(".tt-mobile-product-slider img:first").length === 0
+  // &&  jQuery('.product-details__desc-col').length === 0
+) {
+  $arr = []
+
+  jQuery('.product-listings .product-box').each(
+    function () {
+      $title = jQuery(this)
+        .find(".product-name")
+        .text()
+        .trim()
+
+      $img =
+        "https:" +(
+        // jQuery(this).find("img:first").attr("data-mainimage") ||
+        
+          // jQuery(this).find("img:first").attr("data-srcset") ||
+          jQuery(this).find("img:first").attr("srcset") ||
+          jQuery(this).find("img:first").attr("src") ||
+          "")
+        
+          // .replace(/\s/g, "%20")
+          .split(" ")[0]
+
+      $link =
+        "https://www.corston.com" + 
+        jQuery(this).find("a:first").attr("href")
+
+      $price =
+        //  '$' +
+        jQuery(this)
+          .find(
+            ".price:first .money" 
+          )
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+      // .split('$')[1]
+      // .split(' ')[0]
+
+      // if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    }
+  )
+  $arr
+}
+
+///////////////////////////////////////

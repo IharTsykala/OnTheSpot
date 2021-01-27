@@ -2142,3 +2142,55 @@ if (
   })
 }
 return $text
+
+//////////////////////////////////////////////////////////
+// for ul li a
+
+if (jQuery(".pt-wrapper:contains(Color) li").length > 0) {
+  ;[
+    jQuery(".pt-wrapper:contains(Color) li.active a").length > 0
+      ? jQuery(".pt-wrapper:contains(Color) li.active a")
+          .attr('data-value')
+          
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery(".pt-wrapper:contains(Color) li a").map(function (i, e) {
+        if (jQuery(e).attr('data-value'))
+          return jQuery(e).attr('data-value')
+      })
+    ),
+  ]
+} else ["No Color", ["No Color"]]
+
+if (
+  jQuery(".pt-wrapper:contains(Color) li a").length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery(".pt-wrapper:contains(Color) li a").each(function () {
+    if (jQuery(e).attr('data-value') == $sarg)
+      jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$val = false
+if (
+  jQuery(".pt-wrapper:contains(Color) li a").length > 0 &&
+  $sarg != "No size" &&
+  $sarg != "Select size"
+) {
+  $val = true
+  jQuery(".pt-wrapper:contains(Color) li a").each(function () {
+    if (
+      jQuery(this).attr('data-value') == $sarg &&
+      !jQuery(this).hasClass("unavailable")
+    ) {
+      $val = false
+    }
+  })
+}
+return $val
+//////////////////////////////////////
