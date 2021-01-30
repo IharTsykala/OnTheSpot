@@ -438,3 +438,33 @@ if (jQuery('.mainaddtocart:first').text().trim().toLowerCase().indexOf('out') >=
 } else {
   $status = false;
 }
+
+if (jQuery('[id="shopify_add_to_cart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('[data-auto-id="add-to-bag"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('.product-main__submit:first').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('[id="detail-item-append-btn"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (!jQuery('.details-product-purchase__add-to-bag:first button.form-control__button').length) {
+  $status = true
+} else {
+  $status = false;
+}

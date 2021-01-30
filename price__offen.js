@@ -180,6 +180,10 @@ jQuery('[data-price-wrapper] [data-product-price]').text().trim() ||
   '£'+(jQuery(".price-list  .price--compare").text().trim().split('£')[1] ||
   jQuery(".price-list  .price--highlight:first").text().trim().split('£')[1])
 
+  '€'+jQuery(".c-price-list  .c-price-list__item--highlighted:first").text().trim().split('€')[0]
+  '€'+(jQuery(".c-price-list  .c-price-list__item--base").text().trim().split('€')[0] ||
+  jQuery(".c-price-list  .c-price-list__item--highlighted:first").text().trim().split('€')[0])
+
   "$"+(jQuery('.product-form__info-content .price--highlight:first').text().trim().split("$")[1]
   || jQuery('.product-form__info-content .price:first').text().trim().split("$")[1] )
   "$"+(jQuery(".product-form__info-content .price--compare:first").text().trim().split("$")[1]    

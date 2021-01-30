@@ -1634,7 +1634,7 @@ if (
   $arr = []
 
   jQuery("ul.products li.product").each(function () {
-    $title = jQuery(this).find(".woocommerce-loop-product__title").text().trim()
+    $title = jQuery(this).find(".product-name").text().trim()
 
     $img =
       // 'https:' +
@@ -1654,11 +1654,17 @@ if (
 
     $price =
       // "$" + ' ' +
-      jQuery(this).find(".woocommerce-Price-amount:first bdi").text().trim()
+      // jQuery(this).find(".woocommerce-Price-amount:first bdi").text().trim()
     // .split("$")[1]
     // .trim()
+  
+    // "$" + ' ' +
+    jQuery(this).find(".price-box:first .price").text().trim()
+  // .split("$")[1]
+  // .trim()
 
-    if ($title && $img && $link && $price)
+
+    // if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -1689,13 +1695,13 @@ if (
     // .replace(/\s/g, "%20")
 
     $link =
-      // "https://www.frontierraas.com/" +
+      "https://www.sail.ca" +
       jQuery(this).find("a:first")
       .attr("href")
 
     $price =
       // "$" + ' ' +
-      jQuery(this).find(".price-box:first .price").text().trim()
+      jQuery(this).find(".price-box:first .price:first").text().trim()
     // .split("$")[1]
     // .trim()
 
@@ -2503,19 +2509,19 @@ if (
 
     $img =
       "https:" +
-      // jQuery(this).find("source:first").attr("src") ||
-      (
-        jQuery(this).find("source:first").attr("data-srcset") ||
-        jQuery(this).find("source:first").attr("srcset") ||
-        jQuery(this).find("a:first div").attr("data-bgset") ||
-        jQuery(this).find("a:first div").css("background-image").split("url(")[1].slice(1, -2)  || 
-                ""
-      )
+      jQuery(this).find("a:first").attr("data-bgset") 
+      // (
+      //   jQuery(this).find("source:first").attr("data-srcset") ||
+      //   jQuery(this).find("source:first").attr("srcset") ||
+      //   jQuery(this).find("a:first div").attr("data-bgset") ||
+      //   jQuery(this).find("a:first div").css("background-image").split("url(")[1].slice(1, -2)  || 
+      //           ""
+      // )
         // .replace(/\s/g, "%20")
         .split(" ")[0]
 
     $link =
-      "https://shapesstudionyc.com" + jQuery(this).find("a:first").attr("href")
+      "https://amazing.ca" + jQuery(this).find("a:first").attr("href")
 
     $price =
       // "NZD" +
@@ -4149,3 +4155,238 @@ if (
 }
 
 ///////////////////////////////////////
+
+// div article one src
+
+if (
+  jQuery(".products article").length > 0 &&
+  jQuery(".product-page--images-container img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".products article").each(function () {
+    $title = jQuery(this).find(".product-title").text().trim()
+
+    $img =
+      // "https:" +
+      // jQuery(this).find("source:first").attr("src") ||
+      // jQuery(this).find("source:first").attr("data-srcset") ||
+      // jQuery(this).find("source:first").attr("srcset") ||
+      (jQuery(this).find("img:first").attr("src") || "")
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://www.theinvisibleedge.co.uk" +
+      jQuery(this).find(".prod-light-glow a:first").attr("href")
+
+    $price =
+      "£" +
+      jQuery(this)
+        .find(".product-price-and-shipping:first .price")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+        .split("£")[1]
+
+    if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+// div div img one src
+
+if (
+  jQuery('[id="app"] .gl-product-card-container').length >
+    0 &&
+  jQuery('[data-auto-id="image-viewer"]  img:first').length === 0
+  // &&  jQuery('.product-details__desc-col').length === 0
+) {
+  $arr = []
+
+  jQuery('[id="app"] .gl-product-card-container').each(
+    function () {
+      $title = jQuery(this)
+        .find(".gl-product-card__name")
+        .text()
+        .trim()
+
+      $img =
+        // "https:" +
+        (
+        jQuery(this).find("img:first").attr("data-mainimage") ||
+        
+          jQuery(this).find("img:first").attr("data-srcset") ||
+          jQuery(this).find("img:first").attr("srcset") ||
+          jQuery(this).find("img:first").attr("src") ||
+          "")
+        
+          // .replace(/\s/g, "%20")
+          .split(" ")[0]
+
+      $link =
+        "https://www.adidas.com.ph" + 
+        jQuery(this).find("a:first").attr("href")
+
+      $price =
+        //  '$' +
+        jQuery(this)
+          .find(
+            ".gl-price .gl-price-item" 
+          )
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+      // .split('$')[1]
+      // .split(' ')[0]
+
+      if ($title && $img && $link && $price)
+        $arr.push([$title, $img, $link, $price])
+    }
+  )
+  $arr
+}
+///////////////////////////////////////////////////////////////
+
+// div dii one src
+
+if (
+  jQuery(".plp__grid .product-card ").length > 0 &&
+  jQuery(".product-photo-container img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".plp__grid .product-card").each(function () {
+    $title = jQuery(this).find(".h5").text().trim()
+
+    $img =
+      "https:" +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find("img:first").attr("data-srcset") ||
+        //  jQuery(this).find("img:first").attr("srcset") ||
+        // jQuery(this).find("img:last").attr("src") ||
+        ""
+      )
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://ca.moscot.com" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // '$' +
+      (
+        jQuery(this)
+          .find(".product-item--price .product-item--rg-price:first")
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+          .split("Sale")[1] ||
+        jQuery(this)
+          .find(".product-item--price .product-item--rg-price:first")
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+      ).slice(0, -2)
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+/////////////////////////////////////////////////////
+// div article one src
+
+if (
+  jQuery(".l-card-list__inner article").length > 0 &&
+  jQuery(".product-page--images-container img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".l-card-list__inner article").each(function () {
+    $title = jQuery(this).find(".c-card__heading").text().trim()
+
+    $img =
+      "https:" +
+      // jQuery(this).find("source:first").attr("src") ||
+      // jQuery(this).find("source:first").attr("data-srcset") ||
+      // jQuery(this).find("source:first").attr("srcset") ||
+      (jQuery(this).find("img:first").attr("src") || "")
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      // "https://www.thelovelykeepsakecompany.co.uk" +
+      jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // "£" +
+      jQuery(this)
+        .find(".c-price-list:first .c-price-list__item:last")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+        // .split("£")[1]
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+///////////////////////////////////////////////////////////////
+
+// div dii one src
+
+if (
+  jQuery(".grid__products .grid-product").length > 0 &&
+  jQuery(".details-gallery__images img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".grid__products .grid-product").each(function () {
+    $title = jQuery(this).find(".grid-product__title").text().trim()
+
+    $img =
+      // "https:" +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find("img:first").attr("data-srcset") ||
+        //  jQuery(this).find("img:first").attr("srcset") ||
+        // jQuery(this).find("img:last").attr("src") ||
+        ""
+      )
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://shoplymosh.co.za" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // '$' +
+      // (
+        jQuery(this)
+          .find(".grid-product__price .grid-product__price-value:first")
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+      //     .split("Sale")[1] ||
+      //   jQuery(this)
+      //     .find(".grid-product__price .grid-product__price-value:first")
+      //     .text()
+      //     .trim()
+      //     .replace(/\s/g, "")
+      // ).slice(0, -2)
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+/////////////////////////////////////////////////////

@@ -3081,3 +3081,178 @@ if (jQuery('.product-image-zoom img').length > 0){
           }
       
           //////////////////////////////////////////////////
+              /////////////////////////////////////////////product-gallery__image is-selected
+
+        if (jQuery('[id="zoom_html"]  img:first').length > 0) 
+        $img = jQuery('[id="zoom_html"]  img:first').attr('src')  
+        .split(' ')[0]
+        .replace('_60', '_1100')
+        else
+        $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+        
+        if ($img.indexOf("http") == -1)
+        'https:'+$img
+        else
+        $img
+      
+        if (jQuery('[id="zoom_html"]  img:first').length > 0){
+          $arr = [];
+          jQuery('[id="zoom_html"]  img:first').each(function(index){
+              if (index < 4) 
+              $arr.push("http"+jQuery(this).attr('src')  
+              .split(' ')[0])
+          })
+          $arr
+          }
+      
+          //////////////////////////////////////////////////
+             /////////////////////////////////////////////product-gallery__image is-selected
+
+        if (jQuery('.gallery-wrapper  img:first').length > 0) 
+        $img = jQuery('.gallery-wrapper  img:first').attr('src')  
+        .split(' ')[0]
+        .replace('_60', '_1100')
+        else
+        $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+        
+        if ($img.indexOf("http") == -1)
+        'https:'+$img
+        else
+        $img
+      
+        if (jQuery('.gallery-wrapper  img:first').length > 0){
+          $arr = [];
+          jQuery('.gallery-wrapper  img:first').each(function(index){
+              if (index < 4) 
+              $arr.push("http"+jQuery(this).attr('src')  
+              .split(' ')[0])
+          })
+          $arr
+          }
+      
+          //////////////////////////////////////////////////
+                 /////////////////////////////////////////////product-gallery__image is-selected
+
+        if (jQuery('.shopify-product-gallery__image  img:first').length > 0) 
+        $img = jQuery('.shopify-product-gallery__image  img:first').attr('src')  
+        .split(' ')[0]
+        .replace('_300x300', '_1100x1100')
+        else
+        $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+        
+        if ($img.indexOf("http") == -1)
+        'https:'+$img
+        else
+        $img
+      
+        if (jQuery('.shopify-product-gallery__image  img:first').length > 0){
+          $arr = [];
+          jQuery('.shopify-product-gallery__image  img:first').each(function(index){
+              if (index < 4) 
+              $arr.push("http"+jQuery(this).attr('src')  
+              .split(' ')[0])
+          })
+          $arr
+          }
+      
+          //////////////////////////////////////////////////
+                      /////////////////////////////////////////////product-gallery__image is-selected
+
+        if (jQuery('[data-auto-id="image-viewer"]  img:first').length > 0) 
+        $img = jQuery('[data-auto-id="image-viewer"]  img:first').attr('src')  
+        .split(' ')[0]
+        .replace('_300x300', '_1100x1100')
+        else
+        $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+        
+        if ($img.indexOf("http") == -1)
+        'https:'+$img
+        else
+        $img
+      
+        if (jQuery('[data-auto-id="image-viewer"]  img:first').length > 0){
+          $arr = [];
+          jQuery('[data-auto-id="image-viewer"]  img:first').each(function(index){
+              if (index < 4) 
+              $arr.push("http"+jQuery(this).attr('src')  
+              .split(' ')[0])
+          })
+          $arr
+          }
+      
+          //////////////////////////////////////////////////
+                 /////////////////////////////////////////////product-gallery__image is-selected
+
+        if (jQuery('.product-gallery__container  img:first').length > 0) 
+        $img = jQuery('.product-gallery__container  img:first').attr('src')  
+        .split(' ')[0]
+        .replace('_300x300', '_1100x1100')
+        else
+        $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+        
+        if ($img.indexOf("http") == -1)
+        'https:'+$img
+        else
+        $img
+      
+        if (jQuery('.product-gallery__container  img:first').length > 0){
+          $arr = [];
+          jQuery('.product-gallery__container  img:first').each(function(index){
+              if (index < 4) 
+              $arr.push("http"+jQuery(this).attr('src')  
+              .split(' ')[0])
+          })
+          $arr
+          }
+      
+          //////////////////////////////////////////////////
+                          /////////////////////////////////////////////product-gallery__image is-selected
+
+        if (jQuery('[id="detailMainImageWrapper"]  img:last').length > 0) 
+        $img = 'https://www.gapstore.sk/' + jQuery('[id="detailMainImageWrapper"]  img:last').attr('data-src')  
+        .split(' ')[0]
+        .replace('_300x300', '_1100x1100')
+        else
+        $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+        
+        if ($img.indexOf("http") == -1)
+        'https:'+$img
+        else
+        $img
+      
+        if (jQuery('[id="detailMainImageWrapper"]  img:last').length > 0){
+          $arr = [];
+          jQuery('[id="detailMainImageWrapper"]  img:last').each(function(index){
+              if (index < 4) 
+              $arr.push("http"+jQuery(this).attr('data-src')  
+              .split(' ')[0])
+          })
+          $arr
+          }
+      
+          //////////////////////////////////////////////////
+                    /////////////////////////////////////////////product-gallery__image is-selected
+
+        if (jQuery('[id="ecwid-products"]  img:first').length > 0) 
+        $img = jQuery('.product-details--description-side  img:first').attr('src')  
+        .split(' ')[0]
+        .replace('_300x300', '_1100x1100')
+        // else
+        // $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+        
+        if ($img.indexOf("http") == -1)
+        'https:'+$img
+        else
+        $img
+      
+        if (jQuery('.product-details__gallery  img:first').length > 0){
+          $arr = [];
+          jQuery('.product-details__gallery  img:first').each(function(index){
+              if (index < 4) 
+              $arr.push(jQuery(this).attr('src')  
+              .split(' ')[0])
+          })
+          $arr
+          }
+      
+          //////////////////////////////////////////////////

@@ -86,8 +86,8 @@ promotionCode
 
 jQuery("a.promo-code-button")[0].click()
 jQuery('input[name="discount_name"]')
-jQuery('button[data-trekkie-id="apply_discount_button"]')
-jQuery('[class="cart-summary-line cart-total col-auto"] .value')
+jQuery('button[data-trekkie-id="apply_discount_button"]') || jQuery('button:contains(Add)')
+jQuery('[class="cart-summary-line cart-total col-auto"] .value') || jQuery('[class="cart-summary-line cart-total"] .value')
 jQuery('form input[value="Remove"]:last')[0].click()
 
 document.querySelector('#RedirectController + [value="Remove"]').click();
@@ -238,8 +238,3 @@ jQuery(".showcoupon")[0].click()
 jQuery('input[id="discount-code"]')
 jQuery('[value="Apply Discount"]:last')
 jQuery('[data-th="Order Total"]:last')
-
-// jQuery(".link-coupon-add")[0].click()
-// jQuery('div.summary-coupon-wrap:not(display) .coupon-form input[id="cart-coupon"]')
-// jQuery('button[name="apply_coupon"]')
-// jQuery('td[data-title="Total"]:last')

@@ -1959,4 +1959,52 @@ if (jQuery('.image__container img:first').length > 0)
     $arr
   }
 
+  if (
+    jQuery('.product-listing .product_item').length >
+      0 &&
+    jQuery(".tt-mobile-product-slider img:first").length === 0
+    // &&  jQuery('.product-details__desc-col').length === 0
+  ) {
+    $arr = []
   
+    jQuery('.product-listing .product_item').each(
+      function () {
+        $title = jQuery(this)
+          .find(".product_title")
+          .text()
+          .trim()
+  
+        $img =
+          "https:" +(
+          // jQuery(this).find("img:first").attr("data-mainimage") ||
+          
+            // jQuery(this).find("img:first").attr("data-srcset") ||
+            jQuery(this).find("img:last").attr("srcset") ||
+            jQuery(this).find("img:last").attr("src") ||
+            "")
+          
+            // .replace(/\s/g, "%20")
+            .split(" ")[0]
+  
+        $link =
+          "https://www.joycenamenecklace.com/" + 
+          jQuery(this).find("a:first").attr("href")
+  
+        $price =
+          //  '$' +
+          jQuery(this)
+            .find(
+              ".product_price:first span:first" 
+            )
+            .text()
+            .trim()
+            .replace(/\s/g, "")
+        // .split('$')[1]
+        // .split(' ')[0]
+  
+        if ($title && $img && $link && $price)
+          $arr.push([$title, $img, $link, $price])
+      }
+    )
+    $arr
+  }

@@ -2194,3 +2194,58 @@ if (
 }
 return $val
 //////////////////////////////////////
+// ////////////////////////
+
+// div div 
+
+if (jQuery('[data-attribute-code="color"] div.swatch-option').length > 0) {
+  ;[
+    jQuery('[data-attribute-code="color"] div.swatch-option.selected').length > 0
+      ? jQuery('[data-attribute-code="color"] div.swatch-option.selected')
+          .attr('data-option-label')
+          .replace(/\s\s+/g, "")
+      : "Select Color",
+    jQuery.makeArray(
+      jQuery('[data-attribute-code="color"] div.swatch-option').map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).attr('data-option-label').replace(/\s\s+/g, ""))
+          return jQuery(e).attr('data-option-label').replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else ["No Color", ["No Color"]]
+
+if (
+  jQuery('[data-attribute-code="color"] div.swatch-option').length > 0 &&
+  $sarg != "Select Color" &&
+  $sarg != "No Color"
+) {
+  jQuery('[data-attribute-code="color"] div.swatch-option').each(function () {
+    if (jQuery(e).attr('data-option-label').replace(/\s\s+/g, "") == $sarg)
+      jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$val = false
+if (
+  jQuery('[data-attribute-code="color"] div.swatch-option').length > 0 &&
+  $sarg != "No Color" &&
+  $sarg != "Select Color"
+) {
+  $val = true
+  jQuery('[data-attribute-code="color"] div.swatch-option').each(function () {
+    if (
+      jQuery(this).attr('data-option-label').replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass("unavailable")
+    ) {
+      $val = false
+    }
+  })
+}
+return $val
+///////////////////////////////////////////////////

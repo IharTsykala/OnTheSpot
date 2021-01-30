@@ -57,6 +57,11 @@ jQuery('.product-info-price .price-wrapper:first').attr('data-price-amount')
 jQuery('.product-info-price .price-wrapper:last').attr('data-price-amount')|| jQuery('.product-info-price .price-wrapper:first').attr('data-price-amount')
 .split(' ')[0]
 
+jQuery('.product-info-price .price-wrapper:first').text().trim() 
+jQuery('.product-info-price .price-wrapper:last').text().trim() || jQuery('.product-info-price .price-wrapper:first').text().trim() 
+
+
+
 Array.from(
   document.querySelectorAll("div div div div")
 ).filter(
@@ -90,7 +95,7 @@ document.querySelectorAll("._36DZFj .mrug3u")
 
 'ريال' + (jQuery('.ProductPrice1 .price:first').text().trim())
 'ريال' + (jQuery('.ProductPrice1 .price:last').text().trim()||
- jQuery('.product-info-price .price:first').text().trim())
+jQuery('.product-info-price .price:first').text().trim())
 
  'TL' + ' ' + jQuery('.product-list__price:first').text().trim().slice(0, -3)
  'SAR' + ' ' + (jQuery('.productinfo__price--sub del').text().trim().slice(0, -3) || jQuery('.productinfo__price').text().trim().slice(0, -3))
@@ -724,3 +729,12 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.prices [itemprop="price"]').text().trim()
 
  jQuery('.top-price:first .money').text().trim().replace(/\s/g,'')
+
+ jQuery('.gl-price:first .gl-price-item:first').text().trim()
+
+ jQuery('.gl-price:first .gl-price-item:last').text().trim()
+ ||  jQuery('.gl-price:first .gl-price-item:first').text().trim()
+
+ jQuery('.product-main__price:first span:first').text().trim()
+
+ jQuery('.product-details__product-price:first .details-product-price__value:first').text().trim()

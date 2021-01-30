@@ -56,16 +56,16 @@ return $text
 
 /////////////////////////////////////////////////
 // Select
-if (jQuery(".selector-wrapper:contains(Size):first option").length > 0) {
+if (jQuery(".product-size-selector:contains(Size):first option").length > 0) {
   ;[
-    jQuery(".selector-wrapper:contains(Size):first option:selected").text() != ""
-      ? jQuery(".selector-wrapper:contains(Size):first option:selected")
+    jQuery(".product-size-selector:contains(Size):first option:selected").text() != ""
+      ? jQuery(".product-size-selector:contains(Size):first option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Size",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(Size):first option").map(function (i, e) {
+      jQuery(".product-size-selector:contains(Size):first option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "")
       })
@@ -77,11 +77,11 @@ if (jQuery(".selector-wrapper:contains(Size):first option").length > 0) {
 
 //pa_Sizes clicker
 if (
-  jQuery(".selector-wrapper:contains(Size):first option").length > 0 &&
+  jQuery(".product-size-selector:contains(Size):first option").length > 0 &&
   $sarg != "Select Size" &&
   $sarg != "No Size"
 ) {
-  jQuery(".selector-wrapper:contains(Size):first option").each(function () {
+  jQuery(".product-size-selector:contains(Size):first option").each(function () {
     if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
       jQuery(this).trigger("change")
     }
@@ -93,12 +93,12 @@ wait_for(function () {
 
 $text = false
 if (
-  jQuery(".selector-wrapper:contains(Size):first option").length > 0 &&
+  jQuery(".product-size-selector:contains(Size):first option").length > 0 &&
   $sarg != "No Size" &&
   $sarg != "Select Size"
 ) {
   $text = true
-  jQuery(".selector-wrapper:contains(Size):first option").each(function (index) {
+  jQuery(".product-size-selector:contains(Size):first option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr("disabled")
@@ -3041,3 +3041,226 @@ if (
 }
 return $val
 //////////////////////////////////////
+// ////////////////////////
+
+// div div 
+
+if (jQuery('[attribute-code="size"] div.swatch-option').length > 0) {
+  ;[
+    jQuery('[attribute-code="size"] div.swatch-option.selected').length > 0
+      ? jQuery('[attribute-code="size"] div.swatch-option.selected')
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery('[attribute-code="size"] div.swatch-option').map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else ["No Size", ["No Size"]]
+
+if (
+  jQuery('[attribute-code="size"] div.swatch-option').length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery('[attribute-code="size"] div.swatch-option').each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg)
+      jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$val = false
+if (
+  jQuery('[attribute-code="size"] div.swatch-option').length > 0 &&
+  $sarg != "No size" &&
+  $sarg != "Select size"
+) {
+  $val = true
+  jQuery('[attribute-code="size"] div.swatch-option').each(function () {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass("unavailable")
+    ) {
+      $val = false
+    }
+  })
+}
+return $val
+///////////////////////////////////////////////////
+////////////////////////////////////////////
+
+
+// for ul li
+
+if (jQuery(".swatch:contains(Size) li").length > 0) {
+  ;[
+    jQuery(".swatch:contains(Size) li.is-selected").length > 0
+      ? jQuery(".swatch:contains(Size) li.is-selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".swatch:contains(Size) li").map(function (i, e) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else ["No Size", ["No Size"]]
+
+if (
+  jQuery(".swatch:contains(Size) li").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery(".swatch:contains(Size) li").each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg)
+      jQuery(this).click()
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$val = false
+if (
+  jQuery(".swatch:contains(Size) li").length > 0 &&
+  $sarg != "No size" &&
+  $sarg != "Select size"
+) {
+  $val = true
+  jQuery(".swatch:contains(Size) li").each(function () {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).hasClass("unavailable")
+    ) {
+      $val = false
+    }
+  })
+}
+return $val
+
+///////////////////////////////////////////////////////////////////////
+// div button
+if (jQuery('[data-auto-id="size-selector"] button.gl-label').length > 0) {
+  [
+    jQuery(
+      '[data-auto-id="size-selector"] button.gl-label.selected___2CqxQ'
+    ).length > 0
+      ? jQuery('[data-auto-id="size-selector"] button.gl-label.selected___2CqxQ')
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")          
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery('[data-auto-id="size-selector"] button.gl-label').map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim().replace(/\s\s+/g, ""))
+         return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else ["No Size", ["No Size"]];
+
+
+if (
+  jQuery('[data-auto-id="size-selector"] button.gl-label').length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery('[data-auto-id="size-selector"] button.gl-label').each(function () {
+    if (jQuery(e).text().trim().replace(/\s\s+/g, "") == $sarg) jQuery(this).click();
+  });
+}
+wait_for(function () {
+  return true;
+});
+
+$text = false;
+if (
+  jQuery('[data-auto-id="size-selector"] button.gl-label').length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true;
+  jQuery('[data-auto-id="size-selector"] button.gl-label').each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("data-available")
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+///////////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// Select
+if (jQuery(".selector-wrapper:contains(Size):first option").length > 0) {
+  ;[
+    jQuery(".selector-wrapper:contains(Size):first option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Size):first option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select Size",
+    jQuery.makeArray(
+      jQuery(".selector-wrapper:contains(Size):first option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Size", ["No Size"]]
+}
+
+//pa_Sizes clicker
+if (
+  jQuery(".selector-wrapper:contains(Size):first option").length > 0 &&
+  $sarg != "Select Size" &&
+  $sarg != "No Size"
+) {
+  jQuery(".selector-wrapper:contains(Size):first option").each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).trigger("change")
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery(".selector-wrapper:contains(Size):first option").length > 0 &&
+  $sarg != "No Size" &&
+  $sarg != "Select Size"
+) {
+  $text = true
+  jQuery(".selector-wrapper:contains(Size):first option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+/////////////////////////////////////
