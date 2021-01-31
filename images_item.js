@@ -1533,7 +1533,8 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
    //////////////////////////////////////   
               //////////////////////////////////////////////////   
               if (jQuery('.product-images img:first').length > 0) 
-              $img = jQuery('.product-images img:first').attr('srcset')  
+              $img = jQuery('.product-images img:first').attr('src')
+              .trim()  
               .split(' ')[0]
               .replace('_85', '_1080')
               else
@@ -1548,8 +1549,8 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
                 $arr = [];
                 jQuery('.product-images img:first').each(function(index){
                     if (index < 4) 
-                    $arr.push('https:'+jQuery(this).attr('srcset')  
-                    .split(' ')[0])
+                    $arr.push('https:'+jQuery(this).attr('src')  
+                    .trim().split(' ')[0])
                 })
                 $arr
                 }        

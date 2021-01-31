@@ -170,16 +170,16 @@ if (
 return $text;
 
 
-if (jQuery(".selector-wrapper:contains(Material) option").length > 0) {
+if (jQuery(".selector-wrapper:contains(Размер) option").length > 0) {
   [
-    jQuery(".selector-wrapper:contains(Material) option:selected").text() != ""
-      ? jQuery(".selector-wrapper:contains(Material) option:selected")
+    jQuery(".selector-wrapper:contains(Размер) option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(Размер) option:selected")
           .text()
           .trim()
           .replace(/\s\s+/g, "")
       : "Select Style",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(Material) option").map(function (i, e) {
+      jQuery(".selector-wrapper:contains(Размер) option").map(function (i, e) {
         if (jQuery(e).text() != "")
           return jQuery(e).text().trim().replace(/\s\s+/g, "");
       })
@@ -191,11 +191,11 @@ if (jQuery(".selector-wrapper:contains(Material) option").length > 0) {
 
 //pa_Styles clicker
 if (
-jQuery(".selector-wrapper:contains(Material) option").length > 0 &&
+jQuery(".selector-wrapper:contains(Размер) option").length > 0 &&
 $sarg != "Select Style" &&
 $sarg != "No Style"
 ) {
-jQuery(".selector-wrapper:contains(Material) option").each(function () {
+jQuery(".selector-wrapper:contains(Размер) option").each(function () {
   if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
     jQuery(this).trigger("change");
   }
@@ -207,12 +207,12 @@ return true;
 
 $text = false;
 if (
-  jQuery(".selector-wrapper:contains(Material) option").length > 0 &&
+  jQuery(".selector-wrapper:contains(Размер) option").length > 0 &&
   $sarg != "No Style" &&
   $sarg != "Select Style"
 ) {
   $text = true;
-  jQuery(".selector-wrapper:contains(Material) option").each(function (index) {
+  jQuery(".selector-wrapper:contains(Размер) option").each(function (index) {
     if (
       jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr('disabled')
@@ -1023,15 +1023,15 @@ return $text
 /////////////////////////////////////////////////////
 // selector-wrapper input 
 
-if (jQuery(".selector-wrapper:contains(Taille) input").length > 0) {
+if (jQuery(".selector-wrapper:contains(Размер) input").length > 0) {
   ;[
-    jQuery(".selector-wrapper:contains(Taille) input:checked").length > 0
-      ? jQuery(".selector-wrapper:contains(Taille) input:checked")
+    jQuery(".selector-wrapper:contains(Размер) input:checked").length > 0
+      ? jQuery(".selector-wrapper:contains(Размер) input:checked")
           .attr("value")
           .replace(/\s\s+/g, "")
       : "Select item",
     jQuery.makeArray(
-      jQuery(".selector-wrapper:contains(Taille) input").map(function (
+      jQuery(".selector-wrapper:contains(Размер) input").map(function (
         i,
         e
       ) {
@@ -1041,17 +1041,17 @@ if (jQuery(".selector-wrapper:contains(Taille) input").length > 0) {
     ),
   ]
 } else {
-  ;["No Taille", ["No Taille"]]
+  ;["No Размер", ["No Размер"]]
 }
 
 $text = false
 if (
-  jQuery(".selector-wrapper:contains(Taille) input").length > 0 &&
-  $sarg != "No Taille" &&
-  $sarg != "Select Taille"
+  jQuery(".selector-wrapper:contains(Размер) input").length > 0 &&
+  $sarg != "No Размер" &&
+  $sarg != "Select Размер"
 ) {
   $text = true
-  jQuery(".selector-wrapper:contains(Taille) input").each(function (index) {
+  jQuery(".selector-wrapper:contains(Размер) input").each(function (index) {
     if (
       jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr("disabled")
@@ -1064,12 +1064,12 @@ return $text
 
 $text = false
 if (
-  jQuery(".selector-wrapper:contains(Taille) input").length > 0 &&
-  $sarg != "No Taille" &&
-  $sarg != "Select Taille"
+  jQuery(".selector-wrapper:contains(Размер) input").length > 0 &&
+  $sarg != "No Размер" &&
+  $sarg != "Select Размер"
 ) {
   $text = true
-  jQuery(".selector-wrapper:contains(Taille) input").each(function (index) {
+  jQuery(".selector-wrapper:contains(Размер) input").each(function (index) {
     if (
       jQuery(this).attr("value").replace(/\s\s+/g, "") == $sarg &&
       !jQuery(this).attr("disabled")
@@ -1641,3 +1641,66 @@ if (
   })
 }
 return $text
+/////////////////////////////////////////////////////////////
+
+// selector-wrapper span 
+
+if (jQuery(".single-selector-color span").length > 0) {
+  ;[
+    jQuery(".single-selector-color span.selected").length > 0
+      ? jQuery(".single-selector-color span.selected")
+          .text().trim()
+          .replace(/\s\s+/g, "")
+      : "Select item",
+    jQuery.makeArray(
+      jQuery(".single-selector-color span").map(function (
+        i,
+        e
+      ) {
+        if (jQuery(e).text().trim() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No Размер", ["No Размер"]]
+}
+
+$text = false
+if (
+  jQuery(".single-selector-color span").length > 0 &&
+  $sarg != "No Размер" &&
+  $sarg != "Select Размер"
+) {
+  $text = true
+  jQuery(".single-selector-color span").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+
+$text = false
+if (
+  jQuery(".single-selector-color span").length > 0 &&
+  $sarg != "No Размер" &&
+  $sarg != "Select Размер"
+) {
+  $text = true
+  jQuery(".single-selector-color span").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+ ////////////////////////////////////

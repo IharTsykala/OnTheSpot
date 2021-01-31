@@ -4390,3 +4390,44 @@ if (
   $arr
 }
 /////////////////////////////////////////////////////
+// div div img one src
+
+if (
+  jQuery(".product-list .product").length > 0 &&
+  jQuery('.gallery-wrap img:first')
+    .length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".product-list .product").each(function () {
+    $title = jQuery(this).find(".product-infos").text().trim()
+
+    $img =
+      // "https:" +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        jQuery(this).find("img:first").attr("data-srcset") ||
+        jQuery(this).find("img:first").attr("srcset") ||
+        jQuery(this).find("img:last").attr("data-src") ||
+        ""
+      )
+        // .replace(/\s/g, "%20")
+        .trim()
+        .split(" ")[0]
+
+    $link =
+      "https://www.purplesee.com" + jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this)
+      .find(".info span:first")
+      .text()
+      .trim()
+      .replace(/\s/g, "")
+    // .split('$')[1]
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}

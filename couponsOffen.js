@@ -143,3 +143,18 @@ jQuery('.ec-cart-summary__total:last')
 jQuery('.ec-cart__discount .ec-link:last')[0].click()
 
 /////////////////////////////////
+
+jQuery('.field input[id="checkout_reduction_code"]')
+jQuery('.field button.field__input-btn')
+jQuery('.total-line .payment-due__price')
+
+jQuery('.gt_active.gt_discount_input:last')
+jQuery('.gt_active .gt_button_apply_discount:first')
+jQuery('.gt_active .gt_text_total:last .money')
+jQuery('.gt_active .gt_button_apply_discount:first').click()
+
+////////////////////////////////////////////////////////
+
+jQuery('.field input[id="checkout_reduction_code"]')
+jQuery('.field button.field__input-btn')
+jQuery('.total-line .payment-due__price')
