@@ -1685,6 +1685,7 @@ if (
 return $text
 
 
+
 $text = false
 if (
   jQuery(".single-selector-color span").length > 0 &&
