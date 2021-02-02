@@ -630,6 +630,11 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.product__price:first .on-sale').text().trim().replace(/\s/g,'') 
  || jQuery('.product__price:first .js-price').text().trim().replace(/\s/g,'')
 
+ jQuery('.product-price:first .js-price').text().trim().replace(/\s/g,'') 
+ || jQuery('.product-price:first .js-price').text().trim().replace(/\s/g,'') 
+ jQuery('.product-price:first .on-sale').text().trim().replace(/\s/g,'') 
+ || jQuery('.product-price:first .js-price').text().trim().replace(/\s/g,'')
+
 
   jQuery('[data-add-to-cart-component]:first [data-add-to-cart-price]').text().trim().replace(/\s/g,'')
  || jQuery('.pdp-add-to-cart:first [data-price-label]').text().trim().replace(/\s/g,'')
@@ -738,3 +743,8 @@ jQuery(".price--compare:first").text().trim() ||
  jQuery('.product-main__price:first span:first').text().trim()
 
  jQuery('.product-details__product-price:first .details-product-price__value:first').text().trim()
+
+ jQuery('.product-page-info__price:first span:last').text().trim()
+
+ '$'+jQuery('.product-page-info__price:first span:first').text().trim().split('$')[1]
+ ||  jQuery('.product-page-info__price:first span:last').text().trim()

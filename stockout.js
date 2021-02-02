@@ -468,3 +468,9 @@ if (!jQuery('.details-product-purchase__add-to-bag:first button.form-control__bu
 } else {
   $status = false;
 }
+
+if (!jQuery('.js-product-button-add-to-cart').length) {
+  $status = true
+} else {
+  $status = false;
+}

@@ -1773,9 +1773,9 @@ if ($img.indexOf("http") == -1)
 else
 $img
 
-if (jQuery('.product-single__thumbnail-item img').length > 0){
+if (jQuery('.zoomWindowContainer div:first').length > 0){
   $arr = [];
-  jQuery('.product-single__thumbnail-item img').each(function(index){
+  jQuery('.zoomWindowContainer div:first').each(function(index){
       if (index < 4) 
       $arr.push('https:'+jQuery(this).attr('src')  
       .split(' ')[0])
@@ -3257,3 +3257,48 @@ if (jQuery('.product-image-zoom img').length > 0){
           }
       
           //////////////////////////////////////////////////
+                   //////////////////////////////////////////////////
+   
+                   if (jQuery('.product-page-gallery img:first').length > 0) 
+                   $img = jQuery('.product-page-gallery img:first').attr('src')  
+                   .split(' ')[0]
+                   .replace('_180', '_1080')
+                   else
+                   $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+                   
+                   if ($img.indexOf("http") == -1)
+                   'https:'+$img
+                   else
+                   $img
+                 
+                   if (jQuery('.product-page-gallery img:first').length > 0){
+                     $arr = [];
+                     jQuery('.product-page-gallery img:first').each(function(index){
+                         if (index < 4) 
+                         $arr.push('https:'+jQuery(this).attr('src')  
+                         .split(' ')[0])
+                     })
+                     $arr
+                     }        
+                     //////////////////////////////////////////////////
+                       /////////////////////////
+  if (jQuery('.zoomWindowContainer div:first').length > 0) 
+  $img = jQuery(".zoomWindowContainer div:first").css('background-image').slice(5, -2)
+  else
+  $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+  
+  if ($img.indexOf("http") == -1)
+  'https:'+$img
+  else
+  $img
+  
+  if (jQuery('.product-page-gallery__thumbnail img:first').length > 0){
+    $arr = [];
+    jQuery('.product-page-gallery__thumbnail img:first').each(function(index){
+        if (index < 4) 
+        $arr.push('https:'+jQuery(this).attr('srcset')  
+        .split(' ')[0])
+    })
+    $arr
+    }
+    /////////////////////////////////////////
