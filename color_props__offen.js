@@ -54,6 +54,61 @@ return $text;
 
 
 // Select
+if (jQuery(".selector-wrapper:contains(color):first option").length > 0) {
+  [
+    jQuery(".selector-wrapper:contains(color):first option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(color):first option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select color",
+    jQuery.makeArray(
+      jQuery(".selector-wrapper:contains(color):first option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "");
+      })
+    ),
+  ];
+} else {
+  ["No color", ["No color"]];
+}
+
+//pa_colors clicker
+if (
+jQuery(".selector-wrapper:contains(color):first option").length > 0 &&
+$sarg != "Select color" &&
+$sarg != "No color"
+) {
+jQuery(".selector-wrapper:contains(color):first option").each(function () {
+  if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+    jQuery(this).trigger("change");
+  }
+});
+}
+wait_for(function () {
+return true;
+});
+
+$text = false;
+if (
+  jQuery(".selector-wrapper:contains(color):first option").length > 0 &&
+  $sarg != "No color" &&
+  $sarg != "Select color"
+) {
+  $text = true;
+  jQuery(".selector-wrapper:contains(color):first option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr('disabled')
+    ) {
+      $text = false;
+    }
+  });
+}
+return $text;
+
+
+// Select
 if (jQuery(".selector-wrapper:contains(Colour):first option").length > 0) {
   [
     jQuery(".selector-wrapper:contains(Colour):first option:selected").text() != ""

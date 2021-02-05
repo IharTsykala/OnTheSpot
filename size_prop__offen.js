@@ -112,6 +112,62 @@ return $text
 /////////////////////////////////////
 
 // Select
+if (jQuery(".selector-wrapper:contains(size):first option").length > 0) {
+  ;[
+    jQuery(".selector-wrapper:contains(size):first option:selected").text() != ""
+      ? jQuery(".selector-wrapper:contains(size):first option:selected")
+          .text()
+          .trim()
+          .replace(/\s\s+/g, "")
+      : "Select size",
+    jQuery.makeArray(
+      jQuery(".selector-wrapper:contains(size):first option").map(function (i, e) {
+        if (jQuery(e).text() != "")
+          return jQuery(e).text().trim().replace(/\s\s+/g, "")
+      })
+    ),
+  ]
+} else {
+  ;["No size", ["No size"]]
+}
+
+//pa_sizes clicker
+if (
+  jQuery(".selector-wrapper:contains(size):first option").length > 0 &&
+  $sarg != "Select size" &&
+  $sarg != "No size"
+) {
+  jQuery(".selector-wrapper:contains(size):first option").each(function () {
+    if (jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg) {
+      jQuery(this).trigger("change")
+    }
+  })
+}
+wait_for(function () {
+  return true
+})
+
+$text = false
+if (
+  jQuery(".selector-wrapper:contains(size):first option").length > 0 &&
+  $sarg != "No size" &&
+  $sarg != "Select size"
+) {
+  $text = true
+  jQuery(".selector-wrapper:contains(size):first option").each(function (index) {
+    if (
+      jQuery(this).text().trim().replace(/\s\s+/g, "") == $sarg &&
+      !jQuery(this).attr("disabled")
+    ) {
+      $text = false
+    }
+  })
+}
+return $text
+
+//////////////////////////////////////////
+
+// Select
 if (jQuery(".radio-wrapper:contains(Size) option").length > 0) {
   ;[
     jQuery(".radio-wrapper:contains(Size) option:selected").text() != ""

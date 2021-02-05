@@ -722,7 +722,7 @@ if (
 
 if (
   jQuery("ul.grid--uniform li").length > 0 &&
-  jQuery(".product-single__photos img:first").length === 0
+  jQuery(".product-single__media-wrapper img:first").length === 0
 ) {
   $arr = []
 
@@ -749,12 +749,12 @@ if (
 
     $price =
       // "£" +
-      // "$" +
-      '€' +
+      "$" +
+      // '€' +
       jQuery(this).find(".price-item--regular:first").text().trim()
     // .split("£")[1]
-    // .split("$")[1]
-    .split("€")[1]
+    .split("$")[1]
+    // .split("€")[1]
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -1609,7 +1609,7 @@ if (
         .split(" ")[0]
 
     $link =
-      "https://lahgo.co" + jQuery(this).find("a:first").attr("href")
+      "https://www.flickerdigital.com" + jQuery(this).find("a:first").attr("href")
 
     $price = jQuery(this)
       .find(".price span.money:first")
@@ -4527,3 +4527,43 @@ if (
   })
   $arr
 }
+
+// ul li only src
+
+if (
+  jQuery("ul.snize-search-results-content li").length > 0 &&
+  jQuery('[class="product-slide swiper-slide swiper-slide-active"] img:first').length === 0
+) {
+  $arr = []
+
+  jQuery("ul.snize-search-results-content li").each(function () {
+    $title = jQuery(this).find(".snize-title").text().trim()
+
+    $img =
+      // "https:" +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+        // jQuery(this).find("img:last").attr("src") ||
+        ""
+      ).split(" ")[0]
+    // .replace(/\s/g, "%20")
+
+    $link =
+      "https://aldoshoes.co.uk" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // "$" +
+      // " " +
+      jQuery(this).find(".snize-price:first").text().trim()
+    // .split("USD")[0]
+    // .trim()
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+////////////////////////////////////////////////////////////////

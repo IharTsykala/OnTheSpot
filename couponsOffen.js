@@ -1,6 +1,6 @@
 jQuery('.field input[id="checkout_reduction_code"]')
 jQuery('.field button.field__input-btn')
-jQuery('.total-line .payment-due__price')
+jQuery('.total-line .payment-due__price') || jQuery('.order-settlement-m-total .payment-due__price')
 
 
 // jQuery('#reduction button:first').click()

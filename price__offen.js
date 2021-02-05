@@ -136,9 +136,9 @@ jQuery('[id="ComparePrice"]:first').text().trim() ||
 jQuery(".was_price .price-item:first").text().trim() ||
   jQuery(".price__regular .price-item:first").text().trim()
 
-jQuery(".current_price .money:first").text().trim()  
-jQuery(".was_price:first :first").text().trim() ||
-  jQuery(".current_price .money:first").text().trim()
+jQuery(".modal_price .current_price .money:first").text().trim()  
+jQuery(".modal_price:first .was_price").text().trim() ||
+  jQuery(".modal_price .current_price .money:first").text().trim()
 
 
   jQuery(".product-normal-price:first").text().trim()

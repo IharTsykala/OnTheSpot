@@ -474,3 +474,9 @@ if (!jQuery('.js-product-button-add-to-cart').length) {
 } else {
   $status = false;
 }
+
+if (!jQuery('[id="shopify_add_to_cart"]').length) {
+  $status = true
+} else {
+  $status = false;
+}

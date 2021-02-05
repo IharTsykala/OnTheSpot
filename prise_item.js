@@ -295,6 +295,12 @@ jQuery('.product__price .price__sale .price-item--regular:first').text().trim()
 || jQuery('.product__price .price__sale .price-item--sale:first').text().trim() 
 ||  jQuery('.product__price .price__regular .price-item--regular:first').text().trim()
 
+jQuery('.product__price .product__price--sale:first').text().trim() 
+|| jQuery('.product__price .price__regular .price-item--regular:first').text().trim() 
+jQuery('.product__price .product__price--reg:first').text().trim() 
+|| jQuery('.product__price .product__price--sale:first').text().trim() 
+||  jQuery('.product__price .price__regular .price-item--regular:first').text().trim()
+
 
 jQuery('.price__sale .price-item--sale:first').text().trim() 
 || jQuery('.price__regular .price-item--regular:first').text().trim() 
@@ -748,3 +754,23 @@ jQuery(".price--compare:first").text().trim() ||
 
  '$'+jQuery('.product-page-info__price:first span:first').text().trim().split('$')[1]
  ||  jQuery('.product-page-info__price:first span:last').text().trim()
+
+ '$'+jQuery('[itemprop="price"]:first').text().trim().replace(/\s/g,'').split('$')[2] ||
+'$'+jQuery('[class="price total"]:first').next().next().text().trim().replace(/\s/g,'').split('$')[2]
+
+
+'$'+jQuery('[itemprop="price"]:first').text().trim().replace(/\s/g,'').split('$')[1] ||
+jQuery('[itemprop="price"]').text().trim().replace(/\s/g,'') ||
+'$'+jQuery('[class="price total"]').next().next().text().trim().replace(/\s/g,'')
+
+'$'+jQuery('[itemprop="price"]:first').text().trim().replace(/\s/g,'').split('$')[2] ||
+jQuery('[itemprop="price"]').text().trim().replace(/\s/g,'') ||
+'$'+jQuery('[class="price total"]').next().next().text().trim().replace(/\s/g,'')
+
+'€'+jQuery(".c-price-list  .c-price-list__item--main:first").text().trim().split('€')[0] ||
+'€'+jQuery(".c-price-list  .c-price-list__item--highlighted:last").text().trim().split('€')[0]
+
+
+'€'+jQuery(".c-price-list  .c-price-list__item--main:first").text().trim().split('€')[0] ||
+'€'+(jQuery(".c-price-list  .c-price-list__item--base").text().trim().split('€')[0] ||
+jQuery(".c-price-list  .c-price-list__item--highlighted:first").text().trim().split('€')[0])
