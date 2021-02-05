@@ -18,7 +18,7 @@ const requestApi = async () => {
     console.log(e)
   }
 }
-
+ 
 requestApi()
 
 const currentImg = document.querySelector(".img").src
