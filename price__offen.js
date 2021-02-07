@@ -256,3 +256,7 @@ jQuery('[data-hook="product-prices-wrapper"] [data-hook="formatted-primary-price
 
 jQuery('[itemprop="price"]').text().trim().replace(/\s/g,'') ||
 '$'+jQuery('[class="price total"]').next().next().text().trim().replace(/\s/g,'') 
+
+jQuery('.product-single__prices:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
+jQuery('.product-single__prices:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
+jQuery('.product-single__prices:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')

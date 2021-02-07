@@ -480,3 +480,9 @@ if (!jQuery('[id="shopify_add_to_cart"]').length) {
 } else {
   $status = false;
 }
+
+if (jQuery('[aria-label="Add to cart"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

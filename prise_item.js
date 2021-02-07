@@ -774,3 +774,8 @@ jQuery('[itemprop="price"]').text().trim().replace(/\s/g,'') ||
 '€'+jQuery(".c-price-list  .c-price-list__item--main:first").text().trim().split('€')[0] ||
 '€'+(jQuery(".c-price-list  .c-price-list__item--base").text().trim().split('€')[0] ||
 jQuery(".c-price-list  .c-price-list__item--highlighted:first").text().trim().split('€')[0])
+
+jQuery('[id="productPrice"]:first [id="product-price"]:first').text().trim()
+
+ jQuery('[id="productPrice"]:first [id="old-product-price"]:last').text().trim()
+ ||  jQuery('[id="productPrice"]:first [id="product-price"]:first').text().trim()
