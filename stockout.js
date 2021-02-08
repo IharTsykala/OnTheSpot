@@ -486,3 +486,9 @@ if (jQuery('[aria-label="Add to cart"]').text().trim().toLowerCase().indexOf('ou
 } else {
   $status = false;
 }
+
+if (jQuery('.ProductDetails_addToBag__21uZa:first').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

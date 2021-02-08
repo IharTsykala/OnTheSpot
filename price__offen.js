@@ -260,3 +260,5 @@ jQuery('[itemprop="price"]').text().trim().replace(/\s/g,'') ||
 jQuery('.product-single__prices:first [id="ProductPrice"]').text().trim().replace(/\s/g,'') 
 jQuery('.product-single__prices:first [id="ComparePrice"]').text().trim().replace(/\s/g,'') ||
 jQuery('.product-single__prices:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
+
+jQuery('h1:first span').text().trim()

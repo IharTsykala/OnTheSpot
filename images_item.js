@@ -3366,3 +3366,28 @@ if (jQuery('.product-image-zoom img').length > 0){
      $arr
      }  
    //////////////////////////////////////  
+            //////////////////////////////////////////////////
+
+            if (jQuery('.ProductDetails_images__3gDMJ img:first').length > 0) 
+            $img = jQuery('.ProductDetails_images__3gDMJ img:first')  
+            .attr('src') 
+            .split(' ')[0]
+            .replace('_180', '_1080')
+            else
+            $img = jQuery('.meta[property="og:image"]:eq(0)').attr('content')
+            
+            if ($img.indexOf("http") == -1)
+            'https:'+$img
+            else
+            $img
+         
+            
+            if (jQuery('.ProductDetails_images__3gDMJ img').length > 0){
+              $arr = [];
+              jQuery('.ProductDetails_images__3gDMJ img').each(function(index){
+                  if (index < 4) 
+                  $arr.push('https:'+jQuery(this).attr("src"))
+              })
+              $arr
+              }  
+            //////////////////////////////////////  
