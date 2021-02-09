@@ -3442,3 +3442,26 @@ if (jQuery('.product-image-zoom img').length > 0){
                  $arr
                  }  
                //////////////////////////////////////  
+               if (jQuery('.gallery__grid img:first').length > 0) 
+               $img = jQuery('.gallery__grid img:first')  
+               .attr('src') 
+               .split(' ')[0]
+               .replace('_295', '_1080')
+               else
+               $img = jQuery('.meta[property="og:image"]:eq(0)').attr('content')
+               
+               if ($img.indexOf("http") == -1)
+               'https:'+$img
+               else
+               $img
+            
+               
+               if (jQuery('.gallery__grid img').length > 0){
+                 $arr = [];
+                 jQuery('.gallery__grid img').each(function(index){
+                     if (index < 4) 
+                     $arr.push('https:'+jQuery(this).attr("src"))
+                 })
+                 $arr
+                 }  
+               //////////////////////////////////////  

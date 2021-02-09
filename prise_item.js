@@ -396,6 +396,11 @@ jQuery(".price--compare:first").text().trim() ||
 
  jQuery('.price:first .woocommerce-Price-currencySymbol:last').parent().text().trim()
  || jQuery('.price:first .woocommerce-Price-currencySymbol:first').parent().text().trim()
+
+ jQuery('.price:first .woocommerce-Price-currencySymbol:last').parent().text().trim()
+
+ jQuery('.price:first .woocommerce-Price-currencySymbol:first').parent().text().trim()
+ || jQuery('.price:first .woocommerce-Price-currencySymbol:last').parent().text().trim()
   
 
  jQuery('.product-price:first [data-product-price]').text().trim().replace(/\s/g,'') 
@@ -781,3 +786,8 @@ jQuery('[id="productPrice"]:first [id="product-price"]:first').text().trim()
  ||  jQuery('[id="productPrice"]:first [id="product-price"]:first').text().trim()
 
  jQuery('.product-form--price-wrapper:first .product-form--price').text().trim().replace(/\s/g,'')
+
+ jQuery('.product-details__price:first .product-price').text().trim().replace(/\s/g,'')
+
+ jQuery('.product-details__price:first .product-compare-at-price').text().trim().replace(/\s/g,'') ||
+ jQuery('.product-details__price:first .product-price').text().trim().replace(/\s/g,'')

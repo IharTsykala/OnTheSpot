@@ -4756,3 +4756,95 @@ if (
   })
   $arr
 }
+/////////////////////////////////////////////////////////////////
+
+// div article one src
+
+if (
+  jQuery(".collection-grid .product-tile").length > 0 &&
+  jQuery(".product-images img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".collection-grid .product-tile").each(function () {
+    $title = jQuery(this).find(".product-tile__title").text().trim()
+
+    $img =
+      "https:" +
+      // jQuery(this).find("source:first").attr("src") ||
+      // jQuery(this).find("source:first").attr("data-srcset") ||
+      // jQuery(this).find("source:first").attr("srcset") ||
+      (jQuery(this).find("img:first").attr("src") || "")
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://alphalete.uk" +
+      jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // "£" +
+      // jQuery(this)
+      //   .find('.product-prices:first .product-compare-at-price')
+      //   .text()
+      //   .trim()
+      //   .replace(/\s/g, "")
+      //   // .split("£")[1]
+      //   ||
+        jQuery(this)
+        .find('.product-prices:first .product-price')
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+        // .split("£")[1])
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+///////////////////////////////////////////////////
+
+if (
+  jQuery(".content article").length > 0 &&
+  jQuery(".product-main-image img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery(".content article").each(function () {
+    $title = jQuery(this).find(".entry-title").text().trim()
+
+    $img =
+      // "https:" +
+      // jQuery(this).find("source:first").attr("src") ||
+      // jQuery(this).find("source:first").attr("data-srcset") ||
+      // jQuery(this).find("source:first").attr("srcset") ||
+      (jQuery(this).find("img:first").attr("src") || "")
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+
+
+    $link =
+      "https://www.thelovelykeepsakecompany.co.uk" +
+      jQuery(this).find("a:first").attr("href")
+
+    $price =
+    // "$"+
+      // "£" +
+      jQuery(this)
+        .find(".woocommerce-Price-amount:last bdi")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+        // .split("£")[1]
+        // .split("$")[1]
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}

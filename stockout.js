@@ -504,3 +504,9 @@ if (jQuery('.product-form--add-to-cart:first').text().trim().toLowerCase().index
 } else {
   $status = false;
 }
+
+if (jQuery('.btn-add-to-bag:first').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
