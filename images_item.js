@@ -3391,3 +3391,54 @@ if (jQuery('.product-image-zoom img').length > 0){
               $arr
               }  
             //////////////////////////////////////  
+              //////////////////////////////////////////////////
+
+              if (jQuery('.product-media--wrapper img:first').length > 0) 
+              $img = jQuery('.product-media--wrapper img:first')  
+              .attr('srcset') 
+              .split(' ')[0]
+              .replace('_295', '_1080')
+              else
+              $img = jQuery('.meta[property="og:image"]:eq(0)').attr('content')
+              
+              if ($img.indexOf("http") == -1)
+              'https:'+$img
+              else
+              $img
+           
+              
+              if (jQuery('.product-media--wrapper img').length > 0){
+                $arr = [];
+                jQuery('.product-media--wrapper img').each(function(index){
+                    if (index < 4) 
+                    $arr.push('https:'+jQuery(this).attr("srcset"))
+                })
+                $arr
+                }  
+              //////////////////////////////////////  
+               //////////////////////////////////////////////////
+
+               if (jQuery('.product-page--main-container:last .product-media--zoom-image img:first').length > 0) 
+               $img = (jQuery('.product-page--main-container:last .product-media--zoom-image img:first').attr('srcset') ||
+               jQuery('.product-page--main-container:last .image--container img:first') .attr('srcset')  )
+             
+               .split(' ')[0]
+               .replace('_295', '_1080')
+               else
+               $img = jQuery('.meta[property="og:image"]:eq(0)').attr('content')
+               
+               if ($img.indexOf("http") == -1)
+               'https:'+$img
+               else
+               $img
+            
+               
+               if (jQuery('.product-page--main-container:last .product-media--zoom-image img').length > 0){
+                 $arr = [];
+                 jQuery('.product-page--main-container:last .product-media--zoom-image img').each(function(index){
+                     if (index < 4) 
+                     $arr.push('https:'+jQuery(this).attr("srcset"))
+                 })
+                 $arr
+                 }  
+               //////////////////////////////////////  

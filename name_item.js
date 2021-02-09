@@ -17,7 +17,7 @@ jQuery('.site-name img:first').attr('alt')
 
 jQuery('h1:first').text().trim()
 .slice(0,-1)
-jQuery('h2.oneday-lens').text().trim()
+jQuery('h2[itemprop="name"]').text().trim()
 jQuery('.nameProduct').text().trim().replace(/\r|\n/g, ' ').split(' ').slice(0,2).join(' ')
 
 jQuery('h2.ProductMeta__Vendor').text().trim() || jQuery('div[class="-vBYKX"]').text().trim()

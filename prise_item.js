@@ -779,3 +779,5 @@ jQuery('[id="productPrice"]:first [id="product-price"]:first').text().trim()
 
  jQuery('[id="productPrice"]:first [id="old-product-price"]:last').text().trim()
  ||  jQuery('[id="productPrice"]:first [id="product-price"]:first').text().trim()
+
+ jQuery('.product-form--price-wrapper:first .product-form--price').text().trim().replace(/\s/g,'')

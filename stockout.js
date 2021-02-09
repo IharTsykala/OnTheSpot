@@ -492,3 +492,15 @@ if (jQuery('.ProductDetails_addToBag__21uZa:first').text().trim().toLowerCase().
 } else {
   $status = false;
 }
+
+if (!jQuery('[id="product-add-to-cart"]').attr('value').toLowerCase()== 'sold out') {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('.product-form--add-to-cart:first').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

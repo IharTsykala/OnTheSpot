@@ -1183,7 +1183,7 @@ if (
       (jQuery(this).find(".grid-link__meta:first").text().trim().split('$')[1]
       || jQuery(this).find(".grid-link__meta:first").text().trim().split('$')[1])
 
-    // if ($title && $img && $link && $price)
+    if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -4675,3 +4675,84 @@ if (
 }
 
 ///////////////////////////////////////
+if (
+  jQuery(".products-grid .product-item").length > 0 &&
+  jQuery('.product-photo-container img:first').length === 0
+) {
+  $arr = []
+
+  jQuery(".products-grid .product-item").each(function () {
+    $title = jQuery(this).find(".product-title").text().trim()
+
+    $img =
+      // "https:" +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+        // jQuery(this).find("img:last").attr("src") ||
+        ""
+      ).split(", ")[0]
+    // .replace(/\s/g, "%20")
+
+    $link =
+      "https://www.bedandbathlinen.co.uk" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      "$" +
+      " " +
+      jQuery(this).find(".regular-product:first").text().trim()
+    .split("$")[1]
+    // .trim()
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+////////////////////////////////////////////////////////////////
+// div div noscript
+
+if (
+  jQuery('.collection--grid-view .collection--grid-product').length > 0 &&
+  // jQuery(".data-zoom-wrapper img:first").length === 0
+  jQuery('button[name="add"]').length === 0
+) {
+  $arr = []
+
+  jQuery('.collection--grid-view .collection--grid-product').each(function () {
+    $title = jQuery(this).find(".product--title").text().trim()
+
+    if (jQuery(this).find("noscript").text().trim())
+      $img =
+        // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
+        // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+        "https:" +
+        jQuery(this)
+          .find("noscript")
+          .text()
+          .trim()
+          .split('src="')[1]
+          .split(" ")[0]
+          // .split("url('")[1]
+          // .split(")")[0]
+          .trim()
+          .slice(0, -1)
+    // .replace('gif', 'jpg')
+    else $img = ""
+
+    $link = 
+    "https://journeymanshop.com" +
+     jQuery(this).find("a:first").attr("href")
+
+    $price =
+   
+    jQuery(this).find(".product--price:first").text().trim().replace(/\s/g, "")
+    
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
