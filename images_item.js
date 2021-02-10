@@ -3465,3 +3465,26 @@ if (jQuery('.product-image-zoom img').length > 0){
                  $arr
                  }  
                //////////////////////////////////////  
+
+               if (jQuery('.product-image__thumbs-item img:first').length > 0) 
+   $img = ( jQuery('.product-image__thumbs-item img:first')  
+   .attr('data-srcset') || jQuery('.product-image__swiper_img:first')  
+   .attr('src'))
+   .split(' ')[0]
+   .replace('_180', '_1080')
+   else
+   $img = jQuery('.meta[property="og:image"]:eq(0)').attr('content')
+   
+   if ($img.indexOf("http") == -1)
+   'https:'+$img
+   else
+   $img
+
+   if (jQuery('.product-image__thumbs-item img').length > 0){
+    $arr = [];
+    jQuery('.product-image__swiper_img:first').each(function(index){
+        if (index < 4) 
+        $arr.push('https:'+jQuery(this).attr("src"))
+    })
+    $arr
+    }  
