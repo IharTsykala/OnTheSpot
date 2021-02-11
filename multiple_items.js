@@ -1962,7 +1962,7 @@ if (jQuery('.image__container img:first').length > 0)
   if (
     jQuery('.product-listing .product_item').length >
       0 &&
-    jQuery(".tt-mobile-product-slider img:first").length === 0
+    jQuery(".carousel img:first").length === 0
     // &&  jQuery('.product-details__desc-col').length === 0
   ) {
     $arr = []

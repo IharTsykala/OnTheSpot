@@ -510,3 +510,15 @@ if (jQuery('.btn-add-to-bag:first').text().trim().toLowerCase().indexOf('out') >
 } else {
   $status = false;
 }
+
+if (jQuery('.JH-BuyCart:first').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('[id="prodexd-add"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

@@ -238,3 +238,12 @@ jQuery(".showcoupon")[0].click()
 jQuery('input[id="discount-code"]')
 jQuery('[value="Apply Discount"]:last')
 jQuery('[data-th="Order Total"]:last')
+
+
+/////////////////////////////////////////
+jQuery('.cart-coupon-open')[0].click()
+jQuery('[placeholder="Discount code"]:last')
+jQuery('.J-GetCartCoupon:last') || jQuery('.J-GetCoupon:last:last')
+jQuery('.J-Total:last')
+
+/////////////////////////////////

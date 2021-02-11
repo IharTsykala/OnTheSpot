@@ -791,3 +791,9 @@ jQuery('[id="productPrice"]:first [id="product-price"]:first').text().trim()
 
  jQuery('.product-details__price:first .product-compare-at-price').text().trim().replace(/\s/g,'') ||
  jQuery('.product-details__price:first .product-price').text().trim().replace(/\s/g,'')
+
+ jQuery('.prod-content .prod-sale:first').text().trim().replace(/\s/g,'') ||
+ jQuery('.prod-content strong:first').text().trim().replace(/\s/g,'')
+
+ jQuery('.prod-content .prod-old-price:first').text().trim().replace(/\s/g,'') ||
+ jQuery('.prod-content strong:first').text().trim().replace(/\s/g,'')

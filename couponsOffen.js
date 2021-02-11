@@ -109,9 +109,9 @@ jQuery('.totals .price:last')
 //////////////////////////////
 
 jQuery('[id="coupon_code"]:last')
-jQuery('[value="Apply Discount"]:last')
+jQuery('[value="Apply Discount"]:last') || jQuery('[value="Použít"]:last')
 jQuery('.totals .price:last')
-jQuery('[id="block-discount"] div:first').click()
+jQuery('[id="block-discount-heading"] div:first').click()
 
 /////////////////////////////////
 ////////////////////////////////////////////////
@@ -158,3 +158,26 @@ jQuery('.gt_active .gt_button_apply_discount:first').click()
 jQuery('.field input[id="checkout_reduction_code"]')
 jQuery('.field button.field__input-btn')
 jQuery('.total-line .payment-due__price')
+
+/////////////////////////////////////////
+jQuery('.cart-coupon-open')[0].click()
+jQuery('input.J-GetCartCouponVal:last') || jQuery('input.J-GetCouponVal:last')f
+jQuery('.J-Total:last')
+
+/////////////////////////////////
+////////////////////////////////////////////////
+
+jQuery('[id="block-discount-heading"]:first').click()
+jQuery('input[id="discount-code"]') || jQuery('[id="coupon_code"]:last')
+jQuery('[value="Apply Discount"]')
+jQuery('[data-th="Order Total Incl. Tax"]:last')
+
+////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////
+
+jQuery('[name="coupon"]')
+jQuery('button[class="btn btn-white btn-block"]')
+jQuery('[id="cart-total"]')
+
+//////////////////////////////////////////////////////////////////

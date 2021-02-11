@@ -1172,7 +1172,7 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
                //////////////////////////////////////////////////
    
           if (jQuery('.swiper-wrapper img:first').length > 0) 
-          $img = jQuery('.swiper-wrapper img:first').attr('data-srczoom')  
+          $img = jQuery('.swiper-wrapper img:first').attr('src')  
           .split(' ')[0]
           .replace('_180', '_1080')
           else
@@ -3488,3 +3488,30 @@ if (jQuery('.product-image-zoom img').length > 0){
     })
     $arr
     }  
+
+    //////////////////////////////////////////////////////////
+
+      //////////////////////////////////////  
+      if (jQuery('.carousel img:first').length > 0) 
+      $img = jQuery('.carousel img:first')  
+      .attr('src') 
+      .split(' ')[0]
+      .replace('_295', '_1080')
+      else
+      $img = jQuery('.meta[property="og:image"]:eq(0)').attr('content')
+      
+      if ($img.indexOf("http") == -1)
+      'https:'+$img
+      else
+      $img
+   
+      
+      if (jQuery('.carousel img').length > 0){
+        $arr = [];
+        jQuery('.carousel img').each(function(index){
+            if (index < 4) 
+            $arr.push('https:'+jQuery(this).attr("src"))
+        })
+        $arr
+        }  
+      //////////////////////////////////////  

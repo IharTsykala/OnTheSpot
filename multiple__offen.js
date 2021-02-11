@@ -1640,7 +1640,7 @@ if (
   $arr = []
 
   jQuery("ul.products li.product").each(function () {
-    $title = jQuery(this).find(".product-name").text().trim()
+    $title = jQuery(this).find(".product-item-name").text().trim()
 
     $img =
       // 'https:' +
@@ -1655,7 +1655,7 @@ if (
 
     $link =
       // "https://www.frontierraas.com/" +
-      jQuery(this).find("a:last")
+      jQuery(this).find("a:first")
       .attr("href")
 
     $price =
@@ -1665,7 +1665,7 @@ if (
     // .trim()
   
     // "$" + ' ' +
-    jQuery(this).find(".price-box:first .price").text().trim()
+    jQuery(this).find(".price-final_price:first .price").text().trim()
   // .split("$")[1]
   // .trim()
 
@@ -1701,7 +1701,7 @@ if (
     // .replace(/\s/g, "%20")
 
     $link =
-      "https://www.sail.ca" +
+      // "https://www.sail.ca" +
       jQuery(this).find("a:first")
       .attr("href")
 
@@ -4842,6 +4842,73 @@ if (
         .replace(/\s/g, "")
         // .split("£")[1]
         // .split("$")[1]
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+/////////////////////////////////////////////////////////
+
+// ul li only src
+
+if (
+  jQuery("ul.three-col  li").length > 0 &&
+  jQuery('[class="product-slide swiper-slide swiper-slide-active"] img:first').length === 0
+) {
+  $arr = []
+
+  jQuery("ul.three-col  li").each(function () {
+    $title = jQuery(this).find(".name").text().trim()
+
+    $img =
+      // "https:" +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+        // jQuery(this).find("img:last").attr("src") ||
+        ""
+      ).split(" ")[0]
+    // .replace(/\s/g, "%20")
+
+    $link =
+      "https://eme-te.com" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // "$" +
+      // " " +
+      jQuery(this).find(".price:first .pay-price").text().trim()
+    // .split("USD")[0]
+    // .trim()
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+///////////////////////////////////////////////////////////////////
+if (
+  jQuery(".container .prod-block").length > 0 &&
+  jQuery('.carousel img').length === 0
+) {
+  $arr = []
+
+  jQuery(".container .prod-block").each(function () {
+    $title = jQuery(this).find(".prod-title").text().trim().split('K')[0].trim()
+
+    $img = 
+    // "https:" + 
+    jQuery(this).find("img:first").attr("src")
+
+    $link =
+      "https://theroyallookforless.com" +
+      jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this).find(".prod-sale:first").text().trim() ||
+    "$" + jQuery(this).find(".prod-title:first").text().trim().split('$')[1]
 
     // if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
