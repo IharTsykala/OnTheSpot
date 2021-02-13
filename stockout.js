@@ -517,7 +517,13 @@ if (jQuery('.JH-BuyCart:first').text().trim().toLowerCase().indexOf('out') >= 0)
   $status = false;
 }
 
-if (jQuery('[id="prodexd-add"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+if (jQuery('.qty-and-add').css('display') === 'none') {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('[class="stock out-of-stock"]').text().trim().toLowerCase().indexOf('out') >= 0) {
   $status = true
 } else {
   $status = false;

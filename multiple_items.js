@@ -2009,3 +2009,92 @@ if (jQuery('.image__container img:first').length > 0)
     $arr
   }
   
+
+//////////////////////////////////////////////////////////
+
+
+if (
+  jQuery(".products-grid .product-item").length > 0 &&
+  jQuery('.product-photo-container img:first').length === 0
+) {
+  $arr = []
+
+  jQuery(".products-grid .product-item").each(function () {
+    $title = jQuery(this).find(".product-title").text().trim()
+
+    $img =
+      // "https:" +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+        // jQuery(this).find("img:last").attr("src") ||
+        ""
+      ).split(", ")[0]
+    // .replace(/\s/g, "%20")
+
+    $link =
+      "https://www.bedandbathlinen.co.uk" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+    jQuery(this).find(".price-box:first .special-price:first").text().trim() ||
+      "$" +
+      " " +
+      jQuery(this).find(".regular-product:first").text().trim()
+    .split("$")[1]
+    
+    // .trim()
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+if (
+  jQuery(".grid--uniform .grid-product").length > 0 &&
+  // jQuery('.product__main-photos img:first').length === 0
+  jQuery('.product-single__description-full').length === 0
+) {
+  $arr = []
+
+  jQuery(".grid--uniform .grid-product").each(function () {
+    $title = jQuery(this).find(".grid-product__title").text().trim()
+
+    $img =
+    "https:" +
+    (
+      jQuery(this)
+        .find(".grid__image-ratio:first div:last")
+        .attr("data-bgset") ||
+      jQuery(this)
+        .find(".grid__image-ratio:last div:last")
+        .attr("data-bgset") ||
+      jQuery(this)
+        .find(".grid__image-ratio:first source:first")
+        .attr("srcset") ||
+      jQuery(this)
+        .find(".grid__image-ratio:first source:first")
+        .attr("data-srcset") ||
+      jQuery(this).find(".grid__image-ratio:last div:last").css("background-image")
+      // .split("url(")[1]
+      // .slice(-8) 
+         ||
+      ""
+    )
+      // .replace(/\s/g, "%20")
+      .trim()
+      .split(" ")[0]
+
+    $link = "https://audvik.com" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+    '$' +
+    jQuery(this).find(".grid-product__price:first .money").text().trim().replace(/\s/g, "")
+    .split("$")[1]
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
