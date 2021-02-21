@@ -1127,7 +1127,7 @@ if (
     else $img = ""
 
     $link = 
-    "https://milkmoney.co" +
+    "www.oyeet.com" +
      jQuery(this).find("a:first").attr("href")
 
     $price =
@@ -1174,14 +1174,15 @@ if (
     else $img = ""
 
     $link =
-      "https://byhomegoodies.nl" + jQuery(this).find("a:first").attr("href")
+      "https://marienicoleclothing.com" + jQuery(this).find("a:first").attr("href")
 
       $price =
       // '£'+
       '$'+
       // '€'+
-      (jQuery(this).find(".grid-link__meta:first").text().trim().split('$')[1]
-      || jQuery(this).find(".grid-link__meta:first").text().trim().split('$')[1])
+      (jQuery(this).find(".grid-link__meta:first").text().trim().split('$')[2] || 
+      jQuery(this).find(".grid-link__meta:first").text().trim().split('$')[1] || '').split(' ')[0]
+      // || jQuery(this).find(".grid-link__meta:first").text().trim().split('$')[1])
 
     if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
@@ -2026,7 +2027,7 @@ if (
   $arr = []
 
   jQuery(".product-list .product-block").each(function () {
-    $title = jQuery(this).find(".title:first").text().trim()
+    $title = jQuery(this).find(".product-block__title:first").text().trim()
 
     if (jQuery(this).find("noscript").text().trim())
       $img =
@@ -2044,7 +2045,7 @@ if (
     else $img = ""
 
     $link =
-      "https://www.molodress.com" + jQuery(this).find("a:first").attr("href")
+      "https://sadlerjones.com" + jQuery(this).find("a:first").attr("href")
 
     $price =
       // "$" +
@@ -2055,7 +2056,7 @@ if (
         .replace(/\s/g, "")
     // .split("$")[1]
 
-    if ($title && $img && $link && $price)
+    // if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -2668,7 +2669,7 @@ if (
         .split(" ")[0]
 
     $link =
-      "https://mialmastore.com" + jQuery(this).find("a:first").attr("href")
+      "https://susiecloths.com" + jQuery(this).find("a:first").attr("href")
 
     $price =
        '$' +
@@ -2770,7 +2771,7 @@ if (
         .split(" ")[0]
 
     $link =
-      "https://www.prettyrosy.com" + jQuery(this).find("a:first").attr("href")
+      "https://www.alacewig.shop" + jQuery(this).find("a:first").attr("href")
 
     $price =
       //  '$' +
@@ -3220,7 +3221,7 @@ if (
     // .replace('gif', 'jpg')
     else $img = ""
 
-    $link = "https://www.youthphoria.com.au/" + jQuery(this).find("a:first").attr("href")
+    $link = "https://shinemarketplace.com" + jQuery(this).find("a:first").attr("href")
 
     $price = jQuery(this)
       .find(".product--price-wrapper .product--price:first")
@@ -4909,6 +4910,137 @@ if (
 
     $price = jQuery(this).find(".prod-sale:first").text().trim() ||
     "$" + jQuery(this).find(".prod-title:first").text().trim().split('$')[1]
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+///////////////////////////////////////////
+
+// ul li only src
+
+if (
+  jQuery("ul.collection-container li").length > 0 &&
+  jQuery('[class="product-slide swiper-slide swiper-slide-active"] img:first').length === 0
+) {
+  $arr = []
+
+  jQuery("ul.collection-container li").each(function () {
+    $title = jQuery(this).find("h3").text().trim()
+
+    $img =
+      "https:" +
+      (
+        jQuery(this).find("img:first").attr("srcset") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:first").attr("srcset") ||
+        //  jQuery(this).find(".product-item__image-wrapper img:last").attr("srcset") ||
+        jQuery(this).find("img:last").attr("src") ||
+        ""
+      ).split(" ")[0]
+    // .replace(/\s/g, "%20")
+
+    $link =
+      "https://www.glamxtencollection.com" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // "$" +
+      // " " +
+      jQuery(this).find(".money").text().trim()
+    // .split("USD")[0]
+    // .trim()
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+////////////////////////////////////////////////////////////////
+// div div noscript
+
+if (
+  jQuery('[id="product-loop"] .product-index').length > 0 &&
+  jQuery(".product-page-images-container img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery('[id="product-loop"] .product-index').each(function () {
+    $title = jQuery(this).find(".prod-title").text().trim()
+
+    if (jQuery(this).find("noscript").text().trim())
+      $img =
+        // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
+        // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+        "https:" +
+        jQuery(this)
+          .find("noscript")
+          .text()
+          .trim()
+          .split('src="')[1]
+          // .split("url('")[1]
+          .split(" ")[0]
+          .trim()
+          .slice(0, -1)
+    // .replace('gif', 'jpg')
+    else $img = ""
+
+    $link = "https://www.thegreenbeautyconcept.pt/" + jQuery(this).find("a:first").attr("href")
+
+    $price = jQuery(this)
+      .find(".prod-price .money:first")
+      .text()
+      .trim()
+      .replace(/\s/g, "")
+    // .split('$')[1]
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+////////////////////////////////////////////////////////////
+
+// div div img one src
+
+if (
+  jQuery(".product_listing__main .product_item").length > 0 &&
+  jQuery(".swiper-wrapper img:first").length === 0
+  // &&  jQuery('.product-details__desc-col').length === 0
+) {
+  $arr = []
+
+  jQuery(".product_listing__main .product_item").each(function () {
+    $title = jQuery(this)
+      .find(".product_name:first")
+      .text()
+      .trim()
+
+    $img =
+      "https:" +
+      // jQuery(this).find("img:first").attr("data-src") ||
+      (
+        jQuery(this).find("img:first").attr("data-srcset") ||
+        jQuery(this).find("img:first").attr("srcset") ||
+        jQuery(this).find("img:first").attr("src") ||
+        ""
+      )
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://so-gorgeous.co.uk" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      //  '$' +
+      jQuery(this)
+        .find(".product_price:first .money")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+    // .split('$')[1]
 
     // if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])

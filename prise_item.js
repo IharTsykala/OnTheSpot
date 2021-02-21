@@ -801,3 +801,5 @@ jQuery('[id="productPrice"]:first [id="product-price"]:first').text().trim()
 '€'+(jQuery(".c-price-list  .c-price-list__item--base").text().trim().split('€')[0] ||
 '€'+jQuery(".c-price-list  .c-price-list__item--main:first").text().trim().split('€')[0] ||
 jQuery(".c-price-list  .c-price-list__item--highlighted:first").text().trim().split('€')[0])
+
+jQuery('.single_product__price:first .money').text().trim().replace(/\s/g,'')

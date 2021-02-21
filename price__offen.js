@@ -262,3 +262,6 @@ jQuery('.product-single__prices:first [id="ComparePrice"]').text().trim().replac
 jQuery('.product-single__prices:first [id="ProductPrice"]').text().trim().replace(/\s/g,'')
 
 jQuery('h1:first span').text().trim()
+
+jQuery(".product-price .money:first").text().trim()
+jQuery(".product-price .money:last").text().trim()

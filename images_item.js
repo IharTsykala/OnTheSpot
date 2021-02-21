@@ -1174,7 +1174,7 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
           if (jQuery('.swiper-wrapper img:first').length > 0) 
           $img = jQuery('.swiper-wrapper img:first').attr('src')  
           .split(' ')[0]
-          .replace('_180', '_1080')
+          .replace('_170x163', '_1080x1000')
           else
           $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
           
@@ -1568,9 +1568,9 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
       else
       $img
     
-      if (jQuery('.product-media-container img').length > 0){
+      if (jQuery('.product-media-container img:first').length > 0){
         $arr = [];
-        jQuery('.product-media-container img').each(function(index){
+        jQuery('.product-media-container img:first').each(function(index){
             if (index < 4) 
             $arr.push('https:'+jQuery(this).attr('srcset')  
             .split(' ')[0])
