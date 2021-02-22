@@ -20,6 +20,7 @@ jQuery('button[name="apply_coupon"]')
 jQuery('td[data-title="Total"]:last')
 
 
+
 jQuery('.field input[id="checkout_reduction_code"]')
 jQuery('.field button.field__input-btn')
 jQuery('.total-line .payment-due__price')
