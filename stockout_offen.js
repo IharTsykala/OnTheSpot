@@ -225,3 +225,15 @@ jQuery('[name="add-to-cart"]').text().trim().toLowerCase() == 'out of stock' )
 } else {
   $status = false;
 }
+
+if (jQuery('[id="product-price"]').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}
+
+if (jQuery('.productlabel-container').text().trim().toLowerCase().indexOf('out') >= 0) {
+  $status = true
+} else {
+  $status = false;
+}

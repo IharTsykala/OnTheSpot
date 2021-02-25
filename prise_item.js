@@ -803,3 +803,6 @@ jQuery('[id="productPrice"]:first [id="product-price"]:first').text().trim()
 jQuery(".c-price-list  .c-price-list__item--highlighted:first").text().trim().split('€')[0])
 
 jQuery('.single_product__price:first .money').text().trim().replace(/\s/g,'')
+
+jQuery("#product-price .product-price:first").text().trim()
+jQuery("#product-price .product-price:last").text().trim()

@@ -132,6 +132,11 @@ jQuery('[id="ProductPrice"]:first').text().trim()
 jQuery('[id="ComparePrice"]:first').text().trim() ||
   jQuery('[id="ProductPrice"]:first').text().trim()
 
+  jQuery('[id="productPrice"]:first').text().trim()
+
+jQuery('[id="comparePrice"]:first').text().trim() ||
+  jQuery('[id="productPrice"]:first').text().trim()
+
   jQuery(".price__regular .money:first").text().trim()
 jQuery(".was_price .price-item:first").text().trim() ||
   jQuery(".price__regular .price-item:first").text().trim()

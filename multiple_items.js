@@ -2098,3 +2098,46 @@ if (
   })
   $arr
 }
+
+if (
+  jQuery(".product_listing__main .product_item").length > 0 &&
+  jQuery(".single_product__img img:first").length === 0
+  // &&  jQuery('.product-details__desc-col').length === 0
+) {
+  $arr = []
+
+  jQuery(".product_listing__main .product_item").each(function () {
+    $title = jQuery(this)
+      .find(".product_name:first")
+      .text()
+      .trim()
+
+    $img =
+      "https:" +
+      // jQuery(this).find("img:first").attr("data-src") ||
+      (
+        jQuery(this).find("img:first").attr("data-srcset") ||
+        jQuery(this).find("img:first").attr("srcset") ||
+        jQuery(this).find("img:first").attr("src") ||
+        ""
+      )
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://so-gorgeous.co.uk" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      //  '$' +
+      jQuery(this)
+        .find(".product_price:first .money")
+        .text()
+        .trim()
+        .replace(/\s/g, "")
+    // .split('$')[1]
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}

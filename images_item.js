@@ -1533,7 +1533,7 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
    //////////////////////////////////////   
               //////////////////////////////////////////////////   
               if (jQuery('.product-images img:first').length > 0) 
-              $img = jQuery('.product-images img:first').attr('src')
+              $img = jQuery('.product-images img:first').attr('srcset')
               .trim()  
               .split(' ')[0]
               .replace('_85', '_1080')
@@ -1549,7 +1549,7 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
                 $arr = [];
                 jQuery('.product-images img:first').each(function(index){
                     if (index < 4) 
-                    $arr.push('https:'+jQuery(this).attr('src')  
+                    $arr.push('https:'+jQuery(this).attr('srcset')  
                     .trim().split(' ')[0])
                 })
                 $arr
@@ -1983,7 +1983,7 @@ if (jQuery('.zoomWindowContainer div:first').length > 0){
                //////////////////////////////////////////////////
    
           if (jQuery('.product-main-image img:first').length > 0) 
-          $img = jQuery('.product-main-image img:first').attr('src')  
+          $img = jQuery('.product-main-image img:first').attr('srcset')  
           .split(' ')[0]
           .replace('_180', '_1080')
           else
@@ -1994,11 +1994,11 @@ if (jQuery('.zoomWindowContainer div:first').length > 0){
           else
           $img
         
-          if (jQuery('.product-main-image img').length > 0){
+          if (jQuery('.product-main-image img:first').length > 0){
             $arr = [];
-            jQuery('.product-main-image img').each(function(index){
+            jQuery('.product-main-image img:first').each(function(index){
                 if (index < 4) 
-                $arr.push(jQuery(this).attr('src')  
+                $arr.push(jQuery(this).attr('srcset')  
                 .split(' ')[0])
             })
             $arr
@@ -3560,3 +3560,76 @@ if (jQuery('.product-image-zoom img').length > 0){
                 })
                 $arr
                 }  
+
+                //////////////////////////////////////////////////   
+if (jQuery('.product-single__media img:first').length > 0) 
+$img = jQuery('.product-single__media img:first').attr('srcset')  
+.split(' ')[0]
+.replace('_180', '_1080')
+else
+$img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+
+if ($img.indexOf("http") == -1)
+'https:'+$img
+else
+$img
+
+if (jQuery('.product-single__media img:first').length > 0){
+  $arr = [];
+  jQuery('.product-single__media img:first').each(function(index){
+      if (index < 4) 
+      $arr.push('https:'+jQuery(this).attr('srcset')  
+      .split(' ')[0])
+  })
+  $arr
+  }
+
+      //////////////////////////////////////////////////
+   
+      if (jQuery('#product-main-image img:first').length > 0) 
+      $img = jQuery('#product-main-image img:first').attr('src')  
+      .split(' ')[0]
+      .replace('_180', '_1080')
+      else
+      $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+      
+      if ($img.indexOf("http") == -1)
+      'https:'+$img
+      else
+      $img
+    
+      if (jQuery('#product-main-image img:first').length > 0){
+        $arr = [];
+        jQuery('#product-main-image img:first').each(function(index){
+            if (index < 4) 
+            $arr.push('https:'+jQuery(this).attr('src')  
+            .split(' ')[0])
+        })
+        $arr
+        }        
+        //////////////////////////////////////////////////
+
+         //////////////////////////////////////////////////
+   
+      if (jQuery('.single_product__img img:first').length > 0) 
+      $img = jQuery('.single_product__img img:first').attr('src')  
+      .split(' ')[0]
+      .replace('_180', '_1080')
+      else
+      $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
+      
+      if ($img.indexOf("http") == -1)
+      'https:'+$img
+      else
+      $img
+    
+      if (jQuery('.single_product__img img:first').length > 0){
+        $arr = [];
+        jQuery('.single_product__img img:first').each(function(index){
+            if (index < 4) 
+            $arr.push('https:'+jQuery(this).attr('src')  
+            .split(' ')[0])
+        })
+        $arr
+        }        
+        //////////////////////////////////////////////////

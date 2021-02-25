@@ -722,7 +722,7 @@ if (
 
 if (
   jQuery("ul.grid--uniform li").length > 0 &&
-  jQuery(".product-single__media-wrapper img:first").length === 0
+  jQuery(".product-single__photo-wrapper img:first").length === 0
 ) {
   $arr = []
 
@@ -744,16 +744,16 @@ if (
         .slice(0, -2)
 
     $link =
-     "https://atelier-roupa.com" +
+     "https://molleshop.com.au" +
      jQuery(this).find("a:first").attr("href")
 
     $price =
-      "£" +
-      // "$" +
+      // "£" +
+      "$" +
       // '€' +
       jQuery(this).find(".price-item--regular:first").text().trim()
-    .split("£")[1]
-    // .split("$")[1]
+    // .split("£")[1]
+    .split("$")[1]
     // .split("€")[1]
 
     if ($title && $img && $link && $price)
@@ -1616,7 +1616,7 @@ if (
         .split(" ")[0]
 
     $link =
-      "https://www.flickerdigital.com" + jQuery(this).find("a:first").attr("href")
+      "https://www.royalessence.co.uk" + jQuery(this).find("a:first").attr("href")
 
     $price = jQuery(this)
       .find(".price span.money:first")
@@ -1625,7 +1625,7 @@ if (
       .replace(/\s/g, "")
     // .split('$')[1]
 
-    if ($title && $img && $link && $price)
+    // if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -1786,7 +1786,7 @@ if (
     else $img = ""
 
     $link =
-      "https://www.limitedfire.com" +
+      "https://www.tacticalsource.com.au" +
       jQuery(this).find("a:first").attr("href")
 
     $price = jQuery(this)
@@ -1982,36 +1982,36 @@ if (
 
 if (
   jQuery(".product-list .product-wrap").length > 0 &&
-  jQuery(".product_gallery img:first").length === 0
+  jQuery('[data-label="Add to Cart"]').length === 0
   // &&  jQuery('.product-details__desc-col').length === 0
 ) {
   $arr = []
 
   jQuery(".product-list .product-wrap").each(function () {
-    $title = jQuery(this).find(".title:first").text().trim()
+    $title = jQuery(this).next().find('.title').text().trim()
 
     $img =
       "https:" +
       (
-        jQuery(this).find("img:first").attr("srcset") ||
+        jQuery(this).find("img:first").attr("data-zoom-src") ||
         jQuery(this).find("img:first").attr("data-srcset") ||
         //  jQuery(this).find("img:first").attr("srcset") ||
-        // jQuery(this).find("img:last").attr("src") ||
+        jQuery(this).find("img:first").attr("data-zoom-src") ||
         ""
       )
         // .replace(/\s/g, "%20")
         .split(" ")[0]
 
     $link =
-      "https://ca.bathmatedirect.com/" +
+      "https://tacticalgear.com.au" +
       jQuery(this).find("a:first").attr("href")
 
     $price =
       //  '$' +
-      jQuery(this).find(".price:first").text().trim().replace(/\s/g, "")
+      jQuery(this).next().find(".current_price:first").text().trim().replace(/\s/g, "")
     // .split('$')[1]
 
-    if ($title && $img && $link && $price)
+    // if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -3834,7 +3834,7 @@ if (
     jQuery(this).find("img:first").attr("src")
 
     $link =
-      "https://www.huckleberrybikes.com" +
+      "https://www.kitbag.com.au" +
       jQuery(this).find("a:first").attr("href")
 
     $price =
@@ -5044,6 +5044,138 @@ if (
 
     // if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+// div div noscript
+
+if (
+  jQuery('.grid_wrapper .product-index').length > 0 &&
+  // jQuery(".data-zoom-wrapper img:first").length === 0
+  jQuery('.product-main-image img:first').length === 0
+) {
+  $arr = []
+
+  jQuery('.grid_wrapper .product-index').each(function () {
+    $title = jQuery(this).find("h3").text().trim()
+
+    if (jQuery(this).find("noscript").text().trim())
+      $img =
+        // jQuery(this).find('.grid__image-ratio:first').css('background-image').split('"')[1]
+        // jQuery(this).find('.grid__image-ratio:first').next().css('background-image').split('"')[1] ||
+        "https:" +
+        jQuery(this)
+          .find("noscript")
+          .text()
+          .trim()
+          .split('src="')[1]
+          .split(" ")[0]
+          // .split("url('")[1]
+          // .split(")")[0]
+          .trim()
+          .slice(0, -1)
+    // .replace('gif', 'jpg')
+    else $img = ""
+
+    $link = 
+    "https://journeymanshop.com" +
+     jQuery(this).find("a:first").attr("href")
+
+    $price =
+    jQuery(this).find(".price:first .prod-price:first").text().trim().replace(/\s/g, "")
+    ||
+    jQuery(this).find(".price:first .prod-price:first").text().trim().replace(/\s/g, "")
+    
+
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
+
+// div div noscript
+if (
+  jQuery(".collection-grid .main_box").length > 0 &&
+  jQuery(".product-single__media-wrapper img:first").length === 0
+) {
+  $arr = []
+
+  jQuery(".collection-grid .main_box").each(function () {
+    $title = jQuery(this).find("h5").text().trim()
+
+    if (jQuery(this).find("noscript").text().trim())
+      $img =
+        "https:" +
+        jQuery(this)
+          .find("noscript")
+          .text()
+          .trim()
+          .split('src="')[1]
+          // .split("url('")[1]
+          .split(" ")[0]
+          .trim()
+          .slice(0, -1)
+    // .replace('gif', 'jpg')
+    else $img = ""
+
+    $link =
+      "https://lawgear.com.au" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      "$" +
+      jQuery(this)
+        .find(".price:first")
+        .text()
+        .trim()
+        .split("$")[1]
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
+  })
+
+  $arr
+}
+
+// div div one src
+
+if (
+  jQuery('[id="product-loop"] .product').length > 0 &&
+  jQuery(".product-photo-container img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery('[id="product-loop"] .product').each(function () {
+    $title = jQuery(this).find("h3").text().trim()
+
+    $img =
+      "https:" +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find("img:first").attr("data-srcset") ||
+        //  jQuery(this).find("img:first").attr("srcset") ||
+        // jQuery(this).find("img:last").attr("src") ||
+        ""
+      )
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://shininglightdolls.com" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // '$' +
+    
+        jQuery(this)
+          .find(".price:first .prod-price")
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+          
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
   })
   $arr
 }
