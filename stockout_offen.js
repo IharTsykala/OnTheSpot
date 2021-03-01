@@ -75,7 +75,7 @@ jQuery('[name="add"]').text().trim().toLowerCase().indexOf('sold') >= 0
   $status = false;
 }
 
-if (jQuery('[name="add"]:first').attr('value').indexOf('out') >= 0 
+if (jQuery('[name="add"]:first').attr('value').toLowerCase().indexOf('out') >= 0 
 || jQuery('[name="add"]:first').attr('value').indexOf('Unavailable') >= 0
 ) {
   $status = true

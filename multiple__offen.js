@@ -1152,12 +1152,12 @@ if (
 if (
   jQuery(".grid-uniform .grid__item").length > 0 &&
   jQuery(".product-single__photos img:first").length === 0
-  &&  jQuery(".product-single__description").length === 0
+  &&  jQuery("h3").length === 0
 ) {
   $arr = []
 
   jQuery(".grid-uniform .grid__item").each(function () {
-    $title = jQuery(this).find('.grid-link__title').text().trim()
+    $title = jQuery(this).find('.h3').text().trim()
 
     if (jQuery(this).find("noscript").text().trim())
       $img =        
@@ -1174,17 +1174,17 @@ if (
     else $img = ""
 
     $link =
-      "https://marienicoleclothing.com" + jQuery(this).find("a:first").attr("href")
+      "https://holygrail.id" + jQuery(this).find("a:first").attr("href")
 
       $price =
       // '£'+
       '$'+
       // '€'+
-      (jQuery(this).find(".grid-link__meta:first").text().trim().split('$')[2] || 
-      jQuery(this).find(".grid-link__meta:first").text().trim().split('$')[1] || '').split(' ')[0]
+      (jQuery(this).find(".money:first").text().trim().split('$')[1] || 
+      jQuery(this).find(".money:first").text().trim().split('$')[1] || '').split(' ')[0]
       // || jQuery(this).find(".grid-link__meta:first").text().trim().split('$')[1])
 
-    if ($title && $img && $link && $price)
+    // if ($title && $img && $link && $price)
       $arr.push([$title, $img, $link, $price])
   })
   $arr
@@ -5179,3 +5179,50 @@ if (
   })
   $arr
 }
+
+//////////////////
+
+// CollectionMain one src
+
+if (
+  jQuery(".CollectionMain .spf-product-card").length > 0 &&
+  [].length === 0
+) {
+  $arr = []
+
+  jQuery(".CollectionMain .spf-product-card").each(function () {
+    $title = jQuery(this).find(".h4").text().trim()
+
+      $img =
+      // "https:" +
+      // jQuery(this).find("img.spf-product-card__image").attr("srcset") ||
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        jQuery(this).find("img:first").attr("data-srcset") ||
+        jQuery(this).find("img:first").attr("srcset") ||
+        jQuery(this).find("img:first").attr("src") ||
+        ""
+      )
+        .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://en.purish.com" +
+      jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // "HKD" +
+      // " " +
+      jQuery(this)
+        .find(".spf-product-card__saleprice:first .money:first")
+        .text()
+        .trim()
+    // .split("$")[1]
+    // if ($title && $img && $link && $price)
+      $arr.push([$title, $img, $link, $price])
+  })
+
+  $arr
+}
+
+//////////////////////

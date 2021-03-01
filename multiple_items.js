@@ -2141,3 +2141,50 @@ if (
   })
   $arr
 }
+
+if (
+  jQuery('[id="product-loop"] .product').length > 0 &&
+  jQuery(".product-photo-container img:first").length === 0
+  // &&  jQuery(".product-single").length === 0
+) {
+  $arr = []
+
+  jQuery('[id="product-loop"] .product').each(function () {
+    $title = jQuery(this).find("h3").text().trim()
+
+    $img =
+      "https:" +
+      (
+        jQuery(this).find("img:first").attr("src") ||
+        //  jQuery(this).find("img:first").attr("data-srcset") ||
+        //  jQuery(this).find("img:first").attr("srcset") ||
+        // jQuery(this).find("img:last").attr("src") ||
+        ""
+      )
+        // .replace(/\s/g, "%20")
+        .split(" ")[0]
+
+    $link =
+      "https://shininglightdolls.com" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // '$' +
+      jQuery(this)
+          .find(".price:first .onsale")
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+          ||
+    
+        jQuery(this)
+          .find(".price:first .prod-price")
+          .text()
+          .trim()
+          .replace(/\s/g, "")
+          
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
+  })
+  $arr
+}
