@@ -575,7 +575,7 @@ if (
     // .replace('gif', 'jpg')
     else $img = ""
 
-    $link = "https://shoemehoney.com" + jQuery(this).find("a:first").attr("href")
+    $link = "https://www.funf.dk" + jQuery(this).find("a:first").attr("href")
 
     $price = jQuery(this).find(".money-styling:first .money:first").text().trim().replace(/\s/g, "")
     // .split('$')[1]
@@ -1111,7 +1111,7 @@ if (
   $arr = []
 
   jQuery(".grid--uniform .grid__item").each(function () {
-    $title = jQuery(this).find(".grid-product__title:first").text().trim()
+    $title = jQuery(this).find(".h4:first").text().trim()
 
     if (jQuery(this).find("noscript").text().trim().split('src="')[1])
       $img =       
@@ -1127,19 +1127,19 @@ if (
     else $img = ""
 
     $link = 
-    "www.oyeet.com" +
+    "https://casadefolklore.co.uk/" +
      jQuery(this).find("a:first").attr("href")
 
     $price =
       "$" +   
-      // '£' +   
+      '£' +   
        jQuery(this)
-        .find(".grid-product__price:first span")
+        .find(".price-item--regular:first")
         .text()
         .trim()
         .replace(/\s/g, "")
-        .split("$")[1]       
-        // .split("£")[1]         
+        // .split("$")[1]       
+        .split("£")[1]         
 
     // if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])

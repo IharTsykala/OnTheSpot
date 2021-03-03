@@ -1536,7 +1536,7 @@ if (jQuery('.details-gallery__image-wrapper-inner img.details-gallery__picture')
               $img = jQuery('.product-images img:first').attr('srcset')
               .trim()  
               .split(' ')[0]
-              .replace('_85', '_1080')
+              .replace('_150', '_1080')
               else
               $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
               
