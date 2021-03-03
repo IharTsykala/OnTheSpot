@@ -534,3 +534,9 @@ if (jQuery('[id="AddToCart"]').attr('value').toLowerCase()== 'sold out') {
 } else {
   $status = false;
 }
+
+if (jQuery('.AddtoCart').attr('value').toLowerCase()== 'sold out') {
+  $status = true
+} else {
+  $status = false;
+}

@@ -1243,13 +1243,13 @@ if (
 
 if (
   jQuery(".grid-uniform .grid-item").length > 0 &&
-  jQuery(".product-photo-container img:first").length === 0
-  // &&  jQuery(".product-single").length === 0
+  // jQuery(".product-photo-container img:first").length === 0
+ jQuery('[id="addToCart"]').length === 0
 ) {
   $arr = []
 
   jQuery(".grid-uniform .grid-item").each(function () {
-    $title = jQuery(this).find(".product-item--title").text().trim()
+    $title = jQuery(this).find("p").text().trim()
 
     $img =
       "https:" +
@@ -1264,23 +1264,23 @@ if (
         .split(" ")[0]
 
     $link =
-      "https://wildoaktrail.com" + jQuery(this).find("a:first").attr("href")
+      "https://lensmateonline.com" + jQuery(this).find("a:first").attr("href")
 
     $price =
       // '$' +
-      (
+      // (
         jQuery(this)
-          .find(".product-item--price .product-item--rg-price:first")
+          .find(".product-item--price:first")
           .text()
           .trim()
           .replace(/\s/g, "")
-          .split("Sale")[1] ||
-        jQuery(this)
-          .find(".product-item--price .product-item--rg-price:first")
-          .text()
-          .trim()
-          .replace(/\s/g, "")
-      ).slice(0, -2)
+      //     .split("Sale")[1] ||
+      //   jQuery(this)
+      //     .find(".product-item--price .product-item--rg-price:first")
+      //     .text()
+      //     .trim()
+      //     .replace(/\s/g, "")
+      // ).slice(0, -2)
 
     // if ($title && $img && $link && $price)
     $arr.push([$title, $img, $link, $price])
@@ -4967,7 +4967,7 @@ if (
   $arr = []
 
   jQuery('[id="product-loop"] .product-index').each(function () {
-    $title = jQuery(this).find(".prod-title").text().trim()
+    $title = jQuery(this).find("h3").text().trim()
 
     if (jQuery(this).find("noscript").text().trim())
       $img =
@@ -4986,10 +4986,10 @@ if (
     // .replace('gif', 'jpg')
     else $img = ""
 
-    $link = "https://www.thegreenbeautyconcept.pt/" + jQuery(this).find("a:first").attr("href")
+    $link = "https://brando.no" + jQuery(this).find("a:first").attr("href")
 
     $price = jQuery(this)
-      .find(".prod-price .money:first")
+      .find(".prod-price:first")
       .text()
       .trim()
       .replace(/\s/g, "")
@@ -5137,6 +5137,50 @@ if (
   $arr
 }
 
+
+// div div one src
+
+if (
+  jQuery(".collection-grid .main_box").length > 0 &&
+  jQuery(".product-single__media-wrapper img:first").length === 0
+) {
+  $arr = []
+
+  jQuery(".collection-grid .main_box").each(function () {
+    $title = jQuery(this).find("h5").text().trim()
+
+    $img =
+    "https:" +
+    (
+      jQuery(this).find("img:first").attr("src") ||
+      //  jQuery(this).find("img:first").attr("data-srcset") ||
+      //  jQuery(this).find("img:first").attr("srcset") ||
+      // jQuery(this).find("img:last").attr("src") ||
+      ""
+    )
+      // .replace(/\s/g, "%20")
+      .split(" ")[0]
+
+    $link =
+      "https://leevalleyireland.com/" + jQuery(this).find("a:first").attr("href")
+
+    $price =
+      // "$" +
+      jQuery(this)
+        .find(".price:first")
+        .text()
+        .trim()
+        // .split("$")[1]
+
+    // if ($title && $img && $link && $price)
+    $arr.push([$title, $img, $link, $price])
+  })
+
+  $arr
+}
+
+
+
 // div div one src
 
 if (
@@ -5179,6 +5223,8 @@ if (
   })
   $arr
 }
+
+
 
 //////////////////
 
