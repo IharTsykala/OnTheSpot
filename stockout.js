@@ -529,7 +529,7 @@ if (jQuery('[class="stock out-of-stock"]').text().trim().toLowerCase().indexOf('
   $status = false;
 }
 
-if (jQuery('[id="AddToCart"]').attr('value').toLowerCase()== 'sold out') {
+if (jQuery('[id="AddToCart"]').attr('value')=== 'Sold Out') {
   $status = true
 } else {
   $status = false;

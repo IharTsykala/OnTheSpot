@@ -806,3 +806,8 @@ jQuery('.single_product__price:first .money').text().trim().replace(/\s/g,'')
 
 jQuery("#product-price .product-price:first").text().trim()
 jQuery("#product-price .product-price:last").text().trim()
+
+'DKK ' + jQuery('.product-page--pricing .money:first').text().trim().replace(/\r|\n/g, ' ').split(' ')[0]
+
+jQuery('.product-page--pricing .product-page--pricing--variant-compare-at-price .money:first').text().trim() ||
+jQuery('.product-page--pricing .money:first').text().trim()
