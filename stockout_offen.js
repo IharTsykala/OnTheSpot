@@ -83,6 +83,7 @@ if (jQuery('[name="add"]:first').attr('value').toLowerCase().indexOf('out') >= 0
   $status = false;
 }
 
+
 if (jQuery('[name="add"]').attr('disabled')) {
   $status = true
 } else {
