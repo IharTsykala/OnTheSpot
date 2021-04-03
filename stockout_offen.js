@@ -239,3 +239,5 @@ if (jQuery('.productlabel-container').text().trim().toLowerCase().indexOf('out')
 } else {
   $status = false;
 }
+
+// is it end or only a pause?
