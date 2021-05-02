@@ -23,6 +23,7 @@ if (jQuery('.product-details-image-gallery-container:not(.bx-clone):first img:fi
 else
     $img = jQuery('meta[property="og:image"]:eq(0)').attr('content')
 
+      
 if ($img.indexOf("http") == -1)
   'https:'+$img
 else
